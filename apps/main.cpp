@@ -1,8 +1,14 @@
 #include <iostream>
+#include <thread>
+#include <FreeImage.h>
+#include "helper_functions.h"
 
 int main() 
 {
-    std::cout << "Hello, World!" << std::endl;
+    std::thread t([](){Say_Hello("Oingo");});
+    
+    t.join();
+
     
     return 0;
 }
