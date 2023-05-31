@@ -1,0 +1,37 @@
+{
+	"name": "Boingo",
+
+	// Build from Dockerfile with non-root dev user
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": { "USERNAME": "Charlie" }
+	},
+	"remoteUser": "Charlie",
+
+	// Change default workspace to inside the non-root user
+	"workspaceMount": "source=${localWorkspaceFolder},target=/home/Charlie/${localWorkspaceFolderBasename},type=bind",
+	"workspaceFolder": "/home/Charlie/${localWorkspaceFolderBasename}",
+	
+	// Add VSCode extensions
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"slevesque.vscode-3dviewer",
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"twxs.cmake",
+				"ms-vscode.cmake-tools",
+				"cschlosser.doxdocgen",
+				"GitHub.vscode-pull-request-github",
+				"DavidAnson.vscode-markdownlint",
+				"ngtystr.ppm-pgm-viewer-for-vscode",
+				"ms-vscode.hexeditor",
+				"SanaAjani.taskrunnercode",
+				"mhutchie.git-graph",
+				"GitHub.copilot-labs",
+				"GitHub.copilot",
+				"ms-python.python"
+			]
+		}
+	}
+}
