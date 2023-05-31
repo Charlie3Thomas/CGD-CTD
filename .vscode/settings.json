@@ -5,6 +5,7 @@
     "C_Cpp.default.cppStandard": "c++20",
     "cmake.useCMakePresets": "always",
     "files.associations": {
-        "thread": "cpp"
+        "thread": "cpp",
+        "optional": "cpp"
     }
 }
