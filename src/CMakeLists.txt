@@ -1,0 +1,8 @@
+add_subdirectory(cameras)
+add_subdirectory(integrators)
+add_subdirectory(lights)
+add_subdirectory(materials)
+add_subdirectory(math)
+add_subdirectory(scene)
+add_subdirectory(shapes)
+add_subdirectory(utils)
