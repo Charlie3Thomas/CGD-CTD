@@ -1,2 +1,1 @@
-add_executable(hello-world main.cpp)
-target_link_libraries(hello-world PRIVATE pthread freeimage ct-ppm)
+add_executable(ray-tracer main.cpp)
