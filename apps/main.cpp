@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <cassert>
 
 #include <embree3/rtcore.h>
 
@@ -8,7 +9,15 @@
 
 using namespace CT;
 
+void EmbreeTriangle();
+
 int main()
+{
+    EmbreeTriangle();
+    return EXIT_SUCCESS;
+}
+
+void EmbreeTriangle()
 {
     // Image size
     size_t width = 100;
@@ -20,24 +29,37 @@ int main()
     PPMWriteHeader(std::cout, width, height);
 
     RTCDevice device = rtcNewDevice(nullptr);
+    assert(device != nullptr);
     RTCScene scene   = rtcNewScene(device);
-    RTCGeometry geom = rtcNewGeometry(device, RTC_GEOMETRY_TYPE_TRIANGLE);
+    assert(scene != nullptr);
 
-    auto* vb = static_cast<float*> (rtcSetNewGeometryBuffer(geom,
-        RTC_BUFFER_TYPE_VERTEX, 0, RTC_FORMAT_FLOAT3, 3*sizeof(float), 3));
+    for (int i = 1; i < 3; i++)
+    {
+        RTCGeometry geom = rtcNewGeometry(device, RTC_GEOMETRY_TYPE_TRIANGLE);
 
-    vb[0] = 0.F; vb[1] = 0.F; vb[2] = 0.F; // 1st vertex
-    vb[3] = 1.F; vb[4] = 0.F; vb[5] = 0.F; // 2nd vertex
-    vb[6] = 0.F; vb[7] = 1.F; vb[8] = 0.F; // 3rd vertex
+        auto* vb = static_cast<float*> (rtcSetNewGeometryBuffer(geom,
+            RTC_BUFFER_TYPE_VERTEX, 0, RTC_FORMAT_FLOAT3, 3*sizeof(float), 3));
 
-    auto* ib = static_cast<unsigned*> (rtcSetNewGeometryBuffer(geom,
-        RTC_BUFFER_TYPE_INDEX, 0, RTC_FORMAT_UINT3, 3*sizeof(unsigned), 1));
+        vb[0] = 0.F;     vb[1] = 0.F;     vb[2] = 0.F; // 1st vertex
+        vb[3] = 1.F * i; vb[4] = 0.F;     vb[5] = 0.F; // 2nd vertex
+        vb[6] = 0.F;     vb[7] = 1.F * i; vb[8] = 0.F; // 3rd vertex
 
-    ib[0] = 0; ib[1] = 1; ib[2] = 2;
+        auto* ib = static_cast<unsigned*> (rtcSetNewGeometryBuffer(geom,
+            RTC_BUFFER_TYPE_INDEX, 0, RTC_FORMAT_UINT3, 3*sizeof(unsigned), 1));
 
-    rtcCommitGeometry(geom);
-    rtcAttachGeometry(scene, geom);
-    rtcReleaseGeometry(geom);
+        ib[0] = 0; ib[1] = 1; ib[2] = 2;
+
+        // struct RTCQuaternionDecomposition qd {  };
+        // rtcInitQuaternionDecomposition(&qd);
+        // qd.quaternion_i *= i * 90.0F;
+
+        // rtcSetGeometryTransformQuaternion(geom, 0, &qd);
+
+        rtcCommitGeometry(geom);
+        rtcAttachGeometry(scene, geom);
+        rtcReleaseGeometry(geom);
+    }
+
     rtcCommitScene(scene);
 
     // PPM body
@@ -77,46 +99,7 @@ int main()
             PPMWritePixel(std::cout, final_colour);
         }
     }
-    
-    // RTCIntersectContext context;
-    // rtcInitIntersectContext(&context);
-
-    // RTCRayHit rayhit; 
-    // rayhit.ray.org_x  =  0.F; 
-    // rayhit.ray.org_y  =  0.F; 
-    // rayhit.ray.org_z  = -1.F;
- 
-    // rayhit.ray.dir_x  = 0.F; 
-    // rayhit.ray.dir_y  = 0.F; 
-    // rayhit.ray.dir_z  = 1.F;
-
-    // rayhit.ray.tnear  = 0.F;
-    // rayhit.ray.tfar   = std::numeric_limits<float>::infinity();
-
-    // rayhit.hit.geomID = RTC_INVALID_GEOMETRY_ID;
-
-    // rtcIntersect1(scene, &context, &rayhit);
-
-    // if (rayhit.hit.geomID != RTC_INVALID_GEOMETRY_ID) {
-    //   std::cout << "Intersection at t = " << rayhit.ray.tfar << std::endl;
-    // } else {
-    //   std::cout << "No Intersection" << std::endl;
-    // }
-
-    // for (int i = 0; i < 3; i++)
-    // {
-    //     if (rayhit.hit.geomID != RTC_INVALID_GEOMETRY_ID)
-    //     {
-    //         std::cout << "OINGOBOINGO" << std::endl;
-    //     }
-    //     else
-    //     {
-    //         //std::cout << "FLIMBOFLOMBO" << std::endl;
-    //     }
-    // }
 
     rtcReleaseScene(scene);
     rtcReleaseDevice(device);
-
-    return EXIT_SUCCESS;
 }
