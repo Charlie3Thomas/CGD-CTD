@@ -1,11 +1,12 @@
 #include <iostream>
-#include <CGAL/Exact_spherical_kernel_3.h>
+
 #include <CGAL/Simple_cartesian.h>
+#include <CGAL/Exact_spherical_kernel_3.h>
+#include <CGAL/Sphere_3.h>
 #include <CGAL/Ray_3.h>
-// #include <CGAL/intersections.h>
-// #include <CGAL/Exact_predicates_exact_constructions_kernel.h>
 
 #include "utils/ppm.hpp"
+#include "scene/scene.hpp"
 
 using namespace CT;
 
@@ -17,20 +18,34 @@ using Direction_3   = CGAL::Direction_3<Cartesian_k>;
 
 int main()
 {
-    Sphere_3 sphere = Sphere_3(Point_3(0, 0, 0), 100);
+    std::vector<Sphere_3> s;
+    Sphere_3 s1 = Sphere_3(Point_3(0, 30, 30), 100);
+    s.push_back(s1);
+    Sphere_3 s2 = Sphere_3(Point_3(0, -30, -30), 100);
+    s.push_back(s2);
+
+
+    Scene scene = Scene(s);
 
     size_t width = 100;
     size_t height = 100;
+    int half_width = static_cast<int>(width) / 2;
+    int half_height = static_cast<int>(height) / 2;
 
     PPMWriteHeader(std::cout, width, height);
 
-    for (int vertical = -50; vertical < 50; vertical++)
+    for (int vertical = -half_height; vertical < half_height; vertical++)
     {
-        for (int horizontal = -50; horizontal < 50; horizontal++)
+        for (int horizontal = -half_width; horizontal < half_width; horizontal++)
         {
             Ray_3 ray = Ray_3(Point_3(-5, horizontal, vertical), Direction_3(1, 0, 0));
 
-            PPMWritePixel(std::cout, CGAL::do_intersect(sphere, ray) ? CT::GREEN : CT::RED);
+            RGB final_colour = CT::RED; 
+
+            for (size_t i = 0; i < scene.spheres.size(); i++)
+                final_colour = CGAL::do_intersect(scene.spheres[i], ray) ? CT::GREEN : final_colour;
+
+            PPMWritePixel(std::cout, final_colour);
         }
     }
 
