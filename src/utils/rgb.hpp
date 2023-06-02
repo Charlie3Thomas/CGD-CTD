@@ -27,3 +27,4 @@ inline std::ostream& operator<<(std::ostream& os, const CT::RGB& rgb)
 {
     return os << static_cast<int>(rgb.r) << ' ' << static_cast<int>(rgb.g) << ' ' << static_cast<int>(rgb.b);
 }
+

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <random>
 
 #include <CGAL/Exact_spherical_kernel_3.h>
 #include <CGAL/Simple_cartesian.h>
@@ -6,6 +7,7 @@
 #include <CGAL/Ray_3.h>
 
 #include "utils/ppm.hpp"
+#include "utils/utils.hpp"
 #include "scene/scene.hpp"
 #include "shapes/sphere.hpp"
 
@@ -20,8 +22,17 @@ using Direction_3   = CGAL::Direction_3<Cartesian_k>;
 int main()
 {
     std::vector<Sphere> obj;
-    Sphere s1 = Sphere(Sphere_3(Point_3(0, 30, 30), 100), CT::RED);
-    obj.push_back(s1);
+    
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(-20, 20);
+    for (int i = 0; i < 10; i++)
+    {
+        Point_3 p = Point_3(0, dis(gen), dis(gen));
+
+        Sphere s = Sphere(Sphere_3(p, 100), RandomColour());
+        obj.push_back(s);
+    }
 
     Scene scene = Scene(obj);
 
