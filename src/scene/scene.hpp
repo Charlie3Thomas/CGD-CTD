@@ -2,18 +2,14 @@
 
 #include <vector>
 
-#include <CGAL/Simple_cartesian.h>
-#include <CGAL/Exact_spherical_kernel_3.h>
-
-using Cartesian_k   = CGAL::Linear_k1;
-using Sphere_3      = CGAL::Sphere_3<Cartesian_k>;
+#include "shapes/sphere.hpp"
 
 namespace CT
 {
 struct Scene
 {
-    Scene(std::vector<Sphere_3> spheres) : spheres(spheres) { }
+    Scene(const std::vector<Sphere>& sp) : spheres(sp) {}
 
-    std::vector<Sphere_3> spheres;
+    std::vector<Sphere> spheres;
 };
 }
