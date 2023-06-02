@@ -1,62 +1,122 @@
 #include <iostream>
-#include <random>
+#include <limits>
 
-#include <CGAL/Exact_spherical_kernel_3.h>
-#include <CGAL/Simple_cartesian.h>
-#include <CGAL/Sphere_3.h>
-#include <CGAL/Ray_3.h>
+#include <embree3/rtcore.h>
 
 #include "utils/ppm.hpp"
 #include "utils/utils.hpp"
-#include "scene/scene.hpp"
-#include "shapes/sphere.hpp"
 
 using namespace CT;
 
-using Cartesian_k   = CGAL::Linear_k1;
-using Point_3       = CGAL::Point_3<Cartesian_k>;
-using Sphere_3      = CGAL::Sphere_3<Cartesian_k>;
-using Ray_3         = CGAL::Ray_3<Cartesian_k>;  
-using Direction_3   = CGAL::Direction_3<Cartesian_k>;
-
 int main()
 {
-    std::vector<Sphere> obj;
-    
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(-20, 20);
-    for (int i = 0; i < 10; i++)
-    {
-        Point_3 p = Point_3(0, dis(gen), dis(gen));
-
-        Sphere s = Sphere(Sphere_3(p, 100), RandomColour());
-        obj.push_back(s);
-    }
-
-    Scene scene = Scene(obj);
-
+    // Image size
     size_t width = 100;
     size_t height = 100;
     int half_width = static_cast<int>(width) / 2;
-    int half_height = static_cast<int>(height) / 2;
+    int half_height = static_cast<int>(height) / 2;   
 
+    //PPM header
     PPMWriteHeader(std::cout, width, height);
 
+    RTCDevice device = rtcNewDevice(nullptr);
+    RTCScene scene   = rtcNewScene(device);
+    RTCGeometry geom = rtcNewGeometry(device, RTC_GEOMETRY_TYPE_TRIANGLE);
+
+    auto* vb = static_cast<float*> (rtcSetNewGeometryBuffer(geom,
+        RTC_BUFFER_TYPE_VERTEX, 0, RTC_FORMAT_FLOAT3, 3*sizeof(float), 3));
+
+    vb[0] = 0.F; vb[1] = 0.F; vb[2] = 0.F; // 1st vertex
+    vb[3] = 1.F; vb[4] = 0.F; vb[5] = 0.F; // 2nd vertex
+    vb[6] = 0.F; vb[7] = 1.F; vb[8] = 0.F; // 3rd vertex
+
+    auto* ib = static_cast<unsigned*> (rtcSetNewGeometryBuffer(geom,
+        RTC_BUFFER_TYPE_INDEX, 0, RTC_FORMAT_UINT3, 3*sizeof(unsigned), 1));
+
+    ib[0] = 0; ib[1] = 1; ib[2] = 2;
+
+    rtcCommitGeometry(geom);
+    rtcAttachGeometry(scene, geom);
+    rtcReleaseGeometry(geom);
+    rtcCommitScene(scene);
+
+    // PPM body
     for (int vertical = -half_height; vertical < half_height; vertical++)
     {
         for (int horizontal = -half_width; horizontal < half_width; horizontal++)
         {
-            Ray_3 ray = Ray_3(Point_3(-5, horizontal, vertical), Direction_3(1, 0, 0));
+            // Create ray
+            RTCRayHit ray;
+            ray.ray.org_x =  0.0F;
+            ray.ray.org_y =  0.0F;
+            ray.ray.org_z =  -1.0F;
 
-            RGB final_colour = CT::BLACK; 
+            //TODO: Adjust angle of ray based on pixel position
+            float pixel_width  = 2.0F / static_cast<float>(width);
+            float pixel_height = 2.0F / static_cast<float>(height);
+            ray.ray.dir_x = static_cast<float>(horizontal)  * pixel_width;
+            ray.ray.dir_y = static_cast<float>(vertical)    * pixel_height;
+            ray.ray.dir_z = 1.0F;
 
-            for (size_t i = 0; i < scene.spheres.size(); i++)
-                final_colour = CGAL::do_intersect(scene.spheres[i], ray) ? scene.spheres[i].colour : final_colour;
+            ray.ray.tnear = 0.001F; // Set the minimum distance to start tracing
+            ray.ray.tfar  = std::numeric_limits<float>::infinity();
+            ray.ray.mask  = -1;
+
+            // default geomID to invalid
+            ray.hit.geomID = RTC_INVALID_GEOMETRY_ID;
+
+            // Create context
+            RTCIntersectContext context;
+            rtcInitIntersectContext(&context);
+
+            // Trace the ray against the scene
+            rtcIntersect1(scene, &context, &ray);
+
+            RGB final_colour = (ray.hit.geomID != RTC_INVALID_GEOMETRY_ID ? CT::WHITE : CT::BLACK);
 
             PPMWritePixel(std::cout, final_colour);
         }
     }
+    
+    // RTCIntersectContext context;
+    // rtcInitIntersectContext(&context);
+
+    // RTCRayHit rayhit; 
+    // rayhit.ray.org_x  =  0.F; 
+    // rayhit.ray.org_y  =  0.F; 
+    // rayhit.ray.org_z  = -1.F;
+ 
+    // rayhit.ray.dir_x  = 0.F; 
+    // rayhit.ray.dir_y  = 0.F; 
+    // rayhit.ray.dir_z  = 1.F;
+
+    // rayhit.ray.tnear  = 0.F;
+    // rayhit.ray.tfar   = std::numeric_limits<float>::infinity();
+
+    // rayhit.hit.geomID = RTC_INVALID_GEOMETRY_ID;
+
+    // rtcIntersect1(scene, &context, &rayhit);
+
+    // if (rayhit.hit.geomID != RTC_INVALID_GEOMETRY_ID) {
+    //   std::cout << "Intersection at t = " << rayhit.ray.tfar << std::endl;
+    // } else {
+    //   std::cout << "No Intersection" << std::endl;
+    // }
+
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     if (rayhit.hit.geomID != RTC_INVALID_GEOMETRY_ID)
+    //     {
+    //         std::cout << "OINGOBOINGO" << std::endl;
+    //     }
+    //     else
+    //     {
+    //         //std::cout << "FLIMBOFLOMBO" << std::endl;
+    //     }
+    // }
+
+    rtcReleaseScene(scene);
+    rtcReleaseDevice(device);
 
     return EXIT_SUCCESS;
 }

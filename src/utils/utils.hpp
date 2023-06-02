@@ -8,6 +8,8 @@
 namespace CT
 {
 
+/// @brief Generate a random colour from the fixed set of colours defined in CT::RGB.
+/// @return 
 RGB RandomColour()
 {
     std::random_device rd;

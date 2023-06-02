@@ -1,4 +1,5 @@
 add_subdirectory(cameras)
+add_subdirectory(film)
 add_subdirectory(integrators)
 add_subdirectory(lights)
 add_subdirectory(materials)
