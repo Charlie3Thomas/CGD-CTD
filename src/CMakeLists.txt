@@ -1,1 +1,5 @@
+add_subdirectory(bvh)
+add_subdirectory(embree)
+add_subdirectory(image)
+add_subdirectory(loaders)
 add_subdirectory(utils)
