@@ -31,7 +31,9 @@
 				"GitHub.copilot-labs",
 				"GitHub.copilot",
 				"ms-python.python",
-				"Gruntfuggly.todo-tree"
+				"Gruntfuggly.todo-tree",
+				"tatsy.vscode-3d-preview",
+				"mcrespo.veriv"
 			]
 		}
 	}

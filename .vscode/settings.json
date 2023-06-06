@@ -58,7 +58,9 @@
         "map": "cpp",
         "set": "cpp",
         "variant": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp"
     },
     "cmake.configureOnOpen": true,
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,

@@ -2,13 +2,17 @@
 #include <limits>
 #include <cassert>
 
+
 //#include <embree3/rtcore.h>
 //TODO: Find out where the hell you're supposed to get access to Vec3fa and BBox3fa from embree
 // maybe use RTCPointQuery instead of Vec3fa?
 // maybe use RTCBounds instead of BBox3fa?
 
+
+
 #include "bvh/bvh.hpp"
 #include "utils/ppm.hpp"
+#include "utils/exr.hpp"
 #include "utils/utils.hpp"
 #include "loaders/objloader.hpp"
 
@@ -23,13 +27,14 @@ bool Test()
     size_t width = 100;
     size_t height = 100;
 
-    //PPM header
-    PPMWriteHeader(std::cout, width, height);
-
     int half_width = static_cast<int>(width) / 2;
-    int half_height = static_cast<int>(height) / 2;  
+    int half_height = static_cast<int>(height) / 2;
+
+    // Float array for pixel data
+    float* rgb = new float[width * height * 3];
 
     // PPM body
+    int index = 0;
     for (int vertical = half_height; vertical > -half_height; vertical--)
     {
         for (int horizontal = -half_width; horizontal < half_width; horizontal++)
@@ -61,20 +66,60 @@ bool Test()
             // Trace the ray against the scene
             rtcIntersect1(EmbreeSingleton::GetInstance().scene, &context, &ray);
 
-            // Determine a final colour for each pixel
-            RGB final_colour = (ray.hit.geomID != RTC_INVALID_GEOMETRY_ID ? CT::WHITE : CT::BLACK);
+            //std::cout << index << std::endl;
 
-            // Write the pixel to the PPM file
-            PPMWritePixel(std::cout, final_colour);
+            if (ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
+            {
+                rgb[3*index+0] = CT::RED.r;
+                rgb[3*index+1] = CT::RED.g;
+                rgb[3*index+2] = CT::RED.b;
+            }
+            else
+            {
+                rgb[3*index+0] = 0.0F;
+                rgb[3*index+1] = 0.0F;
+                rgb[3*index+2] = 0.0F;
+            }
+
+            
+
+            // If ray hit write white to pixel
+
+            // If ray missed write black to pixel
+           
+           index++;
         }
-    }    
+    }
+
+    int w = static_cast<int>(width);
+    int h = static_cast<int>(height);
+
+    WriteToEXR(rgb, w, h, "/home/Charlie/CGD-CTD/output/output.exr");
 
     return true;
 }
 
+// "/home/Charlie/CGD-CTD/output/output.exr"
+
 int main(int argc, char** argv)
 {
+    // const int width = 100;
+    // const int height = 100;
+
+    // // Gradient float array
+    // float* rgb = new float[width * height * 3];
+    // for (int i = 0; i < width * height; i++)
+    // {
+    //     float gradient = static_cast<float>(i) / static_cast<float>(width * height);
+
+    //     rgb[3*i+0] = gradient;
+    //     rgb[3*i+1] = gradient;
+    //     rgb[3*i+2] = gradient;
+    // }
+
+    // WriteToEXR(rgb, width, height, "/home/Charlie/CGD-CTD/output/output.exr");
     Test();
+    
     return EXIT_SUCCESS;
 }
 
