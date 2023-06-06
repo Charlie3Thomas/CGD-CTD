@@ -3,6 +3,7 @@
 #include <cassert>
 
 #include "bvh/bvh.hpp"
+#include "config/options.hpp"
 #include "utils/ppm.hpp"
 #include "utils/exr.hpp"
 #include "utils/utils.hpp"
@@ -12,18 +13,21 @@ using namespace CT;
 
 bool Test()
 {
+    // Retrieve config singleton instance
+    const ConfigSingleton& config = ConfigSingleton::GetInstance();
+
     // Load obj
     LoadObj();
 
     // Image size
-    size_t width = 2000;
-    size_t height = 2000;
+    size_t width  = config.image_width;
+    size_t height = config.image_height;
 
     int half_width = static_cast<int>(width) / 2;
     int half_height = static_cast<int>(height) / 2;
 
     // Float array for pixel data
-    float* rgb = new float[width * height * 3];
+    std::vector<float> rgb(width * height * 3);
 
     // PPM body
     int index = 0;
@@ -39,11 +43,11 @@ bool Test()
             ray.ray.org_z =  -10.0F;
 
             //TODO: Adjust angle of ray based on pixel position
-            float pixel_width  = 1.0F / static_cast<float>(width);
-            float pixel_height = 1.0F / static_cast<float>(height);
-            ray.ray.dir_x = static_cast<float>(horizontal)  * pixel_width;
-            ray.ray.dir_y = static_cast<float>(vertical)    * pixel_height;
-            ray.ray.dir_z = 1.0F;
+            float pixel_width   = 1.0F / static_cast<float>(width);
+            float pixel_height  = 1.0F / static_cast<float>(height);
+            ray.ray.dir_x       = static_cast<float>(horizontal)  * pixel_width;
+            ray.ray.dir_y       = static_cast<float>(vertical)    * pixel_height;
+            ray.ray.dir_z       = 1.0F;
 
             ray.ray.tnear = 0.001F; // Set the minimum distance to start tracing
             ray.ray.tfar  = std::numeric_limits<float>::infinity();
@@ -57,14 +61,12 @@ bool Test()
             rtcInitIntersectContext(&context);
 
             // Trace the ray against the scene
-            rtcIntersect1(EmbreeSingleton::GetInstance().scene, &context, &ray);
-
-            
+            rtcIntersect1(EmbreeSingleton::GetInstance().scene, &context, &ray);            
 
             if (ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
             {
-                std::cout << ray.hit.Ng_x << ray.hit.Ng_y << ray.hit.Ng_z << std::endl;
-                // Draw a colour depending on the normals
+                //std::cout << ray.hit.Ng_x << ray.hit.Ng_y << ray.hit.Ng_z << std::endl;
+                //Draw a colour depending on the normals
                 rgb[3*index+0] = FromIntersectNormal(ray).r;
                 rgb[3*index+1] = FromIntersectNormal(ray).g;
                 rgb[3*index+2] = FromIntersectNormal(ray).b;
@@ -80,18 +82,16 @@ bool Test()
         }
     }
 
-    int w = static_cast<int>(width);
-    int h = static_cast<int>(height);
-
-    WriteToEXR(rgb, w, h, "/home/Charlie/CGD-CTD/output/output.exr");
-
+    WriteToEXR(rgb.data(), static_cast<int>(width), static_cast<int>(height), config.image_filename.c_str());
+    
     return true;
 }
 
-// "/home/Charlie/CGD-CTD/output/output.exr"
 
 int main(int argc, char** argv)
 {
+    ConfigSingleton::ParseOptions(argc, argv);
+
     Test();
     
     return EXIT_SUCCESS;
@@ -104,9 +104,6 @@ int main(int argc, char** argv)
     // 32x32 pixels per thread
     // Give each tile a unique ID
     // interlocked increment
-// TODO: 32bit float colour
-    // Plugin to view
-// TODO: Visualise the normals
 
 
 

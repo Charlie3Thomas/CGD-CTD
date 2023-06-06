@@ -7,5 +7,22 @@
 
 #include "embree/embreedevice.hpp"
 
+float Area(const RTCBounds& b);
+RTCBounds merge(const RTCBounds& a, const RTCBounds& b);
+//  createNode
+//  setNodeChildren
+//  setNodeBounds
+//  createLeaf
+//  splitPrimitive
+//  buildProgress
+
+
+void CreateNode();
+void SetNodeChildren();
+void SetNodeBounds();
+void CreateLeaf();
+void SplitPrimitive();
+void BuildProgress();
+
 void ErrCallback(void* user_ptr, RTCError code, const char* str);
 void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, char* cfg, size_t extra_space = 0);

@@ -1,3 +1,4 @@
 #pragma once
+#include <cstddef>
 
-bool WriteToEXR(const float* rgb, int width, int height, const char* outfilename);
+void WriteToEXR(const float* rgb, size_t width, size_t height, const char* outfilename);

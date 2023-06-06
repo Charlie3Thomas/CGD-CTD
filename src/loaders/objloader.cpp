@@ -9,25 +9,23 @@
 #include <assimp/postprocess.h>
 
 #include "embree/embreedevice.hpp"
+#include "config/options.hpp"
 
 namespace CT
 {
 bool LoadObj()
 {
+    // Retrieve config singleton instance
+    const ConfigSingleton& config = ConfigSingleton::GetInstance();
+
     // OBJ Importer
     Assimp::Importer importer;
 
     // Load the mesh file
-    const aiScene* s = importer.ReadFile("/home/Charlie/CGD-CTD/obj/igea.obj", 0); // TODO: Make this less bad
+    const aiScene* s = importer.ReadFile(config.input_model_filename.c_str(), 0); // TODO: Make this less bad
     assert(s != nullptr);
-
-    // Check if the mesh was loaded successfully
-    if (!s || s->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !s->mRootNode) 
-    {
-        std::cout << "Failed to load mesh: " << importer.GetErrorString() << std::endl;
-
-        return false;
-    }
+    assert(s->mFlags ^ AI_SCENE_FLAGS_INCOMPLETE);
+    assert(s->mRootNode != nullptr);
 
     aiMesh* mesh = s->mMeshes[0];
     assert(mesh != nullptr);
@@ -44,9 +42,9 @@ bool LoadObj()
 
         for (size_t verts = 0; verts < 3; verts++)
         {
-            vb[verts * 3 + 0] = mesh->mVertices[3 * tris + verts].x * 100;
-            vb[verts * 3 + 1] = mesh->mVertices[3 * tris + verts].y * 100;
-            vb[verts * 3 + 2] = mesh->mVertices[3 * tris + verts].z * 100;
+            vb[verts * 3 + 0] = mesh->mVertices[3 * tris + verts].x/* 100*/;
+            vb[verts * 3 + 1] = mesh->mVertices[3 * tris + verts].y/* 100*/;
+            vb[verts * 3 + 2] = mesh->mVertices[3 * tris + verts].z/* 100*/;
 
             // Determine bounds
             bounds.lower_x = std::min(bounds.lower_x, vb[verts * 3 + 0]);

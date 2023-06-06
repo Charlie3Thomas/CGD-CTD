@@ -19,13 +19,13 @@ void FreeImageTest(RTCBuffer &b)
     }
 
     // Get the width and height of the image
-    int width = FreeImage_GetWidth(image);
-    int height = FreeImage_GetHeight(image);
+    unsigned int width  = FreeImage_GetWidth(image);
+    unsigned int height = FreeImage_GetHeight(image);
 
     BYTE* image_data = FreeImage_GetBits(image);
 
     // Create an RTCBuffer to hold the image data
-    b = rtcNewSharedBuffer(EmbreeSingleton::GetInstance().device, image_data, width * height * 3 * sizeof(unsigned char));
+    b = rtcNewSharedBuffer(EmbreeSingleton::GetInstance().device, image_data, static_cast<size_t>(width) * height * 3 * sizeof(unsigned char));
     assert(b != nullptr);
 }
 

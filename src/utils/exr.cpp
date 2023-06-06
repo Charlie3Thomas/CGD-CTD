@@ -4,6 +4,8 @@
 #include <cstring>
 #include <iostream>
 #include <vector>
+#include <array>
+#include <cassert>
 
 /// @brief Saves an EXR file from a float array
 /// @param rgb An array of floats representing the RGB values of the image
@@ -11,7 +13,7 @@
 /// @param height Height of the image
 /// @param outfilename File path and name of the output file
 /// @return 
-bool WriteToEXR(const float* rgb, int width, int height, const char* outfilename)
+void WriteToEXR(const float* rgb, size_t width, size_t height, const char* outfilename) //TODO: replace const chat* with std::filesystem::path
 {
     EXRHeader header;
     InitEXRHeader(&header);
@@ -21,37 +23,41 @@ bool WriteToEXR(const float* rgb, int width, int height, const char* outfilename
 
     image.num_channels = 3;
 
-    std::vector<float> images[3];
+    std::array<std::vector<float>, 3> images;
     images[0].resize(width * height);
     images[1].resize(width * height);
     images[2].resize(width * height);
 
     // Split RGBRGBRGB... into R, G and B layer
-    for (int i = 0; i < width * height; i++)
+    for (size_t i = 0; i < width * height; i++)
     {
         images[0][i] = rgb[3*i+0]; // R
         images[1][i] = rgb[3*i+1]; // G
         images[2][i] = rgb[3*i+2]; // B
     }
 
-    float* image_ptr[3];
-    image_ptr[0] = &(images[2].at(0)); // B
-    image_ptr[1] = &(images[1].at(0)); // G
-    image_ptr[2] = &(images[0].at(0)); // R
+    std::array<float*, 3> img_array;
+    img_array[0] = images[2].data(); // B
+    img_array[1] = images[1].data(); // G
+    img_array[2] = images[0].data(); // R
 
-    image.images = (unsigned char**)image_ptr;
-    image.width = width;
-    image.height = height;
+    image.images = reinterpret_cast<unsigned char**>(img_array.data());
+    image.width  = static_cast<int>(width);
+    image.height = static_cast<int>(height);
 
-    header.num_channels = 3;
-    header.channels = (EXRChannelInfo *)malloc(sizeof(EXRChannelInfo) * header.num_channels);
-    // Must be (A)BGR order, since most of EXR viewers expect this channel order.
-    strncpy(header.channels[0].name, "B", 255); header.channels[0].name[strlen("B")] = '\0';
-    strncpy(header.channels[1].name, "G", 255); header.channels[1].name[strlen("G")] = '\0';
-    strncpy(header.channels[2].name, "R", 255); header.channels[2].name[strlen("R")] = '\0';
+    constexpr size_t num_channels = 3;
+    header.num_channels = static_cast<int>(num_channels);
+    std::array<EXRChannelInfo, num_channels> channels;
+    header.channels = channels.data();
 
-    header.pixel_types = (int *)malloc(sizeof(int) * header.num_channels);
-    header.requested_pixel_types = (int *)malloc(sizeof(int) * header.num_channels);
+    // Must be (A)BGR order, since most EXR viewers expect this channel order.
+    strncpy(&header.channels[0].name[0], "\0", 255); header.channels[0].name[0] = 'B';
+    strncpy(&header.channels[1].name[0], "\0", 255); header.channels[1].name[0] = 'G';
+    strncpy(&header.channels[2].name[0], "\0", 255); header.channels[2].name[0] = 'R';
+
+    header.pixel_types           = new int[header.num_channels];
+    header.requested_pixel_types = new int[header.num_channels];
+
     for (int i = 0; i < header.num_channels; i++) 
     {
         // pixel type of input image
@@ -60,19 +66,16 @@ bool WriteToEXR(const float* rgb, int width, int height, const char* outfilename
         // pixel type of output image to be stored in .EXR
         header.requested_pixel_types[i] = TINYEXR_PIXELTYPE_HALF; 
     }
+    
 
     const char* err = nullptr;
     int ret = SaveEXRImageToFile(&image, &header, outfilename, &err);
-    if (ret != TINYEXR_SUCCESS)
-    {
-        std::cout << stderr << "Save EXR err: %s\n" << err << std::endl;
-        FreeEXRErrorMessage(err);
-        return ret;
-    }
+
+    delete[] header.pixel_types;
+    delete[] header.requested_pixel_types;
+
+    assert(ret == TINYEXR_SUCCESS);
 
     std::cout << "Saved EXR file.\n" << outfilename << std::endl;
-    //free(rgb);
-    free(header.channels);
-    free(header.pixel_types);
-    free(header.requested_pixel_types);
+    //free(rgb);   
 }
