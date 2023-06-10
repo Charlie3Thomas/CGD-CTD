@@ -1,6 +1,6 @@
 #include "bvh.hpp"
 #include "embree/embreedevice.hpp"
-
+#include "utils/timer.hpp"
 #include <array>
 
 /// @brief Computes the surface area of a bounding box
@@ -60,7 +60,7 @@ struct InnerNode : public Node
     {
         assert(num_children == 2);
         void* ptr = rtcThreadLocalAlloc(alloc, sizeof(InnerNode), 16);
-        return (void*) new (ptr) InnerNode();
+        return static_cast<void*> (new (ptr) InnerNode());
     }
 
     static void SetChildren(void* nodeptr, void** childptr, unsigned int num_children, void* usrptr)
@@ -68,7 +68,7 @@ struct InnerNode : public Node
         assert(num_children == 2);
         for(size_t i = 0; i < 2; i++)
         {
-            ((InnerNode*)nodeptr)->children[i] = (Node*) childptr[i];
+            static_cast<InnerNode*>(nodeptr)->children[i] = static_cast<Node*>(childptr[i]);
         }            
     }
 
@@ -77,8 +77,8 @@ struct InnerNode : public Node
         assert(num_children == 2);
         for(size_t i = 0; i < 2; i++)
         {
-            ((InnerNode*)nodeptr)->bounds[i] = *(const RTCBounds*) bounds[i];
-        }            
+            static_cast<InnerNode*>(nodeptr)->bounds[i] = *(const RTCBounds*) bounds[i];
+        }   
     }
 };
 
@@ -89,7 +89,7 @@ struct LeafNode : public Node
 
     LeafNode(unsigned id, const RTCBounds& bounds) : id(id), bounds(bounds) {}
 
-    float sah()
+    float sah() override
     {
         return 1.0F;
     }
@@ -98,7 +98,7 @@ struct LeafNode : public Node
     {
         assert(num_prims == 1);
         void* ptr = rtcThreadLocalAlloc(alloc, sizeof(LeafNode), 16);
-        return (void*) new (ptr) LeafNode(prims->primID, *(RTCBounds*)prims);
+        return static_cast<void*> (new (ptr) LeafNode(prims->primID, reinterpret_cast<const RTCBounds&>(*prims)));
     }
 };
 
@@ -107,8 +107,8 @@ void SplitPrimitive(const RTCBuildPrimitive* prim, unsigned int dim, float pos, 
 {
     assert(dim < 3);
     assert(prim->geomID == 0);
-    *(RTCBounds*) lprim = *(RTCBounds*) prim;
-    *(RTCBounds*) rprim = *(RTCBounds*) prim;
+    *lprim = reinterpret_cast<const RTCBounds&>(*prim);
+    *rprim = reinterpret_cast<const RTCBounds&>(*prim);
     (&lprim->upper_x)[dim] = pos;
     (&rprim->lower_x)[dim] = pos;
 }
@@ -158,16 +158,16 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
         arguments.buildProgress          = nullptr;        
         arguments.userPtr                = nullptr;
 
+
     for (size_t i = 0; i < 10; i++)
     {
+        Timer t ("Build BVH " + std::to_string(i));
         for (size_t j = 0; j < prims.size(); j++) prims[j] = prims_i[j];
 
         std::cout << "Iteration " << i << ": building BVH over " << prims.size() << " primitives" << std::endl;
-        Node* root = (Node*) rtcBuildBVH(&arguments);
-        const float sah = root ? root->sah() : 0.0F;
-    }
 
-    RTCPointQuery query;
+        rtcBuildBVH(&arguments);
+    }
 
     // Check for error in build arguments
     RTCErrorFunction error_function = ErrCallback;
