@@ -3,9 +3,11 @@
 #include <cassert>
 
 #include "bvh/bvh.hpp"
+#include "camera/camera.hpp"
 #include "config/options.hpp"
 #include "utils/ppm.hpp"
 #include "utils/exr.hpp"
+#include "utils/timer.hpp"
 #include "utils/utils.hpp"
 #include "loaders/objloader.hpp"
 
@@ -23,35 +25,37 @@ bool Test()
     size_t width  = config.image_width;
     size_t height = config.image_height;
 
-    int half_width = static_cast<int>(width) / 2;
-    int half_height = static_cast<int>(height) / 2;
-
     // Float array for pixel data
     std::vector<float> rgb(width * height * 3);
 
-    // PPM body
+    // Create camera
+    Camera camera(
+        Eigen::Vector3f(0.0F, 0.0F, 0.0F),   // Camera position
+        Eigen::Vector3f(0.0F, 0.0F, 1.0F),   // Camera look direction
+        Eigen::Vector3f(0.0F, 1.0F, 0.0F),   // Camera up direction
+        1.0F);                               // Camera focal length
+
+    //RTCRayHit ray (camera.FireRayAtPixel(horizontal, vertical));
+
+    // Canvas size
+    const Eigen::Vector2i canvas_size(width, height);
+
+    int64_t total_time = 0;
+    size_t calls = 0;
+
     int index = 0;
-    for (int vertical = half_height; vertical > -half_height; vertical--)
+    for (size_t vertical = 0; vertical < height; vertical++)
     {
-        for (int horizontal = half_width; horizontal > -half_width; horizontal--)
-        //for (int horizontal = -half_width; horizontal < half_width; horizontal++)
+        for (size_t horizontal = 0; horizontal < width; horizontal++)
         {
+            const Eigen::Vector2i pixel_index(horizontal, vertical);
+        
             // Create ray
             RTCRayHit ray;
-            ray.ray.org_x =  0.0F;
-            ray.ray.org_y =  0.0F;
-            ray.ray.org_z =  -10.0F;
-
-            //TODO: Adjust angle of ray based on pixel position
-            float pixel_width   = 1.0F / static_cast<float>(width);
-            float pixel_height  = 1.0F / static_cast<float>(height);
-            ray.ray.dir_x       = static_cast<float>(horizontal)  * pixel_width;
-            ray.ray.dir_y       = static_cast<float>(vertical)    * pixel_height;
-            ray.ray.dir_z       = 1.0F;
-
-            ray.ray.tnear = 0.001F; // Set the minimum distance to start tracing
-            ray.ray.tfar  = std::numeric_limits<float>::infinity();
-            ray.ray.mask  = -1;
+            {
+                Timer t ([&total_time, &calls](int64_t time) { total_time += time; calls++; });
+                ray = camera.GetRayForPixel(canvas_size, pixel_index);
+            }           
 
             // default geomID to invalid
             ray.hit.geomID = RTC_INVALID_GEOMETRY_ID;

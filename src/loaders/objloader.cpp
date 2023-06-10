@@ -32,9 +32,9 @@ bool LoadObj()
     aiMesh* mesh = s->mMeshes[0];
     assert(mesh != nullptr);
 
-    (*mesh) *= Eigen::Matrix3f::Identity() * 50.0F; // Scale
+    (*mesh) *= Eigen::Matrix3f::Identity() * 1.0F; // Scale
     (*mesh) *= MakeRotation(180.0F, 0.0F, 180.0F);  // Rotate
-    (*mesh) += Eigen::Vector3f(1.0F, 0.0F, 0.0F);   // Translate
+    (*mesh) += Eigen::Vector3f(0.0F, 0.0F, 10.0F);   // Translate
 
     std::vector<RTCBuildPrimitive> prims;
 

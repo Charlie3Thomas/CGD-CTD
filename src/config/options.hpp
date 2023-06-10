@@ -12,6 +12,10 @@ public:
     std::filesystem::path image_filename;
 
     static ConfigSingleton& GetInstance();
+
+    /// @brief Parse command line options
+    /// @param argc 
+    /// @param argv 
     static void ParseOptions(int argc, char** argv);
 
 private:

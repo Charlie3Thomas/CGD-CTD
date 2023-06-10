@@ -27,6 +27,7 @@ aiMesh& operator += (aiMesh& mesh, const Eigen::Vector3f& vector)
     return mesh;
 }
 
+
 Eigen::Matrix3f MakeRotation(float x, float y, float z)
 {
     return 

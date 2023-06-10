@@ -62,7 +62,8 @@
         "stop_token": "cpp",
         "thread": "cpp",
         "core": "cpp",
-        "numbers": "cpp"
+        "numbers": "cpp",
+        "complex": "cpp"
     },
     "cmake.configureOnOpen": true,
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,

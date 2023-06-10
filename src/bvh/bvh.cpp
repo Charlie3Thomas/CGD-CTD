@@ -158,16 +158,18 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
         arguments.buildProgress          = nullptr;        
         arguments.userPtr                = nullptr;
 
+    Timer t = Timer("BVH built in ");
 
     for (size_t i = 0; i < 10; i++)
     {
-        Timer t ("Build BVH " + std::to_string(i));
         for (size_t j = 0; j < prims.size(); j++) prims[j] = prims_i[j];
 
-        std::cout << "Iteration " << i << ": building BVH over " << prims.size() << " primitives" << std::endl;
+        //std::cout << "Iteration " << i << ": building BVH over " << prims.size() << " primitives" << std::endl;
 
         rtcBuildBVH(&arguments);
     }
+
+    std::cout << "Built for " << prims.size() << " primitives" << std::endl;
 
     // Check for error in build arguments
     RTCErrorFunction error_function = ErrCallback;

@@ -1,0 +1,6 @@
+add_library(ct-camera STATIC camera.cpp)
+find_package (Eigen3 3.3 REQUIRED)
+find_package (embree 3.0 REQUIRED)
+target_include_directories(ct-camera PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/.. PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_compile_features(ct-camera PUBLIC cxx_std_20)
+target_link_libraries(ct-camera PUBLIC Eigen3::Eigen embree ct-utils)
