@@ -2,7 +2,8 @@ FROM debian:latest
 
 # Install packages
 RUN DEBIAN_FRONTEND=noninteractive apt update -qq && apt upgrade -yqq \
-    && apt install -yqq sudo build-essential cmake git ninja-build clang clang-tidy clang-format gdb aptitude imagemagick tree libfreeimage-dev libembree-dev libassimp-dev libtinyexr-dev
+    && apt install -yqq sudo build-essential cmake git ninja-build clang clang-tidy clang-format \
+       gdb aptitude imagemagick tree libfreeimage-dev libembree-dev libassimp-dev libtinyexr-dev libeigen3-dev
 
 # Add non-root user
 ARG USERNAME

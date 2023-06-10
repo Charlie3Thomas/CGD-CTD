@@ -11,6 +11,7 @@
 #include "embree/embreedevice.hpp"
 #include "config/options.hpp"
 #include "bvh/bvh.hpp"
+#include "transform.hpp"
 
 namespace CT
 {
@@ -23,13 +24,17 @@ bool LoadObj()
     Assimp::Importer importer;
 
     // Load the mesh file
-    const aiScene* s = importer.ReadFile(config.input_model_filename.c_str(), 0); // TODO: Make this less bad
+    const aiScene* s = importer.ReadFile(config.input_model_filename.c_str(), 0);
     assert(s != nullptr);
     assert(s->mFlags ^ AI_SCENE_FLAGS_INCOMPLETE);
     assert(s->mRootNode != nullptr);
 
     aiMesh* mesh = s->mMeshes[0];
     assert(mesh != nullptr);
+
+    (*mesh) *= Eigen::Matrix3f::Identity() * 50.0F; // Scale
+    (*mesh) *= MakeRotation(180.0F, 0.0F, 180.0F);  // Rotate
+    (*mesh) += Eigen::Vector3f(1.0F, 0.0F, 0.0F);   // Translate
 
     std::vector<RTCBuildPrimitive> prims;
 
@@ -43,9 +48,9 @@ bool LoadObj()
 
         for (size_t verts = 0; verts < 3; verts++)
         {
-            vb[verts * 3 + 0] = mesh->mVertices[3 * tris + verts].x/* 100*/;
-            vb[verts * 3 + 1] = mesh->mVertices[3 * tris + verts].y/* 100*/;
-            vb[verts * 3 + 2] = mesh->mVertices[3 * tris + verts].z/* 100*/;
+            vb[verts * 3 + 0] = mesh->mVertices[3 * tris + verts].x;
+            vb[verts * 3 + 1] = mesh->mVertices[3 * tris + verts].y;
+            vb[verts * 3 + 2] = mesh->mVertices[3 * tris + verts].z;
 
             // Determine bounds
             bounds.lower_x = std::min(bounds.lower_x, vb[verts * 3 + 0]);

@@ -60,7 +60,9 @@
         "variant": "cpp",
         "cinttypes": "cpp",
         "stop_token": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "core": "cpp",
+        "numbers": "cpp"
     },
     "cmake.configureOnOpen": true,
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,

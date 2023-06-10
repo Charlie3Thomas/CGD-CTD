@@ -1,4 +1,5 @@
 find_package(assimp CONFIG REQUIRED)
-add_library(ct-loaders STATIC objloader.cpp textureloader.cpp)
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+add_library(ct-loaders STATIC objloader.cpp textureloader.cpp transform.cpp)
 target_include_directories(ct-loaders PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/.. PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(ct-loaders PRIVATE assimp freeimage ct-embree ct-config ct-bvh)
+target_link_libraries(ct-loaders PUBLIC assimp Eigen3::Eigen freeimage ct-embree ct-config ct-bvh)

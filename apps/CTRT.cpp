@@ -98,7 +98,6 @@ int main(int argc, char** argv)
 }
 
 // Definitely next week
-// TODO: Get BVH working
 // TODO: Texture loading
 // TODO: Multi-threading
     // 32x32 pixels per thread
