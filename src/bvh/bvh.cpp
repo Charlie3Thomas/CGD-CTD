@@ -63,29 +63,54 @@ struct InnerNode : public Node
         return (void*) new (ptr) InnerNode();
     }
 
-    static void SetChildren(void* nodeptr, const RTCBounds** bounds, unsigned int num_children, void* usrptr)
+    static void SetChildren(void* nodeptr, void** childptr, unsigned int num_children, void* usrptr)
     {
         assert(num_children == 2);
         for(size_t i = 0; i < 2; i++)
         {
-            //((InnerNode*)nodeptr)->bounds[i] = *(const RTCBounds**)bounds[i];
+            ((InnerNode*)nodeptr)->children[i] = (Node*) childptr[i];
         }            
     }
 
+    static void SetBounds(void* nodeptr, const RTCBounds** bounds, unsigned int num_children, void* usrptr)
+    {
+        assert(num_children == 2);
+        for(size_t i = 0; i < 2; i++)
+        {
+            ((InnerNode*)nodeptr)->bounds[i] = *(const RTCBounds*) bounds[i];
+        }            
+    }
+};
 
+struct LeafNode : public Node
+{
+    unsigned id;
+    RTCBounds bounds;
 
+    LeafNode(unsigned id, const RTCBounds& bounds) : id(id), bounds(bounds) {}
+
+    float sah()
+    {
+        return 1.0F;
+    }
+
+    static void* Create(RTCThreadLocalAllocator alloc, const RTCBuildPrimitive* prims, size_t num_prims, void* user_ptr)
+    {
+        assert(num_prims == 1);
+        void* ptr = rtcThreadLocalAlloc(alloc, sizeof(LeafNode), 16);
+        return (void*) new (ptr) LeafNode(prims->primID, *(RTCBounds*)prims);
+    }
 };
 
 
 void SplitPrimitive(const RTCBuildPrimitive* prim, unsigned int dim, float pos, RTCBounds* lprim, RTCBounds* rprim, void* userPtr)
 {
-    throw std::runtime_error("SplitPrimitive not implemented");
     assert(dim < 3);
     assert(prim->geomID == 0);
-    // *(BBox*) lprim = *(BBox*) prim;
-    // *(BBox*) rprim = *(BBox*) prim;
-    // (&lprim->upper_x_)[dim] = pos;
-    // (&rprim->lower_x_)[dim] = pos;
+    *(RTCBounds*) lprim = *(RTCBounds*) prim;
+    *(RTCBounds*) rprim = *(RTCBounds*) prim;
+    (&lprim->upper_x)[dim] = pos;
+    (&rprim->lower_x)[dim] = pos;
 }
 
 void BuildProgress()
@@ -125,16 +150,22 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
         arguments.primitives             = prims.data();
         arguments.primitiveCount         = prims.size();
         arguments.primitiveArrayCapacity = prims.capacity();
+        arguments.createNode             = InnerNode::Create;
+        arguments.setNodeChildren        = InnerNode::SetChildren;
+        arguments.setNodeBounds          = InnerNode::SetBounds;
+        arguments.createLeaf             = LeafNode::Create;
+        arguments.splitPrimitive         = SplitPrimitive;
+        arguments.buildProgress          = nullptr;        
+        arguments.userPtr                = nullptr;
 
-    //TODO: Implement commented section
+    for (size_t i = 0; i < 10; i++)
+    {
+        for (size_t j = 0; j < prims.size(); j++) prims[j] = prims_i[j];
 
-    //  arguments.createNode             = InnerNode::create;
-    //  arguments.setNodeChildren        = InnerNode::setChildren;
-    //  arguments.setNodeBounds          = InnerNode::setBounds;
-    //  arguments.createLeaf             = LeafNode::create;
-    //  arguments.splitPrimitive         = SplitPrimitive();
-    //  arguments.buildProgress          = BuildProgress();
-    arguments.userPtr = nullptr;
+        std::cout << "Iteration " << i << ": building BVH over " << prims.size() << " primitives" << std::endl;
+        Node* root = (Node*) rtcBuildBVH(&arguments);
+        const float sah = root ? root->sah() : 0.0F;
+    }
 
     RTCPointQuery query;
 

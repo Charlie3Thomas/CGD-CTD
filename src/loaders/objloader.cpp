@@ -10,6 +10,7 @@
 
 #include "embree/embreedevice.hpp"
 #include "config/options.hpp"
+#include "bvh/bvh.hpp"
 
 namespace CT
 {
@@ -78,6 +79,8 @@ bool LoadObj()
         rtcAttachGeometry(EmbreeSingleton::GetInstance().scene, geom);
         rtcReleaseGeometry(geom);        
     }
+
+    BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_HIGH, prims, nullptr, 1024);
 
     rtcCommitScene(EmbreeSingleton::GetInstance().scene);
 

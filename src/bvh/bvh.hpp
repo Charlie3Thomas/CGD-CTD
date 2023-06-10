@@ -9,13 +9,6 @@
 
 float Area(const RTCBounds& b);
 RTCBounds merge(const RTCBounds& a, const RTCBounds& b);
-//  createNode
-//  setNodeChildren
-//  setNodeBounds
-//  createLeaf
-//  splitPrimitive
-//  buildProgress
-
 
 void CreateNode();
 void SetNodeChildren();
