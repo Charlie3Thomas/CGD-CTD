@@ -3,6 +3,7 @@
 #include <limits>
 
 #include <Eigen/Core>
+#include <Eigen/Dense>
 
 #include <embree3/rtcore_ray.h>
 

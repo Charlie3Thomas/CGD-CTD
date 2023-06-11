@@ -160,12 +160,9 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
 
     Timer t = Timer("BVH built in ");
 
-    for (size_t i = 0; i < 10; i++)
+    for (size_t i = 0; i < 10; i++) //TODO : Why does the example limit this to 10?
     {
         for (size_t j = 0; j < prims.size(); j++) prims[j] = prims_i[j];
-
-        //std::cout << "Iteration " << i << ": building BVH over " << prims.size() << " primitives" << std::endl;
-
         rtcBuildBVH(&arguments);
     }
 

@@ -32,9 +32,10 @@ bool LoadObj()
     aiMesh* mesh = s->mMeshes[0];
     assert(mesh != nullptr);
 
+    // TODO: Not here
     (*mesh) *= Eigen::Matrix3f::Identity() * 1.0F; // Scale
     (*mesh) *= MakeRotation(180.0F, 0.0F, 180.0F);  // Rotate
-    (*mesh) += Eigen::Vector3f(0.0F, 0.0F, 10.0F);   // Translate
+    (*mesh) += Eigen::Vector3f(0.0F, -2.5F, 10.0F);   // Translate
 
     std::vector<RTCBuildPrimitive> prims;
 
@@ -82,7 +83,7 @@ bool LoadObj()
         rtcSetGeometryBuildQuality(geom, RTC_BUILD_QUALITY_HIGH);
         rtcCommitGeometry(geom);
         rtcAttachGeometry(EmbreeSingleton::GetInstance().scene, geom);
-        rtcReleaseGeometry(geom);        
+        rtcReleaseGeometry(geom);
     }
 
     BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_HIGH, prims, nullptr, 1024);

@@ -1,6 +1,6 @@
 #include "camera.hpp"
 
-#include <Eigen/Dense>
+
 #include <cassert>
 #include <numbers>
 
