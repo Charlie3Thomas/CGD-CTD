@@ -6,6 +6,7 @@
 
 #include "bvh/bvh.hpp"
 #include "camera/camera.hpp"
+#include "camera/film.hpp"
 #include "config/options.hpp"
 #include "loaders/objloader.hpp"
 #include "materials/material.hpp"
@@ -35,17 +36,19 @@ bool Test()
     // Float array for pixel data
     std::vector<float> rgb(width * height * 3);
 
+    // Canvas size
+    const Eigen::Vector2i film_size(width, height);
+
     // Create camera
     Camera camera(
         Eigen::Vector3f(0.0F, 0.0F, 0.0F),   // Camera position
         Eigen::Vector3f(0.0F, 0.0F, 1.0F),   // Camera look direction
         Eigen::Vector3f(0.0F, 1.0F, 0.0F),   // Camera up direction
-        1.0F);                               // Camera focal length
+        1.0F);                               // Camera focal length          
 
-    //RTCRayHit ray (camera.FireRayAtPixel(horizontal, vertical));
+    // Create Film
+    Film film(width, height, 1);
 
-    // Canvas size
-    const Eigen::Vector2i canvas_size(width, height);
 
     // Light direction
     Eigen::Vector3f light_dir(-1.0F, 1.0F, -1.0F);
@@ -65,7 +68,7 @@ bool Test()
             RTCRayHit ray;
             {
                 Timer t ([&total_time, &calls](int64_t time) { total_time += time; calls++; });
-                ray = camera.GetRayForPixel(canvas_size, pixel_index);
+                ray = camera.GetRayForPixel(film_size, pixel_index);
             }           
 
             // default geomID to invalid
@@ -92,8 +95,13 @@ bool Test()
                 reflection.normalize();
 
                 float scale = -hit_normal.dot(raydir) * mat.intensity * std::abs(light_dir.dot(reflection));
-            
-                
+
+                float r = mat.base_colour.r * scale * cos_theta;
+                float g = mat.base_colour.g * scale * cos_theta;
+                float b = mat.base_colour.b * scale * cos_theta;
+
+                film.WritePixelDataToCanvas(r, g, b, 0, index);
+
 
                 rgb[3*index+0] = mat.base_colour.r * scale * cos_theta;
                 rgb[3*index+1] = mat.base_colour.g * scale * cos_theta;
@@ -113,9 +121,10 @@ bool Test()
            
            index++;
         }
-    }
+    }    
 
-    WriteToEXR(rgb.data(), static_cast<int>(width), static_cast<int>(height), config.image_filename.c_str());
+    //WriteToEXR(rgb.data(), static_cast<int>(width), static_cast<int>(height), config.image_filename.c_str());
+    WriteToEXR(film.GetPixelData().data(), static_cast<int>(width), static_cast<int>(height), config.image_filename.c_str());
     
     return true;
 }

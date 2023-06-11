@@ -63,7 +63,8 @@
         "thread": "cpp",
         "core": "cpp",
         "numbers": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "cassert": "cpp"
     },
     "cmake.configureOnOpen": true,
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,

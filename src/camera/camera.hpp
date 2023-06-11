@@ -22,6 +22,8 @@ public:
     /// @return RTCRayHit (embree3/rtcore_ray.h)
     RTCRayHit GetRayForPixel(Eigen::Vector2i canvas_size, Eigen::Vector2i pixel_index);
 
+    void HandlePixelData(const std::vector<float>& rgb);
+
 private:
     // Camera position
     Eigen::Vector3f _pos;
@@ -38,8 +40,6 @@ private:
 
     // Camera clipping planes
     float _t_near = 0.001F;
-    float _t_far  = std::numeric_limits<float>::infinity();
-
-    
+    float _t_far  = std::numeric_limits<float>::infinity();    
 };
 }

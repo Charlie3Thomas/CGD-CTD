@@ -1,4 +1,4 @@
-add_library(ct-camera STATIC camera.cpp)
+add_library(ct-camera STATIC camera.cpp film.cpp canvas.cpp)
 find_package (Eigen3 3.3 REQUIRED)
 find_package (embree 3.0 REQUIRED)
 target_include_directories(ct-camera PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/.. PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

@@ -7,7 +7,7 @@
 using namespace CT;
 
 Camera::Camera(Eigen::Vector3f pos, Eigen::Vector3f lookdir, Eigen::Vector3f updir, float fl) 
-    : _pos(pos), _lookdir(lookdir), _updir(updir), _rightdir(updir.cross(_lookdir)), _fl(fl) {}
+    : _pos(pos), _lookdir(lookdir), _updir(updir), _rightdir(updir.cross(_lookdir)), _fl(fl) { }
 
 RTCRayHit Camera::GetRayForPixel(Eigen::Vector2i canvas_size, Eigen::Vector2i pixel_index)
 {   
