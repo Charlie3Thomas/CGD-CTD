@@ -39,24 +39,20 @@ int main(int argc, char** argv)
         Eigen::Vector3f(0.0F, 1.0F, 0.0F),   // Camera up direction
         1.0F);                               // Camera focal length
 
+    // Create renderer
     std::unique_ptr<Renderer> renderer = std::make_unique<TestRenderer>();
 
+    // Render
     renderer->RenderFilm(film, camera);
 
+    // Write to .EXR file
     WriteToEXR(film.rgb.data(), config.image_width, config.image_height, config.image_filename.c_str());
-    //WriteToEXR(film.GetPixelData().data(), static_cast<int>(width), static_cast<int>(height), config.image_filename.c_str());
     
     return EXIT_SUCCESS;
 }
 
 // Definitely next week
 // TODO: Texture loading
-// TODO: Multi-threading
-    // 32x32 pixels per thread
-    // Give each tile a unique ID
-    // interlocked increment
-
-
 
 // Maybe next week
 // TODO: Sampling functionality

@@ -1,6 +1,10 @@
 #include "testrenderer.hpp"
+#include "threadpool.hpp"
 
 #include <future>
+#include <queue>
+#include <mutex>
+#include <condition_variable>
 
 #include <Eigen/Dense>
 
@@ -68,7 +72,7 @@ static void RenderCanvas(Canvas& canvas, Camera& camera)
                 pixel_ref.g = mat.base_colour.g * scale * cos_theta;
                 pixel_ref.b = mat.base_colour.b * scale * cos_theta;
 
-
+                // TODO : Make this an arg option
                 // //Draw a colour depending on the normals
                 // rgb[3*index+0] = FromIntersectNormal(ray).r;
                 // rgb[3*index+1] = FromIntersectNormal(ray).g;
@@ -81,38 +85,56 @@ static void RenderCanvas(Canvas& canvas, Camera& camera)
                 pixel_ref.b = 0.0F;
             }
 
-            // Overwrite the pixel in the canvas
-            if (x == 0 || y == 0)
-            {
-                pixel_ref.r = 0.0F;
-                pixel_ref.g = 1.0F;
-                pixel_ref.b = 1.0F;
-            }
+            // TODO : Make this an arg option
+            // // Overwrite the pixel in the canvas
+            // if (x == 0 || y == 0)
+            // {
+            //     pixel_ref.r = 0.0F;
+            //     pixel_ref.g = 1.0F;
+            //     pixel_ref.b = 1.0F;
+            // }
         }
     }
 }
 
 void TestRenderer::RenderFilm(Film& film, Camera& camera)
-{
-    for (size_t i = 0; i < film.canvases.size(); i+=8)
-    {
-        auto f1 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 0]), std::ref(camera));
-        auto f2 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 1]), std::ref(camera));
-        auto f3 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 2]), std::ref(camera));
-        auto f4 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 3]), std::ref(camera));
-        auto f5 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 4]), std::ref(camera));
-        auto f6 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 5]), std::ref(camera));
-        auto f7 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 6]), std::ref(camera));
-        auto f8 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 7]), std::ref(camera));
+{   
+    // Lambda function to measure time
+    
+
+
+    // Create a thread pool
+    ThreadPool pool(std::thread::hardware_concurrency());
+
+    // Create a vector of futures
+    std::vector<std::future<void>> futures;
+
+    // Reserve space for the futures
+    futures.reserve(film.canvases.size());
+
+    for (auto& canvas : film.canvases)
+    {   
+        // Enqueue the task for each canvas
+        futures.emplace_back(pool.enqueue(RenderCanvas, std::ref(canvas), std::ref(camera)));
     }
-
-    // // for each canvas
-    // for (auto& canvas : film.canvases)
-    // {
-    //     // Render the canvas
-    //     RenderCanvas(canvas, camera);
-
-
-    // }
 }
+
+
+// for (size_t i = 0; i < film.canvases.size(); i+=8)
+// {
+//     auto f1 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 0]), std::ref(camera));
+//     auto f2 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 1]), std::ref(camera));
+//     auto f3 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 2]), std::ref(camera));
+//     auto f4 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 3]), std::ref(camera));
+//     auto f5 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 4]), std::ref(camera));
+//     auto f6 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 5]), std::ref(camera));
+//     auto f7 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 6]), std::ref(camera));
+//     auto f8 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 7]), std::ref(camera));
+// }
+// // for each canvas
+// for (auto& canvas : film.canvases)
+// {
+//     // Render the canvas
+//     RenderCanvas(canvas, camera);
+// }
 }
