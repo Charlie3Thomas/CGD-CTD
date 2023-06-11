@@ -30,7 +30,7 @@ int main(int argc, char** argv)
     LoadObj();
 
     // Create film
-    Film film(config.image_width, config.image_height, Eigen::Vector2i(39, 39));
+    Film film(config.image_width, config.image_height, Eigen::Vector2i(40, 40));
 
     // Create camera
     Camera camera(

@@ -1,5 +1,7 @@
 #include "testrenderer.hpp"
 
+#include <future>
+
 #include <Eigen/Dense>
 
 #include "bvh/bvh.hpp"
@@ -92,11 +94,25 @@ static void RenderCanvas(Canvas& canvas, Camera& camera)
 
 void TestRenderer::RenderFilm(Film& film, Camera& camera)
 {
-    // for each canvas
-    for (auto& canvas : film.canvases)
+    for (size_t i = 0; i < film.canvases.size(); i+=8)
     {
-        // Render the canvas
-        RenderCanvas(canvas, camera);
+        auto f1 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 0]), std::ref(camera));
+        auto f2 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 1]), std::ref(camera));
+        auto f3 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 2]), std::ref(camera));
+        auto f4 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 3]), std::ref(camera));
+        auto f5 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 4]), std::ref(camera));
+        auto f6 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 5]), std::ref(camera));
+        auto f7 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 6]), std::ref(camera));
+        auto f8 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 7]), std::ref(camera));
     }
+
+    // // for each canvas
+    // for (auto& canvas : film.canvases)
+    // {
+    //     // Render the canvas
+    //     RenderCanvas(canvas, camera);
+
+
+    // }
 }
 }

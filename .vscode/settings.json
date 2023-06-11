@@ -64,7 +64,10 @@
         "core": "cpp",
         "numbers": "cpp",
         "complex": "cpp",
-        "cassert": "cpp"
+        "cassert": "cpp",
+        "future": "cpp",
+        "condition_variable": "cpp",
+        "mutex": "cpp"
     },
     "cmake.configureOnOpen": true,
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,
