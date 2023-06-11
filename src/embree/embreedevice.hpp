@@ -2,11 +2,13 @@
 
 #include <embree3/rtcore.h>
 
+namespace CT
+{
 class EmbreeSingleton
 {
 public:
     RTCDevice device;
-    RTCScene scene;
+    RTCScene  scene;
 
     static EmbreeSingleton& GetInstance();
 
@@ -23,3 +25,4 @@ private:
 
     ~EmbreeSingleton();
 };
+}

@@ -28,10 +28,13 @@ aiMesh& operator += (aiMesh& mesh, const Eigen::Vector3f& vector)
 }
 
 
+namespace CT
+{
 Eigen::Matrix3f MakeRotation(float x, float y, float z)
 {
     return 
         Eigen::AngleAxisf(x * std::numbers::pi_v<float> / 180.0F, Eigen::Vector3f::UnitX()).matrix().cast<float>() *
         Eigen::AngleAxisf(y * std::numbers::pi_v<float> / 180.0F, Eigen::Vector3f::UnitY()).matrix().cast<float>() *
         Eigen::AngleAxisf(z * std::numbers::pi_v<float> / 180.0F, Eigen::Vector3f::UnitZ()).matrix().cast<float>();
+}
 }

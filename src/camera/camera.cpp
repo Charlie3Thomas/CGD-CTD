@@ -1,15 +1,17 @@
 #include "camera.hpp"
-
+#include "film.hpp"
 
 #include <cassert>
 #include <numbers>
 
-using namespace CT;
+
+namespace CT
+{
 
 Camera::Camera(Eigen::Vector3f pos, Eigen::Vector3f lookdir, Eigen::Vector3f updir, float fl) 
     : _pos(pos), _lookdir(lookdir), _updir(updir), _rightdir(updir.cross(_lookdir)), _fl(fl) { }
 
-RTCRayHit Camera::GetRayForPixel(Eigen::Vector2i canvas_size, Eigen::Vector2i pixel_index)
+RTCRayHit Camera::GetRayForPixel(const Canvas& canvas, Eigen::Vector2i pixel_index)
 {   
     // Return ray
     RTCRayHit ret;
@@ -20,12 +22,15 @@ RTCRayHit Camera::GetRayForPixel(Eigen::Vector2i canvas_size, Eigen::Vector2i pi
     ret.ray.org_z = _pos.z();
 
     // Aspect ratio
-    const float aspect_ratio = static_cast<float>(canvas_size.x()) / static_cast<float>(canvas_size.y());
+    const auto& film = canvas.GetFilm();
+    const float aspect_ratio = static_cast<float>(film.rect.GetWidth()) / static_cast<float>(film.rect.GetHeight());
 
     // Ray direction
+    const size_t film_x = pixel_index.x() + canvas.rect.ulx;
+    const size_t film_y = pixel_index.y() + canvas.rect.uly;
     Eigen::Vector3f ray_dir = _lookdir * _fl + 
-        _rightdir * (0.5F - static_cast<float>(pixel_index.x()) / static_cast<float>(canvas_size.x())) * aspect_ratio +
-        _updir    * (0.5F - static_cast<float>(pixel_index.y()) / static_cast<float>(canvas_size.y()));
+        _rightdir * (0.5F - static_cast<float>(film_x) / static_cast<float>(film.rect.GetWidth())) * aspect_ratio +
+        _updir    * (0.5F - static_cast<float>(film_y) / static_cast<float>(film.rect.GetHeight()));
 
     // Normalize ray direction
     ray_dir.normalize();
@@ -43,4 +48,5 @@ RTCRayHit Camera::GetRayForPixel(Eigen::Vector2i canvas_size, Eigen::Vector2i pi
     ret.ray.mask  = -1;
 
     return ret;
+}
 }

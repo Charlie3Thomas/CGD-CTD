@@ -7,6 +7,10 @@
 #include <array>
 #include <cassert>
 
+
+namespace CT
+{
+
 /// @brief Saves an EXR file from a float array
 /// @param rgb An array of floats representing the RGB values of the image
 /// @param width Width of the image
@@ -78,4 +82,5 @@ void WriteToEXR(const float* rgb, size_t width, size_t height, const char* outfi
 
     std::cout << "Saved EXR file.\n" << outfilename << std::endl;
     //free(rgb);   
+}
 }

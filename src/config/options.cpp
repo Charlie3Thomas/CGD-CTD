@@ -4,6 +4,10 @@
 #include <cassert>
 #include <unistd.h>
 
+
+namespace CT
+{
+
 static ConfigSingleton* instance = nullptr;
 
 ConfigSingleton& ConfigSingleton::GetInstance()
@@ -54,4 +58,5 @@ void ConfigSingleton::ParseOptions(int argc, char** argv)
 ConfigSingleton::~ConfigSingleton()
 {
     delete instance;
+}
 }

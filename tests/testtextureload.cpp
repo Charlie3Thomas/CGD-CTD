@@ -4,6 +4,7 @@
 
 #include "embree/embreedevice.hpp"
 
+using namespace CT;
 
 void FreeImageTest(RTCBuffer &b)
 {

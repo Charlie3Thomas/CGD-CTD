@@ -1,18 +1,45 @@
 #pragma once
+
+#include "rect.hpp"
+
 #include <cstddef>
 #include <vector>
+
+
+namespace CT
+{
+class Film;
 
 /// @brief Subdivisions of the image containing pixel data
 class Canvas
 {
 public:
-    Canvas(size_t width, size_t height);
-    ~Canvas() = default;
+    Canvas(Film& film);
 
-    void WritePixelData(float r, float g, float b, int pixel_index);
+    Rect rect;
 
-    std::vector<float> GetPixelData() const;
+    /// @brief Reference to a pixel in the film
+    struct PixelRef
+    {
+        float& r;
+        float& g;
+        float& b;
+    };
+
+    /// @brief Returns a reference relative to the film pixel at a local singluar index
+    /// @param index 
+    /// @return 
+    PixelRef operator[](size_t index);
+
+    /// @brief Returns a reference to the film pixel at the given canvas coordinates
+    /// @param x 
+    /// @param y 
+    /// @return 
+    PixelRef operator()(size_t x, size_t y);
+
+    const Film& GetFilm() const { return _film; }
 
 private:
-    std::vector<float> _rgb;
+    Film& _film;
 };
+}

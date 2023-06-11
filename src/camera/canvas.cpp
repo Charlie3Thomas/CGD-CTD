@@ -1,19 +1,27 @@
 #include "canvas.hpp"
+#include "film.hpp"
 
-Canvas::Canvas(size_t width, size_t height)
+namespace CT
 {
-    // Allocate memory for pixel data
-    _rgb = std::vector<float>(width * height * 3);
+Canvas::Canvas(Film& film) : _film(film) { }
+
+Canvas::PixelRef Canvas::operator[](size_t index)
+{
+    const size_t x = index % rect.GetWidth();
+    const size_t y = index / rect.GetWidth();
+
+    return (*this)(x, y);
 }
 
-void Canvas::WritePixelData(float r, float g, float b, int pixel_index)
+Canvas::PixelRef Canvas::operator()(size_t x, size_t y)
 {
-    _rgb[3 * pixel_index + 0] = r;
-    _rgb[3 * pixel_index + 1] = g;
-    _rgb[3 * pixel_index + 2] = b;
-}
+    const size_t film_width = _film.rect.GetWidth();
+    const size_t film_x     = x + rect.ulx;
+    const size_t film_y     = y + rect.uly;
+    const size_t film_index = film_y * film_width + film_x;
 
-std::vector<float> Canvas::GetPixelData() const
-{
-    return _rgb;
+    return { _film.rgb[film_index * 3 + 0],
+             _film.rgb[film_index * 3 + 1],
+             _film.rgb[film_index * 3 + 2] };
+}
 }

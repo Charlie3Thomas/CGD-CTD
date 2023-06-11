@@ -3,6 +3,8 @@
 #include <cstddef>
 #include <filesystem>
 
+namespace CT
+{
 class ConfigSingleton
 {
 public:
@@ -32,3 +34,4 @@ private:
     ~ConfigSingleton();
 
 };
+}

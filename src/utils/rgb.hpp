@@ -23,7 +23,7 @@ constexpr RGB PURPLE    {160.0F,    32.0F,    240.0F};
 constexpr RGB BLACK     {  0.0F,    0.0F,       0.0F};
 constexpr RGB WHITE     {255.0F,   255.0F,    255.0F};
 
-RGB FromIntersectNormal(RTCRayHit rayhit)
+inline RGB FromIntersectNormal(RTCRayHit rayhit)
 {
     return 
     {

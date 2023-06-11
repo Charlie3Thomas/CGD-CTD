@@ -3,6 +3,10 @@
 #include "utils/timer.hpp"
 #include <array>
 
+
+namespace CT
+{
+
 /// @brief Computes the surface area of a bounding box
 /// @param b 
 /// @return 
@@ -173,4 +177,5 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
     rtcSetDeviceErrorFunction(EmbreeSingleton::GetInstance().device, error_function, nullptr);
 
     rtcReleaseBVH(bvh);
+}
 }

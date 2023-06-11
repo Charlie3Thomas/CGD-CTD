@@ -2,6 +2,8 @@
 
 #include "utils/rgb.hpp"
 
+namespace CT
+{
 /// @brief Basic material specifying base colour, intensity, roughness and albedo
 struct Material
 {
@@ -17,3 +19,4 @@ struct Material
     // Albedo
     float   albedo;   
 };
+}

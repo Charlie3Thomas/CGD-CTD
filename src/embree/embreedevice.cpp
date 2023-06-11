@@ -1,6 +1,9 @@
 #include "embreedevice.hpp"
 #include <cassert>
 
+
+namespace CT
+{
 EmbreeSingleton& EmbreeSingleton::GetInstance()
 {
     static EmbreeSingleton instance;
@@ -17,4 +20,5 @@ EmbreeSingleton::~EmbreeSingleton()
 {
     rtcReleaseScene(scene);
     rtcReleaseDevice(device);
+}
 }
