@@ -59,7 +59,6 @@ int main(int argc, char** argv)
 
 
 // Maybe next week
-// TODO: Diffuse materials
 // TODO: Sampling functionality
     // solid angle & spherical coordinates
 // TODO: Lighting

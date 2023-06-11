@@ -5,8 +5,8 @@ namespace CT
 {
 Film::Film(const size_t width, const size_t height, const Eigen::Vector2i& canvas_size) : rect(width, height), rgb(width * height * 3)
 {
-    const size_t xc = rect.GetWidth()  / canvas_size.x() + static_cast<size_t>(rect.GetWidth()  % canvas_size.x() != 0);
-    const size_t yc = rect.GetWidth()  / canvas_size.y() + static_cast<size_t>(rect.GetHeight() % canvas_size.y() != 0);
+    const size_t xc = rect.GetWidth()   / canvas_size.x() + static_cast<size_t>(rect.GetWidth()  % canvas_size.x() != 0);
+    const size_t yc = rect.GetHeight()  / canvas_size.y() + static_cast<size_t>(rect.GetHeight() % canvas_size.y() != 0);
 
     for (size_t h = 0; h < yc; h++)
     {
@@ -25,11 +25,9 @@ Film::Film(const size_t width, const size_t height, const Eigen::Vector2i& canva
             c.rect.Intersect(rect);
 
             // Add canvas to film
-            canvases.emplace_back(std::move(c));
+            canvases.emplace_back(c);
         }
     }
-
-    std::fill(rgb.begin(), rgb.end(), 1.0F);
 }
 
 void Film::DevelopFilm()
