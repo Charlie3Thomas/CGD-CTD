@@ -129,6 +129,8 @@ void ErrCallback(void* user_ptr, RTCError code, const char* str)
 
 void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, char* cfg, size_t extra_space)
 {
+    Timer t = Timer("BVH build");
+
     rtcSetDeviceMemoryMonitorFunction(EmbreeSingleton::GetInstance().device, nullptr, nullptr);
 
     RTCBVH bvh = rtcNewBVH(EmbreeSingleton::GetInstance().device);
@@ -161,8 +163,6 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
         arguments.splitPrimitive         = SplitPrimitive;
         arguments.buildProgress          = nullptr;        
         arguments.userPtr                = nullptr;
-
-    Timer t = Timer("BVH built in ");
 
     for (size_t i = 0; i < 10; i++) //TODO : Why does the example limit this to 10?
     {

@@ -1,5 +1,7 @@
 #include "exr.hpp"
 
+#include "utils/timer.hpp"
+
 #include <tinyexr.h>
 #include <cstring>
 #include <iostream>
@@ -19,6 +21,8 @@ namespace CT
 /// @return 
 void WriteToEXR(const float* rgb, size_t width, size_t height, const char* outfilename) //TODO: replace const chat* with std::filesystem::path
 {
+    Timer t = Timer("WriteToEXR");
+
     EXRHeader header;
     InitEXRHeader(&header);
 
@@ -80,7 +84,7 @@ void WriteToEXR(const float* rgb, size_t width, size_t height, const char* outfi
 
     assert(ret == TINYEXR_SUCCESS);
 
-    std::cout << "Saved EXR file.\n" << outfilename << std::endl;
+    //std::cout << "Saved EXR file.\n" << outfilename << std::endl;
     //free(rgb);   
 }
 }

@@ -24,16 +24,17 @@
 namespace CT
 {
 
-static int64_t total_time = 0;
-
 static void RenderCanvas(Canvas& canvas, Camera& camera)
 {
+    // Retrieve config singleton instance
+    const ConfigSingleton& config = ConfigSingleton::GetInstance();
+
     // Light direction
     Eigen::Vector3f light_dir(-1.0F, 1.0F, -1.0F);
     light_dir.normalize();
 
     // Specify material
-    Material mat { RGB{1.0F, 0.0F, 0.0F}, 0.25F, 0.5F, 0.5F };
+    Material mat { RGB{1.0F, 0.0F, 0.0F}, 0.5F, 0.5F, 0.5F };
 
     for (size_t y = 0; y < canvas.rect.GetHeight(); y++)
     {
@@ -68,15 +69,20 @@ static void RenderCanvas(Canvas& canvas, Camera& camera)
 
                 float scale = -hit_normal.dot(raydir) * mat.intensity * std::abs(light_dir.dot(reflection));
 
-                pixel_ref.r = mat.base_colour.r * scale * cos_theta;
-                pixel_ref.g = mat.base_colour.g * scale * cos_theta;
-                pixel_ref.b = mat.base_colour.b * scale * cos_theta;
-
-                // TODO : Make this an arg option
-                // //Draw a colour depending on the normals
-                // rgb[3*index+0] = FromIntersectNormal(ray).r;
-                // rgb[3*index+1] = FromIntersectNormal(ray).g;
-                // rgb[3*index+2] = FromIntersectNormal(ray).b;
+                if (config.visualise_normals)
+                {
+                    // Draw a colour depending on the normals
+                    pixel_ref.r = FromIntersectNormal(ray).r;
+                    pixel_ref.g = FromIntersectNormal(ray).g;
+                    pixel_ref.b = FromIntersectNormal(ray).b;
+                }
+                else
+                {   
+                    // Draw a colour depending on the material
+                    pixel_ref.r = mat.base_colour.r * scale * cos_theta;
+                    pixel_ref.g = mat.base_colour.g * scale * cos_theta;
+                    pixel_ref.b = mat.base_colour.b * scale * cos_theta;
+                }
             }
             else
             {
@@ -85,26 +91,32 @@ static void RenderCanvas(Canvas& canvas, Camera& camera)
                 pixel_ref.b = 0.0F;
             }
 
-            // TODO : Make this an arg option
-            // // Overwrite the pixel in the canvas
-            // if (x == 0 || y == 0)
-            // {
-            //     pixel_ref.r = 0.0F;
-            //     pixel_ref.g = 1.0F;
-            //     pixel_ref.b = 1.0F;
-            // }
+            if (config.visualise_canvases)
+            {
+                // Overwrite the pixel in the canvas
+                if (x == 0 || y == 0)
+                {
+                    pixel_ref.r = 0.0F;
+                    pixel_ref.g = 1.0F;
+                    pixel_ref.b = 1.0F;
+                }
+            }
         }
     }
 }
 
-void TestRenderer::RenderFilm(Film& film, Camera& camera)
-{   
-    // Lambda function to measure time
-    
+void TestRenderer::RenderFilm(Film& film, Camera& camera, size_t threads)
+{ 
+    // Assert that the number of threads is valid
+    assert(threads > 0 && threads <= std::thread::hardware_concurrency());
 
+    std::cout << "Rendering film with " << threads << " threads" << std::endl;
+
+    // Lambda function to measure time
+    Timer t("RenderFilm");
 
     // Create a thread pool
-    ThreadPool pool(std::thread::hardware_concurrency());
+    ThreadPool pool(threads);
 
     // Create a vector of futures
     std::vector<std::future<void>> futures;

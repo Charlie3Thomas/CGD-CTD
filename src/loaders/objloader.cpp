@@ -12,11 +12,14 @@
 #include "config/options.hpp"
 #include "bvh/bvh.hpp"
 #include "transform.hpp"
+#include "utils/timer.hpp"
 
 namespace CT
 {
 bool LoadObj()
 {
+    Timer t = Timer("LoadObj");
+
     // Retrieve config singleton instance
     const ConfigSingleton& config = ConfigSingleton::GetInstance();
 
@@ -35,7 +38,7 @@ bool LoadObj()
     // TODO: Not here
     (*mesh) *= Eigen::Matrix3f::Identity() * 1.0F; // Scale
     (*mesh) *= MakeRotation(180.0F, 0.0F, 180.0F);  // Rotate
-    (*mesh) += Eigen::Vector3f(0.0F, -2.5F, 10.0F);   // Translate
+    (*mesh) += Eigen::Vector3f(0.0F, 0.0F, 10.0F);   // Translate
 
     std::vector<RTCBuildPrimitive> prims;
 
@@ -86,7 +89,8 @@ bool LoadObj()
         rtcReleaseGeometry(geom);
     }
 
-    BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_HIGH, prims, nullptr, 1024);
+    if (config.use_bvh){ BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_HIGH, prims, nullptr, 1024); }
+    
 
     rtcCommitScene(EmbreeSingleton::GetInstance().scene);
 

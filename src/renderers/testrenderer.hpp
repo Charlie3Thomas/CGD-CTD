@@ -8,7 +8,6 @@ class TestRenderer : public Renderer
 {
 public:
     void InitialiseThreadPool();
-    void RenderFilm(Film& film, Camera& camera) override;
-
+    void RenderFilm(Film& film, Camera& camera, size_t threads) override;
 };
 }

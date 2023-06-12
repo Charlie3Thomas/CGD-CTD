@@ -27,7 +27,7 @@ public:
 private:
     
     // Vector to store all worker threads
-    std::vector<std::thread> workers;
+    std::vector<std::thread> threads;
     
     // Queue of all tasks to be executed
     std::queue<std::function<void()>> tasks;
@@ -42,14 +42,14 @@ private:
     bool stop;
 };
 
-// the constructor just launches some amount of workers
-inline ThreadPool::ThreadPool(size_t threads) : stop(false)
+// Constructor launching the specified number of threads
+inline ThreadPool::ThreadPool(size_t t_count) : stop(false)
 {
     // Create the specified number of worker threads
-    for(size_t i = 0; i < threads; i++)
+    for(size_t i = 0; i < t_count; i++)
     {
         // Each thread is launched with a lambda function
-        workers.emplace_back( [this]
+        threads.emplace_back( [this]
         {
             // Loop until the pool is complete
             while(true)
@@ -123,7 +123,7 @@ inline ThreadPool::~ThreadPool()
     condition.notify_all();
 
     // Join all threads and wait for them to complete
-    for(std::thread &worker: workers)
+    for(std::thread &worker: threads)
         worker.join();
 }
 

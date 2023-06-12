@@ -3,6 +3,7 @@
 #include <cassert>
 
 #include <Eigen/Dense>
+#include <thread>
 
 #include "bvh/bvh.hpp"
 #include "camera/camera.hpp"
@@ -21,32 +22,39 @@ using namespace CT;
 
 int main(int argc, char** argv)
 {
-    ConfigSingleton::ParseOptions(argc, argv);
+    {
+        Timer t = Timer("CTRT");
 
-    // Retrieve config singleton instance
-    const ConfigSingleton& config = ConfigSingleton::GetInstance();
+        ConfigSingleton::ParseOptions(argc, argv);
 
-    // Load obj
-    LoadObj();
+        // Retrieve config singleton instance
+        const ConfigSingleton& config = ConfigSingleton::GetInstance();
 
-    // Create film
-    Film film(config.image_width, config.image_height, Eigen::Vector2i(40, 40));
+        // Load obj
+        LoadObj();
 
-    // Create camera
-    Camera camera(
-        Eigen::Vector3f(0.0F, 0.0F, 0.0F),   // Camera position
-        Eigen::Vector3f(0.0F, 0.0F, 1.0F),   // Camera look direction
-        Eigen::Vector3f(0.0F, 1.0F, 0.0F),   // Camera up direction
-        1.0F);                               // Camera focal length
+        // Create film
+        Film film(config.image_width, config.image_height, Eigen::Vector2i(40, 40));
 
-    // Create renderer
-    std::unique_ptr<Renderer> renderer = std::make_unique<TestRenderer>();
+        // Create camera
+        Camera camera(
+            Eigen::Vector3f(0.0F, 0.0F, 0.0F),   // Camera position
+            Eigen::Vector3f(0.0F, 0.0F, 1.0F),   // Camera look direction
+            Eigen::Vector3f(0.0F, 1.0F, 0.0F),   // Camera up direction
+            1.0F);                               // Camera focal length
 
-    // Render
-    renderer->RenderFilm(film, camera);
+        // Create renderer
+        std::unique_ptr<Renderer> renderer = std::make_unique<TestRenderer>();
 
-    // Write to .EXR file
-    WriteToEXR(film.rgb.data(), config.image_width, config.image_height, config.image_filename.c_str());
+        // Render
+        renderer->RenderFilm(film, camera, config.threads);
+        //renderer->RenderFilmUnthreaded(film, camera);
+
+        // Write to .EXR file
+        WriteToEXR(film.rgb.data(), config.image_width, config.image_height, config.image_filename.c_str());
+    }    
+
+    std::cout << std::endl;
     
     return EXIT_SUCCESS;
 }
