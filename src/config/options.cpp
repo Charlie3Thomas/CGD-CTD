@@ -24,12 +24,13 @@ void ConfigSingleton::ParseOptions(int argc, char** argv)
 
     instance = new ConfigSingleton();
 
-    const char* const short_opts = "r:i:o:t:bcn";
+    const char* const short_opts = "r:i:o:t:s:bcn";
     const option long_opts[] = {
         {"resolution", required_argument, nullptr, 'r'},
         {"input",      required_argument, nullptr, 'i'},
         {"output",     required_argument, nullptr, 'o'},
         {"threads",    required_argument, nullptr, 't'},
+        {"segments",   required_argument, nullptr, 's'},
         {"bvh",        no_argument,       nullptr, 'b'},
         {"canvases",   no_argument,       nullptr, 'c'},
         {"normals",    no_argument,       nullptr, 'n'},
@@ -46,9 +47,9 @@ void ConfigSingleton::ParseOptions(int argc, char** argv)
             {
                 // Parse resolution
                 const std::string resolution = optarg;
-                const std::size_t x_pos = resolution.find('x');
-                instance->image_width = std::stol(resolution.substr(0, x_pos));
-                instance->image_height = std::stol(resolution.substr(x_pos + 1, resolution.length()));
+                const std::size_t x_pos      = resolution.find('x');
+                instance->image_width        = std::stol(resolution.substr(0, x_pos));
+                instance->image_height       = std::stol(resolution.substr(x_pos + 1, resolution.length()));
                 break;
             }
             case 'i':
@@ -65,6 +66,14 @@ void ConfigSingleton::ParseOptions(int argc, char** argv)
             {
                 instance->threads = std::stol(optarg);
                 break;
+            }
+            case 's':
+            {
+                // Parse canvas resolution
+                const std::string canvas = optarg;
+                const std::size_t x_pos  = canvas.find('x');
+                instance->canvas_width   = std::stol(canvas.substr(0, x_pos));
+                instance->canvas_height  = std::stol(canvas.substr(x_pos + 1, canvas.length()));
             }
             case 'b':
             {

@@ -34,7 +34,7 @@ int main(int argc, char** argv)
         LoadObj();
 
         // Create film
-        Film film(config.image_width, config.image_height, Eigen::Vector2i(40, 40));
+        Film film(config.image_width, config.image_height, Eigen::Vector2i(config.canvas_width, config.canvas_height));
 
         // Create camera
         Camera camera(
@@ -60,12 +60,17 @@ int main(int argc, char** argv)
 }
 
 // Definitely next week
+// TODO: Barycentric coordinates
 // TODO: Texture loading
+// TODO: Read about shading frames / shading bases
+// TODO: Read about Gram-Schmidt orthogonalisation - specifically for rendering
+// TODO: Light pure virtual base class
+//          - Sample  light (intsensity), evaluate light and probability density function methods
+//          - Point light (PDF = 1)
+//          - Calculate direct lighting on a surface (visibility test) ? : take emitted light, multiply by BDRF, multiply by geometry term (dir to light . product of surface normal) / distance squared (r^2)
+
 
 // Maybe next week
 // TODO: Sampling functionality
     // solid angle & spherical coordinates
-// TODO: Lighting
-    // Point lights
-    // Area lights
     
