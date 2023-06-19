@@ -14,6 +14,7 @@
 #include "config/options.hpp"
 #include "loaders/objloader.hpp"
 #include "materials/material.hpp"
+#include "textures/texture.hpp"
 #include "utils/rgb.hpp"
 #include "utils/exr.hpp"
 #include "utils/ppm.hpp"
@@ -24,7 +25,7 @@
 namespace CT
 {
 
-static void RenderCanvas(Canvas& canvas, Camera& camera)
+static void RenderCanvas(Canvas& canvas, Camera& camera, Texture& tex)
 {
     // Retrieve config singleton instance
     const ConfigSingleton& config = ConfigSingleton::GetInstance();
@@ -78,10 +79,20 @@ static void RenderCanvas(Canvas& canvas, Camera& camera)
                 }
                 else
                 {   
-                    // Draw a colour depending on the material
-                    pixel_ref.r = mat.base_colour.r * scale * cos_theta;
-                    pixel_ref.g = mat.base_colour.g * scale * cos_theta;
-                    pixel_ref.b = mat.base_colour.b * scale * cos_theta;
+                    // // Draw a colour depending on the material
+                    // pixel_ref.r = mat.base_colour.r * scale * cos_theta;
+                    // pixel_ref.g = mat.base_colour.g * scale * cos_theta;
+                    // pixel_ref.b = mat.base_colour.b * scale * cos_theta;
+
+                    // // Draw a colour representing bary coords
+                    // pixel_ref.r = FromBaryCoords(ray).r;
+                    // pixel_ref.g = FromBaryCoords(ray).g;
+                    // pixel_ref.b = FromBaryCoords(ray).b;
+
+                    // // Draw a colour representing the texture
+                    pixel_ref.r = FromTexture(ray, tex).r * scale * cos_theta;
+                    pixel_ref.g = FromTexture(ray, tex).g * scale * cos_theta;
+                    pixel_ref.b = FromTexture(ray, tex).b * scale * cos_theta;
                 }
             }
             else
@@ -107,6 +118,8 @@ static void RenderCanvas(Canvas& canvas, Camera& camera)
 
 void TestRenderer::RenderFilm(Film& film, Camera& camera, size_t threads)
 { 
+    Texture tex = LoadTexture();
+
     // Assert that the number of threads is valid
     assert(threads > 0 && threads <= std::thread::hardware_concurrency());
 
@@ -127,7 +140,7 @@ void TestRenderer::RenderFilm(Film& film, Camera& camera, size_t threads)
     for (auto& canvas : film.canvases)
     {   
         // Enqueue the task for each canvas
-        futures.emplace_back(pool.enqueue(RenderCanvas, std::ref(canvas), std::ref(camera)));
+        futures.emplace_back(pool.enqueue(RenderCanvas, std::ref(canvas), std::ref(camera), std::ref(tex)));
     }
 }
 

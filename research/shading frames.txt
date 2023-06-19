@@ -1,0 +1,21 @@
+Shading frames surface level research:
+
+    In the context of RT, shading frames/bases refer to local coordinate systems established on surfaces to facilitate shading calculations.
+    
+    When a ray intersects a surface, the shading frame is established at that point.
+    
+    It consists of three vectors:
+        -surface normal
+        -tangent vector
+        -bitangent vector (cross product of surface normal and tangent)
+    
+    Surface normal:
+        Vector perpendicular to the surface at the intersection point
+    
+    Tangent vector:
+        The tangent vector lies on the plane of the surface, and is perpendicular to the surface normal.
+        It represents the direction of increasing horizontal texture coordinates on the surface.
+    
+    Bitangent vector:
+        The bitangent vector (binormal/cross product of normal&tangent vector) is perpendicular to both the surface normal and tangent vector
+        The bitangent vector determins the direction of increasing vertical texture coordinates on the surface.

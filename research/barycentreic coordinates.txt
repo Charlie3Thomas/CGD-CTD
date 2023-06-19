@@ -1,0 +1,13 @@
+Barycentric coordinates surface level research
+
+    Barycentric coordinates are a mathematical representation of the position of a point within a triangle.
+    They express a point inside the triangle as a combination of weights or proportions associated with it's vertices.
+
+    If there is a triangle, with vertices A, B and C:
+        Any point P within the triangle can be expressed as a linear combination of the three vertices, using proportions denoted as u, v, weighted
+    
+        P = u*A + v*B + w*CT
+
+        u, v and w satisfy the following conditions:
+            u + v + w == 1: or the point does not lie within the triangle
+            0 <= u,v,w <=1: each weight is within the range of 0 -> 1 

@@ -1,11 +1,8 @@
 #pragma once
 
-#include <random>
-#include <array>
-
-#include "rgb.hpp"
+#include <cstdint>
 
 namespace CT
 {
-
+uint64_t GetGUID();
 }

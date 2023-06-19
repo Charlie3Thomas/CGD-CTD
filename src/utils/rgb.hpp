@@ -1,7 +1,11 @@
 #pragma once
 
+#include "textures/texture.hpp"
+
 #include <cstdint>
 #include <iostream>
+#include <cmath>
+#include <vector>
 #include <embree3/rtcore.h>
 
 namespace CT
@@ -32,7 +36,45 @@ inline RGB FromIntersectNormal(RTCRayHit rayhit)
         rayhit.hit.Ng_z * 100
     };
 }
+
+inline RGB FromBaryCoords(RTCRayHit rayhit)
+{
+    return 
+    {
+        rayhit.hit.u,
+        rayhit.hit.v,
+        1.0F - rayhit.hit.u - rayhit.hit.v
+    };
 }
+
+inline RGB FromTexture(RTCRayHit rayhit, Texture& tex)
+{
+    // Calculate the texture coordinates scaled by texture dimensions
+    float u = rayhit.hit.u * tex.width;
+    float v = rayhit.hit.v * tex.width;
+
+    int x = static_cast<int>(u);
+    int y = static_cast<int>(v);
+
+    float u_ratio = u - static_cast<float>(x);
+    float v_ratio = v - static_cast<float>(y);
+    float u_opposite = 1.0F - u_ratio;
+    float v_opposite = 1.0F - v_ratio;
+    int texel_offset = static_cast<int>((x + y * tex.width) * 3);
+
+    BYTE b = tex.buffer[texel_offset];
+    BYTE g = tex.buffer[texel_offset + 1];
+    BYTE r = tex.buffer[texel_offset + 2];
+
+    return 
+    { 
+        r / 255.0F, 
+        g / 255.0F, 
+        b / 255.0F 
+    };
+}
+}
+
 
 inline std::ostream& operator<<(std::ostream& os, const CT::RGB& rgb)
 {

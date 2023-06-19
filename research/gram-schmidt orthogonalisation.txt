@@ -1,0 +1,8 @@
+Gram-Schmidt orthogonalisation surface level research:
+
+It is used to transform a set of linearly independent vectors into an orthogonal basis
+
+Vectors can be considered linearly independent if no vector in the set can be expressed as a linear combination of the other vectors in that set
+    They are linearly independent if the only solution to the equation: a1v1 + a2v2 + ... + anvn = 0, where a1, a2, ..., an are scalars, is a1 = a2 =...= an = 0
+    If there is at least one non-zero solution, the vectors are linearly dependent
+

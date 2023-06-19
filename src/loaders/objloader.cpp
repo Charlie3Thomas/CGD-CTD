@@ -36,9 +36,14 @@ bool LoadObj()
     assert(mesh != nullptr);
 
     // TODO: Not here
-    (*mesh) *= Eigen::Matrix3f::Identity() * 1.0F; // Scale
-    (*mesh) *= MakeRotation(180.0F, 0.0F, 180.0F);  // Rotate
-    (*mesh) += Eigen::Vector3f(0.0F, 0.0F, 10.0F);   // Translate
+    (*mesh) *= Eigen::Matrix3f::Identity() * 1.0F;          // Scale
+    (*mesh) *= MakeRotation(0.0F, 0.0F, 0.0F);              // Rotate
+    (*mesh) += Eigen::Vector3f(0.0F, 0.0F, 10.0F);          // Translate
+
+    // // woody
+    // (*mesh) *= Eigen::Matrix3f::Identity() * 0.1F;   // Scale
+    // (*mesh) *= MakeRotation(0.0F, 180.0F, 0.0F);              // Rotate
+    // (*mesh) += Eigen::Vector3f(15.0F, -15.0F, 50.0F);          // Translate
 
     std::vector<RTCBuildPrimitive> prims;
 
