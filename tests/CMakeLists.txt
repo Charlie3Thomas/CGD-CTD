@@ -2,8 +2,9 @@
 
 ## COW
 # 1080p cow no bvh
-add_test(NAME cow-1080               COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cow-1080.exr         -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20            )
-add_test(NAME woody-2160             COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-woody-1080.exr       -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/woody.obj -t 20 -b           )
+add_test(NAME cube-2160              COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cube-2160.exr        -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/cube.obj -t 20  -b       )
+add_test(NAME cow-1080               COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cow-1080.exr         -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20 -b         )
+add_test(NAME woody-2160             COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-woody-1080.exr       -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/woody.obj -t 20 -b       )
 add_test(NAME cow-1080-b0c0n0        COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cow-1080.exr         -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20            )
 # 1080p cow with bvh-1080  
 add_test(NAME cow-1080-b1c0n0        COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cow-1080-b.exr       -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20 -b         )

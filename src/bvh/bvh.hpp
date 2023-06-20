@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cassert>
 
-#include "embree/embreedevice.hpp"
+
 
 namespace CT
 {

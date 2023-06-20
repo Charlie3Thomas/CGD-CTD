@@ -1,5 +1,5 @@
 #include "bvh.hpp"
-#include "embree/embreedevice.hpp"
+#include "embree/embreesingleton.hpp"
 #include "utils/timer.hpp"
 #include <array>
 

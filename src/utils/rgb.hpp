@@ -56,10 +56,6 @@ inline RGB FromTexture(RTCRayHit rayhit, Texture& tex)
     int x = static_cast<int>(u);
     int y = static_cast<int>(v);
 
-    float u_ratio = u - static_cast<float>(x);
-    float v_ratio = v - static_cast<float>(y);
-    float u_opposite = 1.0F - u_ratio;
-    float v_opposite = 1.0F - v_ratio;
     int texel_offset = static_cast<int>((x + y * tex.width) * 3);
 
     BYTE b = tex.buffer[texel_offset];

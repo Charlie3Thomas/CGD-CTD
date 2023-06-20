@@ -22,7 +22,7 @@ public:
     /// @param canvas_x 
     /// @param canvas_y 
     /// @return RTCRayHit (embree3/rtcore_ray.h)
-    RTCRayHit GetRayForPixel(const Canvas& canvas, Eigen::Vector2i pixel_index);
+    RTCRayHit GetRayForPixel(const Canvas& canvas, Eigen::Vector2i pixel_index) const;
 
 private:
     // Camera position

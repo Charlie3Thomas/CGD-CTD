@@ -12,6 +12,7 @@
 #include "camera/camera.hpp"
 #include "camera/film.hpp"
 #include "config/options.hpp"
+#include "embree/embreesingleton.hpp"
 #include "loaders/objloader.hpp"
 #include "materials/material.hpp"
 #include "textures/texture.hpp"
@@ -25,17 +26,20 @@
 namespace CT
 {
 
-static void RenderCanvas(Canvas& canvas, Camera& camera, Texture& tex)
+static void RenderCanvas(Canvas& canvas, const Camera& camera, const Texture& tex)
 {
     // Retrieve config singleton instance
     const ConfigSingleton& config = ConfigSingleton::GetInstance();
+
+    // Retrieve embree singleton instance
+    const EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
 
     // Light direction
     Eigen::Vector3f light_dir(-1.0F, 1.0F, -1.0F);
     light_dir.normalize();
 
     // Specify material
-    Material mat { RGB{1.0F, 0.0F, 0.0F}, 0.5F, 0.5F, 0.5F };
+    //Material mat { RGB{1.0F, 0.0F, 0.0F}, 0.5F, 0.5F, 0.5F };
 
     for (size_t y = 0; y < canvas.rect.GetHeight(); y++)
     {
@@ -51,12 +55,18 @@ static void RenderCanvas(Canvas& canvas, Camera& camera, Texture& tex)
             rtcInitIntersectContext(&context);
 
             // Trace the ray against the scene
-            rtcIntersect1(EmbreeSingleton::GetInstance().scene, &context, &ray);
+            //rtcIntersect1(EmbreeSingleton::GetInstance().scene, &context, &ray);
+            rtcIntersect1(embree.scene, &context, &ray);
 
             auto pixel_ref = canvas(x, y);
 
             if (ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
             {
+                // Get material
+                auto it = embree.materials.find(ray.hit.geomID);
+                assert(it != embree.materials.end());
+                const Material& mat = it->second;
+
                 Eigen::Vector3f hit_normal(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z);
                 hit_normal.normalize();
 
@@ -84,15 +94,20 @@ static void RenderCanvas(Canvas& canvas, Camera& camera, Texture& tex)
                     // pixel_ref.g = mat.base_colour.g * scale * cos_theta;
                     // pixel_ref.b = mat.base_colour.b * scale * cos_theta;
 
-                    // // Draw a colour representing bary coords
-                    // pixel_ref.r = FromBaryCoords(ray).r;
-                    // pixel_ref.g = FromBaryCoords(ray).g;
-                    // pixel_ref.b = FromBaryCoords(ray).b;
+                    // Draw a colour depending on the material
+                    pixel_ref.r = mat.base_colour.r * scale * cos_theta;
+                    pixel_ref.g = mat.base_colour.g * scale * cos_theta;
+                    pixel_ref.b = mat.base_colour.b * scale * cos_theta;
+
+                    // // // Draw a colour representing bary coords
+                    // // pixel_ref.r = FromBaryCoords(ray).r;
+                    // // pixel_ref.g = FromBaryCoords(ray).g;
+                    // // pixel_ref.b = FromBaryCoords(ray).b;
 
                     // // Draw a colour representing the texture
-                    pixel_ref.r = FromTexture(ray, tex).r * scale * cos_theta;
-                    pixel_ref.g = FromTexture(ray, tex).g * scale * cos_theta;
-                    pixel_ref.b = FromTexture(ray, tex).b * scale * cos_theta;
+                    // pixel_ref.r = FromTexture(ray, tex).r * scale * cos_theta;
+                    // pixel_ref.g = FromTexture(ray, tex).g * scale * cos_theta;
+                    // pixel_ref.b = FromTexture(ray, tex).b * scale * cos_theta;
                 }
             }
             else
