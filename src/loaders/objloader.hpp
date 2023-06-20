@@ -1,5 +1,7 @@
 #pragma once
 
+#include "loaders/object.hpp"
+
 #include <cstdint>
 #include <vector>
 
@@ -8,5 +10,15 @@
 
 namespace CT
 {
-unsigned int LoadObj(const char* p_file, std::vector<RTCBuildPrimitive>& prims, const Eigen::Matrix3f& transformation, const Eigen::Vector3f& translation);
+class ObjectLoader
+{
+public:
+    void LoadObjects(std::vector<Object>& objects);
+    std::vector<RTCBuildPrimitive>& GetPrims();
+
+private:
+    // BVH prims data
+    std::vector<RTCBuildPrimitive> prims;
+};
+
 }

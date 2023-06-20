@@ -26,13 +26,13 @@
 namespace CT
 {
 
-static void RenderCanvas(Canvas& canvas, const Camera& camera, const Texture& tex)
+static void RenderCanvas(Canvas& canvas, const Camera& camera)
 {
     // Retrieve config singleton instance
     const ConfigSingleton& config = ConfigSingleton::GetInstance();
 
     // Retrieve embree singleton instance
-    const EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
+    EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
 
     // Light direction
     Eigen::Vector3f light_dir(-1.0F, 1.0F, -1.0F);
@@ -63,9 +63,12 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera, const Texture& te
             if (ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
             {
                 // Get material
-                auto it = embree.materials.find(ray.hit.geomID);
-                assert(it != embree.materials.end());
-                const Material& mat = it->second;
+                const Material mat = embree.GetMaterial(ray.hit.geomID);
+
+                //// Get texture
+                //auto it2 = embree.textures.find(ray.hit.geomID);
+                //assert(it2 != embree.textures.end());
+                //const Texture& tex = it2->second;
 
                 Eigen::Vector3f hit_normal(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z);
                 hit_normal.normalize();
@@ -99,10 +102,10 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera, const Texture& te
                     pixel_ref.g = mat.base_colour.g * scale * cos_theta;
                     pixel_ref.b = mat.base_colour.b * scale * cos_theta;
 
-                    // // // Draw a colour representing bary coords
-                    // // pixel_ref.r = FromBaryCoords(ray).r;
-                    // // pixel_ref.g = FromBaryCoords(ray).g;
-                    // // pixel_ref.b = FromBaryCoords(ray).b;
+                    // // Draw a colour representing bary coords
+                    // pixel_ref.r = FromBaryCoords(ray).r;
+                    // pixel_ref.g = FromBaryCoords(ray).g;
+                    // pixel_ref.b = FromBaryCoords(ray).b;
 
                     // // Draw a colour representing the texture
                     // pixel_ref.r = FromTexture(ray, tex).r * scale * cos_theta;
@@ -133,8 +136,6 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera, const Texture& te
 
 void TestRenderer::RenderFilm(Film& film, Camera& camera, size_t threads)
 { 
-    Texture tex = LoadTexture();
-
     // Assert that the number of threads is valid
     assert(threads > 0 && threads <= std::thread::hardware_concurrency());
 
@@ -155,7 +156,7 @@ void TestRenderer::RenderFilm(Film& film, Camera& camera, size_t threads)
     for (auto& canvas : film.canvases)
     {   
         // Enqueue the task for each canvas
-        futures.emplace_back(pool.enqueue(RenderCanvas, std::ref(canvas), std::ref(camera), std::ref(tex)));
+        futures.emplace_back(pool.enqueue(RenderCanvas, std::ref(canvas), std::ref(camera)));
     }
 }
 

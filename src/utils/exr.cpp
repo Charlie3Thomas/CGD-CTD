@@ -73,8 +73,7 @@ void WriteToEXR(const float* rgb, size_t width, size_t height, const char* outfi
 
         // pixel type of output image to be stored in .EXR
         header.requested_pixel_types[i] = TINYEXR_PIXELTYPE_HALF; 
-    }
-    
+    }    
 
     const char* err = nullptr;
     int ret = SaveEXRImageToFile(&image, &header, outfilename, &err);
@@ -84,7 +83,6 @@ void WriteToEXR(const float* rgb, size_t width, size_t height, const char* outfi
 
     assert(ret == TINYEXR_SUCCESS);
 
-    //std::cout << "Saved EXR file.\n" << outfilename << std::endl;
-    //free(rgb);   
+    std::cout << ret << std::endl;
 }
 }

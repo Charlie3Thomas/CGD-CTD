@@ -9,10 +9,9 @@
 #include "camera/camera.hpp"
 #include "camera/film.hpp"
 #include "config/options.hpp"
-#include "embree/embreesingleton.hpp"
 #include "loaders/objloader.hpp"
+#include "loaders/object.hpp"
 #include "loaders/transform.hpp"
-#include "materials/material.hpp"
 #include "renderers/testrenderer.hpp"
 #include "utils/rgb.hpp"
 #include "utils/exr.hpp"
@@ -33,45 +32,37 @@ int main(int argc, char** argv)
         // Retrieve config singleton instance
         const ConfigSingleton& config = ConfigSingleton::GetInstance();
 
-        // Retrieve embree singleton instance
-        EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
+// PLACEHOLDER TEST
+        // Load objects
+        size_t num_objects = 1;
 
-        // BVH prims data
-        std::vector<RTCBuildPrimitive> prims;
-
-        // Model data cache
-        std::vector<aiMesh> meshes;
-
-        for (size_t i = 0; i < 500; i++)
+        std::vector<Object> objects;
+        objects.reserve(num_objects);
+        ObjectLoader loader = ObjectLoader();
         {
-            auto scale              = RandomRange(0.05F, 0.5F);
-            Matrix3f transformation = MakeRotation(RandomRange(0.0F, 360.0F),  RandomRange(0.0F, 360.0F),  RandomRange(0.0F, 360.0F)) * scale;
-            Vector3f translation    =     Vector3f(RandomRange(-10.0F, 10.0F), RandomRange(-10.0F, 10.0F), RandomRange(10.0F, 100.0F));
-            unsigned int geomID     = LoadObj(config.input_model_filename.c_str(), prims, transformation, translation);
+            for (size_t i = 0; i < num_objects; i++)
+            {
+                auto scale              = 10.0F;
+                auto transformation     = Matrix3f   (MakeRotation(0.0F, 90.0F, 0.0F) * scale);
+                auto translation        = Vector3f   (0.0F, 0.0F, 10.0F);
+                auto mat                = Material   {RGB{RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F)}, 1.0F, 0.5F, 0.5F};
+                //auto tex                = Texture    (LoadTexture());
 
-            auto r = RandomRange(0.0F, 1.0F);
-            auto g = RandomRange(0.0F, 1.0F);
-            auto b = RandomRange(0.0F, 1.0F);
+                objects.emplace_back(config.input_model_filename, scale, transformation, translation, mat)/*,  tex*/;
 
-            embree.AddMaterial(geomID, Material{ RGB{r, g, b}, 1.0F, 0.5F, 0.5F });
-        }        
+                // auto scale              = RandomRange(0.1F, 1.0F);
+                // auto transformation     = Matrix3f   (MakeRotation(RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F)) * scale);
+                // auto translation        = Vector3f   (RandomRange(-10.0F, 10.0F), RandomRange(-10.0F, 10.0F), RandomRange(10.0F, 50.0F));
+                // auto mat                = Material   {RGB{RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F)}, 1.0F, 0.5F, 0.5F};
+                // //auto tex                = Texture    (LoadTexture());
 
-        // // Obj transformation
-        // float scale = 1.0F;
-        // Matrix3f transformation = MakeRotation(0.0F, 0.0F, 0.0F) * scale;
-        // Vector3f translation = Vector3f(-7.5F, 0.0F, 10.0F);
+                // objects.emplace_back(config.input_model_filename, scale, transformation, translation, mat)/*,  tex*/;
+            }            
+            loader.LoadObjects(objects);
+        }
+// PLACEHOLDER TEST
 
-        // // Load obj
-        // unsigned int geomID = LoadObj(config.input_model_filename.c_str(), prims, MakeRotation(0.0F, 0.0F, 0.0F) * 1.0F, Vector3f(-7.5F, 0.0F, 10.0F));
-        // embree.AddMaterial(geomID, Material{ RGB{1.0F, 0.0F, 0.0F}, 0.5F, 0.5F, 0.5F });
-
-        // geomID = LoadObj(config.input_model_filename.c_str(), prims, MakeRotation(0.0F, 180.0F, 0.0F) * 1.0F, Vector3f(7.5F, 0.0F, 10.0F));
-        // embree.AddMaterial(geomID, Material{ RGB{0.0F, 1.0F, 0.0F}, 0.5F, 0.5F, 0.5F });
-
-        // Create BVH
-        if (ConfigSingleton::GetInstance().use_bvh){ BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_HIGH, prims, nullptr, 1024); }
-
-        
+        if (ConfigSingleton::GetInstance().use_bvh){ BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_HIGH, loader.GetPrims(), nullptr, 1024); }
 
         // Create film
         Film film(config.image_width, config.image_height, Eigen::Vector2i(config.canvas_width, config.canvas_height));

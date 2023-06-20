@@ -1,31 +1,40 @@
 #TODO : More sensible test structure
 
-## COW
-# 1080p cow no bvh
-add_test(NAME cube-2160              COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cube-2160.exr        -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/cube.obj -t 20  -b       )
-add_test(NAME cow-1080               COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cow-1080.exr         -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20 -b         )
-add_test(NAME woody-2160             COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-woody-1080.exr       -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/woody.obj -t 20 -b       )
-add_test(NAME cow-1080-b0c0n0        COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cow-1080.exr         -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20            )
-# 1080p cow with bvh-1080  
-add_test(NAME cow-1080-b1c0n0        COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cow-1080-b.exr       -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20 -b         )
-# 1080p cow with visualisat  
-add_test(NAME cow-1080-b1c1n0        COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cow-1080-bc.exr      -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20 -b -c      )
-add_test(NAME cow-1080-b1c0n1        COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cow-1080-bn.exr      -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20 -b -n      )     
-# 2160p cow no bv  
-add_test(NAME cow-2160-b0c0n0        COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cow-2160.exr         -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20            )
-# 2160p cow with bvh   
-add_test(NAME cow-2160-b1c0n0        COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-cow-2160-b.exr       -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20            ) 
-## TEAPOT   
-# 1080p teapot no   
-add_test(NAME teapot-1080-b0c0n0     COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-teapot-1080.exr      -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/teapot.obj -t 20         )
-# 1080p teapot with bvh-   
-add_test(NAME teapot-1080-b1c0n0     COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-teapot-1080-b.exr    -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/teapot.obj -t 20 -b      )
-# 1080p teapot with visualisat   
-add_test(NAME teapot-1080-b1c1n0     COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-teapot-1080-bc.exr   -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/teapot.obj -t 20 -b -c   )
-add_test(NAME teapot-1080-b1c0n1     COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-teapot-1080-bn.exr   -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/teapot.obj -t 20 -b -n   )
-# 2160p teapot no   
-add_test(NAME teapot-2160-b0c0n0     COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-teapot-2160.exr      -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/teapot.obj -t 20         )
-# 2160p teapot with   
-add_test(NAME teapot-2160-b1c0n0     COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-teapot-2160-b.exr    -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/teapot.obj -t 20 -b      )
+add_test(NAME guy-1080 COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-guy-1080.exr -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/guy.obj -t 20)
 
-add_test(NAME triangle-2160-b1c0n0   COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-triangle-2160-b.exr  -r 3840x2160 -i ${CMAKE_SOURCE_DIR}/obj/triangle.obj -t 20 -b    )
+# List of model file names
+set(objfiles
+    cow
+    cube
+    homer
+    igea
+    lucy
+    max-planck
+    nefertiti
+    ogre
+    plant
+    spot
+    stanford-bunny
+    suzanne
+    teapot
+    triangle
+    xyzrgb_dragon
+)
+
+# Iterate over the models
+foreach(model ${objfiles})
+    foreach(i RANGE 1 2)
+        math(EXPR t_value "2 * ${i}")
+        if(${i} MATCHES "[02468]")
+            set(ray_tracer_flags "-b")
+            set(output_suffix "-b")
+        else()
+            set(ray_tracer_flags "")
+            set(output_suffix "")
+        endif()
+        add_test(
+            NAME ${model}-1080-${i}
+            COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-${model}-1080-${output_suffix}-${i}.exr -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/${model}.obj ${ray_tracer_flags} -t 20
+        )
+    endforeach()
+endforeach()

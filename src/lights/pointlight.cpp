@@ -1,7 +1,7 @@
 #include "pointlight.hpp"
 
-CT::PointLight::PointLight(const Eigen::Vector3f& position, const float intensity)
-    : position(position), intensity(intensity) {}
+CT::PointLight::PointLight(Eigen::Vector3f& position, const float intensity)
+    : position(std::move(position)), intensity(intensity) {}
 
 float CT::PointLight::SampleLight() const
 {
