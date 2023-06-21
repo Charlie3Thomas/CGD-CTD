@@ -62,13 +62,9 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
 
             if (ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
             {
-                // Get material
-                const Material mat = embree.GetMaterial(ray.hit.geomID);
-
-                //// Get texture
-                //auto it2 = embree.textures.find(ray.hit.geomID);
-                //assert(it2 != embree.textures.end());
-                //const Texture& tex = it2->second;
+                // Find the object hit by the ray
+                RTCGeometry rtcg = rtcGetGeometry(embree.scene, ray.hit.geomID);
+                const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg));
 
                 Eigen::Vector3f hit_normal(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z);
                 hit_normal.normalize();
@@ -81,36 +77,44 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
                 Eigen::Vector3f reflection = (2.0F * hit_normal - raydir);
                 reflection.normalize();
 
-                float scale = -hit_normal.dot(raydir) * mat.intensity * std::abs(light_dir.dot(reflection));
+                float scale = -hit_normal.dot(raydir) * 1.0F * std::abs(light_dir.dot(reflection));
 
                 if (config.visualise_normals)
                 {
-                    // Draw a colour depending on the normals
-                    pixel_ref.r = FromIntersectNormal(ray).r;
-                    pixel_ref.g = FromIntersectNormal(ray).g;
-                    pixel_ref.b = FromIntersectNormal(ray).b;
+                    // // Draw a colour depending on the normals
+                    RGB colour = FromIntersectNormal(ray.hit);
+                    pixel_ref.r = colour.r;
+                    pixel_ref.g = colour.g;
+                    pixel_ref.b = colour.b;
                 }
                 else
-                {   
-                    // // Draw a colour depending on the material
-                    // pixel_ref.r = mat.base_colour.r * scale * cos_theta;
-                    // pixel_ref.g = mat.base_colour.g * scale * cos_theta;
-                    // pixel_ref.b = mat.base_colour.b * scale * cos_theta;
+                {
+                    if (obj->texture != nullptr)
+                    {
+                        RGB colour = FromTexture(ray.hit, obj->texture);
+                        pixel_ref.r = colour.r * scale * cos_theta;
+                        pixel_ref.g = colour.g * scale * cos_theta;
+                        pixel_ref.b = colour.b * scale * cos_theta;
+                    }
+                    else
+                    {
+                        pixel_ref.r = obj->material->base_colour.r * scale * cos_theta;
+                        pixel_ref.g = obj->material->base_colour.g * scale * cos_theta;
+                        pixel_ref.b = obj->material->base_colour.b * scale * cos_theta;
+                    }
+                    // //Draw a colour representing the texture
+                    // RGB colour = FromTexture(ray.hit, embree.GetTri(ray.hit.primID), tex);
+                    // pixel_ref.r = colour.r;
+                    // pixel_ref.g = colour.g;
+                    // pixel_ref.b = colour.b;
 
-                    // Draw a colour depending on the material
-                    pixel_ref.r = mat.base_colour.r * scale * cos_theta;
-                    pixel_ref.g = mat.base_colour.g * scale * cos_theta;
-                    pixel_ref.b = mat.base_colour.b * scale * cos_theta;
+                    
 
                     // // Draw a colour representing bary coords
-                    // pixel_ref.r = FromBaryCoords(ray).r;
-                    // pixel_ref.g = FromBaryCoords(ray).g;
-                    // pixel_ref.b = FromBaryCoords(ray).b;
-
-                    // // Draw a colour representing the texture
-                    // pixel_ref.r = FromTexture(ray, tex).r * scale * cos_theta;
-                    // pixel_ref.g = FromTexture(ray, tex).g * scale * cos_theta;
-                    // pixel_ref.b = FromTexture(ray, tex).b * scale * cos_theta;
+                    // RGB colour = FromBaryCoords(ray.hit);
+                    // pixel_ref.r = colour.r;
+                    // pixel_ref.g = colour.g;
+                    // pixel_ref.b = colour.b;
                 }
             }
             else

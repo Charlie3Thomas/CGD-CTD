@@ -1,11 +1,13 @@
 #pragma once
 
 #include "materials/material.hpp"
+#include "textures/texture.hpp"
 
 #include <embree3/rtcore.h>
 #include <assimp/scene.h>
 
 #include <unordered_map>
+#include <memory>
 
 
 namespace CT
@@ -16,20 +18,9 @@ public:
     static EmbreeSingleton& GetInstance();    
     RTCDevice device;
     RTCScene  scene;
-
-    bool HasMaterial(unsigned int id) const;
-    void AddMaterial(unsigned int id, const Material& material);
-    Material& GetMaterial(unsigned int id);
-
-    bool HasTexture(unsigned int id) const;
-    void AddTexture(unsigned int id, const Texture& texture);
-    Texture& GetTexture(unsigned int id);
     
-    bool HasMesh(const std::string& name) const;
-    void AddMesh(const std::string& name, aiMesh* mesh);
-    aiMesh& GetMesh(const std::string& name);
-
-    
+    std::unordered_map<std::string, std::unique_ptr<Material>> materials;
+    std::unordered_map<std::string, std::unique_ptr<Texture>>  textures;
 
 private:
     EmbreeSingleton();
@@ -43,10 +34,5 @@ private:
     EmbreeSingleton& operator=(EmbreeSingleton&&) = delete;
 
     ~EmbreeSingleton();
-
-    std::unordered_map<std::string, aiMesh*> meshes;
-    std::unordered_map<unsigned int, Material> materials;
-    std::unordered_map<unsigned int, Texture> textures;   
-
 };
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "textures/texture.hpp"
+#include "loaders/prims.hpp"
 
 #include <cstdint>
 #include <iostream>
@@ -27,48 +28,10 @@ constexpr RGB PURPLE    {160.0F,    32.0F,    240.0F};
 constexpr RGB BLACK     {  0.0F,    0.0F,       0.0F};
 constexpr RGB WHITE     {255.0F,   255.0F,    255.0F};
 
-inline RGB FromIntersectNormal(RTCRayHit rayhit)
-{
-    return 
-    {
-        rayhit.hit.Ng_x * 100, 
-        rayhit.hit.Ng_y * 100, 
-        rayhit.hit.Ng_z * 100
-    };
-}
+RGB FromIntersectNormal(RTCHit& hit);
+RGB FromBaryCoords(RTCHit& hit);
+RGB FromTexture(RTCHit& hit, const Texture* tex);
 
-inline RGB FromBaryCoords(RTCRayHit rayhit)
-{
-    return 
-    {
-        rayhit.hit.u,
-        rayhit.hit.v,
-        1.0F - rayhit.hit.u - rayhit.hit.v
-    };
-}
-
-inline RGB FromTexture(RTCRayHit rayhit, Texture& tex)
-{
-    // Calculate the texture coordinates scaled by texture dimensions
-    float u = rayhit.hit.u * tex.width;
-    float v = rayhit.hit.v * tex.width;
-
-    int x = static_cast<int>(u);
-    int y = static_cast<int>(v);
-
-    int texel_offset = static_cast<int>((x + y * tex.width) * 3);
-
-    BYTE b = tex.buffer[texel_offset];
-    BYTE g = tex.buffer[texel_offset + 1];
-    BYTE r = tex.buffer[texel_offset + 2];
-
-    return 
-    { 
-        r / 255.0F, 
-        g / 255.0F, 
-        b / 255.0F 
-    };
-}
 }
 
 

@@ -4,13 +4,13 @@
 #include <iostream>
 #include <memory>
 
-
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
 #include <Eigen/Core>
 
+#include "loaders/prims.hpp"
 #include "embree/embreesingleton.hpp"
 #include "config/options.hpp"
 #include "bvh/bvh.hpp"
@@ -21,17 +21,6 @@ using namespace Eigen;
 
 namespace CT
 {
-
-struct Vertex
-{
-    Vector3f pos;
-};
-
-struct Triangle
-{
-    std::array<uint32_t, 3> v;
-};
-
 void ObjectLoader::LoadObjects(std::vector<Object>& objects)
 {
     Timer t = Timer("Load objects");
@@ -54,41 +43,27 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
     CumTimer add_scene("add_scene");
     CumTimer add_material("add_material");
 
-    for(const auto& object : objects)
+    for(auto& object : objects)
     {
-        aiMesh* aimesh = nullptr;
+        // Otherwise, load it and cache it
+        auto timer = read_file.IncreaseCum();
 
-        if (embree.HasMesh(object.p_file))
-        {
-            aimesh = &embree.GetMesh(object.p_file);
-        }
-        else
-        {
-            // Otherwise, load it and cache it
-            auto timer = read_file.IncreaseCum();
-            // Load the mesh file and then cache it
-            const aiScene* s = importer.ReadFile(object.p_file, 0);
-            assert(s != nullptr);
-            assert(s->mFlags ^ AI_SCENE_FLAGS_INCOMPLETE);
-            assert(s->mRootNode != nullptr);
-            // assimp mesh data
-            aimesh = s->mMeshes[0];
+        // Load the mesh file and then cache it
+        const aiScene* s = importer.ReadFile(object.p_file, 0);
+        assert(s != nullptr);
+        assert(s->mFlags ^ AI_SCENE_FLAGS_INCOMPLETE);
+        assert(s->mRootNode != nullptr);
 
-            unsigned int m = s->mNumMeshes;
-
-            std::cout << "Loaded " << object.p_file << " with " << m << " meshes" << std::endl;
-
-            embree.AddMesh(object.p_file, aimesh);
-
-            assert(s->mNumMeshes > 0);
-        }                    
+        // assimp mesh data
+        aiMesh* aimesh = s->mMeshes[0];
+        assert(s->mNumMeshes > 0);
 
         assert(aimesh != nullptr);
 
         {
-        auto timer = transform_mesh.IncreaseCum();        
-        (*aimesh) *= object.transformation;
-        (*aimesh) += object.translation;
+            auto timer = transform_mesh.IncreaseCum();        
+            (*aimesh) *= object.transformation;
+            (*aimesh) += object.translation;
         }
         
         // Embree mesh data
@@ -100,9 +75,9 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
 
         Vertex* vertices = nullptr;
         {
-        auto timer = alloc_geom.IncreaseCum();
-        // Vertex positions
-        vertices = static_cast<Vertex*>(rtcSetNewGeometryBuffer(mesh, RTC_BUFFER_TYPE_VERTEX, 0, RTC_FORMAT_FLOAT3, 3 * sizeof(float), aimesh->mNumVertices));
+            auto timer = alloc_geom.IncreaseCum();
+            // Vertex positions
+            vertices = static_cast<Vertex*>(rtcSetNewGeometryBuffer(mesh, RTC_BUFFER_TYPE_VERTEX, 0, RTC_FORMAT_FLOAT3, 3 * sizeof(float), aimesh->mNumVertices));
         }
         
         {
@@ -141,36 +116,31 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
         }
 
         {
-        auto timer = face_indices.IncreaseCum();
-        // Face indices
-        auto* triangles = static_cast<Triangle*>(rtcSetNewGeometryBuffer(mesh, RTC_BUFFER_TYPE_INDEX, 0, RTC_FORMAT_UINT3, 3 * sizeof(uint32_t), aimesh->mNumVertices / 3));
-        for (size_t tris = 0; tris < aimesh->mNumVertices / 3; tris++)
-        {
-            triangles[tris].v[0] = tris * 3 + 0;
-            triangles[tris].v[1] = tris * 3 + 1;
-            triangles[tris].v[2] = tris * 3 + 2;
-        }
+            auto timer = face_indices.IncreaseCum();
+            // Face indices
+            auto* faces = static_cast<Face*>(rtcSetNewGeometryBuffer(mesh, RTC_BUFFER_TYPE_INDEX, 0, RTC_FORMAT_UINT3, 3 * sizeof(uint32_t), aimesh->mNumVertices / 3));
+            for (size_t tris = 0; tris < aimesh->mNumVertices / 3; tris++)
+            {
+                faces[tris].v[0] = tris * 3 + 0;
+                faces[tris].v[1] = tris * 3 + 1;
+                faces[tris].v[2] = tris * 3 + 2;
+            }
         }
         
         unsigned int geomID = 0;
         {
-        auto timer = commit_geom.IncreaseCum();
-        rtcSetGeometryVertexAttributeCount(mesh, 1);
-        rtcSetSharedGeometryBuffer(mesh, RTC_BUFFER_TYPE_VERTEX_ATTRIBUTE, 0, RTC_FORMAT_FLOAT3, nullptr, 0, sizeof(RGB), 8);
+            auto timer = commit_geom.IncreaseCum();
+            rtcSetGeometryVertexAttributeCount(mesh, 1);
+            rtcSetSharedGeometryBuffer(mesh, RTC_BUFFER_TYPE_VERTEX_ATTRIBUTE, 0, RTC_FORMAT_FLOAT3, nullptr, 0, sizeof(RGB), 8);
 
-        rtcSetGeometryBuildQuality(mesh, RTC_BUILD_QUALITY_HIGH);
-        rtcCommitGeometry(mesh);
-        geomID = rtcAttachGeometry(embree.scene, mesh);
-        rtcReleaseGeometry(mesh);
+            rtcSetGeometryBuildQuality(mesh, RTC_BUILD_QUALITY_HIGH);
+            rtcCommitGeometry(mesh);
+            geomID = rtcAttachGeometry(embree.scene, mesh);
+            rtcSetGeometryUserData(mesh, &object);
+            rtcReleaseGeometry(mesh);
         }
         
         // TODO: Look at user data
-
-        {
-        auto timer = add_material.IncreaseCum();
-        assert(!embree.HasMaterial(object.material));
-        embree.AddMaterial(geomID, object.material);
-        }
         //embree.AddTexture(geomID, object.texture);
         
     }

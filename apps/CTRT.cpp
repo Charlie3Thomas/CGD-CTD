@@ -9,9 +9,11 @@
 #include "camera/camera.hpp"
 #include "camera/film.hpp"
 #include "config/options.hpp"
+#include "embree/embreesingleton.hpp"
 #include "loaders/objloader.hpp"
 #include "loaders/object.hpp"
 #include "loaders/transform.hpp"
+#include "materials/material.hpp"
 #include "renderers/testrenderer.hpp"
 #include "utils/rgb.hpp"
 #include "utils/exr.hpp"
@@ -32,9 +34,25 @@ int main(int argc, char** argv)
         // Retrieve config singleton instance
         const ConfigSingleton& config = ConfigSingleton::GetInstance();
 
+        EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
+
 // PLACEHOLDER TEST
+        // Materials
+        assert(!embree.materials.contains("red"));
+        embree.materials.emplace("red",   std::make_unique<Material>(RGB{1.0F, 0.0F, 0.0F},  1.0F, 0.5F, 0.5F));
+        assert(!embree.materials.contains("blue"));
+        embree.materials.emplace("blue",  std::make_unique<Material>(RGB{0.0F, 0.0F, 1.0F},  1.0F, 0.5F, 0.5F));
+        assert(!embree.materials.contains("green"));
+        embree.materials.emplace("green", std::make_unique<Material>(RGB{0.0F, 1.0F, 0.0F},  1.0F, 0.5F, 0.5F));
+
+        // Textures
+        assert(!embree.textures.contains("water"));
+        embree.textures.emplace("water", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/water.png")));
+        assert(!embree.textures.contains("epoca"));
+        embree.textures.emplace("epoca", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/epoca.jpg")));
+
         // Load objects
-        size_t num_objects = 1;
+        size_t num_objects = 100;
 
         std::vector<Object> objects;
         objects.reserve(num_objects);
@@ -42,27 +60,28 @@ int main(int argc, char** argv)
         {
             for (size_t i = 0; i < num_objects; i++)
             {
-                auto scale              = 10.0F;
-                auto transformation     = Matrix3f   (MakeRotation(0.0F, 90.0F, 0.0F) * scale);
-                auto translation        = Vector3f   (0.0F, 0.0F, 10.0F);
-                auto mat                = Material   {RGB{RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F)}, 1.0F, 0.5F, 0.5F};
-                //auto tex                = Texture    (LoadTexture());
+                auto scale          = RandomRange(0.1F, 1.0F);
+                auto transformation = Matrix3f   (MakeRotation(RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F)) * scale);
+                auto translation    = Vector3f   (RandomRange(-10.0F, 10.0F), RandomRange(-10.0F, 10.0F), RandomRange(10.0F, 50.0F));
 
-                objects.emplace_back(config.input_model_filename, scale, transformation, translation, mat)/*,  tex*/;
+                assert(embree.materials.contains("red"));
+                const Material* mat = embree.materials["red"].get();
 
-                // auto scale              = RandomRange(0.1F, 1.0F);
-                // auto transformation     = Matrix3f   (MakeRotation(RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F)) * scale);
-                // auto translation        = Vector3f   (RandomRange(-10.0F, 10.0F), RandomRange(-10.0F, 10.0F), RandomRange(10.0F, 50.0F));
-                // auto mat                = Material   {RGB{RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F)}, 1.0F, 0.5F, 0.5F};
-                // //auto tex                = Texture    (LoadTexture());
+                const Texture* tex = nullptr;
 
-                // objects.emplace_back(config.input_model_filename, scale, transformation, translation, mat)/*,  tex*/;
+                if (i % 2 == 0)
+                {
+                    assert(embree.textures.contains("water"));
+                    tex = embree.textures["water"].get();
+                }   
+
+                objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, tex});
             }            
             loader.LoadObjects(objects);
         }
 // PLACEHOLDER TEST
 
-        if (ConfigSingleton::GetInstance().use_bvh){ BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_HIGH, loader.GetPrims(), nullptr, 1024); }
+        if (ConfigSingleton::GetInstance().use_bvh){ BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_LOW, loader.GetPrims(), nullptr, 1024); }
 
         // Create film
         Film film(config.image_width, config.image_height, Eigen::Vector2i(config.canvas_width, config.canvas_height));

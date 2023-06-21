@@ -144,7 +144,7 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
     RTCBuildArguments arguments = rtcDefaultBuildArguments();
         arguments.byteSize               = sizeof(arguments);
         arguments.buildFlags             = RTC_BUILD_FLAG_NONE;
-        arguments.buildQuality           = quality;                 // Test different build qualities
+        arguments.buildQuality           = quality;                 
         arguments.maxBranchingFactor     = 2;       
         arguments.maxDepth               = 1024;
         arguments.sahBlockSize           = 1;
@@ -163,12 +163,32 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
         arguments.splitPrimitive         = SplitPrimitive;
         arguments.buildProgress          = nullptr;        
         arguments.userPtr                = nullptr;
-
-    for (size_t i = 0; i < 10; i++) //TODO : Why does the example limit this to 10?
-    {
-        for (size_t j = 0; j < prims.size(); j++) prims[j] = prims_i[j];
-        rtcBuildBVH(&arguments);
-    }
+/*
+        arguments.byteSize               = sizeof(arguments);
+        arguments.buildFlags             = RTC_BUILD_FLAG_NONE;
+        arguments.buildQuality           = quality;                 
+        arguments.maxBranchingFactor     = 2;       
+        arguments.maxDepth               = 1024;
+        arguments.sahBlockSize           = 1;
+        arguments.minLeafSize            = 1;
+        arguments.maxLeafSize            = 1;
+        arguments.traversalCost          = 1.0F;
+        arguments.intersectionCost       = 1.0F;
+        arguments.bvh                    = bvh;
+        arguments.primitives             = prims.data();
+        arguments.primitiveCount         = prims.size();
+        arguments.primitiveArrayCapacity = prims.capacity();
+        arguments.createNode             = InnerNode::Create;
+        arguments.setNodeChildren        = InnerNode::SetChildren;
+        arguments.setNodeBounds          = InnerNode::SetBounds;
+        arguments.createLeaf             = LeafNode::Create;
+        arguments.splitPrimitive         = SplitPrimitive;
+        arguments.buildProgress          = nullptr;        
+        arguments.userPtr                = nullptr;
+*/
+    
+    for (size_t j = 0; j < prims.size(); j++) prims[j] = prims_i[j];
+    rtcBuildBVH(&arguments);
 
     std::cout << "Built for " << prims.size() << " primitives" << std::endl;
 

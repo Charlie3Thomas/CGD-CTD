@@ -33,7 +33,7 @@ foreach(model ${objfiles})
             set(output_suffix "")
         endif()
         add_test(
-            NAME ${model}-1080-${i}
+            NAME ${model}-1080${output_suffix}
             COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-${model}-1080-${output_suffix}-${i}.exr -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/${model}.obj ${ray_tracer_flags} -t 20
         )
     endforeach()
