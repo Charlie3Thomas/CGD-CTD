@@ -10,7 +10,6 @@
 
 #include <Eigen/Core>
 
-#include "loaders/prims.hpp"
 #include "embree/embreesingleton.hpp"
 #include "config/options.hpp"
 #include "bvh/bvh.hpp"
@@ -56,7 +55,7 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
 
         // assimp mesh data
         aiMesh* aimesh = s->mMeshes[0];
-        assert(s->mNumMeshes > 0);
+        assert(s->mNumMeshes > 0);       
 
         assert(aimesh != nullptr);
 
@@ -73,31 +72,31 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
         // BVH bounds
         RTCBounds bounds = RTCBounds();
 
-        Vertex* vertices = nullptr;
+        Vector3f* vertices = nullptr;
         {
             auto timer = alloc_geom.IncreaseCum();
             // Vertex positions
-            vertices = static_cast<Vertex*>(rtcSetNewGeometryBuffer(mesh, RTC_BUFFER_TYPE_VERTEX, 0, RTC_FORMAT_FLOAT3, 3 * sizeof(float), aimesh->mNumVertices));
+            vertices = static_cast<Vector3f*>(rtcSetNewGeometryBuffer(mesh, RTC_BUFFER_TYPE_VERTEX, 0, RTC_FORMAT_FLOAT3, 3 * sizeof(float), aimesh->mNumVertices));
         }
         
         {
         auto timer = fill_geom.IncreaseCum();
         for (size_t tris = 0; tris < aimesh->mNumVertices / 3; tris++)
         {
-            vertices[tris * 3 + 0].pos = Vector3f(aimesh->mVertices[tris * 3 + 0].x, aimesh->mVertices[tris * 3 + 0].y, aimesh->mVertices[tris * 3 + 0].z);
-            vertices[tris * 3 + 1].pos = Vector3f(aimesh->mVertices[tris * 3 + 1].x, aimesh->mVertices[tris * 3 + 1].y, aimesh->mVertices[tris * 3 + 1].z);
-            vertices[tris * 3 + 2].pos = Vector3f(aimesh->mVertices[tris * 3 + 2].x, aimesh->mVertices[tris * 3 + 2].y, aimesh->mVertices[tris * 3 + 2].z);
+            vertices[tris * 3 + 0] = Vector3f(aimesh->mVertices[tris * 3 + 0].x, aimesh->mVertices[tris * 3 + 0].y, aimesh->mVertices[tris * 3 + 0].z);
+            vertices[tris * 3 + 1] = Vector3f(aimesh->mVertices[tris * 3 + 1].x, aimesh->mVertices[tris * 3 + 1].y, aimesh->mVertices[tris * 3 + 1].z);
+            vertices[tris * 3 + 2] = Vector3f(aimesh->mVertices[tris * 3 + 2].x, aimesh->mVertices[tris * 3 + 2].y, aimesh->mVertices[tris * 3 + 2].z);
 
             if (config.use_bvh)
             {
                 auto timer = calculate_bvh_bounds.IncreaseCum();
                 // Determine BVH bounds
-                bounds.lower_x = std::min(bounds.lower_x, vertices[tris].pos.x());
-                bounds.lower_y = std::min(bounds.lower_y, vertices[tris].pos.y());
-                bounds.lower_z = std::min(bounds.lower_z, vertices[tris].pos.z());
-                bounds.upper_x = std::max(bounds.upper_x, vertices[tris].pos.x());
-                bounds.upper_y = std::max(bounds.upper_y, vertices[tris].pos.y());
-                bounds.upper_z = std::max(bounds.upper_z, vertices[tris].pos.z());
+                bounds.lower_x = std::min(bounds.lower_x, vertices[tris].x());
+                bounds.lower_y = std::min(bounds.lower_y, vertices[tris].y());
+                bounds.lower_z = std::min(bounds.lower_z, vertices[tris].z());
+                bounds.upper_x = std::max(bounds.upper_x, vertices[tris].x());
+                bounds.upper_y = std::max(bounds.upper_y, vertices[tris].y());
+                bounds.upper_z = std::max(bounds.upper_z, vertices[tris].z());
 
                 // Make BVH Build primitive
                 RTCBuildPrimitive prim;
@@ -111,6 +110,30 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
                     prim.primID = tris;
 
                 this->prims.push_back(prim);
+            }
+
+            // If loaded .obj has texture coordinates, add them to the bjobect
+            if (aimesh->HasTextureCoords(0))
+            {
+                UVTextureCoords tex_coords;
+
+                for (size_t i = 0; i < 3; i++)
+                {
+                    float x = aimesh->mTextureCoords[0][tris * 3 + i].x;
+                    assert(x >= 0.0F && x <= 1.0F);
+                    float y = aimesh->mTextureCoords[0][tris * 3 + i].y;
+                    assert(y >= 0.0F && y <= 1.0F);
+
+                    tex_coords.coords[i] = Vector2f(x, y);
+                }
+
+                // float x = aimesh->mTextureCoords[0][tris].x;
+                // assert(x >= 0.0F && x <= 1.0F);
+                // float y = aimesh->mTextureCoords[0][tris].y;
+                // assert(y >= 0.0F && y <= 1.0F);
+
+                assert(object.tex_coords.find(tris) == object.tex_coords.end());
+                object.tex_coords.emplace(tris, tex_coords);
             }        
         }
         }
@@ -118,12 +141,12 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
         {
             auto timer = face_indices.IncreaseCum();
             // Face indices
-            auto* faces = static_cast<Face*>(rtcSetNewGeometryBuffer(mesh, RTC_BUFFER_TYPE_INDEX, 0, RTC_FORMAT_UINT3, 3 * sizeof(uint32_t), aimesh->mNumVertices / 3));
+            auto* faces = static_cast<std::array<uint32_t, 3>*>(rtcSetNewGeometryBuffer(mesh, RTC_BUFFER_TYPE_INDEX, 0, RTC_FORMAT_UINT3, 3 * sizeof(uint32_t), aimesh->mNumVertices / 3));
             for (size_t tris = 0; tris < aimesh->mNumVertices / 3; tris++)
             {
-                faces[tris].v[0] = tris * 3 + 0;
-                faces[tris].v[1] = tris * 3 + 1;
-                faces[tris].v[2] = tris * 3 + 2;
+                faces[tris][0] = tris * 3 + 0;
+                faces[tris][1] = tris * 3 + 1;
+                faces[tris][2] = tris * 3 + 2;
             }
         }
         
@@ -133,7 +156,7 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
             rtcSetGeometryVertexAttributeCount(mesh, 1);
             rtcSetSharedGeometryBuffer(mesh, RTC_BUFFER_TYPE_VERTEX_ATTRIBUTE, 0, RTC_FORMAT_FLOAT3, nullptr, 0, sizeof(RGB), 8);
 
-            rtcSetGeometryBuildQuality(mesh, RTC_BUILD_QUALITY_HIGH);
+            rtcSetGeometryBuildQuality(mesh, RTC_BUILD_QUALITY_LOW);
             rtcCommitGeometry(mesh);
             geomID = rtcAttachGeometry(embree.scene, mesh);
             rtcSetGeometryUserData(mesh, &object);

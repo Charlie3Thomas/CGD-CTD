@@ -64,7 +64,7 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
             {
                 // Find the object hit by the ray
                 RTCGeometry rtcg = rtcGetGeometry(embree.scene, ray.hit.geomID);
-                const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg));
+                const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg));                
 
                 Eigen::Vector3f hit_normal(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z);
                 hit_normal.normalize();
@@ -91,24 +91,19 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
                 {
                     if (obj->texture != nullptr)
                     {
-                        RGB colour = FromTexture(ray.hit, obj->texture);
-                        pixel_ref.r = colour.r * scale * cos_theta;
-                        pixel_ref.g = colour.g * scale * cos_theta;
-                        pixel_ref.b = colour.b * scale * cos_theta;
+                        // Do a wonky lil assertion, don't keep it like this
+                        assert(obj->tex_coords.contains(ray.hit.primID));
+                        RGB colour = FromTexture(ray.hit, obj->texture, obj->tex_coords.at(ray.hit.primID));
+                        pixel_ref.r = colour.r * scale;
+                        pixel_ref.g = colour.g * scale;
+                        pixel_ref.b = colour.b * scale;
                     }
                     else
                     {
                         pixel_ref.r = obj->material->base_colour.r * scale * cos_theta;
                         pixel_ref.g = obj->material->base_colour.g * scale * cos_theta;
                         pixel_ref.b = obj->material->base_colour.b * scale * cos_theta;
-                    }
-                    // //Draw a colour representing the texture
-                    // RGB colour = FromTexture(ray.hit, embree.GetTri(ray.hit.primID), tex);
-                    // pixel_ref.r = colour.r;
-                    // pixel_ref.g = colour.g;
-                    // pixel_ref.b = colour.b;
-
-                    
+                    }                    
 
                     // // Draw a colour representing bary coords
                     // RGB colour = FromBaryCoords(ray.hit);

@@ -1,10 +1,13 @@
 #pragma once
 
 #include "materials/material.hpp"
+#include "loaders/prims.hpp"
 
 #include <Eigen/Core>
 
 #include <filesystem>
+#include <unordered_map>
+#include <array>
 
 using namespace Eigen;
 
@@ -29,5 +32,8 @@ struct Object
 
     // Object texture
     const Texture* texture;
+
+    // Texture coordinates
+    std::unordered_map<unsigned int, UVTextureCoords> tex_coords;
 };    
 }

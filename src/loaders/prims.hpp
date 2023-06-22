@@ -25,4 +25,9 @@ struct Face
 {
     std::array<uint32_t, 3> v;
 };
+
+struct UVTextureCoords
+{
+    std::array<Vector2f, 3> coords;
+};
 }

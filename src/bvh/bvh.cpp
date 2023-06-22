@@ -145,12 +145,12 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
         arguments.byteSize               = sizeof(arguments);
         arguments.buildFlags             = RTC_BUILD_FLAG_NONE;
         arguments.buildQuality           = quality;                 
-        arguments.maxBranchingFactor     = 2;       
+        arguments.maxBranchingFactor     = 8;       
         arguments.maxDepth               = 1024;
         arguments.sahBlockSize           = 1;
-        arguments.minLeafSize            = 1;
-        arguments.maxLeafSize            = 1;
-        arguments.traversalCost          = 1.0F;
+        arguments.minLeafSize            = 10;
+        arguments.maxLeafSize            = 1000;
+        arguments.traversalCost          = 2.0F;
         arguments.intersectionCost       = 1.0F;
         arguments.bvh                    = bvh;
         arguments.primitives             = prims.data();

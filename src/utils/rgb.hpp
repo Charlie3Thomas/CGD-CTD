@@ -30,7 +30,7 @@ constexpr RGB WHITE     {255.0F,   255.0F,    255.0F};
 
 RGB FromIntersectNormal(RTCHit& hit);
 RGB FromBaryCoords(RTCHit& hit);
-RGB FromTexture(RTCHit& hit, const Texture* tex);
+RGB FromTexture(RTCHit& hit, const Texture* tex, const UVTextureCoords& tex_coords);
 
 }
 

@@ -8,7 +8,7 @@ namespace CT
 struct Material
 {
     // Base colour
-    CT::RGB base_colour;
+    RGB base_colour;
 
     // Intensity
     float   intensity;

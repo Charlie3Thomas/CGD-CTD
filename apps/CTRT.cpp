@@ -48,34 +48,49 @@ int main(int argc, char** argv)
         // Textures
         assert(!embree.textures.contains("water"));
         embree.textures.emplace("water", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/water.png")));
-        assert(!embree.textures.contains("epoca"));
-        embree.textures.emplace("epoca", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/epoca.jpg")));
+        assert(!embree.textures.contains("stone"));
+        embree.textures.emplace("stone", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/stone.jpg")));
+        assert(!embree.textures.contains("test"));
+        embree.textures.emplace("test", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/capsule0.jpg")));
 
         // Load objects
-        size_t num_objects = 100;
+        size_t num_objects = 5;
 
         std::vector<Object> objects;
         objects.reserve(num_objects);
         ObjectLoader loader = ObjectLoader();
         {
+            float rotx = 0.0F;
+            float roty = 0.0F;
+            float rotz = 0.0F;
+            float posx = -6.0F;
             for (size_t i = 0; i < num_objects; i++)
             {
-                auto scale          = RandomRange(0.1F, 1.0F);
-                auto transformation = Matrix3f   (MakeRotation(RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F)) * scale);
-                auto translation    = Vector3f   (RandomRange(-10.0F, 10.0F), RandomRange(-10.0F, 10.0F), RandomRange(10.0F, 50.0F));
+                auto scale          = 1.0F;
+                // auto transformation = Matrix3f   (MakeRotation(RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F)) * scale);
+                // auto translation    = Vector3f   (RandomRange(-10.0F, 10.0F), RandomRange(-10.0F, 10.0F), RandomRange(10.0F, 50.0F));
+                auto transformation = Matrix3f   (MakeRotation(rotx, roty, rotz) * scale);
+                auto translation    = Vector3f   (posx, 0.0F, 10.0F);
 
                 assert(embree.materials.contains("red"));
                 const Material* mat = embree.materials["red"].get();
 
                 const Texture* tex = nullptr;
 
-                if (i % 2 == 0)
-                {
-                    assert(embree.textures.contains("water"));
-                    tex = embree.textures["water"].get();
-                }   
+                assert(embree.textures.contains("stone"));
+                tex = embree.textures["stone"].get();
+
+                // if (i % 2 == 0)
+                // {
+
+                // }   
 
                 objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, tex});
+
+                rotx += 45.0F;
+                roty += 45.0F;
+                rotz += 45.0F;
+                posx += 3.0F;
             }            
             loader.LoadObjects(objects);
         }

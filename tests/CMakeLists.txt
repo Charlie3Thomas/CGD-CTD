@@ -1,9 +1,10 @@
 #TODO : More sensible test structure
 
-add_test(NAME guy-1080 COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-guy-1080.exr -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/guy.obj -t 20)
+add_test(NAME 000test COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-test.exr -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/capsule.obj -t 10)
 
 # List of model file names
 set(objfiles
+    capsule
     cow
     cube
     homer

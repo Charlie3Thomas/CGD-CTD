@@ -1,5 +1,9 @@
 #include "utils/rgb.hpp"
 
+#include <Eigen/Core>
+
+#include <cassert>
+
 using namespace Eigen;
 
 namespace CT
@@ -24,52 +28,43 @@ RGB FromBaryCoords(RTCHit& hit)
     };
 }
 
-RGB FromTexture(RTCHit& hit, const Texture* tex)
+RGB FromTexture(RTCHit& hit, const Texture* tex, const UVTextureCoords& tex_coords)
 {  
-    // Calculate the texture coordinates scaled by texture dimensions
-    float u = hit.u * static_cast<float>(tex->width);
-    float v = hit.v * static_cast<float>(tex->height);
+    float baru = hit.u;
+    float barv = hit.v;
+    float barw = 1.0F - hit.u - hit.v;
 
-    int x = static_cast<int>(u);
-    int y = static_cast<int>(v);
+    float Au = tex_coords.coords[1].x();
+    float Av = tex_coords.coords[1].y();
 
-    int texel_offset = static_cast<int>((x + y * tex->width) * 3);
+    float Bu = tex_coords.coords[2].x();
+    float Bv = tex_coords.coords[2].y();
 
-    BYTE b = tex->buffer[texel_offset];
-    BYTE g = tex->buffer[texel_offset + 1];
-    BYTE r = tex->buffer[texel_offset + 2];
+    float Cu = tex_coords.coords[0].x();
+    float Cv = tex_coords.coords[0].y();
+
+    float u = baru * Au + barv * Bu + barw * Cu;
+    assert(u >= 0.0F && u <= 1.0F);
+    float v = baru * Av + barv * Bv + barw * Cv;
+    assert(v >= 0.0F && v <= 1.0F);
+    float w = 1.0F - u - v;
+
+    auto px = static_cast<unsigned int>(u * static_cast<float>(tex->width));
+    assert(px <= tex->width);
+    auto py = static_cast<unsigned int>(v * static_cast<float>(tex->height));
+    assert(py <= tex->height);
+
+    unsigned int p_index = (py * tex->width + px) * 3;
+    assert(p_index + 2 < tex->width * tex->height * 3);
 
     return 
-    { 
-        static_cast<float>(r) / 255.0F, 
-        static_cast<float>(g) / 255.0F, 
-        static_cast<float>(b) / 255.0F 
+    {
+        static_cast<float>(tex->buffer[p_index + 2]) / 255.0F,
+        static_cast<float>(tex->buffer[p_index + 1]) / 255.0F,
+        static_cast<float>(tex->buffer[p_index + 0]) / 255.0F
+        // u,
+        // v,
+        // w
     };
-    // // Get barycentric coordinates
-    // const float u = hit.u;
-    // const float v = hit.v;
-    // const float w = 1.0F - u - v;    
-
-    // Vector2f tca(tri.v[0].pos.x(), tri.v[0].pos.y());
-    // Vector2f tcb(tri.v[1].pos.x(), tri.v[1].pos.y());
-    // Vector2f tcc(tri.v[2].pos.x(), tri.v[2].pos.y());
-
-    // Vector2f interp_tex_coords = u * tca + v * tcb + w * tcc;
-
-    // int texel_offset = static_cast<int>(interp_tex_coords.x()) + static_cast<int>(interp_tex_coords.y());
-
-    // assert(static_cast<size_t>(texel_offset) < tex.buffer.size());
-
-    // BYTE blue  = tex.buffer[texel_offset];
-    // BYTE green = tex.buffer[texel_offset + 1];
-    // BYTE red   = tex.buffer[texel_offset + 2];
-
-    // // Return RGB
-    // return 
-    // {
-    //     static_cast<float>(red)   / 255.0F,
-    //     static_cast<float>(green) / 255.0F,
-    //     static_cast<float>(blue)  / 255.0F
-    // };
 }
 }
