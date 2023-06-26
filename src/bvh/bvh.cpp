@@ -142,32 +142,11 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
 
     // Settings for bvh build
     RTCBuildArguments arguments = rtcDefaultBuildArguments();
+
         arguments.byteSize               = sizeof(arguments);
         arguments.buildFlags             = RTC_BUILD_FLAG_NONE;
         arguments.buildQuality           = quality;                 
         arguments.maxBranchingFactor     = 8;       
-        arguments.maxDepth               = 1024;
-        arguments.sahBlockSize           = 1;
-        arguments.minLeafSize            = 10;
-        arguments.maxLeafSize            = 1000;
-        arguments.traversalCost          = 2.0F;
-        arguments.intersectionCost       = 1.0F;
-        arguments.bvh                    = bvh;
-        arguments.primitives             = prims.data();
-        arguments.primitiveCount         = prims.size();
-        arguments.primitiveArrayCapacity = prims.capacity();
-        arguments.createNode             = InnerNode::Create;
-        arguments.setNodeChildren        = InnerNode::SetChildren;
-        arguments.setNodeBounds          = InnerNode::SetBounds;
-        arguments.createLeaf             = LeafNode::Create;
-        arguments.splitPrimitive         = SplitPrimitive;
-        arguments.buildProgress          = nullptr;        
-        arguments.userPtr                = nullptr;
-/*
-        arguments.byteSize               = sizeof(arguments);
-        arguments.buildFlags             = RTC_BUILD_FLAG_NONE;
-        arguments.buildQuality           = quality;                 
-        arguments.maxBranchingFactor     = 2;       
         arguments.maxDepth               = 1024;
         arguments.sahBlockSize           = 1;
         arguments.minLeafSize            = 1;
@@ -185,10 +164,9 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
         arguments.splitPrimitive         = SplitPrimitive;
         arguments.buildProgress          = nullptr;        
         arguments.userPtr                = nullptr;
-*/
-    
+
     for (size_t j = 0; j < prims.size(); j++) prims[j] = prims_i[j];
-    rtcBuildBVH(&arguments);
+    rtcBuildBVH(&arguments);    
 
     std::cout << "Built for " << prims.size() << " primitives" << std::endl;
 

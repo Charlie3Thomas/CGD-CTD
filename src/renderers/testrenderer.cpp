@@ -94,9 +94,9 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
                         // Do a wonky lil assertion, don't keep it like this
                         assert(obj->tex_coords.contains(ray.hit.primID));
                         RGB colour = FromTexture(ray.hit, obj->texture, obj->tex_coords.at(ray.hit.primID));
-                        pixel_ref.r = colour.r * scale;
-                        pixel_ref.g = colour.g * scale;
-                        pixel_ref.b = colour.b * scale;
+                        pixel_ref.r = colour.r;
+                        pixel_ref.g = colour.g;
+                        pixel_ref.b = colour.b;
                     }
                     else
                     {

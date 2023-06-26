@@ -161,6 +161,8 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
             geomID = rtcAttachGeometry(embree.scene, mesh);
             rtcSetGeometryUserData(mesh, &object);
             rtcReleaseGeometry(mesh);
+            
+
         }
         
         // TODO: Look at user data
@@ -172,6 +174,8 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
     auto timer = add_scene.IncreaseCum();
     rtcCommitScene(embree.scene);
     }
+
+    importer.FreeScene();
 }
 
 std::vector<RTCBuildPrimitive>& ObjectLoader::GetPrims()

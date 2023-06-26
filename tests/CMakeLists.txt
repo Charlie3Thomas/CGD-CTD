@@ -1,6 +1,6 @@
 #TODO : More sensible test structure
 
-add_test(NAME 000test COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-test.exr -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/capsule.obj -t 10)
+add_test(NAME 000test COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-test.exr -r 7680x4320 -i ${CMAKE_SOURCE_DIR}/obj/capsule.obj -t 20 -b) 
 
 # List of model file names
 set(objfiles
@@ -35,7 +35,7 @@ foreach(model ${objfiles})
         endif()
         add_test(
             NAME ${model}-1080${output_suffix}
-            COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-${model}-1080-${output_suffix}-${i}.exr -r 1920x1080 -i ${CMAKE_SOURCE_DIR}/obj/${model}.obj ${ray_tracer_flags} -t 20
+            COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-${model}-1080-${output_suffix}-${i}.exr -r 4000x2000 -i ${CMAKE_SOURCE_DIR}/obj/${model}.obj ${ray_tracer_flags} -t 20
         )
     endforeach()
 endforeach()

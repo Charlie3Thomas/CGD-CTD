@@ -1,3 +1,4 @@
 add_library(ct-renderers STATIC testrenderer.cpp)
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 target_include_directories(ct-renderers PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/.. PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(ct-renderers PUBLIC ct-config ct-bvh ct-camera ct-embree ct-loaders ct-materials ct-utils tinyexr pthread)
+target_link_libraries(ct-renderers PUBLIC ct-config ct-bvh ct-camera ct-embree ct-loaders ct-materials ct-utils tinyexr pthread Eigen3::Eigen)

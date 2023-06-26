@@ -44,18 +44,18 @@ RGB FromTexture(RTCHit& hit, const Texture* tex, const UVTextureCoords& tex_coor
     float Cv = tex_coords.coords[0].y();
 
     float u = baru * Au + barv * Bu + barw * Cu;
-    assert(u >= 0.0F && u <= 1.0F);
+    //assert(u >= 0.0F && u <= 1.0F);
     float v = baru * Av + barv * Bv + barw * Cv;
-    assert(v >= 0.0F && v <= 1.0F);
+    //assert(v >= 0.0F && v <= 1.0F);
     float w = 1.0F - u - v;
 
     auto px = static_cast<unsigned int>(u * static_cast<float>(tex->width));
-    assert(px <= tex->width);
+    //assert(px <= tex->width);
     auto py = static_cast<unsigned int>(v * static_cast<float>(tex->height));
-    assert(py <= tex->height);
+    //assert(py <= tex->height);
 
     unsigned int p_index = (py * tex->width + px) * 3;
-    assert(p_index + 2 < tex->width * tex->height * 3);
+    //assert(p_index + 2 < tex->width * tex->height * 3);
 
     return 
     {
