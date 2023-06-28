@@ -17,7 +17,4 @@ struct Texture
 };
 
 Texture LoadTexture(std::filesystem::path fp);
-
-
-
 }

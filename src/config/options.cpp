@@ -99,53 +99,6 @@ void ConfigSingleton::ParseOptions(int argc, char** argv)
             }
         }
     }
-
-    // // Parse command line args
-    // for (int c; (c = getopt(argc, argv, "r:i:o:b:c:n")) != -1;)
-    // {
-    //     switch (c)
-    //     {
-    //         case 'r':
-    //         {
-    //             // Parse resolution
-    //             const std::string resolution = optarg;
-    //             const std::size_t x_pos = resolution.find('x');
-    //             instance->image_width = std::stol(resolution.substr(0, x_pos));
-    //             instance->image_height = std::stol(resolution.substr(x_pos + 1, resolution.length()));
-    //             break;
-    //         }
-    //         case 'i':
-    //         {
-    //             instance->input_model_filename = optarg;
-    //             break;
-    //         }
-    //         case 'o':
-    //         {
-    //             instance->image_filename = optarg;
-    //             break;
-    //         }
-    //         case 'b':
-    //         {
-    //             instance->use_bvh = true;                
-    //             break;
-    //         }
-    //         case 'c':
-    //         {
-    //             instance->visualise_canvases = true;
-    //             break;
-    //         }
-    //         case 'n':
-    //         {
-    //             instance->visualise_normals = true;
-    //             break;
-    //         }
-    //         default:
-    //         {
-    //             assert(false);
-    //             break;
-    //         }
-    //     }        
-    // }
 }
 
 ConfigSingleton::~ConfigSingleton()

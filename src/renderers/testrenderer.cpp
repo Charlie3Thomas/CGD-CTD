@@ -70,9 +70,6 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
     Eigen::Vector3f light_dir(1.0F, 1.0F, 1.0F);
     light_dir.normalize();
 
-    // Specify material
-    //Material mat { RGB{1.0F, 0.0F, 0.0F}, 0.5F, 0.5F, 0.5F };
-
     for (size_t y = 0; y < canvas.rect.GetHeight(); y++)
     {
         for (size_t x = 0; x < canvas.rect.GetWidth(); x++)
@@ -87,7 +84,6 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
             rtcInitIntersectContext(&context);
 
             // Trace the ray against the scene
-            //rtcIntersect1(EmbreeSingleton::GetInstance().scene, &context, &ray);
             rtcIntersect1(embree.scene, &context, &ray);
 
             auto pixel_ref = canvas(x, y);
@@ -118,7 +114,7 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
                 {
                     // // Draw a colour depending on the normals
                     //RGB colour = FromIntersectNormal(ray.hit);
-                    RGB colour = OingoBoingo(hit_normal);
+                    RGB colour = FromNormal(hit_normal);
                     pixel_ref.r = colour.r;
                     pixel_ref.g = colour.g;
                     pixel_ref.b = colour.b;
@@ -140,12 +136,6 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
                         pixel_ref.g = std::clamp(obj->material->base_colour.g * scale, 0.0F, 1.0F);
                         pixel_ref.b = std::clamp(obj->material->base_colour.b * scale, 0.0F, 1.0F);
                     }                    
-
-                    // // Draw a colour representing bary coords
-                    // RGB colour = FromBaryCoords(ray.hit);
-                    // pixel_ref.r = colour.r;
-                    // pixel_ref.g = colour.g;
-                    // pixel_ref.b = colour.b;
                 }
             }
             else
@@ -198,23 +188,4 @@ void TestRenderer::RenderFilm(Film& film, Camera& camera, size_t threads)
         futures.emplace_back(pool.enqueue(RenderCanvas, std::ref(canvas), std::ref(camera)));
     }
 }
-
-
-// for (size_t i = 0; i < film.canvases.size(); i+=8)
-// {
-//     auto f1 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 0]), std::ref(camera));
-//     auto f2 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 1]), std::ref(camera));
-//     auto f3 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 2]), std::ref(camera));
-//     auto f4 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 3]), std::ref(camera));
-//     auto f5 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 4]), std::ref(camera));
-//     auto f6 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 5]), std::ref(camera));
-//     auto f7 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 6]), std::ref(camera));
-//     auto f8 = std::async(std::launch::async, RenderCanvas, std::ref(film.canvases[i + 7]), std::ref(camera));
-// }
-// // for each canvas
-// for (auto& canvas : film.canvases)
-// {
-//     // Render the canvas
-//     RenderCanvas(canvas, camera);
-// }
 }

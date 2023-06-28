@@ -129,9 +129,6 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
             vertices[tris * 3 + 1] = Vector3f(aimesh->mVertices[tris * 3 + 1].x, aimesh->mVertices[tris * 3 + 1].y, aimesh->mVertices[tris * 3 + 1].z);
             vertices[tris * 3 + 2] = Vector3f(aimesh->mVertices[tris * 3 + 2].x, aimesh->mVertices[tris * 3 + 2].y, aimesh->mVertices[tris * 3 + 2].z);
 
-            // Triangle tri = Triangle(Vertex(vertices[tris * 3 + 0]), Vertex(vertices[tris * 3 + 1]), Vertex(vertices[tris * 3 + 2]));
-            // object.triangles.emplace_back(tri);
-
             if (config.use_bvh)
             {
                 auto timer = calculate_bvh_bounds.IncreaseCum();
@@ -205,11 +202,7 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
             geomID = rtcAttachGeometry(embree.scene, mesh);
             rtcSetGeometryUserData(mesh, &object);
             rtcReleaseGeometry(mesh);
-        }
-        
-        // TODO: Look at user data
-        //embree.AddTexture(geomID, object.texture);
-        
+        }        
     }
 
     {

@@ -29,9 +29,4 @@ Film::Film(const size_t width, const size_t height, const Eigen::Vector2i& canva
         }
     }
 }
-
-void Film::DevelopFilm()
-{
-    // TODO : construct film from canvases and write data to _rgb
-}
 }

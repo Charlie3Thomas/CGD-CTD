@@ -29,7 +29,7 @@ constexpr RGB BLACK     {  0.0F,    0.0F,       0.0F};
 constexpr RGB WHITE     {255.0F,   255.0F,    255.0F};
 
 RGB FromIntersectNormal(RTCHit& hit);
-RGB OingoBoingo(Vector3f flimbo);
+RGB FromNormal(Vector3f flimbo);
 RGB FromBaryCoords(RTCHit& hit);
 RGB FromTexture(RTCHit& hit, const Texture* tex, const UVTextureCoords& tex_coords);
 
