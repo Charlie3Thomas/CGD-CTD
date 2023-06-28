@@ -54,7 +54,7 @@ int main(int argc, char** argv)
         embree.textures.emplace("test", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/capsule0.jpg")));
 
         // Load objects
-        size_t num_objects = 1000;
+        size_t num_objects = 1;
 
         std::vector<Object> objects;
         objects.reserve(num_objects);
@@ -67,10 +67,12 @@ int main(int argc, char** argv)
             for (size_t i = 0; i < num_objects; i++)
             {
                 auto scale          = 1.0F;
-                auto transformation = Matrix3f   (MakeRotation(RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F)) * scale);
-                auto translation    = Vector3f   (RandomRange(-10.0F, 10.0F), RandomRange(-10.0F, 10.0F), RandomRange(10.0F, 50.0F));
+                // auto transformation = Matrix3f   (MakeRotation(RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F)) * scale);
+                // auto translation    = Vector3f   (RandomRange(-10.0F, 10.0F), RandomRange(-10.0F, 10.0F), RandomRange(10.0F, 50.0F));
                 // auto transformation = Matrix3f   (MakeRotation(rotx, roty, rotz) * scale);
                 // auto translation    = Vector3f   (posx, 0.0F, 10.0F);
+                auto transformation = Matrix3f   (MakeRotation(45.0F, 45.0F, 45.0F) * scale);
+                auto translation    = Vector3f   (0.0F, 0.0F, 10.0F);
 
                 assert(embree.materials.contains("red"));
                 const Material* mat = embree.materials["red"].get();
@@ -85,8 +87,8 @@ int main(int argc, char** argv)
 
                 // }   
 
-                objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, tex});
-                //objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, nullptr});
+                //objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, tex});
+                objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, nullptr});
 
                 rotx += 45.0F;
                 roty += 45.0F;

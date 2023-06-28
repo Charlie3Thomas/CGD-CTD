@@ -8,6 +8,7 @@
 #include <filesystem>
 #include <unordered_map>
 #include <array>
+#include <vector>
 
 using namespace Eigen;
 
@@ -35,5 +36,8 @@ struct Object
 
     // Texture coordinates
     std::unordered_map<unsigned int, UVTextureCoords> tex_coords;
+
+    // Triangles
+    std::vector<Triangle> triangles; 
 };    
 }

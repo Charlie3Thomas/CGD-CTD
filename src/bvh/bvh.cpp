@@ -146,7 +146,7 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
         arguments.byteSize               = sizeof(arguments);
         arguments.buildFlags             = RTC_BUILD_FLAG_NONE;
         arguments.buildQuality           = quality;                 
-        arguments.maxBranchingFactor     = 8;       
+        arguments.maxBranchingFactor     = 2;       
         arguments.maxDepth               = 1024;
         arguments.sahBlockSize           = 1;
         arguments.minLeafSize            = 1;

@@ -12,9 +12,19 @@ RGB FromIntersectNormal(RTCHit& hit)
 {
     return 
     {
-        hit.Ng_x * 100, 
-        hit.Ng_y * 100, 
-        hit.Ng_z * 100
+        std::abs(hit.Ng_x), 
+        std::abs(hit.Ng_y), 
+        std::abs(hit.Ng_z)
+    };
+}
+
+RGB OingoBoingo(Vector3f flimbo)
+{
+    return 
+    {
+        std::abs(flimbo.x() / 2 + 0.5F),
+        std::abs(flimbo.y() / 2 + 0.5F),
+        std::abs(flimbo.z() / 2 + 0.5F)
     };
 }
 

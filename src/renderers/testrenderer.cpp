@@ -26,6 +26,38 @@
 namespace CT
 {
 
+Vector3f InterpolateNormals(const RTCRayHit rtcray, const Object* obj)
+{
+    // Triangle Vertices
+    std::array<Vector3f, 3> vertices;
+
+    // Vertex Normals
+    std::array<Vector3f, 3> normals;
+
+    // Get triangle vertices
+    const auto& triangle = obj->triangles[rtcray.hit.primID];
+    for (int i = 0; i < 3; i++)
+    {
+        vertices[i] = triangle.v[i].pos;
+        normals[i] = triangle.v[i].vertex_normal;
+    }
+
+    // Barycentric coordinates
+    Vector3f bary = Vector3f(rtcray.hit.u, rtcray.hit.v, 1.0F - rtcray.hit.u - rtcray.hit.v);
+
+    Vector3f ret = Vector3f(0.0F, 0.0F, 0.0F);
+
+    // Interpolate vertex normals using bary coords
+    ret = Vector3f::Zero();
+
+    for (int i = 0; i < 3; i++)
+        ret += bary[i] * normals[i];
+
+    ret.normalize();
+
+    return ret;
+}
+
 static void RenderCanvas(Canvas& canvas, const Camera& camera)
 {
     // Retrieve config singleton instance
@@ -35,7 +67,7 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
     EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
 
     // Light direction
-    Eigen::Vector3f light_dir(-1.0F, 1.0F, -1.0F);
+    Eigen::Vector3f light_dir(1.0F, 1.0F, 1.0F);
     light_dir.normalize();
 
     // Specify material
@@ -65,24 +97,28 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
                 // Find the object hit by the ray
                 RTCGeometry rtcg = rtcGetGeometry(embree.scene, ray.hit.geomID);
                 const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg));                
+                
+                std::array<float, 3> interp_P;
+                rtcInterpolate0(rtcg, ray.hit.primID, ray.hit.u, ray.hit.v, RTC_BUFFER_TYPE_VERTEX_ATTRIBUTE, 0, interp_P.data(), interp_P.size());
 
-                Eigen::Vector3f hit_normal(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z);
+                Vector3f hit_normal(interp_P[0], interp_P[1], interp_P[2]);
                 hit_normal.normalize();
+                //float cos_theta = std::max(0.0F, std::abs(hit_normal.dot(light_dir)));
 
-                float cos_theta = std::max(0.0F, std::abs(hit_normal.dot(light_dir)));
-
-                Eigen::Vector3f raydir = Eigen::Vector3f(ray.ray.dir_x, ray.ray.dir_y, ray.ray.dir_z);
+                Vector3f raydir = Vector3f(ray.ray.dir_x, ray.ray.dir_y, ray.ray.dir_z);
 
                 // Calculate reflected ray direction
-                Eigen::Vector3f reflection = (2.0F * hit_normal - raydir);
+                Vector3f reflection = (2.0F * hit_normal - raydir);
                 reflection.normalize();
 
-                float scale = -hit_normal.dot(raydir) * 1.0F * std::abs(light_dir.dot(reflection));
+                //float scale = -hit_normal.dot(raydir) * 1.0F * std::abs(light_dir.dot(reflection));
+                float scale = -hit_normal.dot(raydir);
 
                 if (config.visualise_normals)
                 {
                     // // Draw a colour depending on the normals
-                    RGB colour = FromIntersectNormal(ray.hit);
+                    //RGB colour = FromIntersectNormal(ray.hit);
+                    RGB colour = OingoBoingo(hit_normal);
                     pixel_ref.r = colour.r;
                     pixel_ref.g = colour.g;
                     pixel_ref.b = colour.b;
@@ -100,9 +136,9 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
                     }
                     else
                     {
-                        pixel_ref.r = obj->material->base_colour.r * scale * cos_theta;
-                        pixel_ref.g = obj->material->base_colour.g * scale * cos_theta;
-                        pixel_ref.b = obj->material->base_colour.b * scale * cos_theta;
+                        pixel_ref.r = std::clamp(obj->material->base_colour.r * scale, 0.0F, 1.0F);
+                        pixel_ref.g = std::clamp(obj->material->base_colour.g * scale, 0.0F, 1.0F);
+                        pixel_ref.b = std::clamp(obj->material->base_colour.b * scale, 0.0F, 1.0F);
                     }                    
 
                     // // Draw a colour representing bary coords
@@ -118,6 +154,10 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
                 pixel_ref.g = 0.0F;
                 pixel_ref.b = 0.0F;
             }
+
+            assert(pixel_ref.r >= 0.0F && pixel_ref.r <= 1.01F);
+            assert(pixel_ref.g >= 0.0F && pixel_ref.g <= 1.01F);
+            assert(pixel_ref.b >= 0.0F && pixel_ref.b <= 1.01F);
 
             if (config.visualise_canvases)
             {

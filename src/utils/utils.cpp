@@ -11,20 +11,56 @@ uint64_t GetGUID()
     return guid++;
 }
 
-// template<typename T>
-// T RandomRange(T min, T max)
-// {
-//     static std::random_device rd;
-//     static std::mt19937 gen(rd());
-//     std::uniform_real_distribution<T> dis(min, max);
-//     return dis(gen);    
-// }
-
 float RandomRange(float min, float max)
 {
     static std::random_device rd;
-    static std::mt19937 gen(rd());
+    static std::mt19937 gen(1);
     std::uniform_real_distribution<float> dis(min, max);
     return dis(gen);    
 }
+
+// http://psgraphics.blogspot.com/2011/01/improved-code-for-concentric-map.html
+void ToUnitDisk(double seedx, double seedy, double *x, double *y)
+{
+    double phi = 0;
+    double r = 0;
+
+    double a = 2.0F * seedx - 1.0F;
+    double b = 2.0F * seedy - 1.0F;
+
+    if (a > -b) 
+    {
+        if (a > b)
+        {
+            r = a;
+            phi = (M_PI / 4.0F) * (b / a);
+        }
+        else
+        {
+            phi = (M_PI / 4.0F) * (2.0F - (a / b));
+        }
+    }
+    else 
+    {
+        if (a < b) 
+        {
+            r = -a;
+            phi = (M_PI / 4.0F) * (4.0F + (b / a));
+        }
+        else
+        {
+            r = -b;
+            if (b !=0){
+                phi = (M_PI / 4.0F) * (6.0F - (a / b));
+            }
+            else{
+                phi = 0.0F;
+            }
+        }
+    }
+
+    *x = r * cos(phi);
+    *y = r * sin(phi);    
+}
+
 }
