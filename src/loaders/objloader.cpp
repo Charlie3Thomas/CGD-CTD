@@ -131,7 +131,7 @@ for (size_t i = 0; i < s->mNumMeshes; i++)
         
         {
         auto timer = fill_geom.IncreaseCum();
-        for (size_t tris = 0; tris < aimesh->mNumVertices / 3; tris++) // TODO: tris != verts/3
+        for (size_t tris = 0; tris < aimesh->mNumFaces; tris++) // TODO: tris != verts/3
         {
             vertices[tris * 3 + 0] = Vector3f(aimesh->mVertices[tris * 3 + 0].x, aimesh->mVertices[tris * 3 + 0].y, aimesh->mVertices[tris * 3 + 0].z);
             vertices[tris * 3 + 1] = Vector3f(aimesh->mVertices[tris * 3 + 1].x, aimesh->mVertices[tris * 3 + 1].y, aimesh->mVertices[tris * 3 + 1].z);
@@ -186,7 +186,7 @@ for (size_t i = 0; i < s->mNumMeshes; i++)
         {
             auto timer = face_indices.IncreaseCum();
             // Face indices
-            auto* faces = static_cast<std::array<uint32_t, 3>*>(rtcSetNewGeometryBuffer(mesh, RTC_BUFFER_TYPE_INDEX, 0, RTC_FORMAT_UINT3, 3 * sizeof(uint32_t), aimesh->mNumVertices / 3));
+            auto* faces = static_cast<std::array<uint32_t, 3>*>(rtcSetNewGeometryBuffer(mesh, RTC_BUFFER_TYPE_INDEX, 0, RTC_FORMAT_UINT3, 3 * sizeof(uint32_t), aimesh->mNumFaces));
             for (size_t i = 0; i < aimesh->mNumFaces; i++)
             {
                 const aiFace& face = aimesh->mFaces[i];
