@@ -1,5 +1,0 @@
-add_library(ct-interaction STATIC interaction.cpp)
-find_package (Eigen3 3.3 REQUIRED)
-find_package(embree 3.0 REQUIRED)
-target_include_directories(ct-interaction PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/.. PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(ct-interaction PUBLIC Eigen3::Eigen embree)

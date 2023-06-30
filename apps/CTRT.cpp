@@ -44,6 +44,8 @@ int main(int argc, char** argv)
         embree.materials.emplace("blue",  std::make_unique<Material>(RGB{0.0F, 0.0F, 1.0F},  1.0F, 0.5F, 0.5F));
         assert(!embree.materials.contains("green"));
         embree.materials.emplace("green", std::make_unique<Material>(RGB{0.0F, 1.0F, 0.0F},  1.0F, 0.5F, 0.5F));
+        assert(!embree.materials.contains("jade"));
+        embree.materials.emplace("jade", std::make_unique<Material>(RGB{0.0F, 0.64F, 0.42F},  1.0F, 0.5F, 0.5F));
 
         // Textures
         assert(!embree.textures.contains("water"));
@@ -54,7 +56,7 @@ int main(int argc, char** argv)
         embree.textures.emplace("test", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/capsule0.jpg")));
 
         // Load objects
-#if 0
+#if 1
         size_t num_objects = 1;
 #else
         size_t num_objects = 5;
@@ -71,9 +73,9 @@ int main(int argc, char** argv)
             for (size_t i = 0; i < num_objects; i++)
             {
                 auto scale          = 1.0F;
-#if 0
-                auto transformation = Matrix3f   (MakeRotation(RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F), RandomRange(-360.0F, 360.0F)) * scale);
-                auto translation    = Vector3f   (RandomRange(-10.0F, 10.0F), RandomRange(-10.0F, 10.0F), RandomRange(10.0F, 50.0F));
+#if 1
+                auto transformation = Matrix3f   (MakeRotation(0.0F, 180.0F, 0.0F) * scale);
+                auto translation    = Vector3f   (0.0F, 0.0F, 10.0F);
 #else    
                 auto transformation = Matrix3f   (MakeRotation(rotx, roty, rotz) * scale);
                 auto translation    = Vector3f   (posx, 0.0F, 10.0F);
@@ -85,8 +87,8 @@ int main(int argc, char** argv)
                 tex = embree.textures["test"].get();
                 objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, nullptr, tex});
 #else
-                assert(embree.materials.contains("red"));
-                const Material* mat = embree.materials["red"].get();
+                assert(embree.materials.contains("jade"));
+                const Material* mat = embree.materials["jade"].get();
                 objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, nullptr});
 #endif               
                 rotx += 45.0F; roty += 45.0F; rotz += 45.0F; posx += 3.0F;
@@ -109,12 +111,14 @@ int main(int argc, char** argv)
 
         // Create renderer
         std::unique_ptr<Renderer> renderer = std::make_unique<TestRenderer>();
-        
-        // Render
-        renderer->RenderFilm(film, camera, config.threads);
-        
-        //renderer->RenderFilmUnthreaded(film, camera);
 
+        // Render
+#if 1
+        renderer->RenderFilm(film, camera, config.threads);
+#else
+        for (size_t i = 0; i < 10; i++)
+            renderer->RenderFilm(film, camera, config.threads);
+#endif
         // Write to .EXR file
         WriteToEXR(film.rgb.data(), config.image_width, config.image_height, config.image_filename.c_str());
     }    

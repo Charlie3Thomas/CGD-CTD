@@ -22,40 +22,117 @@
 #include "utils/timer.hpp"
 #include "utils/utils.hpp"
 
+#include "materials/phongmat.hpp"
+#include "materials/brdfdata.hpp"
+
 
 namespace CT
 {
 
-Vector3f InterpolateNormals(const RTCRayHit rtcray, const Object* obj)
+/// @brief Takes a pixel reference and a colour and draws the colour to the pixel reference
+/// @param pixel_ref The Canvas::PixelRef& pixel to draw to
+/// @param colour The RGB colour to draw to the pixel
+static void DrawColourToCanvas(Canvas::PixelRef& pixel_ref, const RGB& colour)
 {
-    // Triangle Vertices
-    std::array<Vector3f, 3> vertices;
+    pixel_ref.r = std::clamp(colour.r, 0.0F, 1.0F);
+    pixel_ref.g = std::clamp(colour.g, 0.0F, 1.0F);
+    pixel_ref.b = std::clamp(colour.b, 0.0F, 1.0F);
+}
 
-    // Vertex Normals
-    std::array<Vector3f, 3> normals;
+/// @brief Interpolates the normals at the hit point
+/// @param rtcg The geometry object
+/// @param hit The incoming ray hit information
+/// @return Returns the interpolated normal
+static Vector3f InterpolateNormals(RTCGeometry& rtcg, RTCHit& hit)
+{
+    // Interpolate normals
+    std::array<float, 3> interp_P;
+    rtcInterpolate0(rtcg, hit.primID, hit.u, hit.v, RTC_BUFFER_TYPE_VERTEX_ATTRIBUTE, 0, interp_P.data(), interp_P.size());
+    Vector3f hit_normal(interp_P[0], interp_P[1], interp_P[2]);
+    hit_normal.normalize();
+    return hit_normal;
+}
 
-    // Get triangle vertices
-    const auto& triangle = obj->triangles[rtcray.hit.primID];
-    for (int i = 0; i < 3; i++)
+static RGB EvaluateMaterial(PhongMat& phong, const Vector3f& incident, const Vector3f& normal)
+{
+    Vector3f outgoing = (2.0F * normal.dot(incident) * normal - incident);
+    
+    float pdf = phong.PDF(incident, normal);
+    Vector3f sampled_bdrf = phong.SampleBDRF(incident, normal);
+    RGB mat_colour = phong.Evaluate(incident, normal);
+
+    RGB scaled_colour = mat_colour * (sampled_bdrf.dot(outgoing) / pdf);
+
+    return scaled_colour;
+}
+
+/// @brief Handles a ray hit and draws colours appropriately to the canvas
+/// @param config The ConfigSingleton&
+/// @param embree The EmbreeSingleton&
+/// @param ray The incoming RTCRayHit& ray
+/// @param pixel_ref The CT::Canvas::PixelRef& pixel to draw to
+static void HandleHit(const ConfigSingleton& config, EmbreeSingleton& embree, RTCRayHit& ray, CT::Canvas::PixelRef& pixel_ref)
+{
+    // Find the object hit by the ray
+    RTCGeometry rtcg = rtcGetGeometry(embree.scene, ray.hit.geomID);
+    const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg)); 
+
+    // Interpolate normals and get ray direction
+    Vector3f geom_normal = Vector3f(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z);
+    Vector3f shading_normal = InterpolateNormals(rtcg, ray.hit);
+    Vector3f raydir = Vector3f(ray.ray.dir_x, ray.ray.dir_y, ray.ray.dir_z);
+
+    // Calculate reflected ray direction
+    Vector3f reflection = (2.0F * shading_normal - raydir);
+    reflection.normalize();
+
+    // Calculate scale factor
+    //float scale = -shading_normal.dot(raydir);
+    //float scale = -shading_normal.dot(raydir) * 1.0F * std::abs(light_dir.dot(reflection));
+
+    PhongMat phong = PhongMat(RGB{ 1.0F, 0.0F, 0.0F}, RGB{ 1.0F, 1.0F, 1.0F }, 1.0F, 1.0F);
+
+    Vector3f base_colour = Vector3f{ obj->material->base_colour.r, obj->material->base_colour.g, obj->material->base_colour.b };
+    float metalness = 0.0F;
+    Vector3f emissive = Vector3f{ 1.0F, 1.0F, 1.0F };
+    float roughness = 1.0F;
+    float transmissivness = 1.0F;
+    float opacity = 1.0F;
+
+    MaterialProperties testmat { base_colour, metalness, emissive, roughness, transmissivness, opacity };
+    // RGB colour_avg = RGB{ 0.0F, 0.0F, 0.0F };
+    // for (size_t i = 0; i < 100; i++)
+    // {
+    //     Vector2f u = Vector2f{ RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F) };
+    //     Vector3f sample_weight = Vector3f{ 1.0F, 1.0F, 1.0F };
+    //     if (EvalIndirectCombinedBDRF(u, shading_normal, geom_normal, -raydir, testmat, 0, raydir, sample_weight))
+    //         colour_avg += EvalCombined(shading_normal, -raydir, reflection, testmat);
+    // }
+
+    // DrawColourToCanvas(pixel_ref, (colour_avg / 100.0F));
+
+    if (config.visualise_normals) // Visualise normals as colours if enabled
+        DrawColourToCanvas(pixel_ref, FromNormal(shading_normal));
+    else 
     {
-        vertices[i] = triangle.v[i].pos;
-        normals[i] = triangle.v[i].vertex_normal;
+        if (obj->texture == nullptr) // If the object has no texture, use the base colour
+        {
+#if 1
+            Vector2f u = Vector2f{ RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F) };
+            Vector3f sample_weight = Vector3f{ RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F) };
+            if (EvalIndirectCombinedBDRF(u, shading_normal, geom_normal, -raydir, testmat, 0, raydir, sample_weight))
+                DrawColourToCanvas(pixel_ref, EvalCombined(shading_normal, -raydir, reflection, testmat));
+#else
+            DrawColourToCanvas(pixel_ref, EvalCombined(shading_normal, -raydir, reflection, testmat));
+#endif
+
+        }
+        else
+        {
+            assert(obj->tex_coords.contains(ray.hit.primID)); // Ensure that the object has texture coordinates
+            DrawColourToCanvas(pixel_ref, FromTexture(ray.hit, obj->texture, obj->tex_coords.at(ray.hit.primID)));
+        }
     }
-
-    // Barycentric coordinates
-    Vector3f bary = Vector3f(rtcray.hit.u, rtcray.hit.v, 1.0F - rtcray.hit.u - rtcray.hit.v);
-
-    Vector3f ret = Vector3f(0.0F, 0.0F, 0.0F);
-
-    // Interpolate vertex normals using bary coords
-    ret = Vector3f::Zero();
-
-    for (int i = 0; i < 3; i++)
-        ret += bary[i] * normals[i];
-
-    ret.normalize();
-
-    return ret;
 }
 
 static void RenderCanvas(Canvas& canvas, const Camera& camera)
@@ -67,125 +144,50 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
     EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
 
     // Light direction
-    Eigen::Vector3f light_dir(1.0F, 1.0F, 1.0F);
+    Vector3f light_dir(1.0F, 1.0F, 1.0F);
     light_dir.normalize();
 
     for (size_t y = 0; y < canvas.rect.GetHeight(); y++)
     {
         for (size_t x = 0; x < canvas.rect.GetWidth(); x++)
         {
-            RTCRayHit ray = camera.GetRayForPixel(canvas, Eigen::Vector2i(x, y));
-
-            // default geomID to invalid
-            ray.hit.geomID = RTC_INVALID_GEOMETRY_ID;
-
-            // Create context
-            RTCIntersectContext context; //TODO: get things
-            rtcInitIntersectContext(&context);
-
-            // Trace the ray against the scene
-            rtcIntersect1(embree.scene, &context, &ray);
-
+            // Get a reference to the pixel
             auto pixel_ref = canvas(x, y);
 
+            // Get the ray for the pixel
+            RTCRayHit ray = camera.GetRayForPixel(canvas, Vector2i(x, y));
+            RTCIntersectContext context;
+
+            // Intersect the ray with the scene
+            rtcInitIntersectContext(&context);
+            rtcIntersect1(embree.scene, &context, &ray);            
+
+            // If the ray hit something, handle the hit
             if (ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
-            {
-                // Find the object hit by the ray
-                RTCGeometry rtcg = rtcGetGeometry(embree.scene, ray.hit.geomID);
-                const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg));                
-                
-                std::array<float, 3> interp_P;
-                rtcInterpolate0(rtcg, ray.hit.primID, ray.hit.u, ray.hit.v, RTC_BUFFER_TYPE_VERTEX_ATTRIBUTE, 0, interp_P.data(), interp_P.size());
+                HandleHit(config, embree, ray, pixel_ref);
+            else // Draw black background if no hit
+                DrawColourToCanvas(pixel_ref, RGB(0.0F, 0.0F, 0.0F));
 
-                Vector3f hit_normal(interp_P[0], interp_P[1], interp_P[2]);
-                hit_normal.normalize();
-                //float cos_theta = std::max(0.0F, std::abs(hit_normal.dot(light_dir)));
-
-                Vector3f raydir = Vector3f(ray.ray.dir_x, ray.ray.dir_y, ray.ray.dir_z);
-
-                // Calculate reflected ray direction
-                Vector3f reflection = (2.0F * hit_normal - raydir);
-                reflection.normalize();
-
-                //float scale = -hit_normal.dot(raydir) * 1.0F * std::abs(light_dir.dot(reflection));
-                float scale = -hit_normal.dot(raydir);
-
-                if (config.visualise_normals)
-                {
-                    // // Draw a colour depending on the normals
-                    //RGB colour = FromIntersectNormal(ray.hit);
-                    RGB colour = FromNormal(hit_normal);
-                    pixel_ref.r = colour.r;
-                    pixel_ref.g = colour.g;
-                    pixel_ref.b = colour.b;
-                }
-                else
-                {
-                    if (obj->texture != nullptr)
-                    {
-                        // Do a wonky lil assertion, don't keep it like this
-                        assert(obj->tex_coords.contains(ray.hit.primID));
-                        RGB colour = FromTexture(ray.hit, obj->texture, obj->tex_coords.at(ray.hit.primID));
-                        pixel_ref.r = colour.r;
-                        pixel_ref.g = colour.g;
-                        pixel_ref.b = colour.b;
-                    }
-                    else
-                    {
-                        pixel_ref.r = std::clamp(obj->material->base_colour.r * scale, 0.0F, 1.0F);
-                        pixel_ref.g = std::clamp(obj->material->base_colour.g * scale, 0.0F, 1.0F);
-                        pixel_ref.b = std::clamp(obj->material->base_colour.b * scale, 0.0F, 1.0F);
-                    }                    
-                }
-            }
-            else
-            {
-                pixel_ref.r = 0.0F;
-                pixel_ref.g = 0.0F;
-                pixel_ref.b = 0.0F;
-            }
-
-            assert(pixel_ref.r >= 0.0F && pixel_ref.r <= 1.01F);
-            assert(pixel_ref.g >= 0.0F && pixel_ref.g <= 1.01F);
-            assert(pixel_ref.b >= 0.0F && pixel_ref.b <= 1.01F);
-
+            // Visualise the canvases if enabled
             if (config.visualise_canvases)
-            {
-                // Overwrite the pixel in the canvas
-                if (x == 0 || y == 0)
-                {
-                    pixel_ref.r = 0.0F;
-                    pixel_ref.g = 1.0F;
-                    pixel_ref.b = 1.0F;
-                }
-            }
+                if (x == 0 || y == 0) { DrawColourToCanvas(pixel_ref, RGB(0.0F, 1.0F, 1.0F)); }
         }
     }
 }
 
 void TestRenderer::RenderFilm(Film& film, Camera& camera, size_t threads)
 { 
+    Timer t("RenderFilm");
     // Assert that the number of threads is valid
     assert(threads > 0 && threads <= std::thread::hardware_concurrency());
 
     std::cout << "Rendering film with " << threads << " threads" << std::endl;
+ 
+    ThreadPool pool(threads);               // Create a thread pool    
+    std::vector<std::future<void>> futures; // Create a vector of futures    
+    futures.reserve(film.canvases.size());  // Reserve space for the futures
 
-    // Lambda function to measure time
-    Timer t("RenderFilm");
-
-    // Create a thread pool
-    ThreadPool pool(threads);
-
-    // Create a vector of futures
-    std::vector<std::future<void>> futures;
-
-    // Reserve space for the futures
-    futures.reserve(film.canvases.size());
-
-    for (auto& canvas : film.canvases)
-    {   
-        // Enqueue the task for each canvas
+    for (auto& canvas : film.canvases) // Enqueue the task for each canvas
         futures.emplace_back(pool.enqueue(RenderCanvas, std::ref(canvas), std::ref(camera)));
-    }
 }
 }

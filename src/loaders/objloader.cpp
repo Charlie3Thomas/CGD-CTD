@@ -48,14 +48,22 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
         auto timer = read_file.IncreaseCum();
 
         // Load the mesh file and then cache it
+#if 1
         importer.SetPropertyFloat(AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE, 80.0F);
         const aiScene* s = importer.ReadFile(object.p_file, aiProcess_GenSmoothNormals | aiProcess_FixInfacingNormals);
+#else
+        const aiScene* s = importer.ReadFile(object.p_file, 0);
+#endif
+
         assert(s != nullptr);
         assert(s->mFlags ^ AI_SCENE_FLAGS_INCOMPLETE);
         assert(s->mRootNode != nullptr);
 
+        std::cout << "Number of sub-meshes: " << s->mNumMeshes << std::endl;
+for (size_t i = 0; i < s->mNumMeshes; i++)
+{
         // assimp mesh data
-        aiMesh* aimesh = s->mMeshes[0];
+        aiMesh* aimesh = s->mMeshes[i];
         assert(s->mNumMeshes > 0);       
 
         assert(aimesh != nullptr);
@@ -191,7 +199,7 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
             }
         }
         
-        unsigned int geomID = 0;
+        unsigned int geomID = i;
         {
             auto timer = commit_geom.IncreaseCum();
             rtcSetGeometryVertexAttributeCount(mesh, 1);
@@ -204,6 +212,7 @@ void ObjectLoader::LoadObjects(std::vector<Object>& objects)
             rtcReleaseGeometry(mesh);
         }        
     }
+}
 
     {
     auto timer = add_scene.IncreaseCum();

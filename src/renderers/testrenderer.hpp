@@ -12,7 +12,6 @@ class TestRenderer : public Renderer
 {
 public:
     void InitialiseThreadPool();
-    Vector3f InterpolateNormals(const RTCRayHit rtcray, const Object* obj);
     void RenderFilm(Film& film, Camera& camera, size_t threads) override;
 };
 }
