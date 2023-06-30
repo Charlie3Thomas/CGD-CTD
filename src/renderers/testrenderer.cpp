@@ -14,7 +14,8 @@
 #include "config/options.hpp"
 #include "embree/embreesingleton.hpp"
 #include "loaders/objloader.hpp"
-#include "materials/material.hpp"
+#include "materials/mat.hpp"
+#include "materials/phong.hpp"
 #include "textures/texture.hpp"
 #include "utils/rgb.hpp"
 #include "utils/exr.hpp"
@@ -22,8 +23,7 @@
 #include "utils/timer.hpp"
 #include "utils/utils.hpp"
 
-#include "materials/mat.hpp"
-#include "materials/phong.hpp"
+
 
 
 namespace CT
@@ -78,14 +78,14 @@ static void HandleHit(const ConfigSingleton& config, EmbreeSingleton& embree, RT
     Vector3f reflection = (2.0F * shading_normal - raydir);
     reflection.normalize();
 
-    // Material
-    Mat testmat 
-    {
-        .ka = RGB{0.27F, 0.28F, 0.26F} * 0.10F,
-        .kd = RGB{0.27F, 0.28F, 0.26F} * 0.50F,
-        .ks = RGB{0.27F, 0.28F, 0.26F} * 1.00F, 
-        .shininess = 1.0F                        
-    };
+    // // Material
+    // Mat testmat 
+    // {
+    //     .ka = RGB{0.27F, 0.28F, 0.26F} * 0.10F,
+    //     .kd = RGB{0.27F, 0.28F, 0.26F} * 0.50F,
+    //     .ks = RGB{0.27F, 0.28F, 0.26F} * 1.00F, 
+    //     .shininess = 1.0F                        
+    // };
 
     if (config.visualise_normals) // Visualise normals as colours if enabled
         DrawColourToCanvas(pixel_ref, FromNormal(shading_normal));
@@ -94,7 +94,10 @@ static void HandleHit(const ConfigSingleton& config, EmbreeSingleton& embree, RT
         if (obj->texture == nullptr) // If the object has no texture, use the base colour
         {
             //DrawColourToCanvas(pixel_ref, obj->material->base_colour);
-            DrawColourToCanvas(pixel_ref, Evaluate(testmat, shading_normal, light_dir, incident_reflection, 0.8F, 0.1F, 1.0F));
+            float l_intensity = 0.5F;
+            float a_intensity = 0.05F;
+            float attenuation = 1.0F;
+            DrawColourToCanvas(pixel_ref, Evaluate(obj->material, shading_normal, light_dir, incident_reflection, l_intensity, a_intensity, attenuation));
         }
         else
         {

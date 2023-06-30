@@ -13,7 +13,7 @@
 #include "loaders/objloader.hpp"
 #include "loaders/object.hpp"
 #include "loaders/transform.hpp"
-#include "materials/material.hpp"
+#include "materials/mat.hpp"
 #include "renderers/testrenderer.hpp"
 #include "utils/rgb.hpp"
 #include "utils/exr.hpp"
@@ -37,15 +37,27 @@ int main(int argc, char** argv)
         EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
 
 // PLACEHOLDER TEST
+
+/*
+    // Material
+    Mat testmat 
+    {
+        .ka = RGB{0.27F, 0.28F, 0.26F} * 0.10F,
+        .kd = RGB{0.27F, 0.28F, 0.26F} * 0.50F,
+        .ks = RGB{0.27F, 0.28F, 0.26F} * 1.00F, 
+        .shininess = 1.0F                        
+    };
+*/
         // Materials
         assert(!embree.materials.contains("red"));
-        embree.materials.emplace("red",   std::make_unique<Material>(RGB{1.0F, 0.0F, 0.0F},  1.0F, 0.5F, 0.5F));
+        embree.materials.emplace("red",   std::make_unique<Mat>(Mat{RED   * 0.1F, RED   * 0.5F, RED   * 1.0F, 0.04F}));
         assert(!embree.materials.contains("blue"));
-        embree.materials.emplace("blue",  std::make_unique<Material>(RGB{0.0F, 0.0F, 1.0F},  1.0F, 0.5F, 0.5F));
+        embree.materials.emplace("blue",  std::make_unique<Mat>(Mat{BLUE  * 0.1F, BLUE  * 0.5F, BLUE  * 1.0F, 0.04F}));
         assert(!embree.materials.contains("green"));
-        embree.materials.emplace("green", std::make_unique<Material>(RGB{0.0F, 1.0F, 0.0F},  1.0F, 0.5F, 0.5F));
+        embree.materials.emplace("green", std::make_unique<Mat>(Mat{GREEN * 0.1F, GREEN * 0.5F, GREEN * 1.0F, 0.04F}));
         assert(!embree.materials.contains("jade"));
-        embree.materials.emplace("jade", std::make_unique<Material>(RGB{0.0F, 0.64F, 0.42F},  1.0F, 0.5F, 0.5F));
+        RGB JADE = RGB{0.0F, 0.64F, 0.42F};
+        embree.materials.emplace("jade",  std::make_unique<Mat>(Mat{JADE  * 0.1F, JADE  * 0.5F, JADE  * 1.0F, 0.04F}));
 
         // Textures
         assert(!embree.textures.contains("water"));
@@ -87,8 +99,8 @@ int main(int argc, char** argv)
                 tex = embree.textures["test"].get();
                 objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, nullptr, tex});
 #else
-                assert(embree.materials.contains("jade"));
-                const Material* mat = embree.materials["jade"].get();
+                assert(embree.materials.contains("red"));
+                const Mat* mat = embree.materials["red"].get();
                 objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, nullptr});
 #endif               
                 rotx += 45.0F; roty += 45.0F; rotz += 45.0F; posx += 3.0F;

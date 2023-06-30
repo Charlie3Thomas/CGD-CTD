@@ -6,15 +6,15 @@
 
 namespace CT
 {
-    RGB Evaluate(const Mat& mat, const Vector3f& normal, const Vector3f& light_dir, 
+    RGB Evaluate(const Mat* mat, const Vector3f& normal, const Vector3f& light_dir, 
                  const Vector3f& incident_reflection, float l_intensity, float a_intensity, float attenuation)
     {
         float costheta = std::max(0.0F, normal.dot(light_dir));
         float cosphi   = std::max(0.0F, incident_reflection.dot(light_dir));
 
-        const RGB I_diffuse  = mat.kd * l_intensity * costheta;
-        const RGB I_ambient  = mat.ka * a_intensity;
-        const RGB I_specular = mat.ks * attenuation * l_intensity * (std::pow(cosphi, mat.shininess));
+        const RGB I_diffuse  = mat->kd * l_intensity * costheta;
+        const RGB I_ambient  = mat->ka * a_intensity;
+        const RGB I_specular = mat->ks * attenuation * l_intensity * (std::pow(cosphi, mat->shininess));
 
         return I_diffuse + I_ambient + I_specular;
     }

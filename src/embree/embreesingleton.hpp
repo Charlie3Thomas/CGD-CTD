@@ -1,6 +1,6 @@
 #pragma once
 
-#include "materials/material.hpp"
+#include "materials/mat.hpp"
 #include "textures/texture.hpp"
 
 #include <embree3/rtcore.h>
@@ -19,7 +19,7 @@ public:
     RTCDevice device;
     RTCScene  scene;
     
-    std::unordered_map<std::string, std::unique_ptr<Material>> materials;
+    std::unordered_map<std::string, std::unique_ptr<Mat>> materials;
     std::unordered_map<std::string, std::unique_ptr<Texture>>  textures;
 
 private:

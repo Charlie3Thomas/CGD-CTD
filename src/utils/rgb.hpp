@@ -25,14 +25,14 @@ struct RGB
     RGB operator / (float scalar) const { return {r / scalar, g / scalar, b / scalar}; }
 };
 
-constexpr RGB RED       {255.0F,     0,         0.0F};
-constexpr RGB GREEN     {  0.0F,   255.0F,      0.0F};
-constexpr RGB BLUE      {  0.0F,     0.0F,    255.0F};
-constexpr RGB YELLOW    {255.0F,   255.0F,      0.0F};
-constexpr RGB ORANGE    {255.0F,   165.0F,      0.0F};
-constexpr RGB PURPLE    {160.0F,    32.0F,    240.0F};
-constexpr RGB BLACK     {  0.0F,    0.0F,       0.0F};
-constexpr RGB WHITE     {255.0F,   255.0F,    255.0F};
+constexpr RGB RED       {1.00F, 0.000f, 0.000F};
+constexpr RGB GREEN     {0.00F, 1.000F, 0.000F};
+constexpr RGB BLUE      {0.00F, 0.000F, 1.000F};
+constexpr RGB YELLOW    {1.00F, 1.000F, 0.000F};
+constexpr RGB ORANGE    {1.00F, 0.647F, 0.000F};
+constexpr RGB PURPLE    {0.63F, 0.125F, 0.940F};
+constexpr RGB BLACK     {0.00F, 0.000F, 0.000F};
+constexpr RGB WHITE     {1.00F, 1.000F, 1.000F};
 
 RGB FromIntersectNormal(RTCHit& hit);
 RGB FromNormal(Vector3f flimbo);

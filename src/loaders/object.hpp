@@ -1,6 +1,6 @@
 #pragma once
 
-#include "materials/material.hpp"
+#include "materials/mat.hpp"
 #include "loaders/prims.hpp"
 
 #include <Eigen/Core>
@@ -29,7 +29,7 @@ struct Object
     Vector3f translation;
 
     // Object material
-    const Material* material;
+    const Mat* material;
 
     // Object texture
     const Texture* texture;
