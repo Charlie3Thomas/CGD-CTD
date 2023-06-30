@@ -22,7 +22,8 @@
 #include "utils/timer.hpp"
 #include "utils/utils.hpp"
 
-#include "materials/brdfdata.hpp"
+#include "materials/mat.hpp"
+#include "materials/phong.hpp"
 
 
 namespace CT
@@ -64,32 +65,27 @@ static void HandleHit(const ConfigSingleton& config, EmbreeSingleton& embree, RT
     const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg)); 
 
     // Interpolate normals and get ray direction
-    Vector3f geom_normal = Vector3f(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z).normalized();
-    Vector3f shading_normal = InterpolateNormals(rtcg, ray.hit).normalized();
-    Vector3f raydir = Vector3f(ray.ray.dir_x, ray.ray.dir_y, ray.ray.dir_z).normalized();
+    //Vector3f geom_normal = Vector3f(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z);
+    Vector3f shading_normal = InterpolateNormals(rtcg, ray.hit);
+    Vector3f raydir = Vector3f(ray.ray.dir_x, ray.ray.dir_y, ray.ray.dir_z);
+    Vector3f incident_reflection = (2.0F * shading_normal - raydir).normalized();
+
+    // Light direction
+    Vector3f light_dir = Vector3f{ 1.0F, 0.15F, 0.15F };
+    //Vector3f light_reflection = (2.0F * shading_normal - light_dir).normalized();
 
     // Calculate reflected ray direction
     Vector3f reflection = (2.0F * shading_normal - raydir);
     reflection.normalize();
 
-    Vector3f base_colour = Vector3f{ obj->material->base_colour.r, obj->material->base_colour.g, obj->material->base_colour.b };
-    float metalness = 0.0F;
-    Vector3f emissive = Vector3f{ 0.0F, 0.0F, 0.0F };
-    float roughness = 0.2F;
-    float transmissivness = 1.0F;
-    float opacity = 1.0F;
-
-    MaterialProperties testmat { base_colour, metalness, emissive, roughness, transmissivness, opacity };
-    // RGB colour_avg = RGB{ 0.0F, 0.0F, 0.0F };
-    // for (size_t i = 0; i < 100; i++)
-    // {
-    //     Vector2f u = Vector2f{ RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F) };
-    //     Vector3f sample_weight = Vector3f{ 1.0F, 1.0F, 1.0F };
-    //     if (EvalIndirectCombinedBDRF(u, shading_normal, geom_normal, -raydir, testmat, 0, raydir, sample_weight))
-    //         colour_avg += EvalCombined(shading_normal, -raydir, reflection, testmat);
-    // }
-
-    // DrawColourToCanvas(pixel_ref, (colour_avg / 100.0F));
+    // Material
+    Mat testmat 
+    {
+        .ka = RGB{0.27F, 0.28F, 0.26F} * 0.10F,
+        .kd = RGB{0.27F, 0.28F, 0.26F} * 0.50F,
+        .ks = RGB{0.27F, 0.28F, 0.26F} * 1.00F, 
+        .shininess = 1.0F                        
+    };
 
     if (config.visualise_normals) // Visualise normals as colours if enabled
         DrawColourToCanvas(pixel_ref, FromNormal(shading_normal));
@@ -97,14 +93,8 @@ static void HandleHit(const ConfigSingleton& config, EmbreeSingleton& embree, RT
     {
         if (obj->texture == nullptr) // If the object has no texture, use the base colour
         {
-#if 1
-            Vector2f u = Vector2f{ RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F) };
-            Vector3f sample_weight = Vector3f{ RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F) };
-            if (EvalIndirectCombinedBDRF(u, shading_normal, geom_normal, -raydir, testmat, raydir, sample_weight))
-                DrawColourToCanvas(pixel_ref, EvalCombined(shading_normal, -raydir, reflection, testmat));
-#else
-            DrawColourToCanvas(pixel_ref, EvalCombined(shading_normal, -raydir, reflection, testmat));
-#endif
+            //DrawColourToCanvas(pixel_ref, obj->material->base_colour);
+            DrawColourToCanvas(pixel_ref, Evaluate(testmat, shading_normal, light_dir, incident_reflection, 0.8F, 0.1F, 1.0F));
         }
         else
         {
