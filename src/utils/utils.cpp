@@ -19,6 +19,13 @@ float RandomRange(float min, float max)
     return dis(gen);    
 }
 
+float RandomNormalDistribution()
+{
+    auto theta = static_cast<float>(2.0F * M_PI * RandomRange(0.0F, 1.0F));
+    float rho = std::sqrt(-2.0F * std::log(RandomRange(0.0F, 1.0F)));
+    return rho * std::cos(theta);
+}
+
 // http://psgraphics.blogspot.com/2011/01/improved-code-for-concentric-map.html
 void ToUnitDisk(double seedx, double seedy, double *x, double *y)
 {

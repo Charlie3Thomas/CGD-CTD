@@ -22,7 +22,6 @@
 #include "utils/timer.hpp"
 #include "utils/utils.hpp"
 
-#include "materials/phongmat.hpp"
 #include "materials/brdfdata.hpp"
 
 
@@ -53,19 +52,6 @@ static Vector3f InterpolateNormals(RTCGeometry& rtcg, RTCHit& hit)
     return hit_normal;
 }
 
-static RGB EvaluateMaterial(PhongMat& phong, const Vector3f& incident, const Vector3f& normal)
-{
-    Vector3f outgoing = (2.0F * normal.dot(incident) * normal - incident);
-    
-    float pdf = phong.PDF(incident, normal);
-    Vector3f sampled_bdrf = phong.SampleBDRF(incident, normal);
-    RGB mat_colour = phong.Evaluate(incident, normal);
-
-    RGB scaled_colour = mat_colour * (sampled_bdrf.dot(outgoing) / pdf);
-
-    return scaled_colour;
-}
-
 /// @brief Handles a ray hit and draws colours appropriately to the canvas
 /// @param config The ConfigSingleton&
 /// @param embree The EmbreeSingleton&
@@ -78,24 +64,18 @@ static void HandleHit(const ConfigSingleton& config, EmbreeSingleton& embree, RT
     const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg)); 
 
     // Interpolate normals and get ray direction
-    Vector3f geom_normal = Vector3f(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z);
-    Vector3f shading_normal = InterpolateNormals(rtcg, ray.hit);
-    Vector3f raydir = Vector3f(ray.ray.dir_x, ray.ray.dir_y, ray.ray.dir_z);
+    Vector3f geom_normal = Vector3f(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z).normalized();
+    Vector3f shading_normal = InterpolateNormals(rtcg, ray.hit).normalized();
+    Vector3f raydir = Vector3f(ray.ray.dir_x, ray.ray.dir_y, ray.ray.dir_z).normalized();
 
     // Calculate reflected ray direction
     Vector3f reflection = (2.0F * shading_normal - raydir);
     reflection.normalize();
 
-    // Calculate scale factor
-    //float scale = -shading_normal.dot(raydir);
-    //float scale = -shading_normal.dot(raydir) * 1.0F * std::abs(light_dir.dot(reflection));
-
-    PhongMat phong = PhongMat(RGB{ 1.0F, 0.0F, 0.0F}, RGB{ 1.0F, 1.0F, 1.0F }, 1.0F, 1.0F);
-
     Vector3f base_colour = Vector3f{ obj->material->base_colour.r, obj->material->base_colour.g, obj->material->base_colour.b };
     float metalness = 0.0F;
-    Vector3f emissive = Vector3f{ 1.0F, 1.0F, 1.0F };
-    float roughness = 1.0F;
+    Vector3f emissive = Vector3f{ 0.0F, 0.0F, 0.0F };
+    float roughness = 0.2F;
     float transmissivness = 1.0F;
     float opacity = 1.0F;
 
@@ -120,12 +100,11 @@ static void HandleHit(const ConfigSingleton& config, EmbreeSingleton& embree, RT
 #if 1
             Vector2f u = Vector2f{ RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F) };
             Vector3f sample_weight = Vector3f{ RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F) };
-            if (EvalIndirectCombinedBDRF(u, shading_normal, geom_normal, -raydir, testmat, 0, raydir, sample_weight))
+            if (EvalIndirectCombinedBDRF(u, shading_normal, geom_normal, -raydir, testmat, raydir, sample_weight))
                 DrawColourToCanvas(pixel_ref, EvalCombined(shading_normal, -raydir, reflection, testmat));
 #else
             DrawColourToCanvas(pixel_ref, EvalCombined(shading_normal, -raydir, reflection, testmat));
 #endif
-
         }
         else
         {
@@ -142,10 +121,6 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
 
     // Retrieve embree singleton instance
     EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
-
-    // Light direction
-    Vector3f light_dir(1.0F, 1.0F, 1.0F);
-    light_dir.normalize();
 
     for (size_t y = 0; y < canvas.rect.GetHeight(); y++)
     {

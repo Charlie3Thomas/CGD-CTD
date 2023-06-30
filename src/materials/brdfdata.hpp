@@ -4,6 +4,7 @@
 #include <array>
 
 #include "utils/rgb.hpp"
+#include "utils/utils.hpp"
 
 using namespace Eigen;
 
@@ -120,7 +121,7 @@ Quaternionf GetRotationFromZAxis(Vector3f input)
 // Sampling methods
 
 /// @brief Samples a cosine-weighted hemisphere
-/// @param u 
+/// @param u Randomly generated vector2f
 /// @param pdf 
 /// @return 
 Vector3f SampleHemisphere(Vector2f u, float& pdf)
@@ -236,7 +237,13 @@ Vector3f BaseColourToDiffuseReflectance(const Vector3f& base_colour, float metal
 	return base_colour * (1.0F - metalness);
 }
 
-BRDFData PrepareBRDFData(const Vector3f& N, const Vector3f& L, const Vector3f& V, const MaterialProperties& material)
+/// @brief Sets up commonly used data for BRDF evaluation
+/// @param N Surface normal
+/// @param L Direction of the reflecting ray
+/// @param V Direction to viewer (camera)
+/// @param material 
+/// @return 
+BRDFData PreProcessBRDFData(const Vector3f& N, const Vector3f& L, const Vector3f& V, const MaterialProperties& material)
 {
     BRDFData data;
 
@@ -251,8 +258,8 @@ BRDFData PrepareBRDFData(const Vector3f& N, const Vector3f& L, const Vector3f& V
     data.L_backfacing = NdotL < 0.0F;
 
     // Clamp NdotS to prevent bad things, assuming vectors below the hemisphere are filtered with V and L backfacing bools
-    data.NdotL = std::min(std::max(0.00001F, NdotL), 1.0F);
-    data.NdotV = std::min(std::max(0.00001F, NdotV), 1.0F);
+    data.NdotL = std::clamp(NdotL, 0.00001F, 1.0F);
+    data.NdotV = std::clamp(NdotV, 0.00001F, 1.0F);
 
     data.LdotH = Saturate(L.dot(data.H));
     data.NdotH = Saturate(N.dot(data.H));
@@ -271,7 +278,7 @@ BRDFData PrepareBRDFData(const Vector3f& N, const Vector3f& L, const Vector3f& V
     return data;
 }
 
-/// @brief Evaluate the specular component of the BRDF
+/// @brief Evaluate the specular and diffuse components of the BRDF
 /// @param N Surface normal
 /// @param L Direction of reflecting ray
 /// @param V Direction to viewer (camera) - opposite of incident ray
@@ -280,7 +287,7 @@ BRDFData PrepareBRDFData(const Vector3f& N, const Vector3f& L, const Vector3f& V
 RGB EvalCombined(const Vector3f& N, const Vector3f& L, const Vector3f& V, const MaterialProperties& material)
 {
     // Prepare data
-    const BRDFData data = PrepareBRDFData(N, L, V, material);
+    const BRDFData data = PreProcessBRDFData(N, L, V, material);
 
     // Ignore V and L rays below the hemisphere
     if (data.V_backfacing || data.L_backfacing) { return RGB { 0.0F, 0.0F, 0.0F }; }
@@ -302,10 +309,10 @@ RGB EvalCombined(const Vector3f& N, const Vector3f& L, const Vector3f& V, const 
 }
 
 
-bool EvalIndirectCombinedBDRF(Vector2f u, Vector3f shading_normal, Vector3f geom_normal, Vector3f V, MaterialProperties material, const int brdfType, Vector3f& ray_dir, Vector3f& sample_weight)
+bool EvalIndirectCombinedBDRF(Vector2f u, Vector3f shading_normal, Vector3f geom_normal, Vector3f V, MaterialProperties material, Vector3f& ray_dir, Vector3f& sample_weight)
 {
     // Ignore incident ray coming from below the hemisphere
-    if (shading_normal.dot(V) <= 0.0F)
+    if (shading_normal.dot(V) < 0.0F)
     { 
         return false;
     }
@@ -322,7 +329,7 @@ bool EvalIndirectCombinedBDRF(Vector2f u, Vector3f shading_normal, Vector3f geom
     // Sample diffuse ray using cosine-weighted hemisphere sampling
     Vector2f u_diffuse = Vector2f(RandomRange(0.0F, 1.0F), RandomRange(0.0F, 1.0F));
     ray_direction_local = SampleHemisphere(u_diffuse, pdf);
-    const BRDFData data = PrepareBRDFData(N_local, ray_direction_local, V_local, material);
+    const BRDFData data = PreProcessBRDFData(N_local, ray_direction_local, V_local, material);
     
     Vector3f h_specular = SamplePhong(material.metalness, u, pdf);
 
@@ -339,9 +346,9 @@ bool EvalIndirectCombinedBDRF(Vector2f u, Vector3f shading_normal, Vector3f geom
     ray_dir = (RotatePoint(q_rotate_to_z.conjugate(), ray_direction_local)).normalized();
 
     // Prevent tracing directino under the hemisphere
-    if (geom_normal.dot(ray_dir) <= 0.0F) 
+    if (geom_normal.dot(ray_dir) < 0.0F) 
     { 
-        return false;
+        //return false;
     }
 
     return true;
