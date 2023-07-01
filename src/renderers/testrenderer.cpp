@@ -25,11 +25,8 @@
 
 #include  "lights/light.hpp"
 
-
-
 namespace CT
 {
-
 /// @brief Takes a pixel reference and a colour and draws the colour to the pixel reference
 /// @param pixel_ref The Canvas::PixelRef& pixel to draw to
 /// @param colour The RGB colour to draw to the pixel
@@ -54,16 +51,74 @@ static Vector3f InterpolateNormals(const RTCGeometry& rtcg, const RTCHit& hit)
     return hit_normal;
 }
 
+static RTCRay GetShadowRay(const Vector3f& ray_hit_ws, const Vector3f& light_dir_ws, float distance_to_light)
+{
+    // Make new ray from geom hit position to light position
+    RTCRay ret
+    {
+        .org_x = ray_hit_ws.x(),
+        .org_y = ray_hit_ws.y(),
+        .org_z = ray_hit_ws.z(),
+        .tnear = 0.1F,
+        .dir_x = light_dir_ws.x(),
+        .dir_y = light_dir_ws.y(),
+        .dir_z = light_dir_ws.z(),
+        .tfar = distance_to_light,
+        .mask  = std::numeric_limits<unsigned int>::max()
+    };
+
+    return ret;
+}
+
+static Lights GetLights()
+{
+    Lights ret;
+    // Test ambient light
+    AmbientLight testamb
+    {
+        .colour = RGB{ 0.5F, 0.5F, 0.5F } * 0.04F
+    };
+    ret.ambient.emplace_back(testamb);
+
+    // Test DirectionalLight
+    DirectionalLight testdir
+    {
+        .colour = RGB{ 0.99F, 0.85F, 0.21F } * 0.08F,
+        .direction = Vector3f{ 1.0F, 0.0F, 0.0F }
+    };
+    ret.directional.emplace_back(testdir);
+
+    // Test PointLight
+    PointLight testpoint
+    { 
+        .colour = RGB{ 1.0F, 1.0F, 1.0F } * 0.8F,
+        .position = Vector3f{ 0.0F, 5.0F, 10.0F },
+        .attenuation = 1.0F
+    };
+    ret.point.emplace_back(testpoint);
+
+    return ret;
+}
+
 /// @brief Handles a ray hit and draws colours appropriately to the canvas
 /// @param config The ConfigSingleton&
 /// @param embree The EmbreeSingleton&
 /// @param ray The incoming RTCRayHit& ray
 /// @param pixel_ref The CT::Canvas::PixelRef& pixel to draw to
-static void HandleHit(const ConfigSingleton& config, EmbreeSingleton& embree, const RTCRayHit& ray, CT::Canvas::PixelRef& pixel_ref)
+static RGB HandleHit(const RTCRayHit& ray)
 {
+    RGB pixel_colour = RGB{ 0.0F, 0.0F, 0.0F };
+
+    // Retrieve singleton instances
+    EmbreeSingleton& es = EmbreeSingleton::GetInstance();
+    ConfigSingleton& cs = ConfigSingleton::GetInstance();
+
     // Find the object hit by the ray
-    const RTCGeometry rtcg = rtcGetGeometry(embree.scene, ray.hit.geomID);
-    const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg)); 
+    const RTCGeometry rtcg = rtcGetGeometry(EmbreeSingleton::GetInstance().scene, ray.hit.geomID);
+    const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg));
+
+    // Set up lights:
+    const Lights lights = GetLights();
 
     // Interpolate normals and get ray direction
     //Vector3f geom_normal = Vector3f(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z);
@@ -71,87 +126,95 @@ static void HandleHit(const ConfigSingleton& config, EmbreeSingleton& embree, co
     Vector3f raydir = Vector3f(ray.ray.dir_x, ray.ray.dir_y, ray.ray.dir_z);
     Vector3f incident_reflection = (2.0F * shading_normal - raydir).normalized();
 
-    // Light direction
-    Vector3f light_dir = Vector3f{ 0.5F, -0.5F, -1.0F };
-    //Vector3f light_reflection = (2.0F * shading_normal - light_dir).normalized();
-
     // Calculate reflected ray direction
     Vector3f reflection = (2.0F * shading_normal - raydir);
     reflection.normalize();
-
-    // Test PointLight
-    PointLight testlight
-    { 
-        {1.0F, 1.0F, 1.0F},  // colour
-        1.0F,                // intensity
-        {0.0F, 4.5F, 12.0F}, // position
-        1.0F                 // attenuation
-    };
 
     Vector3f ray_hit_ws = Vector3f(
         ray.ray.org_x + ray.ray.dir_x * ray.ray.tfar, 
         ray.ray.org_y + ray.ray.dir_y * ray.ray.tfar, 
         ray.ray.org_z + ray.ray.dir_z * ray.ray.tfar);
 
-    // Light pos - hit pos
-    Vector3f light_dir_ws = testlight.position - ray_hit_ws;
-
-    // Calculate the distance to the light (vector magnitude)
-    float distance_to_light = light_dir_ws.norm();
-    light_dir_ws /= distance_to_light;
-
-    // Make new ray from geom hit position to light position
-    RTCRay shadow_ray;
-    shadow_ray.org_x = ray_hit_ws.x();
-    shadow_ray.org_y = ray_hit_ws.y();
-    shadow_ray.org_z = ray_hit_ws.z();
-    shadow_ray.dir_x = light_dir_ws.x();
-    shadow_ray.dir_y = light_dir_ws.y();
-    shadow_ray.dir_z = light_dir_ws.z();
-    shadow_ray.mask  = -1;
-    shadow_ray.tnear = 0.001F;
-    shadow_ray.tfar = distance_to_light;
-
-    RTCIntersectContext context;
-    rtcInitIntersectContext(&context);
-    context.flags = RTC_INTERSECT_CONTEXT_FLAG_COHERENT;
-    rtcOccluded1(embree.scene, &context, &shadow_ray);
-
-    if (config.visualise_normals) // Visualise normals as colours if enabled
-        DrawColourToCanvas(pixel_ref, FromNormal(shading_normal));
-    else 
+    // for ambient lights
+    for (const auto& amb_light : lights.ambient)
     {
-        if (obj->texture == nullptr) // If the object has no texture, use the base colour
+        pixel_colour += amb_light.colour * obj->material->ka;
+    }
+
+    // for directional lights
+    for (const auto& dir_light : lights.directional)
+    {
+        RTCRay shadow_ray = GetShadowRay(ray_hit_ws, dir_light.direction, std::numeric_limits<float>::max());
+
+        RTCIntersectContext context;
+        rtcInitIntersectContext(&context);
+        context.flags = RTC_INTERSECT_CONTEXT_FLAG_COHERENT;
+        rtcOccluded1(es.scene, &context, &shadow_ray);    
+
+        if (shadow_ray.tfar > 0.0F)
         {
-            if (shadow_ray.tfar > 0)
-            {
-                //DrawColourToCanvas(pixel_ref, obj->material->base_colour);
-                float a_intensity = 0.01F;
-                float l_intensity = 0.05F;
-                float attenuation = 0.8F;
-                DrawColourToCanvas(pixel_ref, Evaluate(obj->material, shading_normal, light_dir_ws, incident_reflection, l_intensity, a_intensity, attenuation));
-            }            
-        }
-        else
+            float costheta = std::max(0.0F, shading_normal.dot(dir_light.direction));
+            pixel_colour += obj->material->kd * dir_light.colour * costheta;
+        }        
+    }
+
+    // for point lights
+    for (const auto& point : lights.point)
+    {
+        Vector3f light_dir_ws = point.position - ray_hit_ws;
+
+        // Calculate the distance to the light (vector magnitude)
+        float distance_to_light = light_dir_ws.norm();
+        light_dir_ws /= distance_to_light;
+
+        RTCRay shadow_ray = GetShadowRay(ray_hit_ws, light_dir_ws, distance_to_light);
+
+        RTCIntersectContext context;
+        rtcInitIntersectContext(&context);
+        context.flags = RTC_INTERSECT_CONTEXT_FLAG_COHERENT;
+        rtcOccluded1(es.scene, &context, &shadow_ray);        
+
+        if (shadow_ray.tfar > 0.0F)
         {
-            assert(obj->tex_coords.contains(ray.hit.primID)); // Ensure that the object has texture coordinates
-            DrawColourToCanvas(pixel_ref, FromTexture(ray.hit, obj->texture, obj->tex_coords.at(ray.hit.primID)));
+            float cosphi = std::max(0.0F, incident_reflection.dot(light_dir_ws));
+            pixel_colour += obj->material->ks * point.colour * std::pow(cosphi, obj->material->shininess);
         }
     }
+
+
+    // if (cs.visualise_normals) // Visualise normals as colours if enabled
+    //     pixel_colour = FromNormal(shading_normal);
+    // else 
+    // {
+    //     if (obj->texture == nullptr) // If the object has no texture, use the base colour
+    //     {
+    //         if (shadow_ray.tfar > 0)
+    //         {
+    //             //DrawColourToCanvas(pixel_ref, obj->material->base_colour);
+                
+    //             pixel_colour = Evaluate(obj->material, shading_normal, light_dir_ws, incident_reflection, l_intensity, a_intensity, attenuation);
+    //         }            
+    //     }
+    //     else
+    //     {
+    //         assert(obj->tex_coords.contains(ray.hit.primID)); // Ensure that the object has texture coordinates
+    //         pixel_colour = FromTexture(ray.hit, obj->texture, obj->tex_coords.at(ray.hit.primID));
+    //     }
+    // }
+
+    return pixel_colour;
 }
 
 static void RenderCanvas(Canvas& canvas, const Camera& camera)
 {
-    // Retrieve config singleton instance
-    const ConfigSingleton& config = ConfigSingleton::GetInstance();
-
-    // Retrieve embree singleton instance
-    EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
-
     for (size_t y = 0; y < canvas.rect.GetHeight(); y++)
     {
         for (size_t x = 0; x < canvas.rect.GetWidth(); x++)
         {
+            // Retrieve singleton instances
+            EmbreeSingleton& es = EmbreeSingleton::GetInstance();
+            ConfigSingleton& cs = ConfigSingleton::GetInstance();
+
             // Get a reference to the pixel
             auto pixel_ref = canvas(x, y);
 
@@ -163,16 +226,16 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
             context.flags = RTC_INTERSECT_CONTEXT_FLAG_COHERENT;
 
             // Intersect the ray with the scene
-            rtcIntersect1(embree.scene, &context, &ray);            
+            rtcIntersect1(es.scene, &context, &ray);
 
             // If the ray hit something, handle the hit
             if (ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
-                HandleHit(config, embree, ray, pixel_ref);
+                DrawColourToCanvas(pixel_ref, HandleHit(ray));
             else // Draw black background if no hit
                 DrawColourToCanvas(pixel_ref, RGB(0.0F, 0.0F, 0.0F));
 
             // Visualise the canvases if enabled
-            if (config.visualise_canvases)
+            if (cs.visualise_canvases)
                 if (x == 0 || y == 0) { DrawColourToCanvas(pixel_ref, RGB(0.0F, 1.0F, 1.0F)); }
         }
     }

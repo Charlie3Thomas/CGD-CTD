@@ -45,7 +45,7 @@ RTCRayHit Camera::GetRayForPixel(const Canvas& canvas, Eigen::Vector2i pixel_ind
     ret.ray.tfar  = _t_far;
 
     // Layer mask
-    ret.ray.mask  = -1;
+    ret.ray.mask  = std::numeric_limits<unsigned int>::max();
 
     // Set default hit gromID to invalid
     ret.hit.geomID = RTC_INVALID_GEOMETRY_ID;

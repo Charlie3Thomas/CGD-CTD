@@ -10,27 +10,37 @@ using namespace Eigen;
 
 namespace CT
 {
-/// @brief The base class for all lights. Also acts as an ambient light.
-struct Light
+struct AmbientLight
 {   
-    Light(const RGB& col, float intensity) : intensity(intensity) { colour[0] = col.r; colour[1] = col.g; colour[2] = col.b; }
-    std::array<float, 3> colour;
-    float intensity;
+    RGB colour;
 };
 
-/// @brief A directional light.
-struct DirectionalLight : public Light
+struct DirectionalLight
 {
-    DirectionalLight(const RGB& col, float intensity, Vector3f dir) : Light(col, intensity), direction(std::move(dir)) {}
+    RGB colour;
     Vector3f direction;
 };
 
-/// @brief A point light.
-struct PointLight : public Light
+struct PointLight
 {
-    PointLight(const RGB& col, float intensity, Vector3f pos, float att) : Light(col, intensity), position(std::move(pos)), attenuation(att) {}
+    RGB colour;
     Vector3f position;
+
+    // constant
     float attenuation;
+
+    // linear
+    // float linear attenuation;
+
+    // quadratic
+    // float quadratic attenuation;
+};
+
+struct Lights
+{
+    std::vector<AmbientLight> ambient;
+    std::vector<DirectionalLight> directional;
+    std::vector<PointLight> point;
 };
 
 }

@@ -15,12 +15,12 @@ namespace CT
 class EmbreeSingleton
 {
 public:
-    static EmbreeSingleton& GetInstance();    
+    static EmbreeSingleton& GetInstance();
     RTCDevice device;
     RTCScene  scene;
     
-    std::unordered_map<std::string, std::unique_ptr<Mat>> materials;
-    std::unordered_map<std::string, std::unique_ptr<Texture>>  textures;
+    std::unordered_map<std::string, std::unique_ptr<Mat>>     materials;
+    std::unordered_map<std::string, std::unique_ptr<Texture>> textures;
 
 private:
     EmbreeSingleton();

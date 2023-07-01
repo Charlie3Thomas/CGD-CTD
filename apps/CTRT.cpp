@@ -81,7 +81,7 @@ int main(int argc, char** argv)
         embree.textures.emplace("test", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/capsule0.jpg")));
 
         // Load objects
-#if 1
+#if 0
         size_t num_objects = 1;
 #else
         size_t num_objects = 5;
@@ -97,10 +97,15 @@ int main(int argc, char** argv)
             float posx = -6.0F;
             for (size_t i = 0; i < num_objects; i++)
             {
-                auto scale          = 1.0F;
-#if 1
+#if 0
+        auto scale          = 1.00F;
+#else
+        auto scale          = 0.25F;
+#endif
+                
+#if 0
                 auto transformation = Matrix3f   (MakeRotation(0.0F, 150.0F, 0.0F) * scale);
-                auto translation    = Vector3f   (0.5F, 0.0F, 12.0F);
+                auto translation    = Vector3f   (0.5F, 0.0F, 10.0F);
 #else    
                 auto transformation = Matrix3f   (MakeRotation(rotx, roty, rotz) * scale);
                 auto translation    = Vector3f   (posx, 0.0F, 10.0F);
