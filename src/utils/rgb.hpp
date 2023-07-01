@@ -34,10 +34,10 @@ constexpr RGB PURPLE    {0.63F, 0.125F, 0.940F};
 constexpr RGB BLACK     {0.00F, 0.000F, 0.000F};
 constexpr RGB WHITE     {1.00F, 1.000F, 1.000F};
 
-RGB FromIntersectNormal(RTCHit& hit);
+RGB FromIntersectNormal(const RTCHit& hit);
 RGB FromNormal(Vector3f flimbo);
-RGB FromBaryCoords(RTCHit& hit);
-RGB FromTexture(RTCHit& hit, const Texture* tex, const UVTextureCoords& tex_coords);
+RGB FromBaryCoords(const RTCHit& hit);
+RGB FromTexture(const RTCHit& hit, const Texture* tex, const UVTextureCoords& tex_coords);
 
 }
 

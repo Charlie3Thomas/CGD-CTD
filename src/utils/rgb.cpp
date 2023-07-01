@@ -8,7 +8,7 @@ using namespace Eigen;
 
 namespace CT
 {
-RGB FromIntersectNormal(RTCHit& hit)
+RGB FromIntersectNormal(const RTCHit& hit)
 {
     return 
     {
@@ -28,7 +28,7 @@ RGB FromNormal(Vector3f flimbo)
     };
 }
 
-RGB FromBaryCoords(RTCHit& hit)
+RGB FromBaryCoords(const RTCHit& hit)
 {
     return 
     {
@@ -38,7 +38,7 @@ RGB FromBaryCoords(RTCHit& hit)
     };
 }
 
-RGB FromTexture(RTCHit& hit, const Texture* tex, const UVTextureCoords& tex_coords)
+RGB FromTexture(const RTCHit& hit, const Texture* tex, const UVTextureCoords& tex_coords)
 {  
     float baru = hit.u;
     float barv = hit.v;

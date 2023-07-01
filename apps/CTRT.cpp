@@ -56,8 +56,21 @@ int main(int argc, char** argv)
         assert(!embree.materials.contains("green"));
         embree.materials.emplace("green", std::make_unique<Mat>(Mat{GREEN * 0.1F, GREEN * 0.5F, GREEN * 1.0F, 0.04F}));
         assert(!embree.materials.contains("jade"));
-        RGB JADE = RGB{0.0F, 0.64F, 0.42F};
-        embree.materials.emplace("jade",  std::make_unique<Mat>(Mat{JADE  * 0.1F, JADE  * 0.5F, JADE  * 1.0F, 0.04F}));
+        embree.materials.emplace("jade",  std::make_unique<Mat>(Mat
+        {
+            RGB{0.0F, 0.32F, 0.21F}  * 0.1F, 
+            RGB{0.0F, 0.64F, 0.42F}  * 0.6F, 
+            RGB{0.21F, 0.94F, 0.72F} * 0.5F, 
+            1.0F
+        }));
+        assert(!embree.materials.contains("test"));
+        embree.materials.emplace("test",  std::make_unique<Mat>(Mat
+        {
+            GREEN * 1.00F, 
+            BLUE  * 1.00F, 
+            RED   * 1.00F, 
+            1.0F
+        }));
 
         // Textures
         assert(!embree.textures.contains("water"));
@@ -86,8 +99,8 @@ int main(int argc, char** argv)
             {
                 auto scale          = 1.0F;
 #if 1
-                auto transformation = Matrix3f   (MakeRotation(0.0F, 180.0F, 0.0F) * scale);
-                auto translation    = Vector3f   (0.0F, 0.0F, 10.0F);
+                auto transformation = Matrix3f   (MakeRotation(0.0F, 150.0F, 0.0F) * scale);
+                auto translation    = Vector3f   (0.5F, 0.0F, 12.0F);
 #else    
                 auto transformation = Matrix3f   (MakeRotation(rotx, roty, rotz) * scale);
                 auto translation    = Vector3f   (posx, 0.0F, 10.0F);
@@ -99,8 +112,8 @@ int main(int argc, char** argv)
                 tex = embree.textures["test"].get();
                 objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, nullptr, tex});
 #else
-                assert(embree.materials.contains("red"));
-                const Mat* mat = embree.materials["red"].get();
+                assert(embree.materials.contains("jade"));
+                const Mat* mat = embree.materials["jade"].get();
                 objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, nullptr});
 #endif               
                 rotx += 45.0F; roty += 45.0F; rotz += 45.0F; posx += 3.0F;
