@@ -6,8 +6,6 @@
 
 #include <array>
 
-using namespace Eigen;
-
 namespace CT
 {
 struct AmbientLight
@@ -18,13 +16,13 @@ struct AmbientLight
 struct DirectionalLight
 {
     RGB colour;
-    Vector3f direction;
+    Eigen::Vector3f direction;
 };
 
 struct PointLight
 {
     RGB colour;
-    Vector3f position;
+    Eigen::Vector3f position;
 
     // constant
     float attenuation;

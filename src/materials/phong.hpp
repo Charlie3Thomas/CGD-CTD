@@ -6,8 +6,8 @@
 
 namespace CT
 {
-    RGB Evaluate(const Mat* mat, const Vector3f& normal, const Vector3f& light_dir, 
-                 const Vector3f& incident_reflection, float l_intensity, float a_intensity, float attenuation)
+    RGB Evaluate(const Mat* mat, const Eigen::Vector3f& normal, const Eigen::Vector3f& light_dir, 
+                 const Eigen::Vector3f& incident_reflection, float l_intensity, float a_intensity, float attenuation)
     {
         float costheta = std::max(0.0F, normal.dot(light_dir));
         float cosphi   = std::max(0.0F, incident_reflection.dot(light_dir));

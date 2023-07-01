@@ -10,8 +10,6 @@
 #include <array>
 #include <vector>
 
-using namespace Eigen;
-
 namespace CT
 {
 struct Object
@@ -23,10 +21,10 @@ struct Object
     float scale;
 
     // Object transformation
-    Matrix3f transformation;
+    Eigen::Matrix3f transformation;
 
     // Object translation
-    Vector3f translation;
+    Eigen::Vector3f translation;
 
     // Object material
     const Mat* material;

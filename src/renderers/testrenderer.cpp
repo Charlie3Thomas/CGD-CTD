@@ -25,6 +25,8 @@
 
 #include  "lights/light.hpp"
 
+using namespace Eigen;
+
 namespace CT
 {
 /// @brief Takes a pixel reference and a colour and draws the colour to the pixel reference
@@ -123,8 +125,12 @@ static RGB HandleHit(const RTCRayHit& ray)
     // Interpolate normals and get ray direction
     //Vector3f geom_normal = Vector3f(ray.hit.Ng_x, ray.hit.Ng_y, ray.hit.Ng_z);
     Vector3f shading_normal = InterpolateNormals(rtcg, ray.hit);
+
+    if (cs.visualise_normals) // Visualise normals
+        return FromNormal(shading_normal);
+
     Vector3f raydir = Vector3f(ray.ray.dir_x, ray.ray.dir_y, ray.ray.dir_z);
-    Vector3f incident_reflection = (2.0F * shading_normal - raydir).normalized();
+    Vector3f incident_reflection = (raydir - 2.0F * shading_normal * shading_normal.dot(raydir)).normalized();
 
     // Calculate reflected ray direction
     Vector3f reflection = (2.0F * shading_normal - raydir);
@@ -148,13 +154,17 @@ static RGB HandleHit(const RTCRayHit& ray)
 
         RTCIntersectContext context;
         rtcInitIntersectContext(&context);
-        context.flags = RTC_INTERSECT_CONTEXT_FLAG_COHERENT;
-        rtcOccluded1(es.scene, &context, &shadow_ray);    
+        rtcOccluded1(es.scene, &context, &shadow_ray);
 
         if (shadow_ray.tfar > 0.0F)
         {
+            // Calculate the diffuse component
             float costheta = std::max(0.0F, shading_normal.dot(dir_light.direction));
             pixel_colour += obj->material->kd * dir_light.colour * costheta;
+
+            // Calculate the specular component
+            float cosphi = std::max(0.0F, incident_reflection.dot(dir_light.direction));
+            pixel_colour += obj->material->ks * dir_light.colour * std::pow(cosphi, obj->material->shininess);
         }        
     }
 
@@ -171,11 +181,15 @@ static RGB HandleHit(const RTCRayHit& ray)
 
         RTCIntersectContext context;
         rtcInitIntersectContext(&context);
-        context.flags = RTC_INTERSECT_CONTEXT_FLAG_COHERENT;
-        rtcOccluded1(es.scene, &context, &shadow_ray);        
+        rtcOccluded1(es.scene, &context, &shadow_ray);
 
         if (shadow_ray.tfar > 0.0F)
         {
+            // Calculate the diffuse component
+            float costheta = std::max(0.0F, shading_normal.dot(light_dir_ws));
+            pixel_colour += obj->material->kd * point.colour * costheta;
+
+            // Calculate the specular component
             float cosphi = std::max(0.0F, incident_reflection.dot(light_dir_ws));
             pixel_colour += obj->material->ks * point.colour * std::pow(cosphi, obj->material->shininess);
         }

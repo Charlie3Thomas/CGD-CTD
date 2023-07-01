@@ -61,7 +61,7 @@ int main(int argc, char** argv)
             RGB{0.0F, 0.32F, 0.21F}  * 0.1F, 
             RGB{0.0F, 0.64F, 0.42F}  * 0.6F, 
             RGB{0.21F, 0.94F, 0.72F} * 0.5F, 
-            1.0F
+            25.0F
         }));
         assert(!embree.materials.contains("test"));
         embree.materials.emplace("test",  std::make_unique<Mat>(Mat
@@ -81,7 +81,7 @@ int main(int argc, char** argv)
         embree.textures.emplace("test", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/capsule0.jpg")));
 
         // Load objects
-#if 0
+#if 1
         size_t num_objects = 1;
 #else
         size_t num_objects = 5;
@@ -100,12 +100,12 @@ int main(int argc, char** argv)
 #if 0
         auto scale          = 1.00F;
 #else
-        auto scale          = 0.25F;
+        auto scale          = 0.025F;
 #endif
                 
-#if 0
-                auto transformation = Matrix3f   (MakeRotation(0.0F, 150.0F, 0.0F) * scale);
-                auto translation    = Vector3f   (0.5F, 0.0F, 10.0F);
+#if 1
+                auto transformation = Matrix3f   (MakeRotation(0.0F, 45.0F, 0.0F) * scale);
+                auto translation    = Vector3f   (-0.5F, 0.0F, 10.0F);
 #else    
                 auto transformation = Matrix3f   (MakeRotation(rotx, roty, rotz) * scale);
                 auto translation    = Vector3f   (posx, 0.0F, 10.0F);
@@ -127,7 +127,7 @@ int main(int argc, char** argv)
         }
 // PLACEHOLDER TEST
 
-        if (ConfigSingleton::GetInstance().use_bvh){ BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_LOW, loader.GetPrims(), nullptr, 1024); }
+        if (ConfigSingleton::GetInstance().use_bvh){ BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_LOW, loader.GetPrims(), nullptr, loader.GetPrims().size() * 2); }
 
         // Create film
         Film film(config.image_width, config.image_height, Eigen::Vector2i(config.canvas_width, config.canvas_height));

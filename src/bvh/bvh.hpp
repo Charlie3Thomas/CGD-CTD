@@ -5,8 +5,6 @@
 #include <iostream>
 #include <cassert>
 
-
-
 namespace CT
 {
 float Area(const RTCBounds& b);

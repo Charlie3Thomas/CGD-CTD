@@ -4,14 +4,12 @@
 
 #include <array>
 
-using namespace Eigen;
-
 namespace CT
 {
 struct Vertex
 {
-    Vector3f pos;
-    Vector3f vertex_normal;
+    Eigen::Vector3f pos;
+    Eigen::Vector3f vertex_normal;
     //Vector3f face_normal;
 };
 
@@ -30,7 +28,7 @@ struct Face
 
 struct UVTextureCoords
 {
-    std::array<Vector2f, 3> coords;
+    std::array<Eigen::Vector2f, 3> coords;
 };
 
 }

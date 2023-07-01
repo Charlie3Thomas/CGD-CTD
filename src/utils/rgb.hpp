@@ -8,6 +8,7 @@
 #include <cmath>
 #include <vector>
 #include <embree3/rtcore.h>
+#include <Eigen/Core>
 
 namespace CT
 {
@@ -36,7 +37,7 @@ constexpr RGB BLACK     {0.00F, 0.000F, 0.000F};
 constexpr RGB WHITE     {1.00F, 1.000F, 1.000F};
 
 RGB FromIntersectNormal(const RTCHit& hit);
-RGB FromNormal(Vector3f flimbo);
+RGB FromNormal(Eigen::Vector3f flimbo);
 RGB FromBaryCoords(const RTCHit& hit);
 RGB FromTexture(const RTCHit& hit, const Texture* tex, const UVTextureCoords& tex_coords);
 

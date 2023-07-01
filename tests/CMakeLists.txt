@@ -1,4 +1,5 @@
-add_test(NAME test COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-test.exr -r 3842x2160 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20) 
+add_test(NAME test   COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-test.exr -r 7680x4320 -i ${CMAKE_SOURCE_DIR}/obj/xyzrgb_dragon.obj -t 20) 
+add_test(NAME test-b COMMAND ray-tracer -o ${CMAKE_SOURCE_DIR}/output/test-test.exr -r 7680x4320 -i ${CMAKE_SOURCE_DIR}/obj/cow.obj -t 20 -b) 
 #TODO : More sensible test structure
 
 
