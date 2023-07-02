@@ -38,16 +38,6 @@ int main(int argc, char** argv)
 
 // PLACEHOLDER TEST
 
-/*
-    // Material
-    Mat testmat 
-    {
-        .ka = RGB{0.27F, 0.28F, 0.26F} * 0.10F,
-        .kd = RGB{0.27F, 0.28F, 0.26F} * 0.50F,
-        .ks = RGB{0.27F, 0.28F, 0.26F} * 1.00F, 
-        .shininess = 1.0F                        
-    };
-*/
         // Materials
         assert(!embree.materials.contains("red"));
         embree.materials.emplace("red",   std::make_unique<Mat>(Mat{RED   * 0.1F, RED   * 0.5F, RED   * 1.0F, 0.04F}));
@@ -63,13 +53,21 @@ int main(int argc, char** argv)
             RGB{0.21F, 0.94F, 0.72F} * 0.5F, 
             25.0F
         }));
-        assert(!embree.materials.contains("test"));
-        embree.materials.emplace("test",  std::make_unique<Mat>(Mat
+        assert(!embree.materials.contains("copper"));
+        embree.materials.emplace("copper", std::make_unique<Mat>(Mat
         {
-            GREEN * 1.00F, 
-            BLUE  * 1.00F, 
-            RED   * 1.00F, 
-            1.0F
+            RGB{0.32F, 0.21F, 0.0F}  * 0.1F, 
+            RGB{0.64F, 0.2F, 0.08F}  * 0.6F, 
+            RGB{0.94F, 0.72, 0.21F} * 0.5F, 
+            25.0F
+        }));
+        assert(!embree.materials.contains("gold"));
+        embree.materials.emplace("gold", std::make_unique<Mat>(Mat
+        {
+            RGB{0.00F, 0.32F, 0.21F}  * 0.1F, 
+            RGB{0.00F, 0.64F, 0.42F}  * 0.6F, 
+            RGB{0.21F, 0.94F, 0.72F} * 0.5F, 
+            25.0F
         }));
 
         // Textures
@@ -100,7 +98,7 @@ int main(int argc, char** argv)
 #if 0
         auto scale          = 1.00F;
 #else
-        auto scale          = 0.025F;
+        auto scale          = 0.05F;
 #endif
                 
 #if 1
@@ -117,8 +115,8 @@ int main(int argc, char** argv)
                 tex = embree.textures["test"].get();
                 objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, nullptr, tex});
 #else
-                assert(embree.materials.contains("jade"));
-                const Mat* mat = embree.materials["jade"].get();
+                assert(embree.materials.contains("copper"));
+                const Mat* mat = embree.materials["copper"].get();
                 objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, nullptr});
 #endif               
                 rotx += 45.0F; roty += 45.0F; rotz += 45.0F; posx += 3.0F;

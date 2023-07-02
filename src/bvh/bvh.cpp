@@ -49,8 +49,8 @@ struct InnerNode : public Node
 
     InnerNode()
     {
-        bounds[0] = RTCBounds();
-        bounds[1] = RTCBounds();
+        bounds[0]   = RTCBounds();
+        bounds[1]   = RTCBounds();
         children[0] = nullptr;
         children[1] = nullptr;
     }
@@ -117,11 +117,6 @@ void SplitPrimitive(const RTCBuildPrimitive* prim, unsigned int dim, float pos, 
     (&rprim->lower_x)[dim] = pos;
 }
 
-void BuildProgress()
-{
-    throw std::runtime_error("BuildProgress not implemented");
-}
-
 void ErrCallback(void* user_ptr, RTCError code, const char* str)
 {
     std::cout << "EMBREE ERROR CODE " << code << ": " << str << std::endl;
@@ -142,31 +137,30 @@ void BuildBVH(RTCBuildQuality quality, std::vector<RTCBuildPrimitive>& prims_i, 
 
     // Settings for bvh build
     RTCBuildArguments arguments = rtcDefaultBuildArguments();
-
-        arguments.byteSize               = sizeof(arguments);
-        arguments.buildFlags             = RTC_BUILD_FLAG_NONE;
-        arguments.buildQuality           = quality;                 
-        arguments.maxBranchingFactor     = 2;       
-        arguments.maxDepth               = 1024;
-        arguments.sahBlockSize           = 1;
-        arguments.minLeafSize            = 1;
-        arguments.maxLeafSize            = 1;
-        arguments.traversalCost          = 1.0F;
-        arguments.intersectionCost       = 1.0F;
-        arguments.bvh                    = bvh;
-        arguments.primitives             = prims.data();
-        arguments.primitiveCount         = prims.size();
-        arguments.primitiveArrayCapacity = prims.capacity();
-        arguments.createNode             = InnerNode::Create;
-        arguments.setNodeChildren        = InnerNode::SetChildren;
-        arguments.setNodeBounds          = InnerNode::SetBounds;
-        arguments.createLeaf             = LeafNode::Create;
-        arguments.splitPrimitive         = SplitPrimitive;
-        arguments.buildProgress          = nullptr;        
-        arguments.userPtr                = nullptr;
+    arguments.byteSize               = sizeof(arguments);
+    arguments.buildFlags             = RTC_BUILD_FLAG_NONE;
+    arguments.buildQuality           = quality;                 
+    arguments.maxBranchingFactor     = 2;       
+    arguments.maxDepth               = 1024;
+    arguments.sahBlockSize           = 1;
+    arguments.minLeafSize            = 1;
+    arguments.maxLeafSize            = 1;
+    arguments.traversalCost          = 1.0F;
+    arguments.intersectionCost       = 1.0F;
+    arguments.bvh                    = bvh;
+    arguments.primitives             = prims.data();
+    arguments.primitiveCount         = prims.size();
+    arguments.primitiveArrayCapacity = prims.capacity();
+    arguments.createNode             = InnerNode::Create;
+    arguments.setNodeChildren        = InnerNode::SetChildren;
+    arguments.setNodeBounds          = InnerNode::SetBounds;
+    arguments.createLeaf             = LeafNode::Create;
+    arguments.splitPrimitive         = SplitPrimitive;
+    arguments.buildProgress          = nullptr;        
+    arguments.userPtr                = nullptr;
 
     for (size_t j = 0; j < prims.size(); j++) prims[j] = prims_i[j];
-    rtcBuildBVH(&arguments);    
+    rtcBuildBVH(&arguments);
 
     std::cout << "Built for " << prims.size() << " primitives" << std::endl;
 
