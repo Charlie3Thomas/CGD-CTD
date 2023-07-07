@@ -50,16 +50,17 @@ int main(int argc, char** argv)
         {
             RGB{0.0F, 0.32F, 0.21F}  * 0.1F, 
             RGB{0.0F, 0.64F, 0.42F}  * 0.6F, 
-            RGB{0.21F, 0.94F, 0.72F} * 0.5F, 
+            RGB{0.0F, 0.64F, 0.42F} * 0.5F, 
+            //RGB{0.21F, 0.94F, 0.72F} * 0.5F, 
             25.0F
         }));
         assert(!embree.materials.contains("copper"));
         embree.materials.emplace("copper", std::make_unique<Mat>(Mat
         {
-            RGB{0.32F, 0.21F, 0.0F}  * 0.1F, 
-            RGB{0.64F, 0.2F, 0.08F}  * 0.6F, 
-            RGB{0.94F, 0.72, 0.21F} * 0.5F, 
-            25.0F
+            RGB{0.32F, 0.21F, 0.00F}  * 0.1F, 
+            RGB{0.64F, 0.20F, 0.08F}  * 0.6F, 
+            RGB{0.94F, 0.72F, 0.21F} * 0.5F, 
+            50.0F
         }));
         assert(!embree.materials.contains("gold"));
         embree.materials.emplace("gold", std::make_unique<Mat>(Mat
@@ -115,8 +116,8 @@ int main(int argc, char** argv)
                 tex = embree.textures["test"].get();
                 objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, nullptr, tex});
 #else
-                assert(embree.materials.contains("copper"));
-                const Mat* mat = embree.materials["copper"].get();
+                assert(embree.materials.contains("jade"));
+                const Mat* mat = embree.materials["jade"].get();
                 objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, nullptr});
 #endif               
                 rotx += 45.0F; roty += 45.0F; rotz += 45.0F; posx += 3.0F;
@@ -137,16 +138,10 @@ int main(int argc, char** argv)
             Vector3f(0.0F, 1.0F, 0.0F),   // Camera up direction
             1.0F);                        // Camera focal length
 
-        // Create renderer
-        std::unique_ptr<Renderer> renderer = std::make_unique<TestRenderer>();
-
         // Render
-#if 1
-        renderer->RenderFilm(film, camera, config.threads);
-#else
-        for (size_t i = 0; i < 10; i++)
-            renderer->RenderFilm(film, camera, config.threads);
-#endif
+        std::unique_ptr<Renderer> renderer0 = std::make_unique<TestRenderer>();
+        renderer0->RenderFilm(film, camera, config.threads);
+
         // Write to .EXR file
         WriteToEXR(film.rgb.data(), config.image_width, config.image_height, config.image_filename.c_str());
     }    

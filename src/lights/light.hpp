@@ -36,6 +36,7 @@ struct PointLight
 
 struct Lights
 {
+public:
     std::vector<AmbientLight> ambient;
     std::vector<DirectionalLight> directional;
     std::vector<PointLight> point;
