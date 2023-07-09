@@ -49,9 +49,8 @@ int main(int argc, char** argv)
         embree.materials.emplace("jade",  std::make_unique<Mat>(Mat
         {
             RGB{0.0F, 0.32F, 0.21F}  * 0.1F, 
-            RGB{0.0F, 0.64F, 0.42F}  * 0.6F, 
-            RGB{0.0F, 0.64F, 0.42F} * 0.5F, 
-            //RGB{0.21F, 0.94F, 0.72F} * 0.5F, 
+            RGB{0.0F, 0.64F, 0.42F}  * 0.6F,  
+            RGB{0.21F, 0.94F, 0.72F} * 0.5F, 
             25.0F
         }));
         assert(!embree.materials.contains("copper"));
@@ -62,13 +61,20 @@ int main(int argc, char** argv)
             RGB{0.94F, 0.72F, 0.21F} * 0.5F, 
             50.0F
         }));
-        assert(!embree.materials.contains("gold"));
-        embree.materials.emplace("gold", std::make_unique<Mat>(Mat
+        assert(!embree.materials.contains("silver"));
+        embree.materials.emplace("silver", std::make_unique<Mat>(Mat{
+            RGB{0.51F, 0.51F, 0.51F}  * 0.1F, 
+            RGB{0.51F, 0.51F, 0.51F}  * 0.6F, 
+            RGB{0.51F, 0.51F, 0.51F} * 0.5F, 
+            50.0F
+        }));
+        assert(!embree.materials.contains("white"));
+        embree.materials.emplace("white", std::make_unique<Mat>(Mat
         {
-            RGB{0.00F, 0.32F, 0.21F}  * 0.1F, 
-            RGB{0.00F, 0.64F, 0.42F}  * 0.6F, 
-            RGB{0.21F, 0.94F, 0.72F} * 0.5F, 
-            25.0F
+            RGB{1.0F, 1.0F, 1.0F}  * 0.1F, 
+            RGB{1.0F, 1.0F, 1.0F}  * 0.6F, 
+            RGB{1.0F, 1.0F, 1.0F} * 0.5F, 
+            1.0F
         }));
 
         // Textures
@@ -89,39 +95,33 @@ int main(int argc, char** argv)
         std::vector<Object> objects;
         objects.reserve(num_objects);
         ObjectLoader loader = ObjectLoader();
-        {
-            float rotx = 0.0F;
-            float roty = 0.0F;
-            float rotz = 0.0F;
-            float posx = -6.0F;
-            for (size_t i = 0; i < num_objects; i++)
-            {
-#if 0
-        auto scale          = 1.00F;
-#else
-        auto scale          = 0.05F;
-#endif
-                
-#if 1
-                auto transformation = Matrix3f   (MakeRotation(0.0F, 45.0F, 0.0F) * scale);
-                auto translation    = Vector3f   (-0.5F, 0.0F, 10.0F);
-#else    
-                auto transformation = Matrix3f   (MakeRotation(rotx, roty, rotz) * scale);
-                auto translation    = Vector3f   (posx, 0.0F, 10.0F);
-#endif
+        {   
+            // Dragon obj path
+            std::filesystem::path dragon = "/home/Charlie/CGD-CTD/obj/xyzrgb_dragon.obj";
 
-#if 0
-                const Texture* tex = nullptr;
-                assert(embree.textures.contains("test"));
-                tex = embree.textures["test"].get();
-                objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, nullptr, tex});
-#else
-                assert(embree.materials.contains("jade"));
-                const Mat* mat = embree.materials["jade"].get();
-                objects.emplace_back(Object{config.input_model_filename, scale, transformation, translation, mat, nullptr});
-#endif               
-                rotx += 45.0F; roty += 45.0F; rotz += 45.0F; posx += 3.0F;
-            }            
+            //Jade dragon
+            assert(embree.materials.contains("jade"));
+            const Mat* jade = embree.materials["jade"].get();
+            objects.emplace_back(Object{dragon, 0.05F, Matrix3f(MakeRotation(0.0F, 0.0F, 0.0F) * 0.05F), Vector3f(-7.5F, 0.0F, 15.0F), jade, nullptr});
+
+            // Copper dragon
+            assert(embree.materials.contains("copper"));
+            const Mat* copper = embree.materials["copper"].get();
+            objects.emplace_back(Object{dragon, 0.05F, Matrix3f(MakeRotation(0.0F, 200.0F, 0.0F) * 0.05F), Vector3f(7.5F, 0.0F, 15.0F), copper, nullptr});
+
+            // Stanford bunny
+            std::filesystem::path bunny = "/home/Charlie/CGD-CTD/obj/stanford-bunny.obj";
+            assert(embree.materials.contains("silver"));
+            const Mat* silver = embree.materials["silver"].get();
+            objects.emplace_back(Object{bunny, 7.5F, Matrix3f(MakeRotation(0.0F, 180.0F, 0.0F) * 7.5F), Vector3f(0.0F, -2.25F, 5.0F), silver, nullptr});
+
+            // Planes
+            assert(embree.materials.contains("white"));
+            const Mat* white = embree.materials["white"].get();
+            std::filesystem::path plane = "/home/Charlie/CGD-CTD/obj/plane.obj";
+            objects.emplace_back(Object{plane, 100.0F, Matrix3f(MakeRotation(180.0F, 0.0F, 0.0F) * 100.0F), Vector3f(0.0F, -2.0F, 10.0F), white, nullptr});
+            objects.emplace_back(Object{plane, 100.0F, Matrix3f(MakeRotation(90.0F, 0.0F, 0.0F) * 100.0F), Vector3f(0.0F, 0.0F, 25.0F), white, nullptr});
+
             loader.LoadObjects(objects);
         }
 // PLACEHOLDER TEST
