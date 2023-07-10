@@ -19,6 +19,7 @@
 #include "materials/mat.hpp"
 #include "materials/phong.hpp"
 #include "textures/texture.hpp"
+#include "utils/depthcounter.hpp"
 #include "utils/rgb.hpp"
 #include "utils/exr.hpp"
 #include "utils/ppm.hpp"
@@ -67,7 +68,7 @@ static Lights GetLights()
 {
     Lights ret;
     AmbientLight testamb     { .colour = RGB{ 0.5F, 0.5F, 0.5F }    * 0.10F };
-    DirectionalLight testdir { .colour = RGB{ 0.99F, 0.85F, 0.21F } * 0.40F, .direction = Vector3f{ 1.0F, 0.1F, 0.0F } };
+    DirectionalLight testdir { .colour = RGB{ 0.49F, 0.35F, 0.21F } * 0.40F, .direction = Vector3f{ 1.0F, 0.1F, 0.0F } };
     PointLight testpoint     { .colour = RGB{ 1.0F, 1.0F, 1.0F }    * 100.0F, .position = Vector3f{ 0.0F, 10.0F, 12.0F }, .attenuation = 1.0F };
     ret.ambient.emplace_back(testamb);
     ret.directional.emplace_back(testdir);
@@ -117,6 +118,7 @@ static CWHData SampleCosineWeightedHemisphere(const Vector3f& n)
 
     return { ret };
 }
+
 
 /// @brief Handle ray hits and calculate the colour of the pixel from environment
 /// @param ray 
@@ -192,9 +194,8 @@ static RGB HandleHit(const RTCRayHit& rh)
     }
 
     // Calculate indirect lighting
-    size_t samples = 10;
+    size_t samples = 16;
     RGB sample_colour{ 0.0F, 0.0F, 0.0F };
-#if 1
     for (size_t i = 0; i < samples; i++)
     {
         CWHData hem_sample = SampleCosineWeightedHemisphere(shading_normal);
@@ -225,7 +226,7 @@ static RGB HandleHit(const RTCRayHit& rh)
             // Get distance between hit point and ray origin
             // Get hem_ray hit point in world space
             const RTCGeometry rtcg = rtcGetGeometry(EmbreeSingleton::GetInstance().scene, hem_ray.hit.geomID);
-            const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg));
+            const auto* hem_obj = static_cast<const Object*>(rtcGetGeometryUserData(rtcg));
 
             // Get interpolated normals for hit point
             Vector3f hs_shading_normal = InterpolateNormals(rtcg, hem_ray.hit);
@@ -237,10 +238,9 @@ static RGB HandleHit(const RTCRayHit& rh)
                 hem_ray.ray.org_z + hem_ray.ray.dir_z * hem_ray.ray.tfar);
 
             // Evaluate direct lighting contribution at point hit by hemisphere ray
-
             // for ambient lights
             for (const auto& amb_light : lights.ambient)
-                sample_colour += amb_light.colour * obj->material->ka;
+                sample_colour += (amb_light.colour * hem_obj->material->ka * obj->material->kd) / std::numbers::pi_v<float>;
 
             // for directional lights
             for (const auto dir_light : lights.directional)
@@ -254,11 +254,11 @@ static RGB HandleHit(const RTCRayHit& rh)
 
                 // Calculate the diffuse component
                 float costheta = std::max(0.0F, hs_shading_normal.dot(dir_light.direction));
-                sample_colour += obj->material->kd * dir_light.colour * costheta;
+                sample_colour += (hem_obj->material->kd * dir_light.colour * costheta * obj->material->kd) / std::numbers::pi_v<float>;
 
                 // Calculate the specular component
                 float cosphi = std::max(0.0F, hs_shading_normal.dot(dir_light.direction));
-                sample_colour += obj->material->ks * dir_light.colour * std::pow(cosphi, obj->material->shininess);
+                sample_colour += (hem_obj->material->ks * dir_light.colour * std::pow(cosphi, hem_obj->material->shininess) * obj->material->ks) / std::numbers::pi_v<float>;
             }
 
             // for point lights
@@ -279,11 +279,11 @@ static RGB HandleHit(const RTCRayHit& rh)
 
                 // Calculate the diffuse component
                 float costheta = std::max(0.0F, hs_shading_normal.dot(light_dir_ws));
-                sample_colour += obj->material->kd * point.colour * costheta * attenuation;
+                sample_colour += (hem_obj->material->kd * point.colour * costheta * attenuation * obj->material->kd) / std::numbers::pi_v<float>;
 
                 // Calculate the specular component
                 float cosphi = std::max(0.0F, hs_shading_normal.dot(light_dir_ws));
-                sample_colour += obj->material->ks * point.colour * std::pow(cosphi, obj->material->shininess) * attenuation;
+                sample_colour += (hem_obj->material->ks * point.colour * std::pow(cosphi, hem_obj->material->shininess) * attenuation * obj->material->ks) / std::numbers::pi_v<float>;
             }
         }
 
@@ -291,84 +291,35 @@ static RGB HandleHit(const RTCRayHit& rh)
         pixel_colour  += sample_colour;
     }
 
-#else
-    for (size_t i = 0; i < samples; i++)
+    // Fire ray in direction of reflection
+    RTCRayHit refl_ray;
+        refl_ray.ray.org_x = ray_hit_ws.x();
+        refl_ray.ray.org_y = ray_hit_ws.y();
+        refl_ray.ray.org_z = ray_hit_ws.z();
+        refl_ray.ray.dir_x = incident_reflection.x();
+        refl_ray.ray.dir_y = incident_reflection.y();
+        refl_ray.ray.dir_z = incident_reflection.z();
+        refl_ray.ray.time = 0.0F;
+        refl_ray.ray.tnear = 0.001F;
+        refl_ray.ray.tfar = std::numeric_limits<float>::max();
+        refl_ray.ray.mask = 0xFFFFFFFF;
+        refl_ray.ray.id = 0;
+        refl_ray.ray.flags = 0;
+        refl_ray.hit.geomID = RTC_INVALID_GEOMETRY_ID;
+
+    static thread_local DepthCounter counter;
+    auto increment = counter.Increment();
+
+    if (counter.GetDepth() < 8)
     {
-        float u         = RandomRange(0.0F, 1.0F);
-        float v         = RandomRange(0.0F, 1.0F);
-        auto phi        = static_cast<float>(2.0F * M_PI * u);
-        float cos_theta = std::sqrt(1.0F - v);
-        float sin_theta = std::sqrt(v);
-        //float pdf = 1.0F / (2.0F * M_PI);
-        auto pdf       = static_cast<float>(cos_theta / M_PI);
-
-        Vector3f hemishpere_dir {
-            std::cos(phi) * sin_theta,
-            std::sin(phi) * sin_theta,
-            cos_theta };
-
-        Vector3f tangent = shading_normal.cross(Vector3f(0.0F, 0.0F, 1.0F));
-        Vector3f bitangent = shading_normal.cross(tangent);
-        Vector3f sample_dir = Vector3f(
-            hemishpere_dir.x() * tangent.x() + hemishpere_dir.y() * bitangent.x() + hemishpere_dir.z() * shading_normal.x(),
-            hemishpere_dir.x() * tangent.y() + hemishpere_dir.y() * bitangent.y() + hemishpere_dir.z() * shading_normal.y(),
-            hemishpere_dir.x() * tangent.z() + hemishpere_dir.y() * bitangent.z() + hemishpere_dir.z() * shading_normal.z());
-        
-        // Weight sample_dir by incident_reflection to bias towards the direction of the incident ray based on the shininess of the material
-        sample_dir = (sample_dir + incident_reflection * obj->material->shininess).normalized();
-
-        const Lights lights = GetLights();
-        // for ambient lights
-        for (const auto& amb_light : lights.ambient)
-            sample_colour += amb_light.colour * obj->material->ka;
-
-        // for directional lights
-        for (const auto& dir_light : lights.directional)
-        {
-            RTCRay shadow_ray = CastShadowRay(ray_hit_ws, dir_light.direction, std::numeric_limits<float>::max());
-            RTCIntersectContext context;
-            rtcInitIntersectContext(&context);
-            rtcOccluded1(es.scene, &context, &shadow_ray);
-
-            if (shadow_ray.tfar < 0) { continue; }
-
-            // Calculate the diffuse component
-            float costheta = std::max(0.0F, shading_normal.dot(dir_light.direction)); // Calculate the diffuse component
-            sample_colour += obj->material->kd * dir_light.colour * costheta;
-
-            // Calculate the specular component
-            float cosphi = std::max(0.0F, sample_dir.dot(dir_light.direction)); // Calculate the specular component
-            sample_colour += obj->material->ks * dir_light.colour * std::pow(cosphi, obj->material->shininess);
-        }
-
-        // for point lights
-        for (const auto& point : lights.point)
-        {
-            Vector3f light_dir_ws = point.position - ray_hit_ws;
-            float distance_to_light = light_dir_ws.norm();
-            light_dir_ws /= distance_to_light;
-            RTCRay shadow_ray = CastShadowRay(ray_hit_ws, light_dir_ws, distance_to_light);
-            RTCIntersectContext context;
-            rtcInitIntersectContext(&context);
-            rtcOccluded1(es.scene, &context, &shadow_ray);
-
-            if (shadow_ray.tfar < 0) { continue; }
-
-            // Calculate the diffuse component
-            float costheta = std::max(0.0F, shading_normal.dot(light_dir_ws));
-            sample_colour += obj->material->kd * point.colour * costheta;
-
-            // Calculate the specular component
-            float cosphi = std::max(0.0F, sample_dir.dot(light_dir_ws));
-            sample_colour += obj->material->ks * point.colour * std::pow(cosphi, obj->material->shininess);
-        }
-        
-        sample_colour  = sample_colour / static_cast<float>(samples);
-        pixel_colour  += sample_colour * pdf;
+        RTCIntersectContext context;
+        rtcInitIntersectContext(&context);
+        rtcIntersect1(es.scene, &context, &refl_ray);
+        if (refl_ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
+            pixel_colour += HandleHit(refl_ray);
     }
-#endif
 
-    return pixel_colour;
+    return pixel_colour * (1.0F / static_cast<float>(counter.GetDepth()));
 }
 
 static void RenderCanvas(Canvas& canvas, const Camera& camera)

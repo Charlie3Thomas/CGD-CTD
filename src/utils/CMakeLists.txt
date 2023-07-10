@@ -1,4 +1,4 @@
-add_library(ct-utils STATIC rgb.cpp ppm.cpp exr.cpp timer.cpp utils.cpp)
+add_library(ct-utils STATIC rgb.cpp ppm.cpp exr.cpp timer.cpp utils.cpp depthcounter.cpp)
 find_package(embree 3.0 REQUIRED)
 find_package(assimp CONFIG REQUIRED)
 find_package (Eigen3 3.3 REQUIRED)
