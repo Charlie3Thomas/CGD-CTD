@@ -1,2 +1,0 @@
-#include "lights/light.hpp"
-

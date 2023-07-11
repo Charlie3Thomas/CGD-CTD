@@ -40,41 +40,49 @@ int main(int argc, char** argv)
 
         // Materials
         assert(!embree.materials.contains("red"));
-        embree.materials.emplace("red",   std::make_unique<Mat>(Mat{RED   * 0.1F, RED   * 0.5F, RED   * 1.0F, 0.04F}));
-        assert(!embree.materials.contains("blue"));
-        embree.materials.emplace("blue",  std::make_unique<Mat>(Mat{BLUE  * 0.1F, BLUE  * 0.5F, BLUE  * 1.0F, 0.04F}));
-        assert(!embree.materials.contains("green"));
-        embree.materials.emplace("green", std::make_unique<Mat>(Mat{GREEN * 0.1F, GREEN * 0.5F, GREEN * 1.0F, 0.04F}));
+        embree.materials.emplace("red",   std::make_unique<Mat>(Mat{ RED   * 0.5F, RED   * 1.0F, 0.04F }));
+        assert(!embree.materials.contains("blue")); 
+        embree.materials.emplace("blue",  std::make_unique<Mat>(Mat{ BLUE  * 0.5F, BLUE  * 1.0F, 0.04F }));
+        assert(!embree.materials.contains("green")); 
+        embree.materials.emplace("green", std::make_unique<Mat>(Mat{ GREEN * 0.5F, GREEN * 1.0F, 0.04F }));
         assert(!embree.materials.contains("jade"));
         embree.materials.emplace("jade",  std::make_unique<Mat>(Mat
         {
-            RGB{0.0F, 0.32F, 0.21F}  * 0.3F, 
             RGB{0.0F, 0.64F, 0.42F}  * 0.6F,  
             RGB{0.0F, 0.94F, 0.72F} * 0.5F, 
-            10.0F
+            0.95F,
+            true
         }));
         assert(!embree.materials.contains("copper"));
         embree.materials.emplace("copper", std::make_unique<Mat>(Mat
         {
-            RGB{0.32F, 0.21F, 0.00F}  * 0.3F, 
             RGB{0.64F, 0.20F, 0.08F}  * 0.6F, 
             RGB{0.94F, 0.72F, 0.21F} * 0.5F, 
-            25.0F
+            0.95F,
+            true
         }));
         assert(!embree.materials.contains("silver"));
         embree.materials.emplace("silver", std::make_unique<Mat>(Mat{
-            RGB{0.51F, 0.51F, 0.51F}  * 0.3F, 
             RGB{0.51F, 0.51F, 0.51F}  * 0.6F, 
             RGB{0.51F, 0.51F, 0.51F} * 0.5F, 
-            25.0F
+            0.95F,
+            true
         }));
-        assert(!embree.materials.contains("white"));
-        embree.materials.emplace("white", std::make_unique<Mat>(Mat
+        assert(!embree.materials.contains("white_d"));
+        embree.materials.emplace("white_d", std::make_unique<Mat>(Mat
         {
-            RGB{0.25F, 0.25F, 0.25F}  * 0.1F, 
-            RGB{0.50F, 0.50F, 0.50F}  * 0.1F, 
-            RGB{0.75F, 0.75F, 0.75F}  * 0.1F, 
-            0.1F
+            RGB{1.00F, 1.00F, 1.00F}  * 0.6F, 
+            RGB{1.00F, 1.00F, 1.00F}  * 0.5F, 
+            0.1F,
+            false
+        }));
+        assert(!embree.materials.contains("white_s"));
+        embree.materials.emplace("white_s", std::make_unique<Mat>(Mat
+        {
+            RGB{1.00F, 1.00F, 1.00F}  * 0.6F, 
+            RGB{1.00F, 1.00F, 1.00F}  * 0.5F, 
+            0.95F,
+            true
         }));
 
         // Textures
@@ -116,11 +124,13 @@ int main(int argc, char** argv)
             objects.emplace_back(Object{bunny, 7.5F, Matrix3f(MakeRotation(0.0F, 180.0F, 0.0F) * 7.5F), Vector3f(0.0F, -2.25F, 5.0F), silver, nullptr});
 
             // Planes
-            assert(embree.materials.contains("white"));
-            const Mat* white = embree.materials["white"].get();
+            assert(embree.materials.contains("white_d"));
+            const Mat* white_d = embree.materials["white_d"].get();
+            assert(embree.materials.contains("white_s"));
+            const Mat* white_s = embree.materials["white_s"].get();
             std::filesystem::path plane = "/home/Charlie/CGD-CTD/obj/plane.obj";
-            objects.emplace_back(Object{plane, 1000.0F, Matrix3f(MakeRotation(180.0F, 0.0F, 0.0F) * 1000.0F), Vector3f(0.0F, -2.0F, 10.0F), white, nullptr});
-            objects.emplace_back(Object{plane, 1000.0F, Matrix3f(MakeRotation(90.0F, 0.0F, 0.0F) * 1000.0F), Vector3f(0.0F, 0.0F, 25.0F), white, nullptr});
+            objects.emplace_back(Object{plane, 1000.0F, Matrix3f(MakeRotation(0.0F, 0.0F, 0.0F) * 1000.0F), Vector3f(0.0F, -2.0F, 10.0F), white_s, nullptr});
+            objects.emplace_back(Object{plane, 1000.0F, Matrix3f(MakeRotation(90.0F, 0.0F, 0.0F) * 1000.0F), Vector3f(0.0F, 0.0F, 25.0F), white_d, nullptr});
 
             loader.LoadObjects(objects);
         }

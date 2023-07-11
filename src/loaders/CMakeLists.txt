@@ -1,5 +1,5 @@
 find_package(assimp CONFIG REQUIRED)
 find_package (Eigen3 3.3 REQUIRED)
-add_library(ct-loaders STATIC objloader.cpp transform.cpp object.hpp)
+add_library(ct-loaders STATIC objloader.cpp transform.cpp object.cpp)
 target_include_directories(ct-loaders PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/.. PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(ct-loaders PUBLIC assimp Eigen3::Eigen ct-embree ct-config ct-bvh)
