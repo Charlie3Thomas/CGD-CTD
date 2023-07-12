@@ -16,7 +16,7 @@
 #include "config/options.hpp"
 #include "embree/embreesingleton.hpp"
 #include "loaders/objloader.hpp"
-#include "materials/mat.hpp"
+//#include "materials/mat.hpp"
 #include "textures/texture.hpp"
 #include "utils/depthcounter.hpp"
 #include "utils/rgb.hpp"
@@ -25,7 +25,8 @@
 #include "utils/timer.hpp"
 #include "utils/utils.hpp"
 
-#include  "lights/light.hpp"
+//#include  "lights/light.hpp"
+#include  "loaders/scene.hpp"
 
 using namespace Eigen;
 
@@ -57,7 +58,7 @@ static RTCRayHit CastRay(const Vector3f& origin, const Vector3f& direction, floa
     ret.ray.dir_x  = direction.x();
     ret.ray.dir_y  = direction.y();
     ret.ray.dir_z  = direction.z();
-    ret.ray.tnear  = 0.1F;
+    ret.ray.tnear  = 0.01F;
     ret.ray.tfar   = tfar;
     ret.ray.mask   = 0xFFFFFFFF;
     ret.hit.geomID = RTC_INVALID_GEOMETRY_ID;
@@ -65,18 +66,6 @@ static RTCRayHit CastRay(const Vector3f& origin, const Vector3f& direction, floa
     rtcIntersect1(EmbreeSingleton::GetInstance().scene, &context, &ret);
 
     return ret;    
-}
-
-static Lights GetLights()
-{
-    Lights ret;
-    DirectionalLight testdir_l2r { .colour = WHITE  * 0.4F,  .direction = Vector3f{ 1.0F, 0.1F, 0.0F } };
-    ret.directional.emplace_back(testdir_l2r);
-    DirectionalLight testdir_r2l { .colour = WHITE  * 0.4F,  .direction = Vector3f{ -1.0F, 0.1F, 0.0F } };
-    ret.directional.emplace_back(testdir_r2l);
-    PointLight testpoint         { .colour = WHITE * 100.0F, .position  = Vector3f{ 0.0F, 10.0F, 12.0F } };
-    ret.point.emplace_back(testpoint);
-    return ret;
 }
 
 struct CWHData
@@ -135,22 +124,21 @@ static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context)
     const RTCGeometry incident_geometry = rtcGetGeometry(es.scene, rh.hit.geomID);
     const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(incident_geometry));
     Vector3f incident_shading_normal = InterpolateNormals(incident_geometry, rh.hit);
+    if (ConfigSingleton::GetInstance().visualise_normals)
+        return FromNormal(incident_shading_normal);
     Vector3f incident_direction { rh.ray.dir_x, rh.ray.dir_y, rh.ray.dir_z };
     Vector3f incident_reflection = (incident_direction - 2.0F * incident_shading_normal * incident_shading_normal.dot(incident_direction)).normalized();
     Vector3f incident_hit_worldspace { rh.ray.org_x + rh.ray.dir_x * rh.ray.tfar, rh.ray.org_y + rh.ray.dir_y * rh.ray.tfar, rh.ray.org_z + rh.ray.dir_z * rh.ray.tfar };
-    const Lights lights = GetLights();
-    size_t samples = 64;
+    const Lights lights = double_dragon.lights;
+
+    // TODO: Only contribute the light's colour if the last material was specular
+
+    size_t samples = 16;
     RGB sample_light = BLACK;
     for (size_t sample = 0; sample < samples; sample++)
     {
-        // Reflection offset
-        
-
-
         // Calculate direct lighting
         sample_light += EvaluateLighting(incident_hit_worldspace, incident_shading_normal, incident_reflection, obj, lights, context);
-        
-        //sample_light += EvaluateTomsWay(incident_hit_worldspace, incident_shading_normal, incident_reflection, obj, lights, context);
 
         // Calculate indirect lighting with cosine weighted hemisphere sampling
         CWHData hemisphere_sample = SampleCosineWeightedHemisphere(incident_shading_normal);
@@ -166,7 +154,6 @@ static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context)
                 hemisphere_sample_ray.ray.org_y + hemisphere_sample_ray.ray.dir_y * hemisphere_sample_ray.ray.tfar,
                 hemisphere_sample_ray.ray.org_z + hemisphere_sample_ray.ray.dir_z * hemisphere_sample_ray.ray.tfar };
             sample_light += EvaluateLighting(hemisphere_sample_hit_worldspace, hemisphere_sample_shading_normal, hemisphere_sample_reflection, hemisphere_sample_obj, lights, context);
-            //sample_light += EvaluateTomsWay(hemisphere_sample_hit_worldspace, hemisphere_sample_shading_normal, hemisphere_sample_reflection, hemisphere_sample_obj, lights, context);
         }
 
 

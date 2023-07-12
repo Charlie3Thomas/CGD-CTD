@@ -1,6 +1,7 @@
 #pragma once
 
-#include "materials/mat.hpp"
+//#include "materials/mat.hpp"
+#include "materials/materials.hpp"
 #include "textures/texture.hpp"
 
 #include <embree3/rtcore.h>
