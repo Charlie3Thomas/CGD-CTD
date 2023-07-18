@@ -129,7 +129,8 @@ static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context)
     Vector3f incident_direction { rh.ray.dir_x, rh.ray.dir_y, rh.ray.dir_z };
     Vector3f incident_reflection = (incident_direction - 2.0F * incident_shading_normal * incident_shading_normal.dot(incident_direction)).normalized();
     Vector3f incident_hit_worldspace { rh.ray.org_x + rh.ray.dir_x * rh.ray.tfar, rh.ray.org_y + rh.ray.dir_y * rh.ray.tfar, rh.ray.org_z + rh.ray.dir_z * rh.ray.tfar };
-    const Lights lights = double_dragon.lights;
+    //const Lights lights = double_dragon.lights;
+    const Lights lights = testscene2.lights;
 
     // TODO: Only contribute the light's colour if the last material was specular
 

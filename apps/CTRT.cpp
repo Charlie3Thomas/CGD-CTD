@@ -46,7 +46,8 @@ int main(int argc, char** argv)
         embree.textures.emplace("test", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/capsule0.jpg")));
 */
         ObjectLoader loader = ObjectLoader();
-        loader.LoadObjects(double_dragon.objects);
+        //loader.LoadObjects(double_dragon.objects);
+        loader.LoadObjects(testscene2.objects);
 
         if (ConfigSingleton::GetInstance().use_bvh){ BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_LOW, loader.GetPrims(), nullptr, loader.GetPrims().size() * 2); }
 
