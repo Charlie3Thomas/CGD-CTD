@@ -1,0 +1,67 @@
+// Copyright 2018 Intel Corporation
+// SPDX-License-Identifier: Apache-2.0
+
+#pragma once
+
+#include "vec.isph"
+
+enum DataType
+{
+  DataType_Float32,
+  DataType_Float16,
+  DataType_UInt8,
+};
+
+struct ImageAccessor
+{
+  uniform uint8* uniform ptr;
+  uniform size_t wByteStride; // pixel stride in number of bytes
+  uniform size_t hByteStride; // row stride in number of bytes
+  uniform DataType dataType;
+  uniform int W, H;           // width, height
+};
+
+inline size_t getByteOffset(const uniform ImageAccessor& img, uniform int h, int w)
+{
+  return (size_t)h * img.hByteStride + (size_t)w * img.wByteStride;
+}
+
+inline vec3f get3f(const uniform ImageAccessor& img, uniform int h, int w)
+{
+  const size_t byteOffset = getByteOffset(img, h, w);
+  if (img.dataType == DataType_Float32)
+  {
+    uniform float* pixel = (uniform float*)&img.ptr[byteOffset];
+    return make_vec3f(pixel[0], pixel[1], pixel[2]);
+  }
+  else if (img.dataType == DataType_Float16)
+  {
+    uniform int16* pixel = (uniform int16*)&img.ptr[byteOffset];
+    return make_vec3f(half_to_float(pixel[0]),
+                      half_to_float(pixel[1]),
+                      half_to_float(pixel[2]));
+  }
+  else
+    assert(0);
+}
+
+inline void set3f(const uniform ImageAccessor& img, uniform int h, int w, const vec3f& value)
+{
+  const size_t byteOffset = getByteOffset(img, h, w);
+  if (img.dataType == DataType_Float32)
+  {
+    uniform float* pixel = (uniform float*)&img.ptr[byteOffset];
+    pixel[0] = value.x;
+    pixel[1] = value.y;
+    pixel[2] = value.z;
+  }
+  else if (img.dataType == DataType_Float16)
+  {
+    uniform int16* pixel = (uniform int16*)&img.ptr[byteOffset];
+    pixel[0] = float_to_half(value.x);
+    pixel[1] = float_to_half(value.y);
+    pixel[2] = float_to_half(value.z);
+  }
+  else
+    assert(0);
+}

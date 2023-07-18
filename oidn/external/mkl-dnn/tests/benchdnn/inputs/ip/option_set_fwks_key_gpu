@@ -1,0 +1,66 @@
+#3dgan.tr.fp32.tf.mb256
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb256ic10648oc1n"3dgan.tr.fp32.tf.mb256*4"
+#bert.tr.bf16.tf.mb32
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ab --dtag=ab mb32ic768oc2n"bert.tr.bf16.tf.mb32*1"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb32ic768oc768n"bert.tr.bf16.tf.mb32*1"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb4096ic3072oc768n"bert.tr.bf16.tf.mb32*12"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb4096ic768oc3072n"bert.tr.bf16.tf.mb32*12"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb4096ic768oc768n"bert.tr.bf16.tf.mb32*48"
+#bert.tr.fp32.tf.mb128_pvc
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ab --dtag=ab mb128ic768oc2n"bert.tr.fp32.tf.mb128_pvc*2"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic768oc768n"bert.tr.fp32.tf.mb128_pvc*2"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb16384ic3072oc768n"bert.tr.fp32.tf.mb128_pvc*24"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb16384ic768oc3072n"bert.tr.fp32.tf.mb128_pvc*24"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb16384ic768oc768n"bert.tr.fp32.tf.mb128_pvc*96"
+#deepfusion.tr.bf16.tf.m128_pvc
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb16384ic200oc1n"deepfusion.tr.bf16.tf.m128_pvc*1"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic14oc200n"deepfusion.tr.bf16.tf.m128_pvc*4"
+#deepfusion.tr.fp32.tf.m128_pvc
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb16384ic200oc1n"deepfusion.tr.fp32.tf.m128_pvc*1"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic14oc200n"deepfusion.tr.fp32.tf.m128_pvc*4"
+#deepfusion.tr.bf16.tf.m128_pvc
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb16384ic200oc1n"deepfusion.tr.bf16.tf.m128_pvc*1"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic14oc200n"deepfusion.tr.bf16.tf.m128_pvc*4"
+#deepfusion.tr.fp32.tf.m128_pvc
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb16384ic200oc1n"deepfusion.tr.fp32.tf.m128_pvc*1"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic14oc200n"deepfusion.tr.fp32.tf.m128_pvc*4"
+#uno_convergence.tr.bf16.tf.mb128_pvc
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic1000oc1n"uno_convergence.tr.bf16.tf.mb128_pvc*1"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic1000oc1000n"uno_convergence.tr.bf16.tf.mb128_pvc*8"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic2000oc1000n"uno_convergence.tr.bf16.tf.mb128_pvc*1"
+#uno_convergence.tr.fp32.tf.mb128_pvc
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic1000oc1n"uno_convergence.tr.fp32.tf.mb128_pvc*1"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic1000oc1000n"uno_convergence.tr.fp32.tf.mb128_pvc*8"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic2000oc1000n"uno_convergence.tr.fp32.tf.mb128_pvc*1"
+#uno_convergence.tr.bf16.tf.mb128_pvc
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic1000oc1n"uno_convergence.tr.bf16.tf.mb128_pvc*1"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic1000oc1000n"uno_convergence.tr.bf16.tf.mb128_pvc*8"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb128ic2000oc1000n"uno_convergence.tr.bf16.tf.mb128_pvc*1"
+#dcrnn.tr.bf16.tf.mb64
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic96oc16n"dcrnn.tr.bf16.tf.mb64*24"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic96oc32n"dcrnn.tr.bf16.tf.mb64*24"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic51oc16n"dcrnn.tr.bf16.tf.mb64*12"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic51oc32n"dcrnn.tr.bf16.tf.mb64*12"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic54oc16n"dcrnn.tr.bf16.tf.mb64*11"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic54oc32n"dcrnn.tr.bf16.tf.mb64*11"
+#dcrnn.tr.fp32.tf.mb64
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic96oc16n"dcrnn.tr.fp32.tf.mb64*24"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic96oc32n"dcrnn.tr.fp32.tf.mb64*24"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic51oc16n"dcrnn.tr.fp32.tf.mb64*12"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic51oc32n"dcrnn.tr.fp32.tf.mb64*12"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic54oc16n"dcrnn.tr.fp32.tf.mb64*11"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic54oc32n"dcrnn.tr.fp32.tf.mb64*11"
+#dcrnn.tr.bf16.tf.mb64
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic96oc16n"dcrnn.tr.bf16.tf.mb64*24"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic96oc32n"dcrnn.tr.bf16.tf.mb64*24"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic51oc16n"dcrnn.tr.bf16.tf.mb64*12"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic51oc32n"dcrnn.tr.bf16.tf.mb64*12"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic54oc16n"dcrnn.tr.bf16.tf.mb64*11"
+--reset --allow-enum-tags-only=0 --cfg=bf16bf16bf16 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic54oc32n"dcrnn.tr.bf16.tf.mb64*11"
+#dcrnn.tr.fp32.tf.mb64
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic96oc16n"dcrnn.tr.fp32.tf.mb64*24"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic96oc32n"dcrnn.tr.fp32.tf.mb64*24"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic51oc16n"dcrnn.tr.fp32.tf.mb64*12"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic51oc32n"dcrnn.tr.fp32.tf.mb64*12"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic54oc16n"dcrnn.tr.fp32.tf.mb64*11"
+--reset --allow-enum-tags-only=0 --cfg=f32 --dir=BWD_WB --stag=ab --wtag=ba --dtag=ab mb11456ic54oc32n"dcrnn.tr.fp32.tf.mb64*11"

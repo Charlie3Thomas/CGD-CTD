@@ -1,0 +1,38 @@
+// Copyright 2020 Intel Corporation
+// SPDX-License-Identifier: Apache-2.0
+
+#pragma once
+
+#include "common/platform.h"
+
+OIDN_NAMESPACE_BEGIN
+
+  // Opaque read-only data
+  struct Data
+  {
+    const void* ptr;
+    size_t size;
+
+    Data() : ptr(nullptr), size(0) {}
+
+    template<typename T>
+    Data(T* ptr, size_t size) : ptr(ptr), size(size) {}
+
+    template<typename T, size_t N>
+    Data(T (&array)[N]) : ptr(array), size(sizeof(array)) {}
+
+    template<typename T, size_t N>
+    Data& operator =(T (&array)[N])
+    {
+      ptr = array;
+      size = sizeof(array);
+      return *this;
+    }
+
+    OIDN_INLINE operator bool() const
+    {
+      return ptr != nullptr;
+    }
+  };
+
+OIDN_NAMESPACE_END

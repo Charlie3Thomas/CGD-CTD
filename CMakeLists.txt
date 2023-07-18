@@ -9,5 +9,6 @@ include(CTest)
 add_compile_options(-Wall -Wextra -pedantic -Wno-unused-parameter) #-Werror
 
 add_subdirectory(apps)
+add_subdirectory(oidn)
 add_subdirectory(src)
 add_subdirectory(tests)
