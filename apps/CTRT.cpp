@@ -4,6 +4,7 @@
 
 #include <Eigen/Dense>
 #include <thread>
+#include "OpenImageDenoise/oidn.hpp"
 
 #include "bvh/bvh.hpp"
 #include "camera/camera.hpp"
@@ -63,22 +64,42 @@ int main(int argc, char** argv)
         std::unique_ptr<Renderer> renderer0 = std::make_unique<TestRenderer>();
         renderer0->RenderFilm(film, camera, config.threads);
 
+        // Intel Open Image Denoise
+        // Create an Intel Open Image Denoise device
+        oidn::DeviceRef device = oidn::newDevice();
+        device.commit();
+
+        // Create buffers for input/output images accessible by both host (CPU) and device (CPU/GPU)
+        oidn::BufferRef colour_buff = device.newBuffer(static_cast<size_t>(config.image_width * config.image_height * 3 * sizeof(float)));
+
+        // Fill the input image buffers
+        auto* colour_ptr = static_cast<float*>(film.rgb.data());
+        std::memcpy(colour_buff.getData(), colour_ptr, config.image_width * config.image_height * 3 * sizeof(float));
+
+        // Create a filter for denoising a beauty (colour) image using optional auxiliary images too
+        // This can be an expensive operation, so try not to create a new filter for every image
+        oidn::FilterRef filter = device.newFilter("RT");
+        filter.setImage("color", colour_buff, oidn::Format::Float3, config.image_width, config.image_height); // Beauty
+        // filter.setImage("albedo", albedo_buff, oidn::Format::Float3, config.image_width, config.image_height); // Albedo (optional)
+        // filter.setImage("normal", normal_buff, oidn::Format::Float3, config.image_width, config.image_height); // Normal (optional)
+        filter.setImage("output", colour_buff, oidn::Format::Float3, config.image_width, config.image_height); // Denoised beauty
+        filter.set("hdr", true); // Signal that the images are HDR
+        filter.commit();
+
+        // Filter the beauty image
+        filter.execute();
+
+        // Check for errors
+        const char* err_msg;
+        if (device.getError(err_msg) != oidn::Error::None)
+            std::cout << "OIDN Error: " << err_msg << std::endl;
+
+        const auto* denoised_ptr = static_cast<const float*>(colour_buff.getData());
+
         // Write to .EXR file
         WriteToEXR(film.rgb.data(), config.image_width, config.image_height, config.image_filename.c_str());
-
-        /*
-            Use intel open denoiser
-            Initialise denoiser
-            Prepare input data
-                - rendered image
-                - albedo buffer
-                - normal buffer
-            Create denoising buffers
-            Perform denoising
-            Retrieve output data
-            Write to file
-            Cleanup resources
-        */
+        std::string denoised_filename = config.image_filename.string() + "_denoised.exr";
+        WriteToEXR(denoised_ptr, config.image_width, config.image_height, denoised_filename.c_str());
     }    
 
     std::cout << std::endl;
