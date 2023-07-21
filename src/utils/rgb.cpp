@@ -69,4 +69,5 @@ RGB FromTexture(const RTCHit& hit, const Texture* tex, const UVTextureCoords& te
         static_cast<float>(tex->buffer[p_index + 0]) / 255.0F
     };
 }
+
 }

@@ -68,7 +68,15 @@
         "future": "cpp",
         "condition_variable": "cpp",
         "mutex": "cpp",
-        "dense": "cpp"
+        "dense": "cpp",
+        "bitset": "cpp",
+        "cfenv": "cpp",
+        "list": "cpp",
+        "unordered_set": "cpp",
+        "regex": "cpp",
+        "semaphore": "cpp",
+        "shared_mutex": "cpp",
+        "typeindex": "cpp"
     },
     "cmake.configureOnOpen": true,
     "C_Cpp.codeAnalysis.clangTidy.enabled": true,

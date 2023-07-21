@@ -34,7 +34,7 @@ int main(int argc, char** argv)
         ConfigSingleton::ParseOptions(argc, argv);
 
         // Retrieve config singleton instance
-        const ConfigSingleton& config = ConfigSingleton::GetInstance();
+        ConfigSingleton& cs = ConfigSingleton::GetInstance();
 /*
         EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
         // Textures
@@ -47,60 +47,67 @@ int main(int argc, char** argv)
 */
         ObjectLoader loader = ObjectLoader();
         //loader.LoadObjects(double_dragon.objects);
-        loader.LoadObjects(testscene2.objects);
+        loader.LoadObjects(cs.environment.objects);
 
         if (ConfigSingleton::GetInstance().use_bvh){ BuildBVH(RTCBuildQuality::RTC_BUILD_QUALITY_LOW, loader.GetPrims(), nullptr, loader.GetPrims().size() * 2); }
 
         // Create film
-        Film film(config.image_width, config.image_height, Eigen::Vector2i(config.canvas_width, config.canvas_height));
+        Film film(cs.image_width, cs.image_height, Eigen::Vector2i(cs.canvas_width, cs.canvas_height));
 
-        // Create camera
-        Camera camera(
-            Vector3f(0.0F, 0.0F, 0.0F),   // Camera position
-            Vector3f(0.0F, 0.0F, 1.0F),   // Camera look direction
-            Vector3f(0.0F, 1.0F, 0.0F),   // Camera up direction
-            1.0F);                        // Camera focal length
+        //Create camera
+        //Camera camera(
+        //    Vector3f(0.0F, 0.0F, 0.0F),   // Camera position
+        //    Vector3f(0.0F, 0.0F, 1.0F),   // Camera look direction
+        //    Vector3f(0.0F, 1.0F, 0.0F),   // Camera up direction
+        //    1.0F);                        // Camera focal length
+
+        Camera camera = cs.environment.camera;
 
         // Render
         std::unique_ptr<Renderer> renderer0 = std::make_unique<TestRenderer>();
-        renderer0->RenderFilm(film, camera, config.threads);
+        renderer0->RenderFilm(film, camera, std::thread::hardware_concurrency());
 
-        // Intel Open Image Denoise
-        // Create an Intel Open Image Denoise device
-        oidn::DeviceRef device = oidn::newDevice();
-        device.commit();
+        if (ConfigSingleton::GetInstance().denoiser)
+        {
 
-        // Create buffers for input/output images accessible by both host (CPU) and device (CPU/GPU)
-        oidn::BufferRef colour_buff = device.newBuffer(static_cast<size_t>(config.image_width * config.image_height * 3 * sizeof(float)));
+            // Intel Open Image Denoise
+            // Create an Intel Open Image Denoise device
+            oidn::DeviceRef device = oidn::newDevice();
+            device.commit();
+    
+            // Create buffers for input/output images accessible by both host (CPU) and device (CPU/GPU)
+            oidn::BufferRef colour_buff = device.newBuffer(static_cast<size_t>(cs.image_width * cs.image_height * 3 * sizeof(float)));
+    
+            // Fill the input image buffers
+            auto* colour_ptr = static_cast<float*>(film.rgb.data());
+            std::memcpy(colour_buff.getData(), colour_ptr, cs.image_width * cs.image_height * 3 * sizeof(float));
+    
+            // Create a filter for denoising a beauty (colour) image using optional auxiliary images too
+            // This can be an expensive operation, so try not to create a new filter for every image
+            oidn::FilterRef filter = device.newFilter("RT");
+            filter.setImage("color", colour_buff, oidn::Format::Float3, cs.image_width, cs.image_height); // Beauty
+            // filter.setImage("albedo", albedo_buff, oidn::Format::Float3, config.image_width, config.image_height); // Albedo (optional)
+            // filter.setImage("normal", normal_buff, oidn::Format::Float3, config.image_width, config.image_height); // Normal (optional)
+            filter.setImage("output", colour_buff, oidn::Format::Float3, cs.image_width, cs.image_height); // Denoised beauty
+            filter.set("hdr", true); // Signal that the images are HDR
+            filter.commit();
+    
+            // Filter the beauty image
+            filter.execute();
+    
+            // Check for errors
+            const char* err_msg;
+            if (device.getError(err_msg) != oidn::Error::None)
+                std::cout << "OIDN Error: " << err_msg << std::endl;
+    
+            const auto* denoised_ptr = static_cast<const float*>(colour_buff.getData());
+    
+            // Write to .EXR file
+            std::string denoised_filename = cs.image_filename.string() + "_denoised.exr";
+            WriteToEXR(denoised_ptr, cs.image_width, cs.image_height, denoised_filename.c_str());
+        }
 
-        // Fill the input image buffers
-        auto* colour_ptr = static_cast<float*>(film.rgb.data());
-        std::memcpy(colour_buff.getData(), colour_ptr, config.image_width * config.image_height * 3 * sizeof(float));
-
-        // Create a filter for denoising a beauty (colour) image using optional auxiliary images too
-        // This can be an expensive operation, so try not to create a new filter for every image
-        oidn::FilterRef filter = device.newFilter("RT");
-        filter.setImage("color", colour_buff, oidn::Format::Float3, config.image_width, config.image_height); // Beauty
-        // filter.setImage("albedo", albedo_buff, oidn::Format::Float3, config.image_width, config.image_height); // Albedo (optional)
-        // filter.setImage("normal", normal_buff, oidn::Format::Float3, config.image_width, config.image_height); // Normal (optional)
-        filter.setImage("output", colour_buff, oidn::Format::Float3, config.image_width, config.image_height); // Denoised beauty
-        filter.set("hdr", true); // Signal that the images are HDR
-        filter.commit();
-
-        // Filter the beauty image
-        filter.execute();
-
-        // Check for errors
-        const char* err_msg;
-        if (device.getError(err_msg) != oidn::Error::None)
-            std::cout << "OIDN Error: " << err_msg << std::endl;
-
-        const auto* denoised_ptr = static_cast<const float*>(colour_buff.getData());
-
-        // Write to .EXR file
-        WriteToEXR(film.rgb.data(), config.image_width, config.image_height, config.image_filename.c_str());
-        std::string denoised_filename = config.image_filename.string() + "_denoised.exr";
-        WriteToEXR(denoised_ptr, config.image_width, config.image_height, denoised_filename.c_str());
+        WriteToEXR(film.rgb.data(), cs.image_width, cs.image_height, cs.image_filename.c_str());
     }    
 
     std::cout << std::endl;

@@ -30,6 +30,12 @@ EmbreeSingleton::EmbreeSingleton() : device(rtcNewDevice(nullptr)), scene(rtcNew
     materials.emplace("black_d", std::make_unique<Mat>(BLACK_D));
     assert(!materials.contains("black_s"));
     materials.emplace("black_s", std::make_unique<Mat>(BLACK_S));
+    assert(!materials.contains("red_d"));
+    materials.emplace("red_d", std::make_unique<Mat>(RED_D));
+    assert(!materials.contains("green_d"));
+    materials.emplace("green_d", std::make_unique<Mat>(GREEN_D));
+    assert(!materials.contains("light"));
+    materials.emplace("light", std::make_unique<Mat>(LIGHT));
 }
 
 EmbreeSingleton::~EmbreeSingleton()

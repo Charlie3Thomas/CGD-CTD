@@ -50,6 +50,20 @@ inline Mat BLACK_S{
     RGB{0.01F, 0.01F, 0.01F}  * 0.5F, 
     0.95F,
     true};
-
+inline Mat RED_D{
+    RGB{1.0F, 0.0F, 0.0F } * 0.6F,
+    RGB{1.0F, 0.0F, 0.0F } * 0.5F,
+    0.25F,
+    false};
+inline Mat GREEN_D{
+    RGB{0.0F, 1.0F, 0.0F } * 0.6F,
+    RGB{0.0F, 1.0F, 0.0F } * 0.5F,
+    0.25F,
+    false};
+inline Mat LIGHT{
+    RGB{1.0F, 1.0F, 1.0F } * 1.0F,
+    RGB{1.0F, 1.0F, 1.0F } * 1.0F,
+    0.25F,
+    false};
 
 }

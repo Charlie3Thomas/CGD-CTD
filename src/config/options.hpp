@@ -1,5 +1,7 @@
 #pragma once
 
+#include "loaders/scene.hpp"
+
 #include <cstddef>
 #include <filesystem>
 
@@ -10,16 +12,18 @@ class ConfigSingleton
 public:
 
     // Defined parameters
-    size_t image_width;
-    size_t image_height;
-
-    std::filesystem::path input_model_filename;
+    Scene environment = double_dragon;
     std::filesystem::path image_filename;
-
-    size_t threads = 1;
-
-    size_t canvas_width = 40;
-    size_t canvas_height = 40;
+    size_t image_width      = 1920;
+    size_t image_height     = 1080;
+    size_t canvas_width     = 40;
+    size_t canvas_height    = 40;
+    size_t direct_samples   = 1;
+    size_t indirect_samples = 1;
+    size_t recursion_depth  = 1;
+    bool   denoiser         = false;
+    // Texture resolution
+    // Adaptive material
 
     // Debug parameters
     bool use_bvh = false;

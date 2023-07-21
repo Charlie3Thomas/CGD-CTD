@@ -95,12 +95,17 @@ static CWHData SampleCosineWeightedHemisphere(const Vector3f& n)
     float x = n.x();
     float y = n.y();
     float z = n.z();
-    
+#if 0
     Matrix3f oigno;
     oigno << 1.0F, 0.0F, ((-z * x) + (2.0F * x)),
              0.0F, 1.0F, ((-z * y) + (2.0F * y)),
              (z * x - 2.0F * x), (z * y - 2.0F * y), 1.0F;
-    
+#else
+    Matrix3f oigno;
+    oigno << 1.0F, 0.0F, ((-z * -x) + (2.0F * -x)),
+             0.0F, 1.0F, ((-z * y) + (2.0F * y)),
+             (z * -x - 2.0F * -x), (z * y - 2.0F * y), 1.0F;
+#endif    
     CWHData ret
     {
         .dir = -(oigno * hemisphere_dir).normalized(),
@@ -119,10 +124,16 @@ static CWHData SampleCosineWeightedHemisphere(const Vector3f& n)
 static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context)
 {
     const EmbreeSingleton& es = EmbreeSingleton::GetInstance();
+    const ConfigSingleton& cs = ConfigSingleton::GetInstance();
 
     RGB returned_pixel_colour_value = BLACK;
     const RTCGeometry incident_geometry = rtcGetGeometry(es.scene, rh.hit.geomID);
     const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(incident_geometry));
+
+    // If hit object has light material, return light material colour
+    if (obj->material == EmbreeSingleton::GetInstance().materials["light"].get())
+        return obj->material->kd;
+
     Vector3f incident_shading_normal = InterpolateNormals(incident_geometry, rh.hit);
     if (ConfigSingleton::GetInstance().visualise_normals)
         return FromNormal(incident_shading_normal);
@@ -130,13 +141,12 @@ static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context)
     Vector3f incident_reflection = (incident_direction - 2.0F * incident_shading_normal * incident_shading_normal.dot(incident_direction)).normalized();
     Vector3f incident_hit_worldspace { rh.ray.org_x + rh.ray.dir_x * rh.ray.tfar, rh.ray.org_y + rh.ray.dir_y * rh.ray.tfar, rh.ray.org_z + rh.ray.dir_z * rh.ray.tfar };
     //const Lights lights = double_dragon.lights;
-    const Lights lights = testscene2.lights;
+    const Lights lights = cs.environment.lights;
 
     // TODO: Only contribute the light's colour if the last material was specular
 
-    size_t samples = 16;
     RGB sample_light = BLACK;
-    for (size_t sample = 0; sample < samples; sample++)
+    for (size_t sample = 0; sample < cs.indirect_samples; sample++)
     {
         // Calculate direct lighting
         sample_light += EvaluateLighting(incident_hit_worldspace, incident_shading_normal, incident_reflection, obj, lights, context);
@@ -158,13 +168,13 @@ static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context)
         }
 
 
-        sample_light = sample_light / static_cast<float>(samples);
+        sample_light = sample_light / static_cast<float>(cs.indirect_samples);
         returned_pixel_colour_value += sample_light;
     }
 
     static thread_local DepthCounter counter;
     auto increment = counter.Increment();
-    if (counter.GetDepth() < 3)
+    if (counter.GetDepth() < cs.recursion_depth)
     {
         Vector3f offset_reflection = (incident_reflection + Vector3f::Random() * (1.0F - obj->material->shininess)).normalized();
         RTCRayHit refl_ray = CastRay(incident_hit_worldspace, offset_reflection, std::numeric_limits<float>::infinity(), context);
@@ -192,7 +202,16 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
 
             rtcIntersect1(es.scene, &context, &ray);           
             if (ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)  // If the ray hit something, handle the hit
-                DrawColourToCanvas(pixel_ref, HandleHit(ray, context));
+            {
+                RGB col = BLACK;
+                size_t samples = 1;
+                for (size_t i = 0; i < 1; i++)
+                {
+                    col += HandleHit(ray, context) / static_cast<float>(samples);
+                }
+                DrawColourToCanvas(pixel_ref, col);
+            }
+                
             else // Draw black background if no hit
                 DrawColourToCanvas(pixel_ref, BLACK);
 
