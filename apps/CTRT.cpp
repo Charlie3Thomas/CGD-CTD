@@ -69,7 +69,6 @@ int main(int argc, char** argv)
 
         if (ConfigSingleton::GetInstance().denoiser)
         {
-
             // Intel Open Image Denoise
             // Create an Intel Open Image Denoise device
             oidn::DeviceRef device = oidn::newDevice();

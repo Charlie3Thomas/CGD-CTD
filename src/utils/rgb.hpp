@@ -22,6 +22,7 @@ struct RGB
     RGB operator*(float scalar) const { return {r * scalar, g * scalar, b * scalar}; }
     RGB operator*(const RGB& other) const { return {r * other.r, g * other.g, b * other.b}; }
     RGB operator*=(float scalar) { r *= scalar; g *= scalar; b *= scalar; return *this; }
+    RGB operator*=(const RGB& other) { r *= other.r; g *= other.g; b *= other.b; return *this; }
     RGB operator +=(const RGB& other) { r += other.r; g += other.g; b += other.b; return *this; }
     RGB operator +(const RGB& other) const { return {r + other.r, g + other.g, b + other.b}; }
     RGB operator / (float scalar) const { return {r / scalar, g / scalar, b / scalar}; }
@@ -40,6 +41,7 @@ RGB FromIntersectNormal(const RTCHit& hit);
 RGB FromNormal(Eigen::Vector3f flimbo);
 RGB FromBaryCoords(const RTCHit& hit);
 RGB FromTexture(const RTCHit& hit, const Texture* tex, const UVTextureCoords& tex_coords);
+float Luminance(const RGB& rgb);
 
 }
 

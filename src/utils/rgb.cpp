@@ -70,4 +70,12 @@ RGB FromTexture(const RTCHit& hit, const Texture* tex, const UVTextureCoords& te
     };
 }
 
+float Luminance(const RGB& rgb)
+{
+    return
+    {
+        rgb.r / 3.0F + rgb.g / 3.0F + rgb.b / 3.0F
+    };
+}
+
 }

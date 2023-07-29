@@ -95,6 +95,7 @@ static CWHData SampleCosineWeightedHemisphere(const Vector3f& n)
     float x = n.x();
     float y = n.y();
     float z = n.z();
+
 #if 0
     Matrix3f oigno;
     oigno << 1.0F, 0.0F, ((-z * x) + (2.0F * x)),
@@ -105,7 +106,8 @@ static CWHData SampleCosineWeightedHemisphere(const Vector3f& n)
     oigno << 1.0F, 0.0F, ((-z * -x) + (2.0F * -x)),
              0.0F, 1.0F, ((-z * y) + (2.0F * y)),
              (z * -x - 2.0F * -x), (z * y - 2.0F * y), 1.0F;
-#endif    
+#endif
+ 
     CWHData ret
     {
         .dir = -(oigno * hemisphere_dir).normalized(),
@@ -117,11 +119,10 @@ static CWHData SampleCosineWeightedHemisphere(const Vector3f& n)
     return { ret };
 }
 
-
 /// @brief Handle ray hits and calculate the colour of the pixel from environment
 /// @param ray 
 /// @return CT::RGB colour of the pixel
-static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context)
+static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context, RGB path_throughput)
 {
     const EmbreeSingleton& es = EmbreeSingleton::GetInstance();
     const ConfigSingleton& cs = ConfigSingleton::GetInstance();
@@ -145,11 +146,13 @@ static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context)
 
     // TODO: Only contribute the light's colour if the last material was specular
 
+    //returned_pixel_colour_value += EvaluateLighting(incident_hit_worldspace, incident_shading_normal, incident_reflection, obj, lights, context);
+
     RGB sample_light = BLACK;
     for (size_t sample = 0; sample < cs.indirect_samples; sample++)
     {
         // Calculate direct lighting
-        sample_light += EvaluateLighting(incident_hit_worldspace, incident_shading_normal, incident_reflection, obj, lights, context);
+        //sample_light += EvaluateLighting(incident_hit_worldspace, incident_shading_normal, incident_reflection, obj, lights, context);
 
         // Calculate indirect lighting with cosine weighted hemisphere sampling
         CWHData hemisphere_sample = SampleCosineWeightedHemisphere(incident_shading_normal);
@@ -164,14 +167,19 @@ static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context)
                 hemisphere_sample_ray.ray.org_x + hemisphere_sample_ray.ray.dir_x * hemisphere_sample_ray.ray.tfar,
                 hemisphere_sample_ray.ray.org_y + hemisphere_sample_ray.ray.dir_y * hemisphere_sample_ray.ray.tfar,
                 hemisphere_sample_ray.ray.org_z + hemisphere_sample_ray.ray.dir_z * hemisphere_sample_ray.ray.tfar };
-            sample_light += EvaluateLighting(hemisphere_sample_hit_worldspace, hemisphere_sample_shading_normal, hemisphere_sample_reflection, hemisphere_sample_obj, lights, context);
-        }
+
+            //float cosphi = std::max(0.0F, incident_reflection.dot(hemisphere_sample.dir));
+            //RGB bsdf = (hemisphere_sample_obj->material->kd / std::numbers::pi_v<float>) + (hemisphere_sample_obj->material->ks * ((hemisphere_sample_obj->material->shininess + 2.0F) / (2.0F * std::numbers::pi_v<float>)) * std::pow(cosphi, hemisphere_sample_obj->material->shininess));
+            //path_throughput *= (bsdf * std::abs((hemisphere_sample_shading_normal.dot(hemisphere_sample.dir)) / hemisphere_sample.pdf));
+
+            sample_light += EvaluateLighting(hemisphere_sample_hit_worldspace, hemisphere_sample_shading_normal, hemisphere_sample_reflection, hemisphere_sample_obj, lights, context);        }
 
 
         sample_light = sample_light / static_cast<float>(cs.indirect_samples);
         returned_pixel_colour_value += sample_light;
     }
 
+    // Recurse for reflections
     static thread_local DepthCounter counter;
     auto increment = counter.Increment();
     if (counter.GetDepth() < cs.recursion_depth)
@@ -179,11 +187,194 @@ static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context)
         Vector3f offset_reflection = (incident_reflection + Vector3f::Random() * (1.0F - obj->material->shininess)).normalized();
         RTCRayHit refl_ray = CastRay(incident_hit_worldspace, offset_reflection, std::numeric_limits<float>::infinity(), context);
         if (refl_ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
-            returned_pixel_colour_value += HandleHit(refl_ray, context);
+            returned_pixel_colour_value += HandleHit(refl_ray, context, path_throughput);
     }
 
+    // Return colour accumulated for pixel based on recursed samples 
     return returned_pixel_colour_value / static_cast<float>(counter.GetDepth());
 }
+
+static RGB PerformSample(const RTCRayHit& rh, RTCIntersectContext& context, size_t recursion_depth, RGB path_throughput = WHITE)
+{   
+    // Initialise return value
+    RGB returned_pixel_colour_value = BLACK;
+
+    // Get singletons
+    const EmbreeSingleton& es = EmbreeSingleton::GetInstance();
+    const ConfigSingleton& cs = ConfigSingleton::GetInstance();
+
+    // Get environment
+    const Lights lights = cs.environment.lights;
+    const RTCGeometry incident_geometry = rtcGetGeometry(es.scene, rh.hit.geomID);
+    const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(incident_geometry));
+
+    // If hit object has light material, return light material colour **SPECIAL CASE HACK**
+    if (obj->material == EmbreeSingleton::GetInstance().materials["light"].get())
+        return obj->material->kd;
+
+    // Calculate vectors on hit object
+    Vector3f incident_shading_normal = InterpolateNormals(incident_geometry, rh.hit);
+    Vector3f incident_direction { rh.ray.dir_x, rh.ray.dir_y, rh.ray.dir_z };
+    Vector3f incident_reflection = (incident_direction - 2.0F * incident_shading_normal * incident_shading_normal.dot(incident_direction)).normalized();
+    Vector3f incident_hit_worldspace { rh.ray.org_x + rh.ray.dir_x * rh.ray.tfar, rh.ray.org_y + rh.ray.dir_y * rh.ray.tfar, rh.ray.org_z + rh.ray.dir_z * rh.ray.tfar };
+    if (ConfigSingleton::GetInstance().visualise_normals)
+        return FromNormal(incident_shading_normal);   
+
+    // Calculate direct lighting
+    RGB direct_sample = BLACK;
+    direct_sample += path_throughput * EvaluateLighting(incident_hit_worldspace, incident_shading_normal, incident_reflection, obj, lights, context);
+    returned_pixel_colour_value += direct_sample;
+
+    // Sample indirect
+	RGB indirect = BLACK;
+	CWHData hemisphere_sample = SampleCosineWeightedHemisphere(incident_shading_normal);
+	RTCRayHit hemisphere_sample_ray = CastRay(incident_hit_worldspace, hemisphere_sample.dir, std::numeric_limits<float>::infinity(), context);
+	if (hemisphere_sample_ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
+	{
+        // Get object hit by hemisphere sample ray
+		const RTCGeometry hemisphere_sample_geometry = rtcGetGeometry(es.scene, hemisphere_sample_ray.hit.geomID);
+		const auto* hemisphere_sample_obj = static_cast<const Object*>(rtcGetGeometryUserData(hemisphere_sample_geometry));
+
+        // Compute hemisphere sample reflection vectors
+		Vector3f hemisphere_sample_shading_normal = InterpolateNormals(hemisphere_sample_geometry, hemisphere_sample_ray.hit);
+		Vector3f hemisphere_sample_reflection = (hemisphere_sample.dir - 2.0F * hemisphere_sample_shading_normal * hemisphere_sample_shading_normal.dot(hemisphere_sample.dir)).normalized();
+		Vector3f hemisphere_sample_hit_worldspace{
+			hemisphere_sample_ray.ray.org_x + hemisphere_sample_ray.ray.dir_x * hemisphere_sample_ray.ray.tfar,
+			hemisphere_sample_ray.ray.org_y + hemisphere_sample_ray.ray.dir_y * hemisphere_sample_ray.ray.tfar,
+			hemisphere_sample_ray.ray.org_z + hemisphere_sample_ray.ray.dir_z * hemisphere_sample_ray.ray.tfar };
+
+		// Update paththrought
+        float cosphi = std::max(0.0F, incident_reflection.dot(hemisphere_sample.dir));
+        //RGB bsdf = (obj->material->kd / std::numbers::pi_v<float>) + (obj->material->ks * ((obj->material->shininess + 2.0F) / (2.0F * std::numbers::pi_v<float>)) * std::pow(cosphi, obj->material->shininess));
+        RGB bsdf = (hemisphere_sample_obj->material->kd / std::numbers::pi_v<float>) + (hemisphere_sample_obj->material->ks * ((hemisphere_sample_obj->material->shininess + 2.0F) / (2.0F * std::numbers::pi_v<float>)) * std::pow(cosphi, hemisphere_sample_obj->material->shininess));
+		path_throughput *= bsdf * std::abs((hemisphere_sample_shading_normal.dot(hemisphere_sample.dir)) / hemisphere_sample.pdf);
+
+		// Recurse for N indirect samples
+		if (recursion_depth < cs.indirect_samples)
+		{
+            RTCRayHit refl_ray = CastRay(incident_hit_worldspace, hemisphere_sample_reflection, std::numeric_limits<float>::infinity(), context);
+            if (refl_ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
+            {
+                indirect = PerformSample(refl_ray, context, ++recursion_depth, path_throughput);
+                returned_pixel_colour_value += indirect;
+            }
+		}
+	}
+
+    // Recurse for reflections ** THIS IS THE CAUSE OF THE COLOUR BLEED, CHECK WITH TOM **
+    if (recursion_depth < cs.recursion_depth)
+    {        
+        Vector3f offset_reflection = (incident_reflection + Vector3f::Random() * (1.0F - obj->material->shininess)).normalized();
+        RTCRayHit refl_ray = CastRay(incident_hit_worldspace, offset_reflection, std::numeric_limits<float>::infinity(), context);
+        if (refl_ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
+        {
+            float cosphi = std::max(0.0F, incident_reflection.dot(incident_reflection));
+            RGB bsdf = (obj->material->kd / std::numbers::pi_v<float>) + (obj->material->ks * ((obj->material->shininess + 2.0F) / (2.0F * std::numbers::pi_v<float>)) * std::pow(cosphi, obj->material->shininess));
+            returned_pixel_colour_value += (PerformSample(refl_ray, context, ++recursion_depth, WHITE) * bsdf * std::abs((incident_shading_normal.dot(hemisphere_sample.dir)) / hemisphere_sample.pdf)); /* This likely shouldn't be the hemisphere sample pdf */
+
+        }
+    }
+
+    return (returned_pixel_colour_value);
+}
+
+
+
+
+/*
+/// @brief Handle ray hits and calculate the colour of the pixel from environment
+/// @param ray 
+/// @return CT::RGB colour of the pixel
+static RGB HandleHit(const RTCRayHit& rh, RTCIntersectContext& context, RGB path_throughput)
+{
+    // Initialise return value
+    //RGB returned_pixel_colour_value = path_throughput;
+
+    static thread_local DepthCounter counter;
+    auto increment = counter.Increment();
+
+    // Get singletons
+    const EmbreeSingleton& es = EmbreeSingleton::GetInstance();
+    const ConfigSingleton& cs = ConfigSingleton::GetInstance();
+
+    // Get environment lights
+    const Lights lights = cs.environment.lights;
+    
+    // Get incident ray hit geometry and object
+    const RTCGeometry incident_geometry = rtcGetGeometry(es.scene, rh.hit.geomID);
+    const auto* obj = static_cast<const Object*>(rtcGetGeometryUserData(incident_geometry));
+
+    // If hit object has light material, return light material colour
+    if (obj->material == EmbreeSingleton::GetInstance().materials["light"].get())
+        return obj->material->kd;
+
+    // Calculate vectors on hit object
+    Vector3f incident_shading_normal = InterpolateNormals(incident_geometry, rh.hit);
+    if (ConfigSingleton::GetInstance().visualise_normals)
+        return FromNormal(incident_shading_normal);
+    Vector3f incident_direction { rh.ray.dir_x, rh.ray.dir_y, rh.ray.dir_z };
+    Vector3f incident_reflection = (incident_direction - 2.0F * incident_shading_normal * incident_shading_normal.dot(incident_direction)).normalized();
+    Vector3f incident_hit_worldspace { rh.ray.org_x + rh.ray.dir_x * rh.ray.tfar, rh.ray.org_y + rh.ray.dir_y * rh.ray.tfar, rh.ray.org_z + rh.ray.dir_z * rh.ray.tfar };
+
+    // Calculate direct lighting
+    RGB direct_sample = BLACK;
+    //direct_sample += path_throughput * EvaluateLighting(incident_hit_worldspace, incident_shading_normal, incident_reflection, obj, lights, context);
+    direct_sample += EvaluateLighting(incident_hit_worldspace, incident_shading_normal, incident_reflection, obj, lights, context);
+    //returned_pixel_colour_value += direct_sample;
+
+	// Sample indirect
+	RGB indirect = BLACK;
+
+	CWHData hemisphere_sample = SampleCosineWeightedHemisphere(incident_shading_normal);
+	RTCRayHit hemisphere_sample_ray = CastRay(incident_hit_worldspace, hemisphere_sample.dir, std::numeric_limits<float>::infinity(), context);
+	if (hemisphere_sample_ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
+	{
+		const RTCGeometry hemisphere_sample_geometry = rtcGetGeometry(es.scene, hemisphere_sample_ray.hit.geomID);
+		const auto* hemisphere_sample_obj = static_cast<const Object*>(rtcGetGeometryUserData(hemisphere_sample_geometry));
+
+        // Compute hemisphere sample reflection vectors
+		Vector3f hemisphere_sample_shading_normal = InterpolateNormals(hemisphere_sample_geometry, hemisphere_sample_ray.hit);
+		Vector3f hemisphere_sample_reflection = (hemisphere_sample.dir - 2.0F * hemisphere_sample_shading_normal * hemisphere_sample_shading_normal.dot(hemisphere_sample.dir)).normalized();
+		Vector3f hemisphere_sample_hit_worldspace{
+			hemisphere_sample_ray.ray.org_x + hemisphere_sample_ray.ray.dir_x * hemisphere_sample_ray.ray.tfar,
+			hemisphere_sample_ray.ray.org_y + hemisphere_sample_ray.ray.dir_y * hemisphere_sample_ray.ray.tfar,
+			hemisphere_sample_ray.ray.org_z + hemisphere_sample_ray.ray.dir_z * hemisphere_sample_ray.ray.tfar };
+
+		// Update paththrought
+        float cosphi = std::max(0.0F, incident_reflection.dot(hemisphere_sample.dir));
+        //RGB bsdf = (obj->material->kd / std::numbers::pi_v<float>) + (obj->material->ks * ((obj->material->shininess + 2.0F) / (2.0F * std::numbers::pi_v<float>)) * std::pow(cosphi, obj->material->shininess));
+        RGB bsdf = (hemisphere_sample_obj->material->kd / std::numbers::pi_v<float>) + (hemisphere_sample_obj->material->ks * ((hemisphere_sample_obj->material->shininess + 2.0F) / (2.0F * std::numbers::pi_v<float>)) * std::pow(cosphi, hemisphere_sample_obj->material->shininess));
+		path_throughput *= bsdf * std::abs((hemisphere_sample_shading_normal.dot(hemisphere_sample.dir)) / hemisphere_sample.pdf);
+
+        // Recurse
+
+        if (counter.GetDepth() < cs.recursion_depth)
+        {
+            // This is a hack for reflection fuzziness
+            //Vector3f offset_reflection = (incident_reflection + Vector3f::Random() * (1.0F - obj->material->shininess)).normalized();
+
+            // Cast the reflection ray and handle the hit
+            RTCRayHit refl_ray = CastRay(incident_hit_worldspace, hemisphere_sample_reflection, std::numeric_limits<float>::infinity(), context);
+            if (refl_ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
+                indirect += HandleHit(refl_ray, context, path_throughput);
+        }
+
+		//// Recurse
+		//if (counter.GetDepth() < cs.recursion_depth)
+		//{
+        //    RTCRayHit refl_ray = CastRay(incident_hit_worldspace, hemisphere_sample_reflection, std::numeric_limits<float>::infinity(), context);
+		//	//indirect = HandleHit(refl_ray, context, path_throughput);
+		//	indirect = HandleHit(refl_ray, context, WHITE);
+		//}
+	}
+
+
+
+
+    return (direct_sample + indirect) / static_cast<float>(counter.GetDepth());
+    //return returned_pixel_colour_value / static_cast<float>(counter.GetDepth());
+}
+*/
 
 static void RenderCanvas(Canvas& canvas, const Camera& camera)
 {
@@ -204,10 +395,11 @@ static void RenderCanvas(Canvas& canvas, const Camera& camera)
             if (ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)  // If the ray hit something, handle the hit
             {
                 RGB col = BLACK;
-                size_t samples = 1;
-                for (size_t i = 0; i < 1; i++)
+                size_t samples = 32;
+                for (size_t i = 0; i < samples; i++)
                 {
-                    col += HandleHit(ray, context) / static_cast<float>(samples);
+                    //col += HandleHit(ray, context, WHITE) / static_cast<float>(samples);
+                    col += PerformSample(ray, context, 0) / static_cast<float>(samples);
                 }
                 DrawColourToCanvas(pixel_ref, col);
             }
