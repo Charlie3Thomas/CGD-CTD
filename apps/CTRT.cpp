@@ -5,6 +5,7 @@
 #include <Eigen/Dense>
 #include <thread>
 #include "OpenImageDenoise/oidn.hpp"
+#include <tinyexr.h>
 
 #include "bvh/bvh.hpp"
 #include "camera/camera.hpp"
@@ -12,10 +13,7 @@
 #include "config/options.hpp"
 #include "embree/embreesingleton.hpp"
 #include "loaders/objloader.hpp"
-//#include "loaders/object.hpp"
-//#include "loaders/transform.hpp"
 #include "loaders/scene.hpp"
-//#include "materials/materials.hpp"
 #include "renderers/testrenderer.hpp"
 #include "utils/rgb.hpp"
 #include "utils/exr.hpp"
@@ -35,8 +33,8 @@ int main(int argc, char** argv)
 
         // Retrieve config singleton instance
         ConfigSingleton& cs = ConfigSingleton::GetInstance();
-/*
         EmbreeSingleton& embree = EmbreeSingleton::GetInstance();
+
         // Textures
         assert(!embree.textures.contains("water"));
         embree.textures.emplace("water", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/water.png")));
@@ -44,7 +42,7 @@ int main(int argc, char** argv)
         embree.textures.emplace("stone", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/stone.jpg")));
         assert(!embree.textures.contains("test"));
         embree.textures.emplace("test", std::make_unique<Texture>(Texture("/home/Charlie/CGD-CTD/textures/capsule0.jpg")));
-*/
+
         ObjectLoader loader = ObjectLoader();
         //loader.LoadObjects(double_dragon.objects);
         loader.LoadObjects(cs.environment.objects);
@@ -53,13 +51,6 @@ int main(int argc, char** argv)
 
         // Create film
         Film film(cs.image_width, cs.image_height, Eigen::Vector2i(cs.canvas_width, cs.canvas_height));
-
-        //Create camera
-        //Camera camera(
-        //    Vector3f(0.0F, 0.0F, 0.0F),   // Camera position
-        //    Vector3f(0.0F, 0.0F, 1.0F),   // Camera look direction
-        //    Vector3f(0.0F, 1.0F, 0.0F),   // Camera up direction
-        //    1.0F);                        // Camera focal length
 
         Camera camera = cs.environment.camera;
 
@@ -76,17 +67,27 @@ int main(int argc, char** argv)
     
             // Create buffers for input/output images accessible by both host (CPU) and device (CPU/GPU)
             oidn::BufferRef colour_buff = device.newBuffer(static_cast<size_t>(cs.image_width * cs.image_height * 3 * sizeof(float)));
+            // oidn::BufferRef normal_buff = device.newBuffer(static_cast<size_t>(cs.image_width * cs.image_height * 3 * sizeof(float)));
     
             // Fill the input image buffers
             auto* colour_ptr = static_cast<float*>(film.rgb.data());
             std::memcpy(colour_buff.getData(), colour_ptr, cs.image_width * cs.image_height * 3 * sizeof(float));
+
+            /* FOR SOME REASON WHEN PROVIDING OIDN WITH A NORMAL BUFFER, THE IMAGE DOES NOT GET PROCESSED AT ALL */
+
+            //// Fill normal map buffer
+            //const char* norms_filename = "/home/Charlie/CGD-CTD/normals/norm-cornell-box-normals.exr";
+            //int w = 0;
+            //int h = 0;
+            //float* norms = LoadEXRFromFile(norms_filename, w, h);
+            //std::memcpy(normal_buff.getData(), norms, cs.image_width * cs.image_height * 3 * sizeof(float));
     
             // Create a filter for denoising a beauty (colour) image using optional auxiliary images too
             // This can be an expensive operation, so try not to create a new filter for every image
             oidn::FilterRef filter = device.newFilter("RT");
             filter.setImage("color", colour_buff, oidn::Format::Float3, cs.image_width, cs.image_height); // Beauty
             // filter.setImage("albedo", albedo_buff, oidn::Format::Float3, config.image_width, config.image_height); // Albedo (optional)
-            // filter.setImage("normal", normal_buff, oidn::Format::Float3, config.image_width, config.image_height); // Normal (optional)
+            // filter.setImage("normal", normal_buff, oidn::Format::Float3, cs.image_width, cs.image_height); // Normal (optional)
             filter.setImage("output", colour_buff, oidn::Format::Float3, cs.image_width, cs.image_height); // Denoised beauty
             filter.set("hdr", true); // Signal that the images are HDR
             filter.commit();
@@ -107,7 +108,52 @@ int main(int argc, char** argv)
         }
 
         WriteToEXR(film.rgb.data(), cs.image_width, cs.image_height, cs.image_filename.c_str());
-    }    
+
+        // Load the EXR image using the LoadEXR function from TinyEXR
+        const char* filename = "/home/Charlie/CGD-CTD/ref/ref-black.exr";
+
+        // if (cs.environment == double_dragon)
+        // {
+        //     filename = "/home/Charlie/CGD-CTD/ref/ref-double-dragon.exr";
+        // }
+
+        filename = "/home/Charlie/CGD-CTD/ref/ref-double-dragon.exr";
+
+        //switch (cs.environment)
+        //{
+        //    case(1):
+        //    {
+        //        filename = "/home/Charlie/CGD-CTD/ref/ref-double-dragon.exr";
+        //        break;
+        //    }
+        //    case(2):
+        //    {
+        //        filename = "/home/Charlie/CGD-CTD/ref/ref-triple-statue.exr";
+        //        break;
+        //    }
+        //    case(3):
+        //    {
+        //        filename = "/home/Charlie/CGD-CTD/ref/ref-cornell-box.exr";
+        //        break;
+        //    }
+        //    case(4):
+        //    {
+        //        filename = "/home/Charlie/CGD-CTD/ref/ref-triple-statue-al.exr";
+        //        break;
+        //    }
+// //
+        //}
+
+        int width = 0;
+        int height = 0;
+        float* rgba = LoadEXRFromFile(filename, width, height);
+
+        float L1_diff = L1Difference(rgba, film.rgb.data(), static_cast<size_t>(height), static_cast<size_t>(width)) * 100.0F;
+        float L2_diff = L2Difference(rgba, film.rgb.data(), static_cast<size_t>(height), static_cast<size_t>(width)) * 100.0F;
+
+        std::cout << "L1 difference: " << L1_diff << std::endl;
+        std::cout << "L2 difference: " << L2_diff << std::endl;
+    }
 
     std::cout << std::endl;
     

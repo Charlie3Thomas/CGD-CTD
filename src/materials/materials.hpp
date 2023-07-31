@@ -18,7 +18,7 @@ inline Mat JADE2{
 inline Mat COPPER{
     RGB{0.64F, 0.20F, 0.08F}  * 0.6F, 
     RGB{0.94F, 0.72F, 0.21F} * 0.5F, 
-    0.99F,
+    0.95F,
     true};
 inline Mat REDBLACK{
     RGB{0.01F, 0.01F, 0.01F}  * 0.6F, 
@@ -51,13 +51,13 @@ inline Mat BLACK_S{
     0.95F,
     true};
 inline Mat RED_D{
-    RGB{1.0F, 0.0F, 0.0F } * 0.6F,
-    RGB{1.0F, 0.0F, 0.0F } * 0.5F,
+    RGB{1.0F, 0.2F, 0.2F } * 0.6F,
+    RGB{1.0F, 0.2F, 0.2F } * 0.5F,
     0.25F,
     false};
 inline Mat GREEN_D{
-    RGB{0.0F, 1.0F, 0.0F } * 0.6F,
-    RGB{0.0F, 1.0F, 0.0F } * 0.5F,
+    RGB{0.2F, 1.0F, 0.2F } * 0.6F,
+    RGB{0.2F, 1.0F, 0.2F } * 0.5F,
     0.25F,
     false};
 inline Mat LIGHT{

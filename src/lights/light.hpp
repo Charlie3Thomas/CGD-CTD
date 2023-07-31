@@ -113,14 +113,14 @@ static RGB EvaluateLighting(const Eigen::Vector3f& incident_hit_worldspace, cons
     {  
         RGB bsdf = BLACK;
 
-        float Kd = Luminance(obj->material->kd);
-        float Ks = Luminance(obj->material->ks);
-        float n = obj->material->shininess;
-        bool specular = obj->material->specular;
+        //float Kd = Luminance(obj->material->kd);
+        //float Ks = Luminance(obj->material->ks);
+        //float n = obj->material->shininess;
+        //bool specular = obj->material->specular;
 
-        /// Randomly select whether to compute a specular or diffuse sample
-        float u1 = RandomRange(0.0F, 1.0F);
-        float u2 = RandomRange(0.0F, 1.0F);
+        ///// Randomly select whether to compute a specular or diffuse sample
+        //float u1 = RandomRange(0.0F, 1.0F);
+        //float u2 = RandomRange(0.0F, 1.0F);
 
         // Importance sampling of the Phong Reflectance Model
         /*
@@ -199,7 +199,7 @@ static RGB EvaluateLighting(const Eigen::Vector3f& incident_hit_worldspace, cons
         float costhetaprime = std::max(0.0F, -area_c.normal.dot(direction_to_area_light));
         float geomterm = costheta * costhetaprime * r2;
         float cosphi = std::max(0.0F, incident_reflection.dot(direction_to_area_light));
-        bsdf = (obj->material->kd / std::numbers::pi_v<float>) + (obj->material->ks * ((obj->material->shininess + 2.0F) / (2.0F * std::numbers::pi_v<float>)) * std::pow(cosphi, obj->material->shininess));
+        bsdf = (obj->material->kd / std::numbers::pi_v<float>) + (obj->material->ks * ((obj->material->shininess + 2.0F) / (2.0F * std::numbers::pi_v<float>)) * std::pow(cosphi, obj->material->shininess)) * r2;
         //sample_light += (obj->material->kd * area_c.colour * costheta * r2) / pdf;
         sample_light += (bsdf * area_c.colour * geomterm) / pdf;
     }
