@@ -86,7 +86,7 @@ static RGB EvaluateLighting(const Eigen::Vector3f& incident_hit_worldspace, cons
         // Calculate the diffuse component
         float costheta = std::max(0.0F, incident_shading_normal.dot(dir_light.direction)) / std::numbers::pi_v<float>;
         sample_light += (obj->material->kd * dir_light.colour * costheta);
-        if (!obj->material->specular) { continue; }
+        if (!obj->material->mirror) { continue; }
         // Calculate the specular component
         float cosphi = std::max(0.0F, incident_reflection.dot(dir_light.direction));
         sample_light += (obj->material->ks * dir_light.colour * std::pow(cosphi, obj->material->shininess));
@@ -103,7 +103,7 @@ static RGB EvaluateLighting(const Eigen::Vector3f& incident_hit_worldspace, cons
         // Calculate the diffuse component
         float costheta = std::max(0.0F, incident_shading_normal.dot(direction_to_point)) / std::numbers::pi_v<float>;
         sample_light += (obj->material->kd * point.colour * costheta * r2);
-        if (!obj->material->specular) { continue; }
+        if (!obj->material->mirror) { continue; }
         // Calculate the specular component
         float cosphi = std::max(0.0F, incident_reflection.dot(direction_to_point));
         sample_light += (obj->material->ks * point.colour * std::pow(cosphi, obj->material->shininess) * r2);

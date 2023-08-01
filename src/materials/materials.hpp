@@ -31,8 +31,8 @@ inline Mat SILVER{
     0.95F,
     true};
 inline Mat WHITE_D{
-    RGB{1.00F, 1.00F, 1.00F}  * 0.6F, 
-    RGB{1.00F, 1.00F, 1.00F}  * 0.5F, 
+    RGB{1.00F, 1.00F, 1.00F}, 
+    RGB{1.00F, 1.00F, 1.00F}  * 0.0F, 
     0.1F,
     false};
 inline Mat WHITE_S{
@@ -51,13 +51,13 @@ inline Mat BLACK_S{
     0.95F,
     true};
 inline Mat RED_D{
-    RGB{1.0F, 0.2F, 0.2F } * 0.6F,
-    RGB{1.0F, 0.2F, 0.2F } * 0.5F,
+    RGB{1.0F, 0.2F, 0.2F },
+    RGB{1.0F, 0.2F, 0.2F } * 0.0F,
     0.25F,
     false};
 inline Mat GREEN_D{
-    RGB{0.2F, 1.0F, 0.2F } * 0.6F,
-    RGB{0.2F, 1.0F, 0.2F } * 0.5F,
+    RGB{0.2F, 1.0F, 0.2F },
+    RGB{0.2F, 1.0F, 0.2F } * 0.0F,
     0.25F,
     false};
 inline Mat LIGHT{

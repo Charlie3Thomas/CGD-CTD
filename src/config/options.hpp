@@ -14,8 +14,8 @@ public:
     // Defined parameters
     Scene environment = double_dragon;
     std::filesystem::path image_filename;
-    size_t image_width      = 1920;
-    size_t image_height     = 1080;
+    size_t image_width      = 1280;
+    size_t image_height     = 720;
     size_t canvas_width     = 40;
     size_t canvas_height    = 40;
     size_t direct_samples   = 1;

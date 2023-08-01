@@ -9,6 +9,6 @@ struct Mat
     RGB kd;
     RGB ks;
     float shininess;
-    bool specular;
+    bool mirror;
 };
 }

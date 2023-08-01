@@ -120,11 +120,6 @@ float L1Difference(const float* a, const float* b, size_t height, size_t width)
             float Gb = b[3 * (y * width + x) + 1];
             float Bb = b[3 * (y * width + x) + 2];
             L1_sum_b += (Rb + Gb + Bb) / 3.0F;
-
-            //float L2_R = std::pow(Ra - Rb, 2.0F);
-            //float L2_G = std::pow(Ga - Gb, 2.0F);
-            //float L2_B = std::pow(Ba - Bb, 2.0F);
-            //L2_sum += (L2_R + L2_G + L2_B) / 3.0F;
         }
     }
 

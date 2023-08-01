@@ -57,6 +57,7 @@ int main(int argc, char** argv)
         // Render
         std::unique_ptr<Renderer> renderer0 = std::make_unique<TestRenderer>();
         renderer0->RenderFilm(film, camera, std::thread::hardware_concurrency());
+        //renderer0->RenderFilm(film, camera, 1);
 
         if (ConfigSingleton::GetInstance().denoiser)
         {

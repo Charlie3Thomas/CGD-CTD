@@ -26,6 +26,7 @@ struct RGB
     RGB operator +=(const RGB& other) { r += other.r; g += other.g; b += other.b; return *this; }
     RGB operator +(const RGB& other) const { return {r + other.r, g + other.g, b + other.b}; }
     RGB operator / (float scalar) const { return {r / scalar, g / scalar, b / scalar}; }
+    RGB operator / (const RGB& other) const { return {r / other.r, g / other.g, b / other.b}; }
 };
 
 constexpr RGB RED       {1.00F, 0.000f, 0.000F};

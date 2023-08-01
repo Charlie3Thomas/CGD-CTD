@@ -36,14 +36,14 @@ inline Scene double_dragon
         /* point */
         {
             /* point light 1 */
-            // { .colour = WHITE * 100.0F, .position  = Eigen::Vector3f{ 0.0F, 15.0F, 9.0F } },
+            // { .colour = WHITE * 1000.0F, .position  = Eigen::Vector3f{ 0.0F, 15.0F, 9.0F } }
             /* point light 2 */
             //{ /* point light properties */ }
         },
         /* area_cuboid */
         {
             /* area light cuboid 1 */
-            { WHITE * 150.0F, Eigen::Vector3f(0.0F, 15.0F, 9.0F), Eigen::Vector3f(0.0F, -1.0F, 0.0F), 1.5F, 1.5F }
+            { WHITE * 1000.0F, Eigen::Vector3f(0.0F, 15.0F, 9.0F), Eigen::Vector3f(0.0F, -1.0F, 0.0F), 1.0F, 1.0F }
         },
         /* area_sphere */
         {
@@ -63,14 +63,14 @@ inline Scene double_dragon
         // /* GROUND */
         { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(180.0F, 0.0F, 0.0F) * 15.0F),   Eigen::Vector3f(0.0F, -2.0F, 10.0F), EmbreeSingleton::GetInstance().materials["white_s"].get(), nullptr },
         // /* CEILING */
-        { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(-180.0F, 0.0F, 0.0F) * 15.0F),   Eigen::Vector3f(0.0F, 25.0F, 10.0F), EmbreeSingleton::GetInstance().materials["white_s"].get(), nullptr },
+        { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(-180.0F, 0.0F, 0.0F) * 15.0F),   Eigen::Vector3f(0.0F, 25.0F, 10.0F), EmbreeSingleton::GetInstance().materials["white_d"].get(), nullptr },
 
         // /* FONT WALL */         
         { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(90.0F, 0.0F, 0.0F)  * 15.0F),   Eigen::Vector3f(0.0F, 13.0F, 25.0F),  EmbreeSingleton::GetInstance().materials["white_d"].get(), nullptr },
         // /* LEFT WALL */         
-        { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(90.0F, 0.0F, -90.0F)  * 15.0F),   Eigen::Vector3f(15.0F, 13.0F, 10.0F),  EmbreeSingleton::GetInstance().materials["white_s"].get(), nullptr },
+        { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(90.0F, 0.0F, -90.0F)  * 15.0F),   Eigen::Vector3f(15.0F, 13.0F, 10.0F),  EmbreeSingleton::GetInstance().materials["white_d"].get(), nullptr },
         // /* RIGHT WALL */         
-        { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(90.0F, 0.0F, 90.0F)  * 15.0F),   Eigen::Vector3f(-15.0F, 13.0F, 10.0F),  EmbreeSingleton::GetInstance().materials["white_s"].get(), nullptr },
+        { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(90.0F, 0.0F, 90.0F)  * 15.0F),   Eigen::Vector3f(-15.0F, 13.0F, 10.0F),  EmbreeSingleton::GetInstance().materials["white_d"].get(), nullptr },
         // /* BACK WALL */         
         { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(-90.0F, 0.0F, 0.0F)  * 15.0F),   Eigen::Vector3f(0.0F, 13.0F, -5.0F),  EmbreeSingleton::GetInstance().materials["white_d"].get(), nullptr }
 
@@ -133,7 +133,7 @@ inline Scene triple_statue
     
     // PLANES
         /* GROUND */
-        { "/home/Charlie/CGD-CTD/obj/plane.obj", 10.0F, Eigen::Matrix3f(MakeRotation(0.0F, 0.0F, 0.0F) * 10.0F), Eigen::Vector3f(0.0F, -2.5F, 10.0F), EmbreeSingleton::GetInstance().materials["white_s"].get(), nullptr },
+        { "/home/Charlie/CGD-CTD/obj/plane.obj", 10.0F, Eigen::Matrix3f(MakeRotation(180.0F, 0.0F, 0.0F) * 10.0F), Eigen::Vector3f(0.0F, -2.5F, 10.0F), EmbreeSingleton::GetInstance().materials["white_s"].get(), nullptr },
         /* CEILING */
         { "/home/Charlie/CGD-CTD/obj/plane.obj", 10.0F, Eigen::Matrix3f(MakeRotation(0.0F, 180.0F, 180.0F) * 10.0F), Eigen::Vector3f(0.0F, 15.5F, 10.0F), EmbreeSingleton::GetInstance().materials["white_d"].get(), nullptr },
         /* LEFT WALL_1 */
@@ -170,41 +170,41 @@ inline Scene cornell_box
         /* point */
         {
             /* point light 1 */
-            //{ .colour = WHITE * 25.0F, .position  = Eigen::Vector3f{ 0.0F, 2.0F, 5.0F } },
+            //{ .colour = WHITE * 10.0F, .position  = Eigen::Vector3f{ 0.0F, 0.0F, 5.0F } }
             /* point light 2 */
             //{ /* point light properties */ }
         },
         /* area_cuboid */
         {
             /* area light cuboid 1 */
-            { WHITE * 10.0F, Eigen::Vector3f(0.0F, 2.4F, 5.0F), Eigen::Vector3f(0.0F, 1.0F, 0.0F), 1.0F, 1.0F },
-            { WHITE * 10.0F, Eigen::Vector3f(0.0F, 2.4F, 5.0F), Eigen::Vector3f(0.0F, -1.0F, 0.0F), 1.0F, 1.0F }
+            // { WHITE * 10.0F, Eigen::Vector3f(0.0F, 2.4F, 5.0F), Eigen::Vector3f(0.0F, 1.0F, 0.0F), 1.0F, 1.0F },
+            { WHITE * 25.0F, Eigen::Vector3f(0.0F, 2.4999F, 5.0F), Eigen::Vector3f(0.0F, -1.0F, 0.0F), 1.0F, 1.0F }
         },
         /* area_sphere */
         {
             /* area light sphere 1 */
-            { /* area sphere properties */ }
+            //{ /* area sphere properties */ }
         }
     },
     /* objects */
     {    
     // TEAPOTS
-        /* TEAPOT 1 */
-        { "/home/Charlie/CGD-CTD/obj/teapot.obj", 0.15F, Eigen::Matrix3f(MakeRotation(0.0F, 60.0F, 0.0F) * 0.15F), Eigen::Vector3f(1.25F, 0.75F, 5.0F), EmbreeSingleton::GetInstance().materials["white_s"].get(), nullptr },
-        { "/home/Charlie/CGD-CTD/obj/teapot.obj", 0.15F, Eigen::Matrix3f(MakeRotation(0.0F, 0.0F, 0.0F) * 0.15F), Eigen::Vector3f(0.45F, 0.75F, 5.25F), EmbreeSingleton::GetInstance().materials["copper"].get(), nullptr },
-        { "/home/Charlie/CGD-CTD/obj/teapot.obj", 0.15F, Eigen::Matrix3f(MakeRotation(0.0F, 50.0F, 0.0F) * 0.15F), Eigen::Vector3f(-0.75F, -1.0F, 4.0F), EmbreeSingleton::GetInstance().materials["jade"].get(), nullptr },
+       /* TEAPOT 1 */
+       { "/home/Charlie/CGD-CTD/obj/teapot.obj", 0.15F, Eigen::Matrix3f(MakeRotation(0.0F, 60.0F, 0.0F) * 0.15F), Eigen::Vector3f(1.25F, 0.75F, 5.0F), EmbreeSingleton::GetInstance().materials["white_s"].get(), nullptr },
+       { "/home/Charlie/CGD-CTD/obj/teapot.obj", 0.15F, Eigen::Matrix3f(MakeRotation(0.0F, 0.0F, 0.0F) * 0.15F), Eigen::Vector3f(0.45F, 0.75F, 5.25F), EmbreeSingleton::GetInstance().materials["copper"].get(), nullptr },
+       { "/home/Charlie/CGD-CTD/obj/teapot.obj", 0.15F, Eigen::Matrix3f(MakeRotation(0.0F, 50.0F, 0.0F) * 0.15F), Eigen::Vector3f(-0.75F, -1.0F, 4.0F), EmbreeSingleton::GetInstance().materials["jade"].get(), nullptr },
 
     // CUBES
         // /* CUBE LEFT_1 */
         /* CUBE LEFT_3 */
         { "/home/Charlie/CGD-CTD/obj/cube.obj", 0.75F, Eigen::Matrix3f(MakeRotation(0.0F, 20.0F, 0.0F) * 0.75F), Eigen::Vector3f(0.95F, 0.0F, 5.5F), EmbreeSingleton::GetInstance().materials["white_d"].get(), nullptr },
-
+// 
         /* CUBE RIGHT_1 */
         { "/home/Charlie/CGD-CTD/obj/cube.obj", 0.75F, Eigen::Matrix3f(MakeRotation(0.0F, -20.0F, 0.0F) * 0.75F), Eigen::Vector3f(-0.75F, -1.75F, 4.0F), EmbreeSingleton::GetInstance().materials["white_d"].get(), nullptr },
 
     // PLANES
         /* "LIGHT" */
-        { "/home/Charlie/CGD-CTD/obj/plane.obj", 0.5F, Eigen::Matrix3f(MakeRotation(180.0F, 0.0F, 180.0F)  * 0.5F), Eigen::Vector3f(0.0F, 2.495F, 5.0F), EmbreeSingleton::GetInstance().materials["light"].get(), nullptr },
+        //{ "/home/Charlie/CGD-CTD/obj/plane.obj", 0.5F, Eigen::Matrix3f(MakeRotation(180.0F, 0.0F, 180.0F)  * 0.5F), Eigen::Vector3f(0.0F, 2.4999F, 5.0F), EmbreeSingleton::GetInstance().materials["light"].get(), nullptr },
         
         /* GROUND_1 */
         { "/home/Charlie/CGD-CTD/obj/plane.obj", 2.5F, Eigen::Matrix3f(MakeRotation(180.0F, 0.0F, 0.0F)   * 2.5F), Eigen::Vector3f(0.0F, -2.5F, 5.0F), EmbreeSingleton::GetInstance().materials["white_d"].get(), nullptr },
