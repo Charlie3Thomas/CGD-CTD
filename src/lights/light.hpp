@@ -164,13 +164,19 @@ static RGB EvaluateLighting(const Eigen::Vector3f& incident_hit_worldspace, cons
         */
 
 
-        Eigen::Vector3f x = Eigen::Vector3f::Random();
-        x.y() = 1.0F;
-        Eigen::Vector3f y = Eigen::Vector3f::Random();
-        y.y() = 1.0F;
+        // Eigen::Vector3f x = Eigen::Vector3f::Random();
+        // x.y() = 1.0F;
+        // Eigen::Vector3f y = Eigen::Vector3f::Random();
+        // y.y() = 1.0F;
+
+        float x = RandomRange(-0.5F, 0.5F);
+        float z = RandomRange(-0.5F, 0.5F);
+
+        Eigen::Vector3f rand_point_offset(x * area_c.width, 0.0F, z * area_c.height);
+        Eigen::Vector3f random_point_on_area_light = area_c.position + rand_point_offset;
 
         // Get random point on area light in worldspace
-        Eigen::Vector3f random_point_on_area_light = area_c.position + Eigen::Vector3f::Random() * area_c.width + Eigen::Vector3f::Random() * area_c.height;
+        //Eigen::Vector3f random_point_on_area_light = area_c.position + Eigen::Vector3f::Random() * area_c.width + Eigen::Vector3f::Random() * area_c.height;
         //Eigen::Vector3f random_point_offset(x * area_c.width, y * area_c.height, 0.0f);
         //Eigen::Vector3f random_point_on_area_light = area_c.position + random_point_offset;
         // TODO : Not random Vector3f, two Random floats in range [0, 1]

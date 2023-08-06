@@ -18,8 +18,9 @@ uint64_t GetGUID()
 
 float RandomRange(float min, float max)
 {
-    static std::random_device rd;
-    static std::mt19937 gen(rd());
+    // static std::random_device rd;
+    // static std::mt19937 gen(rd());
+    static std::mt19937 gen(42069);
     std::uniform_real_distribution<float> dis(min, max);
     return dis(gen);    
 }

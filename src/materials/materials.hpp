@@ -30,6 +30,11 @@ inline Mat SILVER{
     RGB{0.51F, 0.51F, 0.51F} * 0.5F, 
     0.95F,
     true};
+inline Mat MIRROR{
+    RGB{0.51F, 0.51F, 0.51F}  * 0.6F, 
+    RGB{0.51F, 0.51F, 0.51F} * 0.5F, 
+    1.0F,
+    true};
 inline Mat WHITE_D{
     RGB{1.00F, 1.00F, 1.00F}, 
     RGB{1.00F, 1.00F, 1.00F}  * 0.0F, 

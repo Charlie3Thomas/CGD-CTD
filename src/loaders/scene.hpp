@@ -36,7 +36,7 @@ inline Scene double_dragon
         /* point */
         {
             /* point light 1 */
-            // { .colour = WHITE * 1000.0F, .position  = Eigen::Vector3f{ 0.0F, 15.0F, 9.0F } }
+            { .colour = WHITE * 250.0F, .position  = Eigen::Vector3f{ 0.0F, 15.0F, 9.0F } }
             /* point light 2 */
             //{ /* point light properties */ }
         },
@@ -61,7 +61,7 @@ inline Scene double_dragon
         { "/home/Charlie/CGD-CTD/obj/stanford-bunny.obj", 7.5F,    Eigen::Matrix3f(MakeRotation(0.0F, 180.0F, 0.0F) * 7.5F),    Eigen::Vector3f(0.0F, -2.25F, 5.0F), EmbreeSingleton::GetInstance().materials["silver"].get(),  nullptr },
         
         // /* GROUND */
-        { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(180.0F, 0.0F, 0.0F) * 15.0F),   Eigen::Vector3f(0.0F, -2.0F, 10.0F), EmbreeSingleton::GetInstance().materials["white_s"].get(), nullptr },
+        { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(180.0F, 0.0F, 0.0F) * 15.0F),   Eigen::Vector3f(0.0F, -2.0F, 10.0F), EmbreeSingleton::GetInstance().materials["mirror"].get(), nullptr },
         // /* CEILING */
         { "/home/Charlie/CGD-CTD/obj/plane.obj",          15.0F, Eigen::Matrix3f(MakeRotation(-180.0F, 0.0F, 0.0F) * 15.0F),   Eigen::Vector3f(0.0F, 25.0F, 10.0F), EmbreeSingleton::GetInstance().materials["white_d"].get(), nullptr },
 
@@ -91,14 +91,14 @@ inline Scene triple_statue
         /* directional */
         {
             /* directional light 1 */
-            { .colour = WHITE  * 0.4F,  .direction = Eigen::Vector3f{ 1.0F, 0.10F, 0.0F } }
+            // { .colour = WHITE  * 0.4F,  .direction = Eigen::Vector3f{ 1.0F, 0.10F, 0.0F } }
             /* directional light 2 */
             //{ .colour = WHITE  * 0.4F,  .direction = Eigen::Vector3f{ -1.0F, 0.1F, 0.0F } }
         },
         /* point */
         {
             /* point light 1 */
-            { .colour = WHITE * 100.0F, .position  = Eigen::Vector3f{ 15.0F, 0.0F, 10.0F } }
+            { .colour = WHITE * 1000.0F, .position  = Eigen::Vector3f{ 15.0F, 0.0F, 10.0F } }
             /* point light 2 */
             //{ /* point light properties */ }
         },

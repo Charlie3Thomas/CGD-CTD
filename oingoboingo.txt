@@ -1,0 +1,587 @@
+Oingo Boingo!
+Optimizing with time weight: 0
+Attempt 1 of 10
+0.0 0.0 0.0
+Iteration Output:
+{'direct_samples': 1, 'indirect_samples': 1, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 998 ms
+Load objects took 1018 ms
+Rendering film with 20 threads
+Rendering film with 1 direct samples
+Rendering film with 1 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 164 ms
+Denoised
+L1 difference: 0.00575528
+L2 difference: 0.000287127
+CTRT took 5492 ms
+
+Objective value: 0.00575528
+
+
+1.0 0.0 0.0
+Iteration Output:
+{'direct_samples': 8, 'indirect_samples': 1, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 240 ms
+Load objects took 254 ms
+Rendering film with 20 threads
+Rendering film with 8 direct samples
+Rendering film with 1 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 1205 ms
+Denoised
+L1 difference: 0.00422224
+L2 difference: 0.000169425
+CTRT took 2312 ms
+
+Objective value: 0.00422224
+
+
+1.0 1.0 0.0
+Iteration Output:
+{'direct_samples': 8, 'indirect_samples': 16, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 162 ms
+Load objects took 176 ms
+Rendering film with 20 threads
+Rendering film with 8 direct samples
+Rendering film with 16 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 13542 ms
+Denoised
+L1 difference: 0.00839983
+L2 difference: 0.000185142
+CTRT took 14379 ms
+
+Objective value: 0.00839983
+
+
+1.0 0.0 1.0
+Iteration Output:
+{'direct_samples': 8, 'indirect_samples': 1, 'recursion_depth': 3}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 152 ms
+Load objects took 167 ms
+Rendering film with 20 threads
+Rendering film with 8 direct samples
+Rendering film with 1 indirect samples
+Rendering film with 3 recursion depth
+RenderFilm took 1989 ms
+Denoised
+L1 difference: 0.0383761
+L2 difference: 0.00220179
+CTRT took 2737 ms
+
+Objective value: 0.0383761
+
+
+1.0 0.0 0.0
+Iteration Output:
+{'direct_samples': 8, 'indirect_samples': 1, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 156 ms
+Load objects took 173 ms
+Rendering film with 20 threads
+Rendering film with 8 direct samples
+Rendering film with 1 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 1135 ms
+Denoised
+L1 difference: 0.00423804
+L2 difference: 0.000169479
+CTRT took 1953 ms
+
+Objective value: 0.00423804
+
+
+Attempt 2 of 10
+0.8793187837273533 0.05393781053298047 0.0
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 2, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 131 ms
+Load objects took 143 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 2 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 1718 ms
+Denoised
+L1 difference: 0.00596817
+L2 difference: 0.000153066
+CTRT took 2455 ms
+
+Objective value: 0.00596817
+
+
+0.8793187837273533 0.05393781053298047 1.0
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 2, 'recursion_depth': 3}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 152 ms
+Load objects took 164 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 2 indirect samples
+Rendering film with 3 recursion depth
+RenderFilm took 3083 ms
+Denoised
+L1 difference: 0.0105812
+L2 difference: 0.000209731
+CTRT took 3834 ms
+
+Objective value: 0.0105812
+
+
+0.8793187837273533 0.05393781053298047 0.0
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 2, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 118 ms
+Load objects took 137 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 2 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 1705 ms
+Denoised
+L1 difference: 0.00601451
+L2 difference: 0.000152833
+CTRT took 2446 ms
+
+Objective value: 0.00601451
+
+
+Attempt 3 of 10
+0.6674091189565013 0.0 0.026184776046080105
+Iteration Output:
+{'direct_samples': 6, 'indirect_samples': 1, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 123 ms
+Load objects took 140 ms
+Rendering film with 20 threads
+Rendering film with 6 direct samples
+Rendering film with 1 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 854 ms
+Denoised
+L1 difference: 0.00425772
+L2 difference: 0.000172427
+CTRT took 1543 ms
+
+Objective value: 0.00425772
+
+
+0.6674091189565013 1.0 0.026184776046080105
+Iteration Output:
+{'direct_samples': 6, 'indirect_samples': 16, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 146 ms
+Load objects took 156 ms
+Rendering film with 20 threads
+Rendering film with 6 direct samples
+Rendering film with 16 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 11133 ms
+Denoised
+L1 difference: 0.00837889
+L2 difference: 0.00018646
+CTRT took 14070 ms
+
+Objective value: 0.00837889
+
+
+0.6674091189565013 0.0 0.026184776046080105
+Iteration Output:
+{'direct_samples': 6, 'indirect_samples': 1, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 280 ms
+Load objects took 296 ms
+Rendering film with 20 threads
+Rendering film with 6 direct samples
+Rendering film with 1 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 881 ms
+Denoised
+L1 difference: 0.00416193
+L2 difference: 0.000171368
+CTRT took 2099 ms
+
+Objective value: 0.00416193
+
+
+Attempt 4 of 10
+0.8421313523776951 0.0 0.26274371511387146
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 1, 'recursion_depth': 2}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 132 ms
+Load objects took 145 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 1 indirect samples
+Rendering film with 2 recursion depth
+RenderFilm took 1379 ms
+Denoised
+L1 difference: 0.0206198
+L2 difference: 0.000624111
+CTRT took 2096 ms
+
+Objective value: 0.0206198
+
+
+0.8421313523776951 1.0 0.26274371511387146
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 16, 'recursion_depth': 2}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 121 ms
+Load objects took 138 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 16 indirect samples
+Rendering film with 2 recursion depth
+RenderFilm took 17121 ms
+Denoised
+L1 difference: 0.00659212
+L2 difference: 0.000119083
+CTRT took 17845 ms
+
+Objective value: 0.00659212
+
+
+0.8421313523776951 1.0 0.26274371511387146
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 16, 'recursion_depth': 2}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 138 ms
+Load objects took 150 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 16 indirect samples
+Rendering film with 2 recursion depth
+RenderFilm took 16847 ms
+Denoised
+L1 difference: 0.00660367
+L2 difference: 0.000118774
+CTRT took 17600 ms
+
+Objective value: 0.00660367
+
+
+Attempt 5 of 10
+0.9194247788921043 0.8778626207438118 0.19440127397154916
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 14, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 154 ms
+Load objects took 166 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 14 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 9979 ms
+Denoised
+L1 difference: 0.00837149
+L2 difference: 0.00018227
+CTRT took 10725 ms
+
+Objective value: 0.00837149
+
+
+0.9194247788921043 0.8778626207438118 0.19440127397154916
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 14, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 149 ms
+Load objects took 176 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 14 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 10425 ms
+Denoised
+L1 difference: 0.00833955
+L2 difference: 0.000179121
+CTRT took 11239 ms
+
+Objective value: 0.00833955
+
+
+Attempt 6 of 10
+0.8576279781809428 1.0 0.12771910147305204
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 16, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 150 ms
+Load objects took 163 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 16 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 11489 ms
+Denoised
+L1 difference: 0.00839666
+L2 difference: 0.00018368
+CTRT took 12246 ms
+
+Objective value: 0.00839666
+
+
+0.8576279781809428 1.0 0.12771910147305204
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 16, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 166 ms
+Load objects took 181 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 16 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 11349 ms
+Denoised
+L1 difference: 0.00843775
+L2 difference: 0.000186038
+CTRT took 12149 ms
+
+Objective value: 0.00843775
+
+
+Attempt 7 of 10
+0.9271733202561458 0.7587794899626985 0.3717485199042947
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 12, 'recursion_depth': 2}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 151 ms
+Load objects took 168 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 12 indirect samples
+Rendering film with 2 recursion depth
+RenderFilm took 12637 ms
+Denoised
+L1 difference: 0.0060282
+L2 difference: 0.000103343
+CTRT took 13410 ms
+
+Objective value: 0.0060282
+
+
+0.9271733202561458 0.7587794899626985 0.3717485199042947
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 12, 'recursion_depth': 2}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 128 ms
+Load objects took 157 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 12 indirect samples
+Rendering film with 2 recursion depth
+RenderFilm took 12895 ms
+Denoised
+L1 difference: 0.00603807
+L2 difference: 0.000102892
+CTRT took 13705 ms
+
+Objective value: 0.00603807
+
+
+Attempt 8 of 10
+0.7968376754258921 0.9692602158459229 0.26908700801778435
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 16, 'recursion_depth': 2}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 148 ms
+Load objects took 188 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 16 indirect samples
+Rendering film with 2 recursion depth
+RenderFilm took 17205 ms
+Denoised
+L1 difference: 0.00661372
+L2 difference: 0.000120761
+CTRT took 18031 ms
+
+Objective value: 0.00661372
+
+
+0.7968376754258921 0.9692602158459229 0.26908700801778435
+Iteration Output:
+{'direct_samples': 7, 'indirect_samples': 16, 'recursion_depth': 2}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 177 ms
+Load objects took 220 ms
+Rendering film with 20 threads
+Rendering film with 7 direct samples
+Rendering film with 16 indirect samples
+Rendering film with 2 recursion depth
+RenderFilm took 17241 ms
+Denoised
+L1 difference: 0.00658419
+L2 difference: 0.000118217
+CTRT took 18121 ms
+
+Objective value: 0.00658419
+
+
+Attempt 9 of 10
+0.7027795629054171 0.936396369315519 0.3015501993632589
+Iteration Output:
+{'direct_samples': 6, 'indirect_samples': 15, 'recursion_depth': 2}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 144 ms
+Load objects took 215 ms
+Rendering film with 20 threads
+Rendering film with 6 direct samples
+Rendering film with 15 indirect samples
+Rendering film with 2 recursion depth
+RenderFilm took 13515 ms
+Denoised
+L1 difference: 0.00647064
+L2 difference: 0.000116724
+CTRT took 14384 ms
+
+Objective value: 0.00647064
+
+
+0.7027795629054171 0.936396369315519 0.3015501993632589
+Iteration Output:
+{'direct_samples': 6, 'indirect_samples': 15, 'recursion_depth': 2}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 141 ms
+Load objects took 179 ms
+Rendering film with 20 threads
+Rendering film with 6 direct samples
+Rendering film with 15 indirect samples
+Rendering film with 2 recursion depth
+RenderFilm took 13551 ms
+Denoised
+L1 difference: 0.00650728
+L2 difference: 0.000117286
+CTRT took 14341 ms
+
+Objective value: 0.00650728
+
+
+Attempt 10 of 10
+0.7169815364505344 1.0 0.22772816117279848
+Iteration Output:
+{'direct_samples': 6, 'indirect_samples': 16, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 154 ms
+Load objects took 207 ms
+Rendering film with 20 threads
+Rendering film with 6 direct samples
+Rendering film with 16 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 9876 ms
+Denoised
+L1 difference: 0.00842309
+L2 difference: 0.000185713
+CTRT took 10710 ms
+
+Objective value: 0.00842309
+
+
+0.7169815364505344 1.0 0.22772816117279848
+Iteration Output:
+{'direct_samples': 6, 'indirect_samples': 16, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 140 ms
+Load objects took 176 ms
+Rendering film with 20 threads
+Rendering film with 6 direct samples
+Rendering film with 16 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 9884 ms
+Denoised
+L1 difference: 0.00840008
+L2 difference: 0.000184922
+CTRT took 10690 ms
+
+Objective value: 0.00840008
+
+
+Running the best result for 0 one more time with params: [1. 0. 0.]
+1.0 0.0 0.0
+Iteration Output:
+{'direct_samples': 8, 'indirect_samples': 1, 'recursion_depth': 1}
+Using denoiser
+calculate_bvh_bounds took 0 ms
+transform_mesh took 0 ms
+read_file took 138 ms
+Load objects took 151 ms
+Rendering film with 20 threads
+Rendering film with 8 direct samples
+Rendering film with 1 indirect samples
+Rendering film with 1 recursion depth
+RenderFilm took 1110 ms
+Denoised
+L1 difference: 0.00427347
+L2 difference: 0.000168992
+CTRT took 1901 ms
+
+Objective value: 0.00427347
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+

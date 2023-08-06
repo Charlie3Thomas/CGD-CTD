@@ -59,6 +59,17 @@ int main(int argc, char** argv)
         renderer0->RenderFilm(film, camera, std::thread::hardware_concurrency());
         //renderer0->RenderFilm(film, camera, 1);
 
+        // Load the EXR image using the LoadEXR function from TinyEXR
+        const char* filename = "/home/Charlie/CGD-CTD/ref/ref-cornell-box.exr";
+
+        filename = "/home/Charlie/CGD-CTD/ref/ref-cornell-box.exr";
+
+        float L1_diff;
+        float L2_diff;
+        int width = 0;
+        int height = 0;
+        float* rgba = LoadEXRFromFile(filename, width, height);
+
         if (ConfigSingleton::GetInstance().denoiser)
         {
             // Intel Open Image Denoise
@@ -104,56 +115,25 @@ int main(int argc, char** argv)
             const auto* denoised_ptr = static_cast<const float*>(colour_buff.getData());
     
             // Write to .EXR file
-            std::string denoised_filename = cs.image_filename.string() + "_denoised.exr";
-            WriteToEXR(denoised_ptr, cs.image_width, cs.image_height, denoised_filename.c_str());
+            std::string denoised_filename = cs.image_filename.string();
+            // WriteToEXR(denoised_ptr, cs.image_width, cs.image_height, denoised_filename.c_str());
+
+            L1_diff = L1Difference(rgba, denoised_ptr, static_cast<size_t>(height), static_cast<size_t>(width));
+            L2_diff = L2Difference(rgba, denoised_ptr, static_cast<size_t>(height), static_cast<size_t>(width));
+
+            std::cout << "Denoised" << std::endl;
+            std::cout << "L1 difference: " << L1_diff << std::endl;
+            std::cout << "L2 difference: " << L2_diff << std::endl;
         }
-
-        WriteToEXR(film.rgb.data(), cs.image_width, cs.image_height, cs.image_filename.c_str());
-
-        // Load the EXR image using the LoadEXR function from TinyEXR
-        const char* filename = "/home/Charlie/CGD-CTD/ref/ref-black.exr";
-
-        // if (cs.environment == double_dragon)
-        // {
-        //     filename = "/home/Charlie/CGD-CTD/ref/ref-double-dragon.exr";
-        // }
-
-        filename = "/home/Charlie/CGD-CTD/ref/ref-double-dragon.exr";
-
-        //switch (cs.environment)
-        //{
-        //    case(1):
-        //    {
-        //        filename = "/home/Charlie/CGD-CTD/ref/ref-double-dragon.exr";
-        //        break;
-        //    }
-        //    case(2):
-        //    {
-        //        filename = "/home/Charlie/CGD-CTD/ref/ref-triple-statue.exr";
-        //        break;
-        //    }
-        //    case(3):
-        //    {
-        //        filename = "/home/Charlie/CGD-CTD/ref/ref-cornell-box.exr";
-        //        break;
-        //    }
-        //    case(4):
-        //    {
-        //        filename = "/home/Charlie/CGD-CTD/ref/ref-triple-statue-al.exr";
-        //        break;
-        //    }
-// //
-        //}
-
-        int width = 0;
-        int height = 0;
-        float* rgba = LoadEXRFromFile(filename, width, height);
-
-        float L1_diff = L1Difference(rgba, film.rgb.data(), static_cast<size_t>(height), static_cast<size_t>(width)) * 100.0F;
-        float L2_diff = L2Difference(rgba, film.rgb.data(), static_cast<size_t>(height), static_cast<size_t>(width)) * 100.0F;
-
-        std::cout << "L1 difference: " << L1_diff << std::endl;
-        std::cout << "L2 difference: " << L2_diff << std::endl;
+        else
+        {
+            L1_diff = L1Difference(rgba, film.rgb.data(), static_cast<size_t>(height), static_cast<size_t>(width));
+            L2_diff = L2Difference(rgba, film.rgb.data(), static_cast<size_t>(height), static_cast<size_t>(width));
+            std::cout << "Raw" << std::endl;
+            std::cout << "L1 difference: " << L1_diff << std::endl;
+            std::cout << "L2 difference: " << L2_diff << std::endl;
+            // WriteToEXR(film.rgb.data(), cs.image_width, cs.image_height, cs.image_filename.c_str());
+        }
     }
 
     std::cout << std::endl;

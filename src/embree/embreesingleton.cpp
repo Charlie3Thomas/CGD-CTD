@@ -22,6 +22,8 @@ EmbreeSingleton::EmbreeSingleton() : device(rtcNewDevice(nullptr)), scene(rtcNew
     materials.emplace("copper", std::make_unique<Mat>(COPPER));
     assert(!materials.contains("silver"));
     materials.emplace("silver", std::make_unique<Mat>(SILVER));
+    assert(!materials.contains("mirror"));
+    materials.emplace("mirror", std::make_unique<Mat>(SILVER));
     assert(!materials.contains("white_d"));
     materials.emplace("white_d", std::make_unique<Mat>(WHITE_D));
     assert(!materials.contains("white_s"));

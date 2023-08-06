@@ -142,7 +142,7 @@ static RGB PerformSample(const RTCRayHit& rh, RTCIntersectContext& context, size
         return FromNormal(incident_shading_normal); 
 
     // Calculate direct lighting
-    if(recursion_depth > 0)
+    // if(recursion_depth > 0)
     {
         RGB direct_sample = BLACK;
         direct_sample += path_throughput * EvaluateLighting(incident_hit_worldspace, incident_shading_normal, incident_reflection, obj, lights, context);
@@ -203,9 +203,12 @@ static RGB PerformSample(const RTCRayHit& rh, RTCIntersectContext& context, size
         if (refl_ray.hit.geomID != RTC_INVALID_GEOMETRY_ID)
         {
             float cosphi = std::max(0.0F, incident_reflection.dot(incident_reflection));
+            // float cosphi = std::max(0.0F, incident_direction.dot(incident_reflection));
             RGB bsdf = (obj->material->kd / std::numbers::pi_v<float>) + (obj->material->ks * ((obj->material->shininess + 2.0F) / (2.0F * std::numbers::pi_v<float>)) * std::pow(cosphi, obj->material->shininess));
-            returned_pixel_colour_value += (PerformSample(refl_ray, context, recursion_depth + 1, WHITE) * bsdf * std::abs((incident_shading_normal.dot(refl_direction)))); /* This likely shouldn't be the hemisphere sample pdf */
-            //returned_pixel_colour_value += (PerformSample(refl_ray, context, ++recursion_depth, WHITE) * bsdf * std::abs((incident_shading_normal.dot(refl_direction)))); /* ???? */
+            // // returned_pixel_colour_value += (PerformSample(refl_ray, context, recursion_depth + 1, WHITE) * bsdf * std::abs((incident_shading_normal.dot(refl_direction)))); /* This likely shouldn't be the hemisphere sample pdf */
+            // returned_pixel_colour_value += (PerformSample(refl_ray, context, recursion_depth + 1, WHITE) * bsdf * std::abs((incident_shading_normal.dot(refl_direction)))); /* This likely shouldn't be the hemisphere sample pdf */
+
+            returned_pixel_colour_value += PerformSample(refl_ray, context, recursion_depth + 1, WHITE) * bsdf;
         }
     }
     

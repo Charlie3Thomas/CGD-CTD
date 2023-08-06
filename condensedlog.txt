@@ -1,0 +1,10269 @@
+Time Weight: 0.0
+Test Set 1:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 164
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00573231
+
+Test Set 2:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1221
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00424121
+
+Test Set 3:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 12940
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00842536
+
+Test Set 4:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1941
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.038332
+
+Test Set 5:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1276
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00428849
+
+Test Set 6:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2041
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00603719
+
+Test Set 7:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1991
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00604873
+
+Test Set 8:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3573
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.007337
+
+Test Set 9:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3964
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00723188
+
+Test Set 10:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 5971
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00791983
+
+Test Set 11:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6725
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00794023
+
+Test Set 12:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6921
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00809275
+
+Test Set 13:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7601
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00805608
+
+Test Set 14:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8434
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00822891
+
+Test Set 15:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9437
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00819958
+
+Test Set 16:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 5965
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00794976
+
+Test Set 17:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6890
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00789194
+
+Test Set 18:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6091
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00803553
+
+Test Set 19:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6699
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00801533
+
+Test Set 20:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7452
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00819877
+
+Test Set 21:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 15161
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00526924
+
+Test Set 22:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 13459
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0053316
+
+Test Set 23:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 10709
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0044306
+
+Test Set 24:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9789
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00440444
+
+Test Set 25:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 12134
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00555476
+
+Test Set 26:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 10663
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00563142
+
+Test Set 27:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6305
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0038387
+
+Test Set 28:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5966
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00380979
+
+Test Set 29:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5285
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00496067
+
+Test Set 30:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5250
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00490357
+
+Test Set 31:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5908
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00533018
+
+Test Set 32:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5867
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00530194
+
+Test Set 33:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5897
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00525741
+
+Test Set 34:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6110
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00521665
+
+Test Set 35:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2802
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00389814
+
+Test Set 36:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2769
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00391079
+
+Test Set 37:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2993
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00188345
+
+Test Set 38:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3064
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00190347
+
+Test Set 39:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2476
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00320017
+
+Test Set 40:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2480
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00331254
+
+Test Set 41:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 715
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0380832
+
+Test Set 42:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 10516
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00643443
+
+Test Set 43:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9207
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00651509
+
+Test Set 44:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6159
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00643291
+
+Test Set 45:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6406
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00635355
+
+Test Set 46:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9217
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00646012
+
+Test Set 47:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9349
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00644644
+
+Test Set 48:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 9914
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00658008
+
+Test Set 49:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 9816
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00657097
+
+Test Set 50:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 12254
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00651264
+
+Test Set 51:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 12176
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00648244
+
+Test Set 52:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9240
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00580302
+
+Test Set 53:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9219
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00583011
+
+Test Set 54:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6587
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00558032
+
+Test Set 55:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6482
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00555184
+
+Test Set 56:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7564
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00602011
+
+Test Set 57:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7487
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00602552
+
+Test Set 58:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7882
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00531122
+
+Test Set 59:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 8173
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00527606
+
+Test Set 60:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6020
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0053283
+
+Test Set 61:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6304
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00524399
+
+Test Set 62:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7134
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00386776
+
+Test Set 63:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7209
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00379172
+
+Test Set 64:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4305
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0038702
+
+Test Set 65:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4348
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00388281
+
+Test Set 66:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4100
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00188708
+
+Test Set 67:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4120
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00191141
+
+Test Set 68:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5693
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00382417
+
+Test Set 69:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5783
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00383823
+
+Test Set 70:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4173
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00185235
+
+Test Set 71:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4155
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00183416
+
+Test Set 72:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1392
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0060697
+
+Test Set 73:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1391
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0060357
+
+Test Set 74:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2018
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00186677
+
+Test Set 75:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2025
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0018565
+
+Test Set 76:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2206
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0043382
+
+Test Set 77:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2203
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00436767
+
+Test Set 78:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3079
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00186033
+
+Test Set 79:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3088
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00182865
+
+Test Set 80:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1685
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7.02962
+
+Test Set 81:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1655
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.38467
+
+Test Set 82:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 863
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0106049
+
+Test Set 83:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 874
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0105396
+
+Test Set 84:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 708
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0379093
+
+Test Set 85:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 738
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0382081
+
+Test Set 86:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 471
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0369422
+
+Test Set 87:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6412
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00644958
+
+Test Set 88:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6371
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00648258
+
+Test Set 89:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9669
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00649612
+
+Test Set 90:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9651
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00646851
+
+Test Set 91:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6983
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00625736
+
+Test Set 92:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5999
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00637262
+
+Test Set 93:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9515
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00651132
+
+Test Set 94:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9452
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00652119
+
+Test Set 95:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7854
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00598097
+
+Test Set 96:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7952
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00600873
+
+Test Set 97:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3582
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00491924
+
+Test Set 98:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3639
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00493182
+
+Test Set 99:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6036
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00528626
+
+Test Set 100:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6060
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00534181
+
+Test Set 101:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7884
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00603122
+
+Test Set 102:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7914
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00596202
+
+Test Set 103:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9787
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00643245
+
+Test Set 104:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9451
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00646018
+
+Test Set 105:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3137
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00654959
+
+Test Set 106:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 26031
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00647811
+
+Test Set 107:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 25551
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.00652548
+
+Test Set 108:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1599
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3.96296
+
+Time Weight: 0.0001
+Test Set 1:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 152
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.02116005
+
+Test Set 2:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1142
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.11851199000000001
+
+Test Set 3:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1639
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.17231884000000003
+
+Test Set 4:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 255
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.058791800000000005
+
+Test Set 5:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 151
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.02090513
+
+Test Set 6:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 290
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.03339356
+
+Test Set 7:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3382
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.346484
+
+Test Set 8:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 288
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.033256400000000005
+
+Test Set 9:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 924
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.09976033000000001
+
+Test Set 10:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 897
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0969744
+
+Test Set 11:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1028
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.10967583
+
+Test Set 12:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1858
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.18917240000000002
+
+Test Set 13:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1030
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.10987705
+
+Test Set 14:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 883
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.09558381
+
+Test Set 15:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 937
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.10097797
+
+Test Set 16:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1125
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.12007741
+
+Test Set 17:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1087
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.11628987
+
+Test Set 18:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 842
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.09216109000000001
+
+Test Set 19:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6874
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.69541228
+
+Test Set 20:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1583
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.16269561
+
+Test Set 21:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 846
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.09261058000000001
+
+Test Set 22:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3443
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.3524837
+
+Test Set 23:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6714
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.67696188
+
+Test Set 24:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3540
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.36218704
+
+Test Set 25:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2842
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.29230365
+
+Test Set 26:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2920
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.3000433
+
+Test Set 27:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3472
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.35297902000000003
+
+Test Set 28:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3534
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.35914911
+
+Test Set 29:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2583
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.26630918000000003
+
+Test Set 30:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2623
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.27032007
+
+Test Set 31:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5046
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.5094119
+
+Test Set 32:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5051
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.50995697
+
+Test Set 33:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 4291
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.43711748000000006
+
+Test Set 34:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 4455
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.45347924
+
+Test Set 35:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3560
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.36397782000000006
+
+Test Set 36:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3460
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.35399766000000005
+
+Test Set 37:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2752
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.28279302
+
+Test Set 38:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2819
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.28944345000000005
+
+Test Set 39:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1710
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.17702511
+
+Test Set 40:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1736
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.1796019
+
+Test Set 41:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1714
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.17745443
+
+Test Set 42:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1730
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.17904397000000002
+
+Test Set 43:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 987
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.10296585000000001
+
+Test Set 44:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 12109
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.21930863
+
+Test Set 45:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1106
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.11487162000000001
+
+Test Set 46:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 722
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.07642049000000001
+
+Test Set 47:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8252
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.8336098000000001
+
+Test Set 48:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 722
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.07643286
+
+Test Set 49:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 985
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.10454977
+
+Test Set 50:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 974
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.10344251
+
+Test Set 51:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 564
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.060607600000000005
+
+Test Set 52:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6564
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.66477483
+
+Test Set 53:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 566
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.060859390000000006
+
+Test Set 54:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 439
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.04812293
+
+Test Set 55:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 5109
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.519256
+
+Test Set 56:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 432
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.04748846
+
+Test Set 57:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1024
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.10854835
+
+Test Set 58:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1027
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.10869901
+
+Test Set 59:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1921
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.19328055000000002
+
+Test Set 60:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2060
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.20715126
+
+Test Set 61:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2346
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.23727394000000002
+
+Test Set 62:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2504
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.25304148
+
+Test Set 63:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1268
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.1372652
+
+Test Set 64:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1266
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.13715100000000002
+
+Test Set 65:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 879
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0986067
+
+Test Set 66:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 857
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0963116
+
+Test Set 67:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1903
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.19154466
+
+Test Set 68:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2000
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.20115144000000001
+
+Test Set 69:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 486
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.08579410000000001
+
+Test Set 70:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 481
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0850273
+
+Test Set 71:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 204
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0378781
+
+Test Set 72:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2432
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.24977626
+
+Test Set 73:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 205
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.037920300000000004
+
+Test Set 74:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 396
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0594992
+
+Test Set 75:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5023
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.50887421
+
+Test Set 76:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 392
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0592482
+
+Test Set 77:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 495
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.05074895
+
+Test Set 78:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 515
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.05282771000000001
+
+Test Set 79:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 246
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0579264
+
+Test Set 80:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1885
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.2268047
+
+Test Set 81:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3184
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.32480693
+
+Test Set 82:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 244
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0575615
+
+Test Set 83:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 241
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0574534
+
+Test Set 84:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1827
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.22100809999999999
+
+Test Set 85:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3088
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.31524682000000004
+
+Test Set 86:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 244
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.057589600000000005
+
+Test Set 87:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 621
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.06539762
+
+Test Set 88:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4997
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.50293818
+
+Test Set 89:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 633
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.06650660000000001
+
+Test Set 90:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 655
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.06894662
+
+Test Set 91:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 624
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.06575251
+
+Test Set 92:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 620
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.06544515
+
+Test Set 93:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5125
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.5157331500000001
+
+Test Set 94:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 698
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0732103
+
+Test Set 95:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1084
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.11019403000000001
+
+Test Set 96:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 8344
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.8362826400000001
+
+Test Set 97:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1128
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.11463156000000001
+
+Test Set 98:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1332
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.13431219000000003
+
+Test Set 99:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1350
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.13615339
+
+Test Set 100:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2228
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.22704203
+
+Test Set 101:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2517
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.25593220000000005
+
+Test Set 102:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2284
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.23017088000000002
+
+Test Set 103:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2101
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.21188389000000002
+
+Test Set 104:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 199
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.037203
+
+Test Set 105:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 198
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0373689
+
+Test Set 106:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 390
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0588201
+
+Test Set 107:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4840
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.49057456000000005
+
+Test Set 108:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 395
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0591974
+
+Test Set 109:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 775
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0981975
+
+Test Set 110:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 10090
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.0155775400000002
+
+Test Set 111:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 780
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0984589
+
+Test Set 112:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 570
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0611699
+
+Test Set 113:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6738
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.6821672900000001
+
+Test Set 114:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 571
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.061324670000000005
+
+Test Set 115:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1749
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.18097312
+
+Test Set 116:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1730
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.17904861000000002
+
+Test Set 117:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 569
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.06116884000000001
+
+Test Set 118:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6879
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.6962466300000001
+
+Test Set 119:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 574
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.06161683
+
+Test Set 120:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1018
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.10788721
+
+Test Set 121:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1080
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.11413496
+
+Test Set 122:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 204
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0377096
+
+Test Set 123:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2466
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.25322004000000004
+
+Test Set 124:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 207
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0383594
+
+Test Set 125:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 589
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0793679
+
+Test Set 126:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 7700
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.77656346
+
+Test Set 127:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 585
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.0788758
+
+Test Set 128:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 159
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.02163848
+
+Time Weight: 0.001
+Test Set 1:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 152
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.15757521
+
+Test Set 2:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1152
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.1563177500000001
+
+Test Set 3:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1699
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.7073212500000001
+
+Test Set 4:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 244
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.2772247
+
+Test Set 5:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 151
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.15698856
+
+Test Set 6:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 460
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.4672139
+
+Test Set 7:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 445
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.45223507
+
+Test Set 8:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 153
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.15879189999999999
+
+Test Set 9:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1134
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.1382788300000002
+
+Test Set 10:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1628
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.6362650900000002
+
+Test Set 11:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 149
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.15474572
+
+Test Set 12:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 887
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.89435933
+
+Test Set 13:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 914
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.92118929
+
+Test Set 14:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1643
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.65055863
+
+Test Set 15:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3002
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3.0038650400000004
+
+Test Set 16:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1634
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.6414930600000002
+
+Test Set 17:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2652
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.65973486
+
+Test Set 18:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4742
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.74502792
+
+Test Set 19:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2612
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.61973766
+
+Test Set 20:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2339
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.34682212
+
+Test Set 21:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2296
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.3038865100000003
+
+Test Set 22:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3468
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3.47223954
+
+Test Set 23:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3373
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3.37727528
+
+Test Set 24:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1734
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.741867
+
+Test Set 25:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1731
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.73894876
+
+Test Set 26:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2532
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.53996296
+
+Test Set 27:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2566
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.57401809
+
+Test Set 28:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2207
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.21453878
+
+Test Set 29:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2222
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.22950633
+
+Test Set 30:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1992
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.99886185
+
+Test Set 31:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1910
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.91682057
+
+Test Set 32:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 891
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.89525202
+
+Test Set 33:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9948
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9.95638564
+
+Test Set 34:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 871
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.87532858
+
+Test Set 35:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 856
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.86027561
+
+Test Set 36:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 859
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.86323373
+
+Test Set 37:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 737
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.74111478
+
+Test Set 38:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8443
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8.45139993
+
+Test Set 39:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1197
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.2353342
+
+Test Set 40:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 716
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.72033589
+
+Test Set 41:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 955
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.96104635
+
+Test Set 42:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 980
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.98596412
+
+Test Set 43:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 710
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.71413588
+
+Test Set 44:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8661
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8.669341359999999
+
+Test Set 45:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 705
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.70920082
+
+Test Set 46:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 845
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.8492544
+
+Test Set 47:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 10037
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10.04542211
+
+Test Set 48:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 845
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.8491485599999999
+
+Test Set 49:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 730
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.7342325
+
+Test Set 50:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8394
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8.40237126
+
+Test Set 51:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1179
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.217374
+
+Test Set 52:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 728
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.73227877
+
+Test Set 53:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 752
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.75627116
+
+Test Set 54:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1211
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.2494267000000001
+
+Test Set 55:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 718
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.72214775
+
+Test Set 56:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 862
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.86615149
+
+Test Set 57:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 10123
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10.13143669
+
+Test Set 58:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1425
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.4633675
+
+Test Set 59:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 849
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.8532981399999999
+
+Test Set 60:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3629
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3.63628615
+
+Test Set 61:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3632
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3.6392981200000003
+
+Test Set 62:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1151
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.15522966
+
+Test Set 63:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 13943
+L1 Difference: None
+L2 Difference: None
+Objective Value: 13.95140995
+
+Test Set 64:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1134
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.1383841700000001
+
+Test Set 65:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4704
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.705193029999999
+
+Test Set 66:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4631
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.63224709
+
+Test Set 67:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4899
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.90158324
+
+Test Set 68:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4863
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.8656581
+
+Test Set 69:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2209
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.21634772
+
+Test Set 70:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2199
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.20623813
+
+Test Set 71:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4758
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.75914916
+
+Test Set 72:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4719
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.7201847500000005
+
+Test Set 73:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1559
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.5795582
+
+Test Set 74:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 19999
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.005645379999997
+
+Test Set 75:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1528
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.5484219000000001
+
+Test Set 76:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1552
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.5725607000000001
+
+Test Set 77:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 20269
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.27563638
+
+Test Set 78:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1533
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.5534474
+
+Test Set 79:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1145
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.1655775
+
+Test Set 80:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 15178
+L1 Difference: None
+L2 Difference: None
+Objective Value: 15.18462551
+
+Test Set 81:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1169
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.1896774
+
+Test Set 82:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2674
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.6845749999999997
+
+Test Set 83:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2635
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.6454910000000003
+
+Test Set 84:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1803
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.8136501
+
+Test Set 85:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1742
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.752556
+
+Test Set 86:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1167
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.1875461
+
+Test Set 87:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 14928
+L1 Difference: None
+L2 Difference: None
+Objective Value: 14.934656740000001
+
+Test Set 88:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1194
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.2146213
+
+Test Set 89:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1159
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.1795826
+
+Test Set 90:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 15349
+L1 Difference: None
+L2 Difference: None
+Objective Value: 15.35558497
+
+Test Set 91:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1140
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.1606589
+
+Test Set 92:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4666
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.66720628
+
+Test Set 93:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4552
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.553219510000001
+
+Test Set 94:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 7769
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7.77266765
+
+Test Set 95:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 9105
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9.10859277
+
+Test Set 96:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9972
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9.97591317
+
+Test Set 97:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 10465
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10.4688534
+
+Test Set 98:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5988
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5.991608490000001
+
+Test Set 99:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5794
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5.79759268
+
+Test Set 100:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5747
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5.75218559
+
+Test Set 101:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5790
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5.7952053
+
+Test Set 102:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 8893
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8.89880771
+
+Test Set 103:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 8964
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8.96977749
+
+Test Set 104:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9617
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9.62153409
+
+Test Set 105:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9840
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9.84445583
+
+Test Set 106:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 14458
+L1 Difference: None
+L2 Difference: None
+Objective Value: 14.46386529
+
+Test Set 107:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 14313
+L1 Difference: None
+L2 Difference: None
+Objective Value: 14.31886753
+
+Test Set 108:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 18235
+L1 Difference: None
+L2 Difference: None
+Objective Value: 18.24058671
+
+Test Set 109:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 17580
+L1 Difference: None
+L2 Difference: None
+Objective Value: 17.58565692
+
+Test Set 110:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 14609
+L1 Difference: None
+L2 Difference: None
+Objective Value: 14.61396132
+
+Test Set 111:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 14338
+L1 Difference: None
+L2 Difference: None
+Objective Value: 14.342993470000001
+
+Test Set 112:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7263
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7.26485881
+
+Test Set 113:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7211
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7.21283894
+
+Test Set 114:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 8288
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8.28989861
+
+Test Set 115:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 8177
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8.17883681
+
+Test Set 116:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3632
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3.6426214
+
+Test Set 117:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3460
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3.4704809
+
+Test Set 118:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1705
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.7434838000000001
+
+Test Set 119:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1641
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.6793685
+
+Test Set 120:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1529
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.549616
+
+Test Set 121:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 20179
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.185632270000003
+
+Test Set 122:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1574
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.59458
+
+Test Set 123:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1545
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.5654251
+
+Test Set 124:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 19907
+L1 Difference: None
+L2 Difference: None
+Objective Value: 19.91362799
+
+Test Set 125:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1558
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.5785298
+
+Test Set 126:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 158
+L1 Difference: None
+L2 Difference: None
+Objective Value: 0.16370834
+
+Time Weight: 0.01
+Test Set 1:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 148
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.48576384
+
+Test Set 2:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1177
+L1 Difference: None
+L2 Difference: None
+Objective Value: 11.77430772
+
+Test Set 3:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1661
+L1 Difference: None
+L2 Difference: None
+Objective Value: 16.618367069999998
+
+Test Set 4:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 244
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.4734314
+
+Test Set 5:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 148
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.48577615
+
+Test Set 6:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 287
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.87443742
+
+Test Set 7:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3302
+L1 Difference: None
+L2 Difference: None
+Objective Value: 33.028315600000006
+
+Test Set 8:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 289
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.89451273
+
+Test Set 9:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 451
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.5142256
+
+Test Set 10:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 5263
+L1 Difference: None
+L2 Difference: None
+Objective Value: 52.63836829
+
+Test Set 11:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 475
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.75415137
+
+Test Set 12:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1120
+L1 Difference: None
+L2 Difference: None
+Objective Value: 11.206828530000001
+
+Test Set 13:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1044
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10.4468863
+
+Test Set 14:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1294
+L1 Difference: None
+L2 Difference: None
+Objective Value: 12.9477572
+
+Test Set 15:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2361
+L1 Difference: None
+L2 Difference: None
+Objective Value: 23.61305074
+
+Test Set 16:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1347
+L1 Difference: None
+L2 Difference: None
+Objective Value: 13.47771456
+
+Test Set 17:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1511
+L1 Difference: None
+L2 Difference: None
+Objective Value: 15.117831899999999
+
+Test Set 18:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2742
+L1 Difference: None
+L2 Difference: None
+Objective Value: 27.423942510000003
+
+Test Set 19:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1471
+L1 Difference: None
+L2 Difference: None
+Objective Value: 14.7179047
+
+Test Set 20:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 473
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.737137120000001
+
+Test Set 21:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 456
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4.56714745
+
+Test Set 22:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 205
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.0673912999999997
+
+Test Set 23:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1522
+L1 Difference: None
+L2 Difference: None
+Objective Value: 15.240494
+
+Test Set 24:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2443
+L1 Difference: None
+L2 Difference: None
+Objective Value: 24.43653925
+
+Test Set 25:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 202
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2.0372786
+
+Test Set 26:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 162
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.6255895100000002
+
+Test Set 27:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1153
+L1 Difference: None
+L2 Difference: None
+Objective Value: 11.5342785
+
+Test Set 28:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1632
+L1 Difference: None
+L2 Difference: None
+Objective Value: 16.32843288
+
+Test Set 29:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 149
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.49559456
+
+Test Set 30:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 356
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3.56668949
+
+Test Set 31:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2724
+L1 Difference: None
+L2 Difference: None
+Objective Value: 27.24681036
+
+Test Set 32:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 360
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3.60668532
+
+Test Set 33:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 654
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6.54112916
+
+Test Set 34:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5302
+L1 Difference: None
+L2 Difference: None
+Objective Value: 53.021201850000004
+
+Test Set 35:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 649
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6.4910860900000005
+
+Test Set 36:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1885
+L1 Difference: None
+L2 Difference: None
+Objective Value: 18.853622010000002
+
+Test Set 37:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1887
+L1 Difference: None
+L2 Difference: None
+Objective Value: 18.87365423
+
+Test Set 38:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1906
+L1 Difference: None
+L2 Difference: None
+Objective Value: 19.06365137
+
+Test Set 39:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1978
+L1 Difference: None
+L2 Difference: None
+Objective Value: 19.78355845
+
+Test Set 40:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2606
+L1 Difference: None
+L2 Difference: None
+Objective Value: 26.064791720000002
+
+Test Set 41:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2543
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.43473671
+
+Test Set 42:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2841
+L1 Difference: None
+L2 Difference: None
+Objective Value: 28.41522002
+
+Test Set 43:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2880
+L1 Difference: None
+L2 Difference: None
+Objective Value: 28.80520007
+
+Test Set 44:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1389
+L1 Difference: None
+L2 Difference: None
+Objective Value: 13.895181410000001
+
+Test Set 45:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1397
+L1 Difference: None
+L2 Difference: None
+Objective Value: 13.97529304
+
+Test Set 46:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1045
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10.458227780000001
+
+Test Set 47:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8537
+L1 Difference: None
+L2 Difference: None
+Objective Value: 85.37820082
+
+Test Set 48:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1038
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10.38821156
+
+Test Set 49:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1361
+L1 Difference: None
+L2 Difference: None
+Objective Value: 13.61826877
+
+Test Set 50:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1359
+L1 Difference: None
+L2 Difference: None
+Objective Value: 13.59826806
+
+Test Set 51:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3555
+L1 Difference: None
+L2 Difference: None
+Objective Value: 35.55823697
+
+Test Set 52:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3441
+L1 Difference: None
+L2 Difference: None
+Objective Value: 34.41826393
+
+Test Set 53:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2878
+L1 Difference: None
+L2 Difference: None
+Objective Value: 28.78516728
+
+Test Set 54:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2875
+L1 Difference: None
+L2 Difference: None
+Objective Value: 28.75521407
+
+Test Set 55:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2940
+L1 Difference: None
+L2 Difference: None
+Objective Value: 29.40515235
+
+Test Set 56:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2855
+L1 Difference: None
+L2 Difference: None
+Objective Value: 28.55517731
+
+Test Set 57:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2039
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.39624278
+
+Test Set 58:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 16280
+L1 Difference: None
+L2 Difference: None
+Objective Value: 162.80623021000002
+
+Test Set 59:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2001
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.016098420000002
+
+Test Set 60:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1232
+L1 Difference: None
+L2 Difference: None
+Objective Value: 12.32830457
+
+Test Set 61:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 10144
+L1 Difference: None
+L2 Difference: None
+Objective Value: 101.44832672
+
+Test Set 62:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1231
+L1 Difference: None
+L2 Difference: None
+Objective Value: 12.3182278
+
+Test Set 63:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1702
+L1 Difference: None
+L2 Difference: None
+Objective Value: 17.02575723
+
+Test Set 64:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 13932
+L1 Difference: None
+L2 Difference: None
+Objective Value: 139.32585568
+
+Test Set 65:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1753
+L1 Difference: None
+L2 Difference: None
+Objective Value: 17.53579222
+
+Test Set 66:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1384
+L1 Difference: None
+L2 Difference: None
+Objective Value: 13.84519875
+
+Test Set 67:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 11363
+L1 Difference: None
+L2 Difference: None
+Objective Value: 113.63528018
+
+Test Set 68:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1394
+L1 Difference: None
+L2 Difference: None
+Objective Value: 13.945270879999999
+
+Test Set 69:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2512
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.124806760000002
+
+Test Set 70:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2509
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.09482688
+
+Test Set 71:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5714
+L1 Difference: None
+L2 Difference: None
+Objective Value: 57.146032410000004
+
+Test Set 72:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5665
+L1 Difference: None
+L2 Difference: None
+Objective Value: 56.65596689
+
+Test Set 73:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 6957
+L1 Difference: None
+L2 Difference: None
+Objective Value: 69.57580433000001
+
+Test Set 74:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 6910
+L1 Difference: None
+L2 Difference: None
+Objective Value: 69.10579967000001
+
+Test Set 75:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3530
+L1 Difference: None
+L2 Difference: None
+Objective Value: 35.30794867
+
+Test Set 76:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3459
+L1 Difference: None
+L2 Difference: None
+Objective Value: 34.59802433
+
+Test Set 77:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2221
+L1 Difference: None
+L2 Difference: None
+Objective Value: 22.21751236
+
+Test Set 78:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4187
+L1 Difference: None
+L2 Difference: None
+Objective Value: 41.87179338
+
+Test Set 79:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2166
+L1 Difference: None
+L2 Difference: None
+Objective Value: 21.66763853
+
+Test Set 80:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1320
+L1 Difference: None
+L2 Difference: None
+Objective Value: 13.207733890000002
+
+Test Set 81:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1280
+L1 Difference: None
+L2 Difference: None
+Objective Value: 12.807712980000002
+
+Test Set 82:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 761
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7.61789491
+
+Test Set 83:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 745
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7.45791976
+
+Test Set 84:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1704
+L1 Difference: None
+L2 Difference: None
+Objective Value: 17.04574972
+
+Test Set 85:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1709
+L1 Difference: None
+L2 Difference: None
+Objective Value: 17.09578508
+
+Test Set 86:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4373
+L1 Difference: None
+L2 Difference: None
+Objective Value: 43.73629701
+
+Test Set 87:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4448
+L1 Difference: None
+L2 Difference: None
+Objective Value: 44.48634889
+
+Test Set 88:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2474
+L1 Difference: None
+L2 Difference: None
+Objective Value: 24.746603670000002
+
+Test Set 89:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 20179
+L1 Difference: None
+L2 Difference: None
+Objective Value: 201.79662095
+
+Test Set 90:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2489
+L1 Difference: None
+L2 Difference: None
+Objective Value: 24.89659899
+
+Test Set 91:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2526
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.266598520000002
+
+Test Set 92:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 21957
+L1 Difference: None
+L2 Difference: None
+Objective Value: 219.57658665
+
+Test Set 93:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2479
+L1 Difference: None
+L2 Difference: None
+Objective Value: 24.79657649
+
+Test Set 94:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2575
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.75660454
+
+Test Set 95:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 20150
+L1 Difference: None
+L2 Difference: None
+Objective Value: 201.50664249
+
+Test Set 96:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2555
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.556559710000002
+
+Test Set 97:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2475
+L1 Difference: None
+L2 Difference: None
+Objective Value: 24.75662491
+
+Test Set 98:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 20727
+L1 Difference: None
+L2 Difference: None
+Objective Value: 207.27658774
+
+Test Set 99:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2553
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.53651678
+
+Test Set 100:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2517
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.17657286
+
+Test Set 101:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 19960
+L1 Difference: None
+L2 Difference: None
+Objective Value: 199.60666935999998
+
+Test Set 102:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2473
+L1 Difference: None
+L2 Difference: None
+Objective Value: 24.73660595
+
+Test Set 103:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2553
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.53661126
+
+Test Set 104:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 20060
+L1 Difference: None
+L2 Difference: None
+Objective Value: 200.60666654
+
+Test Set 105:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2524
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.24666021
+
+Test Set 106:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5200
+L1 Difference: None
+L2 Difference: None
+Objective Value: 52.00655552
+
+Test Set 107:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5004
+L1 Difference: None
+L2 Difference: None
+Objective Value: 50.04658313
+
+Test Set 108:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2411
+L1 Difference: None
+L2 Difference: None
+Objective Value: 24.11636069
+
+Test Set 109:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2359
+L1 Difference: None
+L2 Difference: None
+Objective Value: 23.59651084
+
+Test Set 110:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2364
+L1 Difference: None
+L2 Difference: None
+Objective Value: 23.64649723
+
+Test Set 111:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 18840
+L1 Difference: None
+L2 Difference: None
+Objective Value: 188.40650606
+
+Test Set 112:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2308
+L1 Difference: None
+L2 Difference: None
+Objective Value: 23.086530690000004
+
+Test Set 113:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2507
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.07658409
+
+Test Set 114:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 19981
+L1 Difference: None
+L2 Difference: None
+Objective Value: 199.81665818
+
+Test Set 115:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2470
+L1 Difference: None
+L2 Difference: None
+Objective Value: 24.7066133
+
+Test Set 116:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6434
+L1 Difference: None
+L2 Difference: None
+Objective Value: 64.34641493000001
+
+Test Set 117:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6492
+L1 Difference: None
+L2 Difference: None
+Objective Value: 64.92642961
+
+Test Set 118:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4076
+L1 Difference: None
+L2 Difference: None
+Objective Value: 40.76615132
+
+Test Set 119:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4223
+L1 Difference: None
+L2 Difference: None
+Objective Value: 42.23612096
+
+Test Set 120:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2168
+L1 Difference: None
+L2 Difference: None
+Objective Value: 21.6863208
+
+Test Set 121:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2183
+L1 Difference: None
+L2 Difference: None
+Objective Value: 21.836231310000002
+
+Test Set 122:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9973
+L1 Difference: None
+L2 Difference: None
+Objective Value: 99.73641016
+
+Test Set 123:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9623
+L1 Difference: None
+L2 Difference: None
+Objective Value: 96.23643917
+
+Test Set 124:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6511
+L1 Difference: None
+L2 Difference: None
+Objective Value: 65.11639387
+
+Test Set 125:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6750
+L1 Difference: None
+L2 Difference: None
+Objective Value: 67.50645605
+
+Test Set 126:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 6247
+L1 Difference: None
+L2 Difference: None
+Objective Value: 62.47621578
+
+Test Set 127:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 6393
+L1 Difference: None
+L2 Difference: None
+Objective Value: 63.93617784
+
+Test Set 128:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 153
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1.53583779
+
+Time Weight: 0.1
+Test Set 1:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 155
+L1 Difference: None
+L2 Difference: None
+Objective Value: 15.50573731
+
+Test Set 2:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1174
+L1 Difference: None
+L2 Difference: None
+Objective Value: 117.4042074
+
+Test Set 3:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1727
+L1 Difference: None
+L2 Difference: None
+Objective Value: 172.70827755000002
+
+Test Set 4:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 250
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.0332518
+
+Test Set 5:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 154
+L1 Difference: None
+L2 Difference: None
+Objective Value: 15.40563537
+
+Test Set 6:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 257
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.706026010000002
+
+Test Set 7:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 443
+L1 Difference: None
+L2 Difference: None
+Objective Value: 44.310255500000004
+
+Test Set 8:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 259
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.906114810000002
+
+Test Set 9:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 471
+L1 Difference: None
+L2 Difference: None
+Objective Value: 47.10725012
+
+Test Set 10:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3593
+L1 Difference: None
+L2 Difference: None
+Objective Value: 359.30730824
+
+Test Set 11:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 467
+L1 Difference: None
+L2 Difference: None
+Objective Value: 46.707199440000004
+
+Test Set 12:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 207
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.717348500000003
+
+Test Set 13:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1575
+L1 Difference: None
+L2 Difference: None
+Objective Value: 157.5205041
+
+Test Set 14:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 205
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.5174094
+
+Test Set 15:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 206
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.617469500000002
+
+Test Set 16:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2545
+L1 Difference: None
+L2 Difference: None
+Objective Value: 254.50656836
+
+Test Set 17:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 204
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.417526700000003
+
+Test Set 18:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 367
+L1 Difference: None
+L2 Difference: None
+Objective Value: 36.70583465
+
+Test Set 19:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2942
+L1 Difference: None
+L2 Difference: None
+Objective Value: 294.20607939
+
+Test Set 20:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 357
+L1 Difference: None
+L2 Difference: None
+Objective Value: 35.70596363
+
+Test Set 21:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 212
+L1 Difference: None
+L2 Difference: None
+Objective Value: 21.217589500000003
+
+Test Set 22:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1720
+L1 Difference: None
+L2 Difference: None
+Objective Value: 172.0205225
+
+Test Set 23:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2680
+L1 Difference: None
+L2 Difference: None
+Objective Value: 268.00654239
+
+Test Set 24:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 227
+L1 Difference: None
+L2 Difference: None
+Objective Value: 22.717382100000002
+
+Test Set 25:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 210
+L1 Difference: None
+L2 Difference: None
+Objective Value: 21.0174355
+
+Test Set 26:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1604
+L1 Difference: None
+L2 Difference: None
+Objective Value: 160.4205689
+
+Test Set 27:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2504
+L1 Difference: None
+L2 Difference: None
+Objective Value: 250.40662302
+
+Test Set 28:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 204
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.417279200000003
+
+Test Set 29:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 361
+L1 Difference: None
+L2 Difference: None
+Objective Value: 36.10572662
+
+Test Set 30:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 359
+L1 Difference: None
+L2 Difference: None
+Objective Value: 35.905827099999996
+
+Test Set 31:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1607
+L1 Difference: None
+L2 Difference: None
+Objective Value: 160.70268361
+
+Test Set 32:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1665
+L1 Difference: None
+L2 Difference: None
+Objective Value: 166.50258651
+
+Test Set 33:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1038
+L1 Difference: None
+L2 Difference: None
+Objective Value: 103.80130418000002
+
+Test Set 34:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1049
+L1 Difference: None
+L2 Difference: None
+Objective Value: 104.90122581
+
+Test Set 35:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 209
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.917336400000003
+
+Test Set 36:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1654
+L1 Difference: None
+L2 Difference: None
+Objective Value: 165.420632
+
+Test Set 37:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2553
+L1 Difference: None
+L2 Difference: None
+Objective Value: 255.30658111000002
+
+Test Set 38:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 208
+L1 Difference: None
+L2 Difference: None
+Objective Value: 20.817541900000002
+
+Test Set 39:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 250
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.0331303
+
+Test Set 40:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1950
+L1 Difference: None
+L2 Difference: None
+Objective Value: 195.0382692
+
+Test Set 41:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3340
+L1 Difference: None
+L2 Difference: None
+Objective Value: 334.00649751
+
+Test Set 42:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 248
+L1 Difference: None
+L2 Difference: None
+Objective Value: 24.8333012
+
+Test Set 43:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 250
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.0330885
+
+Test Set 44:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3341
+L1 Difference: None
+L2 Difference: None
+Objective Value: 334.10644071
+
+Test Set 45:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 253
+L1 Difference: None
+L2 Difference: None
+Objective Value: 25.3330866
+
+Test Set 46:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 492
+L1 Difference: None
+L2 Difference: None
+Objective Value: 49.236907
+
+Test Set 47:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6526
+L1 Difference: None
+L2 Difference: None
+Objective Value: 652.60646205
+
+Test Set 48:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 482
+L1 Difference: None
+L2 Difference: None
+Objective Value: 48.236930300000004
+
+Test Set 49:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2626
+L1 Difference: None
+L2 Difference: None
+Objective Value: 262.60011707800004
+
+Test Set 50:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2632
+L1 Difference: None
+L2 Difference: None
+Objective Value: 263.2000709966
+
+Test Set 51:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6026
+L1 Difference: None
+L2 Difference: None
+Objective Value: 602.60379872
+
+Test Set 52:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5934
+L1 Difference: None
+L2 Difference: None
+Objective Value: 593.4038892899999
+
+Test Set 53:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6551
+L1 Difference: None
+L2 Difference: None
+Objective Value: 655.10182781
+
+Test Set 54:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6462
+L1 Difference: None
+L2 Difference: None
+Objective Value: 646.20184586
+
+Test Set 55:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4614
+L1 Difference: None
+L2 Difference: None
+Objective Value: 461.40326458000004
+
+Test Set 56:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4569
+L1 Difference: None
+L2 Difference: None
+Objective Value: 456.90322197000006
+
+Test Set 57:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 8394
+L1 Difference: None
+L2 Difference: None
+Objective Value: 839.4019659500001
+
+Test Set 58:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 8538
+L1 Difference: None
+L2 Difference: None
+Objective Value: 853.8018830200001
+
+Test Set 59:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3616
+L1 Difference: None
+L2 Difference: None
+Objective Value: 361.6105397
+
+Test Set 60:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3617
+L1 Difference: None
+L2 Difference: None
+Objective Value: 361.71047430000004
+
+Test Set 61:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3625
+L1 Difference: None
+L2 Difference: None
+Objective Value: 362.5104432
+
+Test Set 62:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3640
+L1 Difference: None
+L2 Difference: None
+Objective Value: 364.0105096
+
+Test Set 63:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1994
+L1 Difference: None
+L2 Difference: None
+Objective Value: 199.4383235
+
+Test Set 64:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 26317
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2631.7065679600005
+
+Test Set 65:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1962
+L1 Difference: None
+L2 Difference: None
+Objective Value: 196.2382508
+
+Test Set 66:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3647
+L1 Difference: None
+L2 Difference: None
+Objective Value: 364.71049940000006
+
+Test Set 67:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3702
+L1 Difference: None
+L2 Difference: None
+Objective Value: 370.21056730000004
+
+Test Set 68:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2038
+L1 Difference: None
+L2 Difference: None
+Objective Value: 203.838323
+
+Test Set 69:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 26265
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2626.5065541
+
+Test Set 70:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1945
+L1 Difference: None
+L2 Difference: None
+Objective Value: 194.5382926
+
+Test Set 71:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1989
+L1 Difference: None
+L2 Difference: None
+Objective Value: 198.93829730000002
+
+Test Set 72:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 26637
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2663.7064883800003
+
+Test Set 73:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1965
+L1 Difference: None
+L2 Difference: None
+Objective Value: 196.5383274
+
+Test Set 74:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7085
+L1 Difference: None
+L2 Difference: None
+Objective Value: 708.500013411
+
+Test Set 75:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6889
+L1 Difference: None
+L2 Difference: None
+Objective Value: 688.9000295043
+
+Test Set 76:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 11707
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1170.70391332
+
+Test Set 77:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 11659
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1165.9039179000001
+
+Test Set 78:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7052
+L1 Difference: None
+L2 Difference: None
+Objective Value: 705.2000653267
+
+Test Set 79:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6850
+L1 Difference: None
+L2 Difference: None
+Objective Value: 685.00000326335
+
+Test Set 80:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3699
+L1 Difference: None
+L2 Difference: None
+Objective Value: 369.9105804
+
+Test Set 81:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3799
+L1 Difference: None
+L2 Difference: None
+Objective Value: 379.91055910000006
+
+Test Set 82:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2026
+L1 Difference: None
+L2 Difference: None
+Objective Value: 202.63834870000002
+
+Test Set 83:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 26216
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2621.60650754
+
+Test Set 84:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2025
+L1 Difference: None
+L2 Difference: None
+Objective Value: 202.5383382
+
+Test Set 85:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3657
+L1 Difference: None
+L2 Difference: None
+Objective Value: 365.71052770000006
+
+Test Set 86:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3709
+L1 Difference: None
+L2 Difference: None
+Objective Value: 370.9105129
+
+Test Set 87:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1727
+L1 Difference: None
+L2 Difference: None
+Objective Value: 172.73835240000002
+
+Test Set 88:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 22648
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2264.8065348100004
+
+Test Set 89:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1724
+L1 Difference: None
+L2 Difference: None
+Objective Value: 172.43829970000002
+
+Test Set 90:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6810
+L1 Difference: None
+L2 Difference: None
+Objective Value: 681.0000501052
+
+Test Set 91:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6829
+L1 Difference: None
+L2 Difference: None
+Objective Value: 682.9000275597001
+
+Test Set 92:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5342
+L1 Difference: None
+L2 Difference: None
+Objective Value: 534.2032094900001
+
+Test Set 93:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5269
+L1 Difference: None
+L2 Difference: None
+Objective Value: 526.9032522599999
+
+Test Set 94:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4590
+L1 Difference: None
+L2 Difference: None
+Objective Value: 459.00321317
+
+Test Set 95:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4621
+L1 Difference: None
+L2 Difference: None
+Objective Value: 462.10321443000004
+
+Test Set 96:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1945
+L1 Difference: None
+L2 Difference: None
+Objective Value: 194.5382982
+
+Test Set 97:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 25982
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2598.20655828
+
+Test Set 98:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1955
+L1 Difference: None
+L2 Difference: None
+Objective Value: 195.5382414
+
+Test Set 99:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1757
+L1 Difference: None
+L2 Difference: None
+Objective Value: 175.7383905
+
+Test Set 100:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 23316
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2331.60651491
+
+Test Set 101:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1750
+L1 Difference: None
+L2 Difference: None
+Objective Value: 175.0383346
+
+Test Set 102:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1460
+L1 Difference: None
+L2 Difference: None
+Objective Value: 146.0380486
+
+Test Set 103:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 20291
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2029.1064609300001
+
+Test Set 104:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1465
+L1 Difference: None
+L2 Difference: None
+Objective Value: 146.5383279
+
+Test Set 105:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1985
+L1 Difference: None
+L2 Difference: None
+Objective Value: 198.5383962
+
+Test Set 106:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 26538
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2653.8065092700003
+
+Test Set 107:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1985
+L1 Difference: None
+L2 Difference: None
+Objective Value: 198.5384334
+
+Test Set 108:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3657
+L1 Difference: None
+L2 Difference: None
+Objective Value: 365.71052610000004
+
+Test Set 109:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3599
+L1 Difference: None
+L2 Difference: None
+Objective Value: 359.91048870000003
+
+Test Set 110:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6035
+L1 Difference: None
+L2 Difference: None
+Objective Value: 603.5000511482
+
+Test Set 111:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5965
+L1 Difference: None
+L2 Difference: None
+Objective Value: 596.5000929609
+
+Test Set 112:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4753
+L1 Difference: None
+L2 Difference: None
+Objective Value: 475.30329673
+
+Test Set 113:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4625
+L1 Difference: None
+L2 Difference: None
+Objective Value: 462.50322281
+
+Test Set 114:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 10113
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1011.30306008
+
+Test Set 115:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9996
+L1 Difference: None
+L2 Difference: None
+Objective Value: 999.60309923
+
+Test Set 116:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6892
+L1 Difference: None
+L2 Difference: None
+Objective Value: 689.2000083446501
+
+Test Set 117:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7098
+L1 Difference: None
+L2 Difference: None
+Objective Value: 709.8000143647
+
+Test Set 118:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5186
+L1 Difference: None
+L2 Difference: None
+Objective Value: 518.60319779
+
+Test Set 119:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5545
+L1 Difference: None
+L2 Difference: None
+Objective Value: 554.50323619
+
+Test Set 120:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3768
+L1 Difference: None
+L2 Difference: None
+Objective Value: 376.8106068
+
+Test Set 121:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3692
+L1 Difference: None
+L2 Difference: None
+Objective Value: 369.2105465
+
+Test Set 122:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 10229
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1022.9030874800001
+
+Test Set 123:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 10116
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1011.6030823
+
+Test Set 124:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 15076
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1507.6049617400001
+
+Test Set 125:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 15201
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1520.10493902
+
+Test Set 126:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 14740
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1474.00504018
+
+Test Set 127:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 14904
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1490.40497911
+
+Test Set 128:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 159
+L1 Difference: None
+L2 Difference: None
+Objective Value: 15.905668460000001
+
+Time Weight: 0.2
+Test Set 1:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 154
+L1 Difference: None
+L2 Difference: None
+Objective Value: 30.80577598
+
+Test Set 2:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1176
+L1 Difference: None
+L2 Difference: None
+Objective Value: 235.20422928000002
+
+Test Set 3:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1727
+L1 Difference: None
+L2 Difference: None
+Objective Value: 345.40842737
+
+Test Set 4:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 244
+L1 Difference: None
+L2 Difference: None
+Objective Value: 48.833294200000005
+
+Test Set 5:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 154
+L1 Difference: None
+L2 Difference: None
+Objective Value: 30.80566422
+
+Test Set 6:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 151
+L1 Difference: None
+L2 Difference: None
+Objective Value: 30.2055581
+
+Test Set 7:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1185
+L1 Difference: None
+L2 Difference: None
+Objective Value: 237.00433663
+
+Test Set 8:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 154
+L1 Difference: None
+L2 Difference: None
+Objective Value: 30.80583394
+
+Test Set 9:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 155
+L1 Difference: None
+L2 Difference: None
+Objective Value: 31.00579591
+
+Test Set 10:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1145
+L1 Difference: None
+L2 Difference: None
+Objective Value: 229.00428538
+
+Test Set 11:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 160
+L1 Difference: None
+L2 Difference: None
+Objective Value: 32.00555044
+
+Test Set 12:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 356
+L1 Difference: None
+L2 Difference: None
+Objective Value: 71.20611037
+
+Test Set 13:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2820
+L1 Difference: None
+L2 Difference: None
+Objective Value: 564.00603483
+
+Test Set 14:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 356
+L1 Difference: None
+L2 Difference: None
+Objective Value: 71.20582279
+
+Test Set 15:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1309
+L1 Difference: None
+L2 Difference: None
+Objective Value: 261.801202
+
+Test Set 16:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1384
+L1 Difference: None
+L2 Difference: None
+Objective Value: 276.80110475000004
+
+Test Set 17:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 209
+L1 Difference: None
+L2 Difference: None
+Objective Value: 41.817398600000004
+
+Test Set 18:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1612
+L1 Difference: None
+L2 Difference: None
+Objective Value: 322.4207167
+
+Test Set 19:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 205
+L1 Difference: None
+L2 Difference: None
+Objective Value: 41.017457
+
+Test Set 20:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 209
+L1 Difference: None
+L2 Difference: None
+Objective Value: 41.8175315
+
+Test Set 21:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1601
+L1 Difference: None
+L2 Difference: None
+Objective Value: 320.22043730000007
+
+Test Set 22:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 208
+L1 Difference: None
+L2 Difference: None
+Objective Value: 41.6172824
+
+Test Set 23:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 297
+L1 Difference: None
+L2 Difference: None
+Objective Value: 59.404338880000005
+
+Test Set 24:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3455
+L1 Difference: None
+L2 Difference: None
+Objective Value: 691.00839043
+
+Test Set 25:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 299
+L1 Difference: None
+L2 Difference: None
+Objective Value: 59.804409570000004
+
+Test Set 26:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 214
+L1 Difference: None
+L2 Difference: None
+Objective Value: 42.817350000000005
+
+Test Set 27:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1590
+L1 Difference: None
+L2 Difference: None
+Objective Value: 318.0205718
+
+Test Set 28:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2596
+L1 Difference: None
+L2 Difference: None
+Objective Value: 519.20653929
+
+Test Set 29:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 203
+L1 Difference: None
+L2 Difference: None
+Objective Value: 40.6173851
+
+Test Set 30:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 599
+L1 Difference: None
+L2 Difference: None
+Objective Value: 119.82037460000001
+
+Test Set 31:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 7645
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1529.00660094
+
+Test Set 32:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 587
+L1 Difference: None
+L2 Difference: None
+Objective Value: 117.42049800000001
+
+Test Set 33:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 589
+L1 Difference: None
+L2 Difference: None
+Objective Value: 117.82031270000002
+
+Test Set 34:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 7919
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1583.8065687300002
+
+Test Set 35:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 584
+L1 Difference: None
+L2 Difference: None
+Objective Value: 116.82044440000001
+
+Test Set 36:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 209
+L1 Difference: None
+L2 Difference: None
+Objective Value: 41.8174793
+
+Test Set 37:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2574
+L1 Difference: None
+L2 Difference: None
+Objective Value: 514.8065051100001
+
+Test Set 38:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 204
+L1 Difference: None
+L2 Difference: None
+Objective Value: 40.817267400000006
+
+Test Set 39:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1067
+L1 Difference: None
+L2 Difference: None
+Objective Value: 213.40181359000002
+
+Test Set 40:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 8541
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1708.20187136
+
+Test Set 41:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1015
+L1 Difference: None
+L2 Difference: None
+Objective Value: 203.00189544
+
+Test Set 42:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 519
+L1 Difference: None
+L2 Difference: None
+Objective Value: 103.8013918
+
+Test Set 43:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4220
+L1 Difference: None
+L2 Difference: None
+Objective Value: 844.00122163
+
+Test Set 44:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 514
+L1 Difference: None
+L2 Difference: None
+Objective Value: 102.80132497000001
+
+Test Set 45:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1657
+L1 Difference: None
+L2 Difference: None
+Objective Value: 331.40260209
+
+Test Set 46:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1661
+L1 Difference: None
+L2 Difference: None
+Objective Value: 332.20262362000005
+
+Test Set 47:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 712
+L1 Difference: None
+L2 Difference: None
+Objective Value: 142.40616873000002
+
+Test Set 48:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 701
+L1 Difference: None
+L2 Difference: None
+Objective Value: 140.20619283000002
+
+Test Set 49:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1335
+L1 Difference: None
+L2 Difference: None
+Objective Value: 267.00121328
+
+Test Set 50:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1340
+L1 Difference: None
+L2 Difference: None
+Objective Value: 268.001266
+
+Test Set 51:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1020
+L1 Difference: None
+L2 Difference: None
+Objective Value: 204.00133031
+
+Test Set 52:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 997
+L1 Difference: None
+L2 Difference: None
+Objective Value: 199.40123065
+
+Test Set 53:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 160
+L1 Difference: None
+L2 Difference: None
+Objective Value: 32.00572087
+
+Test Set 54:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1155
+L1 Difference: None
+L2 Difference: None
+Objective Value: 231.00427938
+
+Test Set 55:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 153
+L1 Difference: None
+L2 Difference: None
+Objective Value: 30.60559384
+
+Test Set 56:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 297
+L1 Difference: None
+L2 Difference: None
+Objective Value: 59.40452314000001
+
+Test Set 57:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3459
+L1 Difference: None
+L2 Difference: None
+Objective Value: 691.8083218400001
+
+Test Set 58:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 293
+L1 Difference: None
+L2 Difference: None
+Objective Value: 58.60434525
+
+Test Set 59:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 902
+L1 Difference: None
+L2 Difference: None
+Objective Value: 180.40721196
+
+Test Set 60:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1740
+L1 Difference: None
+L2 Difference: None
+Objective Value: 348.000024274
+
+Test Set 61:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 907
+L1 Difference: None
+L2 Difference: None
+Objective Value: 181.40720957
+
+Test Set 62:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 299
+L1 Difference: None
+L2 Difference: None
+Objective Value: 59.804428120000004
+
+Test Set 63:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3447
+L1 Difference: None
+L2 Difference: None
+Objective Value: 689.4083330200001
+
+Test Set 64:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 298
+L1 Difference: None
+L2 Difference: None
+Objective Value: 59.60447149
+
+Test Set 65:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 355
+L1 Difference: None
+L2 Difference: None
+Objective Value: 71.00593802
+
+Test Set 66:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2909
+L1 Difference: None
+L2 Difference: None
+Objective Value: 581.8060206800001
+
+Test Set 67:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 368
+L1 Difference: None
+L2 Difference: None
+Objective Value: 73.60584784000001
+
+Test Set 68:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2528
+L1 Difference: None
+L2 Difference: None
+Objective Value: 505.60254472
+
+Test Set 69:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2553
+L1 Difference: None
+L2 Difference: None
+Objective Value: 510.60259314
+
+Test Set 70:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2032
+L1 Difference: None
+L2 Difference: None
+Objective Value: 406.40123341000003
+
+Test Set 71:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2028
+L1 Difference: None
+L2 Difference: None
+Objective Value: 405.60123046
+
+Test Set 72:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 783
+L1 Difference: None
+L2 Difference: None
+Objective Value: 156.62049500000003
+
+Test Set 73:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 811
+L1 Difference: None
+L2 Difference: None
+Objective Value: 162.22042610000003
+
+Test Set 74:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 592
+L1 Difference: None
+L2 Difference: None
+Objective Value: 118.4202906
+
+Test Set 75:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 7814
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1562.8066139000002
+
+Test Set 76:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 586
+L1 Difference: None
+L2 Difference: None
+Objective Value: 117.22043430000001
+
+Test Set 77:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 587
+L1 Difference: None
+L2 Difference: None
+Objective Value: 117.42022490000001
+
+Test Set 78:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 7786
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1557.2065592200001
+
+Test Set 79:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 594
+L1 Difference: None
+L2 Difference: None
+Objective Value: 118.820288
+
+Test Set 80:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 577
+L1 Difference: None
+L2 Difference: None
+Objective Value: 115.4042156
+
+Test Set 81:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 581
+L1 Difference: None
+L2 Difference: None
+Objective Value: 116.20427562
+
+Test Set 82:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1868
+L1 Difference: None
+L2 Difference: None
+Objective Value: 373.6072115
+
+Test Set 83:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1906
+L1 Difference: None
+L2 Difference: None
+Objective Value: 381.20719814000006
+
+Test Set 84:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2647
+L1 Difference: None
+L2 Difference: None
+Objective Value: 529.40486672
+
+Test Set 85:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2612
+L1 Difference: None
+L2 Difference: None
+Objective Value: 522.40486364
+
+Test Set 86:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3568
+L1 Difference: None
+L2 Difference: None
+Objective Value: 713.60423124
+
+Test Set 87:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3500
+L1 Difference: None
+L2 Difference: None
+Objective Value: 700.00427049
+
+Test Set 88:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2951
+L1 Difference: None
+L2 Difference: None
+Objective Value: 590.20357818
+
+Test Set 89:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3090
+L1 Difference: None
+L2 Difference: None
+Objective Value: 618.00358839
+
+Test Set 90:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2483
+L1 Difference: None
+L2 Difference: None
+Objective Value: 496.60261810000003
+
+Test Set 91:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2599
+L1 Difference: None
+L2 Difference: None
+Objective Value: 519.8026763500001
+
+Test Set 92:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 747
+L1 Difference: None
+L2 Difference: None
+Objective Value: 149.40617348
+
+Test Set 93:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 746
+L1 Difference: None
+L2 Difference: None
+Objective Value: 149.20613651000002
+
+Test Set 94:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 596
+L1 Difference: None
+L2 Difference: None
+Objective Value: 119.220288
+
+Test Set 95:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 7447
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1489.4065618500001
+
+Test Set 96:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 594
+L1 Difference: None
+L2 Difference: None
+Objective Value: 118.8205027
+
+Test Set 97:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1478
+L1 Difference: None
+L2 Difference: None
+Objective Value: 295.60608646000003
+
+Test Set 98:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1447
+L1 Difference: None
+L2 Difference: None
+Objective Value: 289.4059882
+
+Test Set 99:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4993
+L1 Difference: None
+L2 Difference: None
+Objective Value: 998.60262602
+
+Test Set 100:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5130
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1026.00257134
+
+Test Set 101:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1445
+L1 Difference: None
+L2 Difference: None
+Objective Value: 289.00684655
+
+Test Set 102:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1426
+L1 Difference: None
+L2 Difference: None
+Objective Value: 285.20684160999997
+
+Test Set 103:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 757
+L1 Difference: None
+L2 Difference: None
+Objective Value: 151.40421899
+
+Test Set 104:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8861
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1772.20837433
+
+Test Set 105:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1222
+L1 Difference: None
+L2 Difference: None
+Objective Value: 244.4383119
+
+Test Set 106:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 740
+L1 Difference: None
+L2 Difference: None
+Objective Value: 148.00427284
+
+Test Set 107:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 740
+L1 Difference: None
+L2 Difference: None
+Objective Value: 148.00431824
+
+Test Set 108:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8976
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1795.20839571
+
+Test Set 109:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1196
+L1 Difference: None
+L2 Difference: None
+Objective Value: 239.2384202
+
+Test Set 110:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 736
+L1 Difference: None
+L2 Difference: None
+Objective Value: 147.20426219
+
+Test Set 111:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 586
+L1 Difference: None
+L2 Difference: None
+Objective Value: 117.20430817
+
+Test Set 112:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6878
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1375.6084111000002
+
+Test Set 113:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 958
+L1 Difference: None
+L2 Difference: None
+Objective Value: 191.63809460000002
+
+Test Set 114:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 592
+L1 Difference: None
+L2 Difference: None
+Objective Value: 118.4042747
+
+Test Set 115:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1417
+L1 Difference: None
+L2 Difference: None
+Objective Value: 283.40681257000006
+
+Test Set 116:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2693
+L1 Difference: None
+L2 Difference: None
+Objective Value: 538.60336634
+
+Test Set 117:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1422
+L1 Difference: None
+L2 Difference: None
+Objective Value: 284.40682162
+
+Test Set 118:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 893
+L1 Difference: None
+L2 Difference: None
+Objective Value: 178.60421663000002
+
+Test Set 119:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 10445
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2089.00840575
+
+Test Set 120:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1501
+L1 Difference: None
+L2 Difference: None
+Objective Value: 300.2383851
+
+Test Set 121:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 874
+L1 Difference: None
+L2 Difference: None
+Objective Value: 174.80425936
+
+Test Set 122:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 862
+L1 Difference: None
+L2 Difference: None
+Objective Value: 172.40431887
+
+Test Set 123:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 10441
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2088.2084141900004
+
+Test Set 124:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1453
+L1 Difference: None
+L2 Difference: None
+Objective Value: 290.6383156
+
+Test Set 125:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 877
+L1 Difference: None
+L2 Difference: None
+Objective Value: 175.40423019
+
+Test Set 126:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2783
+L1 Difference: None
+L2 Difference: None
+Objective Value: 556.60731532
+
+Test Set 127:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5235
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1047.0000199899
+
+Test Set 128:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2739
+L1 Difference: None
+L2 Difference: None
+Objective Value: 547.80732376
+
+Test Set 129:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 4824
+L1 Difference: None
+L2 Difference: None
+Objective Value: 964.80788051
+
+Test Set 130:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 8776
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1755.20390647
+
+Test Set 131:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 4869
+L1 Difference: None
+L2 Difference: None
+Objective Value: 973.8079122500001
+
+Test Set 132:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 5457
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1091.40817702
+
+Test Set 133:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 10625
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2125.00528407
+
+Test Set 134:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 5580
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1116.00811376
+
+Test Set 135:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8307
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1661.40829224
+
+Test Set 136:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8711
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1742.20822759
+
+Test Set 137:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7276
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1455.20829979
+
+Test Set 138:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7163
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1432.6083214000002
+
+Test Set 139:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 159
+L1 Difference: None
+L2 Difference: None
+Objective Value: 31.80570414
+
+Time Weight: 0.5
+Test Set 1:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 152
+L1 Difference: None
+L2 Difference: None
+Objective Value: 76.00572569
+
+Test Set 2:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1148
+L1 Difference: None
+L2 Difference: None
+Objective Value: 574.00423928
+
+Test Set 3:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1666
+L1 Difference: None
+L2 Difference: None
+Objective Value: 833.00836353
+
+Test Set 4:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 244
+L1 Difference: None
+L2 Difference: None
+Objective Value: 122.0332986
+
+Test Set 5:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 160
+L1 Difference: None
+L2 Difference: None
+Objective Value: 80.0056535
+
+Test Set 6:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 489
+L1 Difference: None
+L2 Difference: None
+Objective Value: 244.50595413
+
+Test Set 7:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 876
+L1 Difference: None
+L2 Difference: None
+Objective Value: 438.0108075
+
+Test Set 8:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 481
+L1 Difference: None
+L2 Difference: None
+Objective Value: 240.50599307
+
+Test Set 9:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 291
+L1 Difference: None
+L2 Difference: None
+Objective Value: 145.50450165
+
+Test Set 10:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3262
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1631.0084052
+
+Test Set 11:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 301
+L1 Difference: None
+L2 Difference: None
+Objective Value: 150.50457265
+
+Test Set 12:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 157
+L1 Difference: None
+L2 Difference: None
+Objective Value: 78.50573219
+
+Test Set 13:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1119
+L1 Difference: None
+L2 Difference: None
+Objective Value: 559.50437256
+
+Test Set 14:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1721
+L1 Difference: None
+L2 Difference: None
+Objective Value: 860.50832793
+
+Test Set 15:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 150
+L1 Difference: None
+L2 Difference: None
+Objective Value: 75.0057354
+
+Test Set 16:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 604
+L1 Difference: None
+L2 Difference: None
+Objective Value: 302.0204288
+
+Test Set 17:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 7483
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3741.50654153
+
+Test Set 18:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 574
+L1 Difference: None
+L2 Difference: None
+Objective Value: 287.0204511
+
+Test Set 19:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 997
+L1 Difference: None
+L2 Difference: None
+Objective Value: 498.50124276
+
+Test Set 20:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1004
+L1 Difference: None
+L2 Difference: None
+Objective Value: 502.00140914
+
+Test Set 21:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3703
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1851.5036299
+
+Test Set 22:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3811
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1905.50351748
+
+Test Set 23:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3282
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1641.00423077
+
+Test Set 24:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3364
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1682.00423741
+
+Test Set 25:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2709
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1354.50387019
+
+Test Set 26:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2840
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1420.00382461
+
+Test Set 27:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 998
+L1 Difference: None
+L2 Difference: None
+Objective Value: 499.00188383
+
+Test Set 28:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1019
+L1 Difference: None
+L2 Difference: None
+Objective Value: 509.50182102
+
+Test Set 29:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 817
+L1 Difference: None
+L2 Difference: None
+Objective Value: 408.500158407
+
+Test Set 30:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6576
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3288.0000138655
+
+Test Set 31:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 794
+L1 Difference: None
+L2 Difference: None
+Objective Value: 397.0000396222
+
+Test Set 32:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 813
+L1 Difference: None
+L2 Difference: None
+Objective Value: 406.50257456
+
+Test Set 33:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 6214
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3107.00264367
+
+Test Set 34:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 820
+L1 Difference: None
+L2 Difference: None
+Objective Value: 410.00259627
+
+Test Set 35:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 984
+L1 Difference: None
+L2 Difference: None
+Objective Value: 492.00353798
+
+Test Set 36:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 7390
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3695.00365435
+
+Test Set 37:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1069
+L1 Difference: None
+L2 Difference: None
+Objective Value: 534.50345904
+
+Test Set 38:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2095
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1047.5017779
+
+Test Set 39:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2001
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1000.50191113
+
+Test Set 40:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2158
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1079.00435106
+
+Test Set 41:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2168
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1084.00422241
+
+Test Set 42:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1436
+L1 Difference: None
+L2 Difference: None
+Objective Value: 718.00126547
+
+Test Set 43:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1463
+L1 Difference: None
+L2 Difference: None
+Objective Value: 731.50129814
+
+Test Set 44:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1756
+L1 Difference: None
+L2 Difference: None
+Objective Value: 878.0106698
+
+Test Set 45:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1673
+L1 Difference: None
+L2 Difference: None
+Objective Value: 836.5105636
+
+Test Set 46:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 711
+L1 Difference: None
+L2 Difference: None
+Objective Value: 355.5379998
+
+Test Set 47:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 9094
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4547.00643979
+
+Test Set 48:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 705
+L1 Difference: None
+L2 Difference: None
+Objective Value: 352.5380388
+
+Test Set 49:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 482
+L1 Difference: None
+L2 Difference: None
+Objective Value: 241.0368387
+
+Test Set 50:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6164
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3082.00643431
+
+Test Set 51:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 489
+L1 Difference: None
+L2 Difference: None
+Objective Value: 244.536759
+
+Test Set 52:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 260
+L1 Difference: None
+L2 Difference: None
+Objective Value: 130.0332868
+
+Test Set 53:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3281
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1640.50639946
+
+Test Set 54:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 248
+L1 Difference: None
+L2 Difference: None
+Objective Value: 124.0330688
+
+Test Set 55:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1260
+L1 Difference: None
+L2 Difference: None
+Objective Value: 630.0105904
+
+Test Set 56:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1263
+L1 Difference: None
+L2 Difference: None
+Objective Value: 631.5105924
+
+Test Set 57:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2357
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1178.50297398
+
+Test Set 58:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2372
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1186.00309336
+
+Test Set 59:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3552
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1776.00305908
+
+Test Set 60:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3563
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1781.5029582
+
+Test Set 61:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4055
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2027.50382823
+
+Test Set 62:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4047
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2023.50383306
+
+Test Set 63:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6899
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3449.50496338
+
+Test Set 64:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6908
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3454.00495785
+
+Test Set 65:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6141
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3070.50299354
+
+Test Set 66:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5918
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2959.00309149
+
+Test Set 67:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3750
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1875.00327776
+
+Test Set 68:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3725
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1862.5033043
+
+Test Set 69:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4986
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2493.00327562
+
+Test Set 70:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4884
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2442.00323608
+
+Test Set 71:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7144
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3572.00183754
+
+Test Set 72:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 7006
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3503.00191654
+
+Test Set 73:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 8085
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4042.50189286
+
+Test Set 74:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 8029
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4014.50192866
+
+Test Set 75:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6482
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3241.000078015
+
+Test Set 76:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6553
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3276.5000189617
+
+Test Set 77:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1831
+L1 Difference: None
+L2 Difference: None
+Objective Value: 915.5382835
+
+Test Set 78:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1815
+L1 Difference: None
+L2 Difference: None
+Objective Value: 907.5383339
+
+Test Set 79:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2924
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1462.0104753
+
+Test Set 80:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2972
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1486.0105451
+
+Test Set 81:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1641
+L1 Difference: None
+L2 Difference: None
+Objective Value: 820.5384934
+
+Test Set 82:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 22266
+L1 Difference: None
+L2 Difference: None
+Objective Value: 11133.00654555
+
+Test Set 83:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1638
+L1 Difference: None
+L2 Difference: None
+Objective Value: 819.0383786
+
+Test Set 84:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1137
+L1 Difference: None
+L2 Difference: None
+Objective Value: 568.5204163
+
+Test Set 85:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 14796
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7398.00662253
+
+Test Set 86:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1148
+L1 Difference: None
+L2 Difference: None
+Objective Value: 574.0204103
+
+Test Set 87:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3133
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1566.5012471
+
+Test Set 88:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3207
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1603.50118418
+
+Test Set 89:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2000
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1000.00601504
+
+Test Set 90:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2114
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1057.00611513
+
+Test Set 91:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1157
+L1 Difference: None
+L2 Difference: None
+Objective Value: 578.520522
+
+Test Set 92:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 14676
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7338.0065998
+
+Test Set 93:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1137
+L1 Difference: None
+L2 Difference: None
+Objective Value: 568.5205868
+
+Test Set 94:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 961
+L1 Difference: None
+L2 Difference: None
+Objective Value: 480.5205326
+
+Test Set 95:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 12070
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6035.00659503
+
+Test Set 96:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 939
+L1 Difference: None
+L2 Difference: None
+Objective Value: 469.5204953
+
+Test Set 97:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1183
+L1 Difference: None
+L2 Difference: None
+Objective Value: 591.5205492
+
+Test Set 98:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 14937
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7468.50664628
+
+Test Set 99:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1145
+L1 Difference: None
+L2 Difference: None
+Objective Value: 572.5205523
+
+Test Set 100:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 943
+L1 Difference: None
+L2 Difference: None
+Objective Value: 471.5204499
+
+Test Set 101:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 12626
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6313.00658154
+
+Test Set 102:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 991
+L1 Difference: None
+L2 Difference: None
+Objective Value: 495.520525
+
+Test Set 103:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 959
+L1 Difference: None
+L2 Difference: None
+Objective Value: 479.5204845
+
+Test Set 104:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 12053
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6026.50660489
+
+Test Set 105:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 964
+L1 Difference: None
+L2 Difference: None
+Objective Value: 482.0205953
+
+Test Set 106:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 782
+L1 Difference: None
+L2 Difference: None
+Objective Value: 391.0204968
+
+Test Set 107:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 9693
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4846.50658143
+
+Test Set 108:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 768
+L1 Difference: None
+L2 Difference: None
+Objective Value: 384.020466
+
+Test Set 109:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 763
+L1 Difference: None
+L2 Difference: None
+Objective Value: 381.5205824
+
+Test Set 110:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 9701
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4850.50660989
+
+Test Set 111:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 758
+L1 Difference: None
+L2 Difference: None
+Objective Value: 379.0205072
+
+Test Set 112:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 788
+L1 Difference: None
+L2 Difference: None
+Objective Value: 394.0206659
+
+Test Set 113:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 9604
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4802.00662208
+
+Test Set 114:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 769
+L1 Difference: None
+L2 Difference: None
+Objective Value: 384.5203413
+
+Test Set 115:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1479
+L1 Difference: None
+L2 Difference: None
+Objective Value: 739.50132564
+
+Test Set 116:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1427
+L1 Difference: None
+L2 Difference: None
+Objective Value: 713.50128814
+
+Test Set 117:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1138
+L1 Difference: None
+L2 Difference: None
+Objective Value: 569.0382034
+
+Test Set 118:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 15389
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7694.50655039
+
+Test Set 119:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1177
+L1 Difference: None
+L2 Difference: None
+Objective Value: 588.5383517
+
+Test Set 120:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1151
+L1 Difference: None
+L2 Difference: None
+Objective Value: 575.5382811
+
+Test Set 121:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 15485
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7742.50651305
+
+Test Set 122:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1164
+L1 Difference: None
+L2 Difference: None
+Objective Value: 582.038263
+
+Test Set 123:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1694
+L1 Difference: None
+L2 Difference: None
+Objective Value: 847.00606109
+
+Test Set 124:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1692
+L1 Difference: None
+L2 Difference: None
+Objective Value: 846.0060752
+
+Test Set 125:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3663
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1831.50324994
+
+Test Set 126:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3648
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1824.00323336
+
+Test Set 127:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 151
+L1 Difference: None
+L2 Difference: None
+Objective Value: 75.50578957
+
+Time Weight: 0.75
+Test Set 1:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 151
+L1 Difference: None
+L2 Difference: None
+Objective Value: 113.25589428
+
+Test Set 2:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1115
+L1 Difference: None
+L2 Difference: None
+Objective Value: 836.25431149
+
+Test Set 3:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1623
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1217.25835937
+
+Test Set 4:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 245
+L1 Difference: None
+L2 Difference: None
+Objective Value: 183.7833298
+
+Test Set 5:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 168
+L1 Difference: None
+L2 Difference: None
+Objective Value: 126.00579624
+
+Test Set 6:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 288
+L1 Difference: None
+L2 Difference: None
+Objective Value: 216.00443268
+
+Test Set 7:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3244
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2433.00831665
+
+Test Set 8:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 287
+L1 Difference: None
+L2 Difference: None
+Objective Value: 215.25452389
+
+Test Set 9:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 429
+L1 Difference: None
+L2 Difference: None
+Objective Value: 321.75417059
+
+Test Set 10:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 4845
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3633.75840305
+
+Test Set 11:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 698
+L1 Difference: None
+L2 Difference: None
+Objective Value: 523.5377156
+
+Test Set 12:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 427
+L1 Difference: None
+L2 Difference: None
+Objective Value: 320.25432545
+
+Test Set 13:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 773
+L1 Difference: None
+L2 Difference: None
+Objective Value: 579.75597727
+
+Test Set 14:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1308
+L1 Difference: None
+L2 Difference: None
+Objective Value: 981.0107278
+
+Test Set 15:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 727
+L1 Difference: None
+L2 Difference: None
+Objective Value: 545.25597569
+
+Test Set 16:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1044
+L1 Difference: None
+L2 Difference: None
+Objective Value: 783.00688253
+
+Test Set 17:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1034
+L1 Difference: None
+L2 Difference: None
+Objective Value: 775.50681608
+
+Test Set 18:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 433
+L1 Difference: None
+L2 Difference: None
+Objective Value: 324.75429271
+
+Test Set 19:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 694
+L1 Difference: None
+L2 Difference: None
+Objective Value: 520.5380719
+
+Test Set 20:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 443
+L1 Difference: None
+L2 Difference: None
+Objective Value: 332.25415675
+
+Test Set 21:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 570
+L1 Difference: None
+L2 Difference: None
+Objective Value: 427.50417612
+
+Test Set 22:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6588
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4941.00838427
+
+Test Set 23:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 592
+L1 Difference: None
+L2 Difference: None
+Objective Value: 444.00427264
+
+Test Set 24:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 703
+L1 Difference: None
+L2 Difference: None
+Objective Value: 527.25434144
+
+Test Set 25:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8080
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6060.00838865
+
+Test Set 26:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 700
+L1 Difference: None
+L2 Difference: None
+Objective Value: 525.00427771
+
+Test Set 27:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2214
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1660.50728633
+
+Test Set 28:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2198
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1648.50729986
+
+Test Set 29:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3250
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2437.50775328
+
+Test Set 30:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5829
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4371.7530956
+
+Test Set 31:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3156
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2367.00779425
+
+Test Set 32:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2926
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2194.50788183
+
+Test Set 33:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2943
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2207.25790751
+
+Test Set 34:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4620
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3465.00544649
+
+Test Set 35:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4551
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3413.25550647
+
+Test Set 36:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3261
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2445.75576315
+
+Test Set 37:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3298
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2473.50578291
+
+Test Set 38:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5931
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4448.25618184
+
+Test Set 39:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 5809
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4356.7561885
+
+Test Set 40:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3915
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2936.25619593
+
+Test Set 41:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3916
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2937.00618674
+
+Test Set 42:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 9243
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6932.25646909
+
+Test Set 43:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 9093
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6819.75649223
+
+Test Set 44:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 10259
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7694.25658263
+
+Test Set 45:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 9948
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7461.00660703
+
+Test Set 46:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 10752
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8064.00636675
+
+Test Set 47:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 11158
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8368.50631769
+
+Test Set 48:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 9965
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7473.756226
+
+Test Set 49:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 9973
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7479.75614487
+
+Test Set 50:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 13807
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10355.25650082
+
+Test Set 51:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 13875
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10406.2565154
+
+Test Set 52:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 11397
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8547.75842141
+
+Test Set 53:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 11688
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8766.00839587
+
+Test Set 54:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 13295
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9971.258404
+
+Test Set 55:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 25855
+L1 Difference: None
+L2 Difference: None
+Objective Value: 19391.25647358
+
+Test Set 56:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 13046
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9784.50844783
+
+Test Set 57:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 13287
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9965.25844795
+
+Test Set 58:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 13081
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9810.75844035
+
+Test Set 59:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 10203
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7652.25835504
+
+Test Set 60:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 10192
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7644.00835783
+
+Test Set 61:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9981
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7485.75836489
+
+Test Set 62:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 19019
+L1 Difference: None
+L2 Difference: None
+Objective Value: 14264.25651811
+
+Test Set 63:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9737
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7302.75841703
+
+Test Set 64:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8642
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6481.50834534
+
+Test Set 65:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8612
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6459.00836907
+
+Test Set 66:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9201
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6900.75836111
+
+Test Set 67:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9359
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7019.25838351
+
+Test Set 68:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9782
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7336.5084234
+
+Test Set 69:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 18852
+L1 Difference: None
+L2 Difference: None
+Objective Value: 14139.0065547
+
+Test Set 70:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 10970
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8227.50841899
+
+Test Set 71:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7456
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5592.00832511
+
+Test Set 72:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 13895
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10421.25621606
+
+Test Set 73:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7014
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5260.50837967
+
+Test Set 74:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8669
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6501.7583093
+
+Test Set 75:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 16334
+L1 Difference: None
+L2 Difference: None
+Objective Value: 12250.50584845
+
+Test Set 76:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 8719
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6539.25828536
+
+Test Set 77:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6881
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5160.75827359
+
+Test Set 78:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 13123
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9842.25559036
+
+Test Set 79:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6880
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5160.00819694
+
+Test Set 80:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7442
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5581.50830039
+
+Test Set 81:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 14084
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10563.00584096
+
+Test Set 82:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7441
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5580.75827872
+
+Test Set 83:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 12533
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9399.75839359
+
+Test Set 84:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 24510
+L1 Difference: None
+L2 Difference: None
+Objective Value: 18382.50632973
+
+Test Set 85:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 12306
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9229.50840912
+
+Test Set 86:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 12459
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9344.25840918
+
+Test Set 87:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 24430
+L1 Difference: None
+L2 Difference: None
+Objective Value: 18322.50635368
+
+Test Set 88:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 12376
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9282.00839907
+
+Test Set 89:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 10733
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8049.75832442
+
+Test Set 90:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 10897
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8172.75835378
+
+Test Set 91:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9409
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7056.7582368
+
+Test Set 92:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9201
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6900.7582707
+
+Test Set 93:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7509
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5631.75815473
+
+Test Set 94:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7531
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5648.25814853
+
+Test Set 95:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 10099
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7574.25831425
+
+Test Set 96:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 20422
+L1 Difference: None
+L2 Difference: None
+Objective Value: 15316.50586112
+
+Test Set 97:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9912
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7434.00831299
+
+Test Set 98:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 12315
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9236.25838847
+
+Test Set 99:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 24127
+L1 Difference: None
+L2 Difference: None
+Objective Value: 18095.25631963
+
+Test Set 100:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 12288
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9216.00840855
+
+Test Set 101:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 12540
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9405.00834255
+
+Test Set 102:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 23665
+L1 Difference: None
+L2 Difference: None
+Objective Value: 17748.7564106
+
+Test Set 103:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 12270
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9202.50838888
+
+Test Set 104:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9805
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7353.75828695
+
+Test Set 105:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9337
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7002.75830316
+
+Test Set 106:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 14609
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10956.7566611
+
+Test Set 107:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 14856
+L1 Difference: None
+L2 Difference: None
+Objective Value: 11142.00660306
+
+Test Set 108:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 13070
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9802.50634602
+
+Test Set 109:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 12801
+L1 Difference: None
+L2 Difference: None
+Objective Value: 9600.75639491
+
+Test Set 110:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 17172
+L1 Difference: None
+L2 Difference: None
+Objective Value: 12879.00662579
+
+Test Set 111:
+Direct Samples: 7
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 17053
+L1 Difference: None
+L2 Difference: None
+Objective Value: 12789.75664905
+
+Test Set 112:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9808
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7356.00841634
+
+Test Set 113:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 9917
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7437.75837883
+
+Test Set 114:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7960
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5970.00836428
+
+Test Set 115:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 15437
+L1 Difference: None
+L2 Difference: None
+Objective Value: 11577.75603718
+
+Test Set 116:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 7944
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5958.00834164
+
+Test Set 117:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6860
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5145.00825519
+
+Test Set 118:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 14651
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10988.25556739
+
+Test Set 119:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6857
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5142.75823089
+
+Test Set 120:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 5785
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4338.75819435
+
+Test Set 121:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 11322
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8491.50559003
+
+Test Set 122:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 5693
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4269.75822733
+
+Test Set 123:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3739
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2804.25804055
+
+Test Set 124:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3746
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2809.50807093
+
+Test Set 125:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6174
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4630.50816015
+
+Test Set 126:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 11837
+L1 Difference: None
+L2 Difference: None
+Objective Value: 8877.75529661
+
+Test Set 127:
+Direct Samples: 6
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 6375
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4781.25816463
+
+Test Set 128:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 158
+L1 Difference: None
+L2 Difference: None
+Objective Value: 118.50563383
+
+Time Weight: 1.0
+Test Set 1:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 162
+L1 Difference: None
+L2 Difference: None
+Objective Value: 162.00575106
+
+Test Set 2:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1142
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1142.00429465
+
+Test Set 3:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1604
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1604.00838686
+
+Test Set 4:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 247
+L1 Difference: None
+L2 Difference: None
+Objective Value: 247.033149
+
+Test Set 5:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 150
+L1 Difference: None
+L2 Difference: None
+Objective Value: 150.00568784
+
+Test Set 6:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 489
+L1 Difference: None
+L2 Difference: None
+Objective Value: 489.00678886
+
+Test Set 7:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2775
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2775.00686025
+
+Test Set 8:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 630
+L1 Difference: None
+L2 Difference: None
+Objective Value: 630.00338432
+
+Test Set 9:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 345
+L1 Difference: None
+L2 Difference: None
+Objective Value: 345.00678477
+
+Test Set 10:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 548
+L1 Difference: None
+L2 Difference: None
+Objective Value: 548.00763441
+
+Test Set 11:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 4327
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4327.00757195
+
+Test Set 12:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 536
+L1 Difference: None
+L2 Difference: None
+Objective Value: 536.00753078
+
+Test Set 13:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 638
+L1 Difference: None
+L2 Difference: None
+Objective Value: 638.00773069
+
+Test Set 14:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 5264
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5264.00775646
+
+Test Set 15:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 657
+L1 Difference: None
+L2 Difference: None
+Objective Value: 657.00765636
+
+Test Set 16:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 925
+L1 Difference: None
+L2 Difference: None
+Objective Value: 925.00731385
+
+Test Set 17:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 884
+L1 Difference: None
+L2 Difference: None
+Objective Value: 884.00725503
+
+Test Set 18:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 151
+L1 Difference: None
+L2 Difference: None
+Objective Value: 151.00559267
+
+Test Set 19:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 164
+L1 Difference: None
+L2 Difference: None
+Objective Value: 164.00566107
+
+Test Set 20:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 447
+L1 Difference: None
+L2 Difference: None
+Objective Value: 447.00722473
+
+Test Set 21:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 459
+L1 Difference: None
+L2 Difference: None
+Objective Value: 459.00722936
+
+Test Set 22:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1021
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1021.00687706
+
+Test Set 23:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1861
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1861.00325848
+
+Test Set 24:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1050
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1050.00688609
+
+Test Set 25:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 876
+L1 Difference: None
+L2 Difference: None
+Objective Value: 876.00720689
+
+Test Set 26:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 879
+L1 Difference: None
+L2 Difference: None
+Objective Value: 879.00724053
+
+Test Set 27:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2396
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2396.00254475
+
+Test Set 28:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2426
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2426.00261127
+
+Test Set 29:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 643
+L1 Difference: None
+L2 Difference: None
+Objective Value: 643.00781678
+
+Test Set 30:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 647
+L1 Difference: None
+L2 Difference: None
+Objective Value: 647.00768521
+
+Test Set 31:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 367
+L1 Difference: None
+L2 Difference: None
+Objective Value: 367.0066532
+
+Test Set 32:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 2744
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2744.00685153
+
+Test Set 33:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 347
+L1 Difference: None
+L2 Difference: None
+Objective Value: 347.00665287
+
+Test Set 34:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1275
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1275.00769297
+
+Test Set 35:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2397
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2397.00303794
+
+Test Set 36:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1318
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1318.00780338
+
+Test Set 37:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 752
+L1 Difference: None
+L2 Difference: None
+Objective Value: 752.00792272
+
+Test Set 38:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 5798
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5798.00794794
+
+Test Set 39:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1374
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1374.00386462
+
+Test Set 40:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 731
+L1 Difference: None
+L2 Difference: None
+Objective Value: 731.00782089
+
+Test Set 41:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 847
+L1 Difference: None
+L2 Difference: None
+Objective Value: 847.00799544
+
+Test Set 42:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 857
+L1 Difference: None
+L2 Difference: None
+Objective Value: 857.00798313
+
+Test Set 43:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1896
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1896.00356336
+
+Test Set 44:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1855
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1855.00352957
+
+Test Set 45:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 799
+L1 Difference: None
+L2 Difference: None
+Objective Value: 799.0026686
+
+Test Set 46:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 802
+L1 Difference: None
+L2 Difference: None
+Objective Value: 802.00259289
+
+Test Set 47:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 496
+L1 Difference: None
+L2 Difference: None
+Objective Value: 496.0012974
+
+Test Set 48:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3842
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3842.00120868
+
+Test Set 49:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 502
+L1 Difference: None
+L2 Difference: None
+Objective Value: 502.00126466
+
+Test Set 50:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1610
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1610.00263266
+
+Test Set 51:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1570
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1570.00264569
+
+Test Set 52:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3178
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3178.0000101253
+
+Test Set 53:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3255
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3255.0000117794
+
+Test Set 54:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4095
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4095.00383488
+
+Test Set 55:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4148
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4148.00379157
+
+Test Set 56:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3524
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3524.00493211
+
+Test Set 57:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3480
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3480.00493014
+
+Test Set 58:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5965
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5965.00528093
+
+Test Set 59:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5857
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5857.00532969
+
+Test Set 60:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5189
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5189.00499008
+
+Test Set 61:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 5260
+L1 Difference: None
+L2 Difference: None
+Objective Value: 5260.00494261
+
+Test Set 62:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3497
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3497.00307091
+
+Test Set 63:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3519
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3519.00299328
+
+Test Set 64:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2392
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2392.0000336841
+
+Test Set 65:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2490
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2490.0000382736
+
+Test Set 66:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 856
+L1 Difference: None
+L2 Difference: None
+Objective Value: 856.0104959
+
+Test Set 67:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 856
+L1 Difference: None
+L2 Difference: None
+Objective Value: 856.0107234
+
+Test Set 68:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 245
+L1 Difference: None
+L2 Difference: None
+Objective Value: 245.0331431
+
+Test Set 69:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3057
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3057.00650411
+
+Test Set 70:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 241
+L1 Difference: None
+L2 Difference: None
+Objective Value: 241.0331406
+
+Test Set 71:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 474
+L1 Difference: None
+L2 Difference: None
+Objective Value: 474.0370128
+
+Test Set 72:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 6319
+L1 Difference: None
+L2 Difference: None
+Objective Value: 6319.00638691
+
+Test Set 73:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 477
+L1 Difference: None
+L2 Difference: None
+Objective Value: 477.0370318
+
+Test Set 74:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1010
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1010.00187604
+
+Test Set 75:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 991
+L1 Difference: None
+L2 Difference: None
+Objective Value: 991.00189469
+
+Test Set 76:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1420
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1420.0038139
+
+Test Set 77:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 10842
+L1 Difference: None
+L2 Difference: None
+Objective Value: 10842.00386516
+
+Test Set 78:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1402
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1402.00377952
+
+Test Set 79:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1545
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1545.00548545
+
+Test Set 80:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 12283
+L1 Difference: None
+L2 Difference: None
+Objective Value: 12283.00558148
+
+Test Set 81:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1531
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1531.00557679
+
+Test Set 82:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2134
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2134.00557231
+
+Test Set 83:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 2582
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2582.00540355
+
+Test Set 84:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1782
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1782.0044082
+
+Test Set 85:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 12494
+L1 Difference: None
+L2 Difference: None
+Objective Value: 12494.00448185
+
+Test Set 86:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1585
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1585.0043455
+
+Test Set 87:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3118
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3118.00449566
+
+Test Set 88:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3112
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3112.00446345
+
+Test Set 89:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 3961
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3961.00189
+
+Test Set 90:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 4030
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4030.00189319
+
+Test Set 91:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1196
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1196.0383073
+
+Test Set 92:
+Direct Samples: 5
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 1172
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1172.0381827
+
+Test Set 93:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 590
+L1 Difference: None
+L2 Difference: None
+Objective Value: 590.0204803
+
+Test Set 94:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 7227
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7227.00657558
+
+Test Set 95:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 580
+L1 Difference: None
+L2 Difference: None
+Objective Value: 580.0204242
+
+Test Set 96:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 389
+L1 Difference: None
+L2 Difference: None
+Objective Value: 389.0199299
+
+Test Set 97:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 4882
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4882.00646292
+
+Test Set 98:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 411
+L1 Difference: None
+L2 Difference: None
+Objective Value: 411.0198809
+
+Test Set 99:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1026
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1026.00602212
+
+Test Set 100:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 1033
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1033.00615401
+
+Test Set 101:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 740
+L1 Difference: None
+L2 Difference: None
+Objective Value: 740.00608633
+
+Test Set 102:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 751
+L1 Difference: None
+L2 Difference: None
+Objective Value: 751.00599331
+
+Test Set 103:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 250
+L1 Difference: None
+L2 Difference: None
+Objective Value: 250.00600415
+
+Test Set 104:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 255
+L1 Difference: None
+L2 Difference: None
+Objective Value: 255.00617102
+
+Test Set 105:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 150
+L1 Difference: None
+L2 Difference: None
+Objective Value: 150.00580505
+
+Test Set 106:
+Direct Samples: 8
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1123
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1123.00434063
+
+Test Set 107:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1655
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1655.00836179
+
+Test Set 108:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 3
+RenderFilm_ms: 250
+L1 Difference: None
+L2 Difference: None
+Objective Value: 250.0333429
+
+Test Set 109:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 150
+L1 Difference: None
+L2 Difference: None
+Objective Value: 150.00581173
+
+Test Set 110:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 153
+L1 Difference: None
+L2 Difference: None
+Objective Value: 153.00569396
+
+Test Set 111:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 1672
+L1 Difference: None
+L2 Difference: None
+Objective Value: 1672.0083878
+
+Test Set 112:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 165
+L1 Difference: None
+L2 Difference: None
+Objective Value: 165.00560034
+
+Test Set 113:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 287
+L1 Difference: None
+L2 Difference: None
+Objective Value: 287.00451996
+
+Test Set 114:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 3252
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3252.00837921
+
+Test Set 115:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 291
+L1 Difference: None
+L2 Difference: None
+Objective Value: 291.00452203
+
+Test Set 116:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 451
+L1 Difference: None
+L2 Difference: None
+Objective Value: 451.00427649
+
+Test Set 117:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 4856
+L1 Difference: None
+L2 Difference: None
+Objective Value: 4856.00836828
+
+Test Set 118:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 439
+L1 Difference: None
+L2 Difference: None
+Objective Value: 439.00416259
+
+Test Set 119:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 680
+L1 Difference: None
+L2 Difference: None
+Objective Value: 680.00614078
+
+Test Set 120:
+Direct Samples: 2
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 831
+L1 Difference: None
+L2 Difference: None
+Objective Value: 831.00617697
+
+Test Set 121:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 583
+L1 Difference: None
+L2 Difference: None
+Objective Value: 583.020287
+
+Test Set 122:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 7107
+L1 Difference: None
+L2 Difference: None
+Objective Value: 7107.00664378
+
+Test Set 123:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 582
+L1 Difference: None
+L2 Difference: None
+Objective Value: 582.0204599
+
+Test Set 124:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2544
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2544.00117137
+
+Test Set 125:
+Direct Samples: 4
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 2577
+L1 Difference: None
+L2 Difference: None
+Objective Value: 2577.00118671
+
+Test Set 126:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3223
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3223.00429223
+
+Test Set 127:
+Direct Samples: 3
+Indirect Samples: None
+Recursion Depth: 2
+RenderFilm_ms: 3244
+L1 Difference: None
+L2 Difference: None
+Objective Value: 3244.00426804
+
+Test Set 128:
+Direct Samples: 1
+Indirect Samples: None
+Recursion Depth: 1
+RenderFilm_ms: 152
+L1 Difference: None
+L2 Difference: None
+Objective Value: 152.00559421
+
