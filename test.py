@@ -1,117 +1,61 @@
-import re
+import json
 import matplotlib.pyplot as plt
 
-def parse_log_file(log_file_path):
-    results = {}
-    current_time_weight = None
-    current_result = {}
+def scrub_data(json_data):
+    scrubbed_data = []
+    for entry in json_data:
+        scrubbed_entry = {
+            "direct_samples": entry["direct_samples"][0],
+            "indirect_samples": entry["indirect_samples"][0],
+            "recursion_depth": entry["recursion_depth"][0],
+            "L1_difference": entry["L1_difference"][0],
+            "Objective Value": entry["objective_value"][0]
+        }
+        scrubbed_data.append(scrubbed_entry)
+    return scrubbed_data
 
-    with open(log_file_path, 'r') as log_file:
-        log_lines = log_file.readlines()
-
-        for line in log_lines:
-            if 'Optimizing with time weight: ' in line:
-                current_time_weight = float(re.search(r'[-+]?\d*\.\d+|\d+', line).group())
-                results[current_time_weight] = []
-            elif 'Rendering film with' in line and 'direct samples' in line:
-                direct_samples_match = re.search(r'\b\d+\b', line)
-                if direct_samples_match:
-                    N = int(direct_samples_match.group())
-                    current_result['direct_samples'] = N
-            elif 'Rendering film with' in line and 'indirect samples' in line:
-                indirect_samples_match = re.search(r'\b\d+\b', line)
-                if indirect_samples_match:
-                    N = int(indirect_samples_match.group())
-                    current_result['indirect_samples'] = N
-            elif 'Rendering film with' in line and 'recursion depth' in line:
-                recursion_depth_samples_match = re.search(r'\b\d+\b', line)
-                if recursion_depth_samples_match:
-                    N = int(recursion_depth_samples_match.group())
-                    current_result['recursion_depth'] = N
-            elif 'RenderFilm took' in line:
-                render_film_ms_match = re.search(r'(\d+)', line)
-                if render_film_ms_match:
-                    current_result['RenderFilm_ms'] = int(render_film_ms_match.group(1))
-            elif 'L1 Difference' in line:
-                l1_difference_match = re.search(r'L1 Difference: ([0-9.]+)', line)
-                if l1_difference_match:
-                    current_result['L1_difference'] = float(l1_difference_match.group(1))
-            elif 'L2 Difference' in line:
-                l2_difference_match = re.search(r'L2 Difference: ([0-9.]+)', line)
-                if l2_difference_match:
-                    current_result['L2_difference'] = float(l2_difference_match.group(1))
-            elif 'Objective value' in line:
-                objective_value_match = re.search(r'Objective value: ([0-9.]+)', line)
-                if objective_value_match:
-                    current_result['Objective_value'] = float(objective_value_match.group(1))
-                    results[current_time_weight].append(current_result)
-                    current_result = {}
-
-    return results
-
-
+    #with open("output_data_20230806204332.json", "r") as file:
 if __name__ == "__main__":
-    log_file_path = "overnight.txt"
-    extracted_data = parse_log_file(log_file_path)
+    # Load data from the JSON file
+    with open("output_data_20230807142758.json", "r") as file:
+        json_data = json.load(file)
+    scrubbed_data = scrub_data(json_data)
+    direct_samples = [entry["direct_samples"] for entry in scrubbed_data]
+    indirect_samples = [entry["indirect_samples"] for entry in scrubbed_data]
+    recursion_depth = [entry["recursion_depth"] for entry in scrubbed_data]
+    objective_value = [entry["Objective Value"] for entry in scrubbed_data]
 
-    for time_weight, test_results in extracted_data.items():
-        print(f"Time Weight: {time_weight}")
+    fig_width = 16
+    fig, ax1 = plt.subplots(figsize=(fig_width, 9), dpi=300)
+    ax1.plot(direct_samples, label="Direct Samples", color="tab:blue")
+    ax1.plot(indirect_samples, label="Indirect Samples", color="tab:orange")
+    ax1.plot(recursion_depth, label="Recursion Depth", color="tab:green")
+    ax1.set_xlabel("Iteration")
+    ax1.set_ylabel("Direct/Indirect Samples, Recursion Depth", color="black")
+    ax1.legend(loc="upper left")
+    ax2 = ax1.twinx()
+    ax2.plot(objective_value, label="Objective Value", color="tab:red")
+    ax2.set_ylabel("Objective Value", color="tab:red")
+    ax2.legend(loc="upper right")
 
-        for i, data in enumerate(test_results):
-            print(f"Test Set {i + 1}:")
-            print("Direct Samples:", data.get('direct_samples', None))
-            print("Indirect Samples:", data.get('indirect_samples', None))
-            print("Recursion Depth:", data.get('recursion_depth', None))
-            print("RenderFilm_ms:", data.get('RenderFilm_ms', None))
-            print("L1 Difference:", data.get('L1_difference', None))
-            print("L2 Difference:", data.get('L2_difference', None))
-            print("Objective Value:", data.get('Objective_value', None))
-            print()
+    # Find the index of the minimum objective value
+    min_objective_value_index = objective_value.index(min(objective_value))
+    min_objective_value_iteration = min_objective_value_index + 1
+    min_objective_value = min(objective_value)
+    min_direct_samples = direct_samples[min_objective_value_index]
+    min_indirect_samples = indirect_samples[min_objective_value_index]
+    min_recursion_depth = recursion_depth[min_objective_value_index]
 
-        ## Plot Direct samples vs L1 difference
-        #plt.figure(figsize=(10, 6))
-        #if direct_samples_l1:
-        #    x, y = zip(*direct_samples_l1)
-        #    plt.plot(x, y, marker='o')
-        #    plt.xlabel("Direct Samples")
-        #    plt.ylabel("L1 Difference")
-        #    plt.title(f"Direct Samples vs L1 Difference (Time Weight: {time_weight})")
-        #    plt.grid(True)
-        #    plt.savefig(f"direct_samples_l1_plot_{time_weight}.png")
-        #    plt.close()
-#
-        ## Plot Indirect samples vs L1 difference
-        #plt.figure(figsize=(10, 6))
-        #if indirect_samples_l1:
-        #    x, y = zip(*indirect_samples_l1)
-        #    plt.plot(x, y, marker='o', color='r')
-        #    plt.xlabel("Indirect Samples")
-        #    plt.ylabel("L1 Difference")
-        #    plt.title(f"Indirect Samples vs L1 Difference (Time Weight: {time_weight})")
-        #    plt.grid(True)
-        #    plt.savefig(f"indirect_samples_l1_plot_{time_weight}.png")
-        #    plt.close()
-#
-        ## Plot Direct samples vs Objective value
-        #plt.figure(figsize=(10, 6))
-        #if direct_samples_obj:
-        #    x, y = zip(*direct_samples_obj)
-        #    plt.plot(x, y, marker='o', color='g')
-        #    plt.xlabel("Direct Samples")
-        #    plt.ylabel("Objective Value")
-        #    plt.title(f"Direct Samples vs Objective Value (Time Weight: {time_weight})")
-        #    plt.grid(True)
-        #    plt.savefig(f"direct_samples_obj_plot_{time_weight}.png")
-        #    plt.close()
-#
-        ## Plot Indirect samples vs Objective value
-        #plt.figure(figsize=(10, 6))
-        #if indirect_samples_obj:
-        #    x, y = zip(*indirect_samples_obj)
-        #    plt.plot(x, y, marker='o', color='purple')
-        #    plt.xlabel("Indirect Samples")
-        #    plt.ylabel("Objective Value")
-        #    plt.title(f"Indirect Samples vs Objective Value (Time Weight: {time_weight})")
-        #    plt.grid(True)
-        #    plt.savefig(f"indirect_samples_obj_plot_{time_weight}.png")
-        #    plt.close()
+    # Annotate graph
+    ax2.plot(min_objective_value_index, min_objective_value, marker='o', markersize=8, color='red')
+    ax2.annotate(f'Objective Value: {min_objective_value:.8f}', (min_objective_value_index, min_objective_value), textcoords="offset points", xytext=(-15,-10), ha='center')
+    ax1.plot(min_objective_value_index, min_direct_samples, marker='o', markersize=8, color='blue')
+    ax1.annotate(f'Direct: {min_direct_samples:.2f}', (min_objective_value_index, min_direct_samples), textcoords="offset points", xytext=(0,10), ha='center')    
+    ax1.plot(min_objective_value_index, min_indirect_samples, marker='o', markersize=8, color='orange')
+    ax1.annotate(f'Indirect: {min_indirect_samples:.2f}', (min_objective_value_index, min_indirect_samples), textcoords="offset points", xytext=(0,10), ha='center')    
+    ax1.plot(min_objective_value_index, min_recursion_depth, marker='o', markersize=8, color='green')
+    ax1.annotate(f'Recursion: {min_recursion_depth:.2f}', (min_objective_value_index, min_recursion_depth), textcoords="offset points", xytext=(0,10), ha='center')
+
+    plt.title("Scrubbed Data Metrics")
+    plt.grid(True)
+    plt.savefig("scrubbed_data_metrics.png")

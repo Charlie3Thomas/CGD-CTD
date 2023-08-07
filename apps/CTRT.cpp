@@ -116,7 +116,7 @@ int main(int argc, char** argv)
     
             // Write to .EXR file
             std::string denoised_filename = cs.image_filename.string();
-            // WriteToEXR(denoised_ptr, cs.image_width, cs.image_height, denoised_filename.c_str());
+            //WriteToEXR(denoised_ptr, cs.image_width, cs.image_height, denoised_filename.c_str());
 
             L1_diff = L1Difference(rgba, denoised_ptr, static_cast<size_t>(height), static_cast<size_t>(width));
             L2_diff = L2Difference(rgba, denoised_ptr, static_cast<size_t>(height), static_cast<size_t>(width));

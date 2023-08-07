@@ -1,0 +1,31 @@
+[
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            0
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.373387
+        ],
+        "recursion_depth": [
+            0.793112
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            6.44028e-05
+        ],
+        "objective_value": [
+            6.44028e-05
+        ]
+    }
+]

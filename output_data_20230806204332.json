@@ -1,0 +1,2902 @@
+[
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            0
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.0
+        ],
+        "recursion_depth": [
+            0.0
+        ],
+        "render_time": [
+            6
+        ],
+        "L1_difference": [
+            0.0042678
+        ],
+        "objective_value": [
+            0.0042678
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            1
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.9190682227240391
+        ],
+        "indirect_samples": [
+            0.01658167977509567
+        ],
+        "recursion_depth": [
+            0.1045468216309014
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00420454
+        ],
+        "objective_value": [
+            0.00420454
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            2
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.86521742185382
+        ],
+        "indirect_samples": [
+            0.08334841852212288
+        ],
+        "recursion_depth": [
+            0.1420231900721643
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.0059866
+        ],
+        "objective_value": [
+            0.0059866
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            3
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6895245549716518
+        ],
+        "indirect_samples": [
+            0.2788721696245522
+        ],
+        "recursion_depth": [
+            0.28475067587058633
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00125784
+        ],
+        "objective_value": [
+            0.00125784
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            4
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.48300829264959605
+        ],
+        "indirect_samples": [
+            0.4085151955909108
+        ],
+        "recursion_depth": [
+            0.1426700984604391
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00729908
+        ],
+        "objective_value": [
+            0.00729908
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            5
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6586033585349527
+        ],
+        "indirect_samples": [
+            0.16453858870239474
+        ],
+        "recursion_depth": [
+            0.2589595290677302
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00597042
+        ],
+        "objective_value": [
+            0.00597042
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            6
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.869509608524492
+        ],
+        "indirect_samples": [
+            0.044618272720466035
+        ],
+        "recursion_depth": [
+            0.37622518737407
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.0205482
+        ],
+        "objective_value": [
+            0.0205482
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            7
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.5168733839127453
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00490841
+        ],
+        "objective_value": [
+            0.00490841
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            8
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.878242552312481
+        ],
+        "recursion_depth": [
+            0.38130551938851853
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00435501
+        ],
+        "objective_value": [
+            0.00435501
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            9
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.2695777073757382
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00479772
+        ],
+        "objective_value": [
+            0.00479772
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            10
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.9637996356024565
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.43299894410034007
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00488098
+        ],
+        "objective_value": [
+            0.00488098
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            11
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.9570480429503359
+        ],
+        "indirect_samples": [
+            0.7589844420526031
+        ],
+        "recursion_depth": [
+            0.5334673674878649
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00367299
+        ],
+        "objective_value": [
+            0.00367299
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            12
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.7925535512441708
+        ],
+        "recursion_depth": [
+            0.726812504600031
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00438613
+        ],
+        "objective_value": [
+            0.00438613
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            13
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.8500120715151882
+        ],
+        "indirect_samples": [
+            0.9715735588636232
+        ],
+        "recursion_depth": [
+            0.7677188063277547
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.0045046
+        ],
+        "objective_value": [
+            0.0045046
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            14
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6084154777951141
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.9373224702134582
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00445384
+        ],
+        "objective_value": [
+            0.00445384
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            15
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6576952490444772
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.9861904455852646
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00450602
+        ],
+        "objective_value": [
+            0.00450602
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            16
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.4968896059692414
+        ],
+        "indirect_samples": [
+            0.8819707399439918
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00386745
+        ],
+        "objective_value": [
+            0.00386745
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            17
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7447208353258894
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00447433
+        ],
+        "objective_value": [
+            0.00447433
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            18
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7242443669206473
+        ],
+        "indirect_samples": [
+            0.9082949186256666
+        ],
+        "recursion_depth": [
+            0.8501028549849219
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00388487
+        ],
+        "objective_value": [
+            0.00388487
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            19
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.5506945881758798
+        ],
+        "indirect_samples": [
+            0.8901185674767307
+        ],
+        "recursion_depth": [
+            0.7640853660460956
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00388333
+        ],
+        "objective_value": [
+            0.00388333
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            20
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.32559449675102986
+        ],
+        "indirect_samples": [
+            0.8903574360455686
+        ],
+        "recursion_depth": [
+            0.9605738797573126
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00382095
+        ],
+        "objective_value": [
+            0.00382095
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            21
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.5722139779649522
+        ],
+        "indirect_samples": [
+            0.9671601720623418
+        ],
+        "recursion_depth": [
+            0.8109755945572144
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00446369
+        ],
+        "objective_value": [
+            0.00446369
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            22
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.46451229195358
+        ],
+        "indirect_samples": [
+            0.8490805124596585
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00383712
+        ],
+        "objective_value": [
+            0.00383712
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            23
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.5972855168775877
+        ],
+        "indirect_samples": [
+            0.9502099779839452
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00447446
+        ],
+        "objective_value": [
+            0.00447446
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            24
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7663566358675602
+        ],
+        "indirect_samples": [
+            0.7259098223644856
+        ],
+        "recursion_depth": [
+            0.7634572468879464
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00300647
+        ],
+        "objective_value": [
+            0.00300647
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            25
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.5248504809879337
+        ],
+        "indirect_samples": [
+            0.8569142240134072
+        ],
+        "recursion_depth": [
+            0.5836010470197714
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00434648
+        ],
+        "objective_value": [
+            0.00434648
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            26
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6043323759548802
+        ],
+        "indirect_samples": [
+            0.9043065602309199
+        ],
+        "recursion_depth": [
+            0.3432983618155352
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00429649
+        ],
+        "objective_value": [
+            0.00429649
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            27
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6922360209702325
+        ],
+        "indirect_samples": [
+            0.9939558619024972
+        ],
+        "recursion_depth": [
+            0.17537743062296168
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00802612
+        ],
+        "objective_value": [
+            0.00802612
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            28
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6696356577280294
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.0044781
+        ],
+        "objective_value": [
+            0.0044781
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            29
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.662103188728774
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.7926115035985122
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00452281
+        ],
+        "objective_value": [
+            0.00452281
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            30
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7337360584551748
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.7397367181686867
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00481702
+        ],
+        "objective_value": [
+            0.00481702
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            31
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7321877052481545
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.8265710482970172
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00451963
+        ],
+        "objective_value": [
+            0.00451963
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            32
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6398127818692714
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.6434543577446299
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00482111
+        ],
+        "objective_value": [
+            0.00482111
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            33
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.8009355588449261
+        ],
+        "indirect_samples": [
+            0.9981166824400266
+        ],
+        "recursion_depth": [
+            0.40530590952415485
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00482965
+        ],
+        "objective_value": [
+            0.00482965
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            34
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7512794446635314
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.5995793933134524
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00483047
+        ],
+        "objective_value": [
+            0.00483047
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            35
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.9515030174329846
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.4341405851862121
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00484074
+        ],
+        "objective_value": [
+            0.00484074
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            36
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.5435228148764426
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00487625
+        ],
+        "objective_value": [
+            0.00487625
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            37
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.7906653505923956
+        ],
+        "recursion_depth": [
+            0.34965472087226945
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00434594
+        ],
+        "objective_value": [
+            0.00434594
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            38
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.8144521408709062
+        ],
+        "indirect_samples": [
+            0.845651365154209
+        ],
+        "recursion_depth": [
+            0.20763414818694775
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00795124
+        ],
+        "objective_value": [
+            0.00795124
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            39
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.63772786442821
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.39172509183949733
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00479915
+        ],
+        "objective_value": [
+            0.00479915
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            40
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7504771233041981
+        ],
+        "indirect_samples": [
+            0.9010289456424112
+        ],
+        "recursion_depth": [
+            0.5430693736622833
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00430863
+        ],
+        "objective_value": [
+            0.00430863
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            41
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6162818990494829
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.7843727133223429
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00446014
+        ],
+        "objective_value": [
+            0.00446014
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            42
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.4419246615203098
+        ],
+        "indirect_samples": [
+            0.9284063894112141
+        ],
+        "recursion_depth": [
+            0.9461656340105171
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00387226
+        ],
+        "objective_value": [
+            0.00387226
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            43
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.4211417970299261
+        ],
+        "indirect_samples": [
+            0.7693080318896643
+        ],
+        "recursion_depth": [
+            0.9549523249356289
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00298642
+        ],
+        "objective_value": [
+            0.00298642
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            44
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.3210475470910479
+        ],
+        "indirect_samples": [
+            0.9308339641138148
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00449248
+        ],
+        "objective_value": [
+            0.00449248
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            45
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.3052509522608728
+        ],
+        "indirect_samples": [
+            0.771356546892418
+        ],
+        "recursion_depth": [
+            0.9837734973573642
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00307651
+        ],
+        "objective_value": [
+            0.00307651
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            46
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.20787873495669357
+        ],
+        "indirect_samples": [
+            0.7527627110570299
+        ],
+        "recursion_depth": [
+            0.8155166917680836
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00300158
+        ],
+        "objective_value": [
+            0.00300158
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            47
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.2469455400913947
+        ],
+        "indirect_samples": [
+            0.7692071444226103
+        ],
+        "recursion_depth": [
+            0.6640844293265631
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00363331
+        ],
+        "objective_value": [
+            0.00363331
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            48
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.13686064078422389
+        ],
+        "indirect_samples": [
+            0.7630416963515965
+        ],
+        "recursion_depth": [
+            0.5312013467695527
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00362439
+        ],
+        "objective_value": [
+            0.00362439
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            49
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.13238620859889355
+        ],
+        "indirect_samples": [
+            0.5321569757806116
+        ],
+        "recursion_depth": [
+            0.6630768544154999
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00261242
+        ],
+        "objective_value": [
+            0.00261242
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            50
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.269932197487025
+        ],
+        "indirect_samples": [
+            0.4697302994480513
+        ],
+        "recursion_depth": [
+            0.6270456167896385
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00117253
+        ],
+        "objective_value": [
+            0.00117253
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            51
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.09504396606855398
+        ],
+        "indirect_samples": [
+            0.567688106998826
+        ],
+        "recursion_depth": [
+            0.8409803821451278
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00185434
+        ],
+        "objective_value": [
+            0.00185434
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            52
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.5366711803370079
+        ],
+        "recursion_depth": [
+            0.9179927244358665
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00187994
+        ],
+        "objective_value": [
+            0.00187994
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            53
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.8472508163759588
+        ],
+        "indirect_samples": [
+            0.4073427048152335
+        ],
+        "recursion_depth": [
+            0.7142693433942162
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00117474
+        ],
+        "objective_value": [
+            0.00117474
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            54
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7898960517963594
+        ],
+        "indirect_samples": [
+            0.4208685358795685
+        ],
+        "recursion_depth": [
+            0.887703262562026
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            2.08914e-05
+        ],
+        "objective_value": [
+            2.08914e-05
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            55
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.9755613437798623
+        ],
+        "indirect_samples": [
+            0.36453816170289066
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            2.71648e-05
+        ],
+        "objective_value": [
+            2.71648e-05
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            56
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.26791575226912856
+        ],
+        "recursion_depth": [
+            0.8730575032805492
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00327013
+        ],
+        "objective_value": [
+            0.00327013
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            57
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.8877157169678107
+        ],
+        "indirect_samples": [
+            0.4492836115892954
+        ],
+        "recursion_depth": [
+            0.7880735422073876
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            3.50177e-05
+        ],
+        "objective_value": [
+            3.50177e-05
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            58
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.6330921195549645
+        ],
+        "recursion_depth": [
+            0.879624455070283
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00186652
+        ],
+        "objective_value": [
+            0.00186652
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            59
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.858920367490688
+        ],
+        "indirect_samples": [
+            0.39223191925711526
+        ],
+        "recursion_depth": [
+            0.8080649379392393
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            1.54376e-05
+        ],
+        "objective_value": [
+            1.54376e-05
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            60
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.3733868603407466
+        ],
+        "recursion_depth": [
+            0.7931120790334201
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            5.20796e-06
+        ],
+        "objective_value": [
+            5.20796e-06
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            61
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.4211028494060532
+        ],
+        "recursion_depth": [
+            0.9581871937636812
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            4.43459e-05
+        ],
+        "objective_value": [
+            4.43459e-05
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            62
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.2644380505526503
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00322074
+        ],
+        "objective_value": [
+            0.00322074
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            63
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.24100509072412796
+        ],
+        "recursion_depth": [
+            0.7997636325485327
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00326647
+        ],
+        "objective_value": [
+            0.00326647
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            64
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.2956554180395036
+        ],
+        "recursion_depth": [
+            0.993263906204223
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.0032836
+        ],
+        "objective_value": [
+            0.0032836
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            65
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.753751417453598
+        ],
+        "indirect_samples": [
+            0.5285217025191469
+        ],
+        "recursion_depth": [
+            0.9028692001601439
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00191628
+        ],
+        "objective_value": [
+            0.00191628
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            66
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6011852901397868
+        ],
+        "indirect_samples": [
+            0.5763981204055769
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00178269
+        ],
+        "objective_value": [
+            0.00178269
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            67
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.8106745790308101
+        ],
+        "indirect_samples": [
+            0.66855253936453
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00300102
+        ],
+        "objective_value": [
+            0.00300102
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            68
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7292106410285049
+        ],
+        "indirect_samples": [
+            0.6108881617386182
+        ],
+        "recursion_depth": [
+            0.9497246964763892
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00188244
+        ],
+        "objective_value": [
+            0.00188244
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            69
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6574163363017502
+        ],
+        "indirect_samples": [
+            0.7272418864592868
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00298717
+        ],
+        "objective_value": [
+            0.00298717
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            70
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.9016134795678363
+        ],
+        "indirect_samples": [
+            0.9047361800424285
+        ],
+        "recursion_depth": [
+            0.852015527560797
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00388262
+        ],
+        "objective_value": [
+            0.00388262
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            71
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.8893503720693109
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00450472
+        ],
+        "objective_value": [
+            0.00450472
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            72
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.7595775032783931
+        ],
+        "recursion_depth": [
+            0.8653408541743814
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00309718
+        ],
+        "objective_value": [
+            0.00309718
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            73
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.8491043353651815
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00394113
+        ],
+        "objective_value": [
+            0.00394113
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            74
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.8731018870263223
+        ],
+        "indirect_samples": [
+            0.8652611880835483
+        ],
+        "recursion_depth": [
+            0.9044815312019004
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00388025
+        ],
+        "objective_value": [
+            0.00388025
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            75
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.6404776793495925
+        ],
+        "recursion_depth": [
+            0.9478398664941703
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00185778
+        ],
+        "objective_value": [
+            0.00185778
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            76
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.6597044418115726
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00304235
+        ],
+        "objective_value": [
+            0.00304235
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            77
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.45549081596617697
+        ],
+        "recursion_depth": [
+            0.8171352784410935
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            5.05298e-05
+        ],
+        "objective_value": [
+            5.05298e-05
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            78
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.43986244564400245
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            6.21378e-05
+        ],
+        "objective_value": [
+            6.21378e-05
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            79
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.5958617102487078
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00183524
+        ],
+        "objective_value": [
+            0.00183524
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            80
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7710284868761244
+        ],
+        "indirect_samples": [
+            0.8425928316170037
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00379154
+        ],
+        "objective_value": [
+            0.00379154
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            81
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.8363752023280949
+        ],
+        "indirect_samples": [
+            0.9412546100071619
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00450557
+        ],
+        "objective_value": [
+            0.00450557
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            82
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.8066830032454861
+        ],
+        "indirect_samples": [
+            0.8236856944020277
+        ],
+        "recursion_depth": [
+            1.0
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.0039051
+        ],
+        "objective_value": [
+            0.0039051
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            83
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.999777586849437
+        ],
+        "recursion_depth": [
+            0.7558362634949733
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00451232
+        ],
+        "objective_value": [
+            0.00451232
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            84
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.9012018532568125
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.6572144626788652
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00478477
+        ],
+        "objective_value": [
+            0.00478477
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            85
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.9420642815126419
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.8476993822305938
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00451722
+        ],
+        "objective_value": [
+            0.00451722
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            86
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.9204314185444086
+        ],
+        "recursion_depth": [
+            0.6280145613963178
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00428215
+        ],
+        "objective_value": [
+            0.00428215
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            87
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.7870610008118846
+        ],
+        "recursion_depth": [
+            0.6266873522004767
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00433762
+        ],
+        "objective_value": [
+            0.00433762
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            88
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.8829906824950224
+        ],
+        "indirect_samples": [
+            0.740397178788496
+        ],
+        "recursion_depth": [
+            0.6627921226042994
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00362962
+        ],
+        "objective_value": [
+            0.00362962
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            89
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.901756959754697
+        ],
+        "indirect_samples": [
+            0.6146067700333085
+        ],
+        "recursion_depth": [
+            0.7797360483816047
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.0018883
+        ],
+        "objective_value": [
+            0.0018883
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            90
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6921737913244294
+        ],
+        "indirect_samples": [
+            0.5669733056652704
+        ],
+        "recursion_depth": [
+            0.8319876859318259
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00188313
+        ],
+        "objective_value": [
+            0.00188313
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            91
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.5501975511348185
+        ],
+        "indirect_samples": [
+            0.7585599769168112
+        ],
+        "recursion_depth": [
+            0.6217323656393474
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00361104
+        ],
+        "objective_value": [
+            0.00361104
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            92
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7484081380210139
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.6441326762346671
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00486677
+        ],
+        "objective_value": [
+            0.00486677
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            93
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.930809402681092
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.8625651244921974
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00443971
+        ],
+        "objective_value": [
+            0.00443971
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            94
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.806532833016205
+        ],
+        "indirect_samples": [
+            0.7815993353456188
+        ],
+        "recursion_depth": [
+            0.7810660192030567
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00302937
+        ],
+        "objective_value": [
+            0.00302937
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            95
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.6171235406060196
+        ],
+        "recursion_depth": [
+            0.9659650907409745
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00185642
+        ],
+        "objective_value": [
+            0.00185642
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            96
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7502135020850237
+        ],
+        "indirect_samples": [
+            0.8623829568127922
+        ],
+        "recursion_depth": [
+            0.8444929862835661
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00388173
+        ],
+        "objective_value": [
+            0.00388173
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            97
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.703011826855237
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.7393920948400015
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00483075
+        ],
+        "objective_value": [
+            0.00483075
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            98
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.6808079314657651
+        ],
+        "indirect_samples": [
+            1.0
+        ],
+        "recursion_depth": [
+            0.981202780363573
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00450585
+        ],
+        "objective_value": [
+            0.00450585
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            99
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.5982248431245512
+        ],
+        "indirect_samples": [
+            0.9126527434252444
+        ],
+        "recursion_depth": [
+            0.7832310602430992
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00387041
+        ],
+        "objective_value": [
+            0.00387041
+        ]
+    }
+]

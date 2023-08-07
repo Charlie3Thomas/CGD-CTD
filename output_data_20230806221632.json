@@ -1,0 +1,118 @@
+[
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            0
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            1.0
+        ],
+        "indirect_samples": [
+            0.373387
+        ],
+        "recursion_depth": [
+            0.793112
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            2.71276e-05
+        ],
+        "objective_value": [
+            2.71276e-05
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            1
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.9744296080630848
+        ],
+        "indirect_samples": [
+            0.4548377246951908
+        ],
+        "recursion_depth": [
+            0.8433837723086468
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            5.94631e-05
+        ],
+        "objective_value": [
+            5.94631e-05
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            2
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.7252528078182332
+        ],
+        "indirect_samples": [
+            0.3039506513831774
+        ],
+        "recursion_depth": [
+            0.7993015876934855
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00331821
+        ],
+        "objective_value": [
+            0.00331821
+        ]
+    },
+    {
+        "time_weight": [
+            0
+        ],
+        "attempt": [
+            3
+        ],
+        "iteration": [
+            1
+        ],
+        "direct_samples": [
+            0.5889488122043688
+        ],
+        "indirect_samples": [
+            0.4967410585387282
+        ],
+        "recursion_depth": [
+            0.705707548679559
+        ],
+        "render_time": [
+            4
+        ],
+        "L1_difference": [
+            0.00118866
+        ],
+        "objective_value": [
+            0.00118866
+        ]
+    }
+]
