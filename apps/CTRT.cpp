@@ -60,9 +60,15 @@ int main(int argc, char** argv)
         //renderer0->RenderFilm(film, camera, 1);
 
         // Load the EXR image using the LoadEXR function from TinyEXR
-        const char* filename = "/home/Charlie/CGD-CTD/ref/ref-cornell-box.exr";
+        // const char* filename = "/home/Charlie/CGD-CTD/ref/ref-cornell-box.exr";
+        // const char* filename = "/home/Charlie/CGD-CTD/ref/ref-double-dragon.exr";
+        const char* filename = "/home/Charlie/CGD-CTD/ref/ref-split-room-l.exr";
+        //const char* filename = "/home/Charlie/CGD-CTD/ref/ref-split-room-r.exr";
+        // const char* filename = "/home/Charlie/CGD-CTD/ref/ref-split-room.exr";
+        // const char* filename = "/home/Charlie/CGD-CTD/ref/ref-triple-statue.exr";
+        // const char* filename = "/home/Charlie/CGD-CTD/ref/ref-tripple-statue-area-lit.exr";
 
-        filename = "/home/Charlie/CGD-CTD/ref/ref-cornell-box.exr";
+        //filename = "/home/Charlie/CGD-CTD/ref/ref-cornell-box.exr";
 
         float L1_diff;
         float L2_diff;
@@ -116,7 +122,8 @@ int main(int argc, char** argv)
     
             // Write to .EXR file
             std::string denoised_filename = cs.image_filename.string();
-            //WriteToEXR(denoised_ptr, cs.image_width, cs.image_height, denoised_filename.c_str());
+            if (cs.save_image)
+                WriteToEXR(denoised_ptr, cs.image_width, cs.image_height, denoised_filename.c_str());
 
             L1_diff = L1Difference(rgba, denoised_ptr, static_cast<size_t>(height), static_cast<size_t>(width));
             L2_diff = L2Difference(rgba, denoised_ptr, static_cast<size_t>(height), static_cast<size_t>(width));
@@ -132,7 +139,8 @@ int main(int argc, char** argv)
             std::cout << "Raw" << std::endl;
             std::cout << "L1 difference: " << L1_diff << std::endl;
             std::cout << "L2 difference: " << L2_diff << std::endl;
-            // WriteToEXR(film.rgb.data(), cs.image_width, cs.image_height, cs.image_filename.c_str());
+            if (cs.save_image)
+                WriteToEXR(film.rgb.data(), cs.image_width, cs.image_height, cs.image_filename.c_str());
         }
     }
 

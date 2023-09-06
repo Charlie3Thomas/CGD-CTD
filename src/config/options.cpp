@@ -24,16 +24,18 @@ void ConfigSingleton::ParseOptions(int argc, char** argv)
 
     instance = new ConfigSingleton();
 
-    const char* const short_opts = "r:e:o:s:d:h:i:kbcn"; 
+    const char* const short_opts = "r:e:o:s:p:d:h:i:kmbcn"; 
     const option long_opts[] = {
         {"resolution",       required_argument, nullptr, 'r'},
         {"environment",      required_argument, nullptr, 'e'},
         {"output",           required_argument, nullptr, 'o'},
         {"segments",         required_argument, nullptr, 's'},
+        {"samples_pp",       required_argument, nullptr, 'p'},
         {"direct_samples",   required_argument, nullptr, 'd'},
         {"indirect_samples", required_argument, nullptr, 'h'},
         {"recursion_depth",  required_argument, nullptr, 'i'},
         {"denoiser",         no_argument,       nullptr, 'k'},
+        {"save_image",       no_argument,       nullptr, 'm'},
         {"bvh",              no_argument,       nullptr, 'b'},
         {"canvases",         no_argument,       nullptr, 'c'},
         {"normals",          no_argument,       nullptr, 'n'},
@@ -81,6 +83,26 @@ void ConfigSingleton::ParseOptions(int argc, char** argv)
                         instance->environment = triple_statue_area_light;
                         break;
                     }
+                    case 5:
+                    {
+                        instance->environment = split_room;
+                        break;
+                    }
+                    case 6:
+                    {
+                        instance->environment = split_room_light;
+                        break;
+                    }
+                    case 7:
+                    {
+                        instance->environment = split_room_dark;
+                        break;
+                    }
+                    case 8:
+                    {
+                        instance->environment = teapot;
+                        break;
+                    }
                 }
                 break;
             }
@@ -96,6 +118,11 @@ void ConfigSingleton::ParseOptions(int argc, char** argv)
                 const std::size_t x_pos  = canvas.find('x');
                 instance->canvas_width   = std::stol(canvas.substr(0, x_pos));
                 instance->canvas_height  = std::stol(canvas.substr(x_pos + 1, canvas.length()));
+            }
+            case 'p': // --samples_pp
+            {
+                instance->samples_per_pixel = std::stol(optarg);
+                break;
             }
             case 'd': // --direct_samples
             {
@@ -116,6 +143,11 @@ void ConfigSingleton::ParseOptions(int argc, char** argv)
             {
                 instance->denoiser = true;
                 std::cout << "Using denoiser" << std::endl;
+                break;
+            }
+            case 'm':
+            {
+                instance->save_image = true;
                 break;
             }
             case 'b': // --bvh
